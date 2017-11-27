@@ -1,0 +1,22 @@
+@media only screen and (max-width: 768px) {
+	.navbar-brand{
+		margin-top: 0vh;
+		color: #003484 !important;
+		font-size: 4vw
+	}
+	.navbar-collapse.collapse{
+		height: 28vh
+	}
+	.indexNavbarIitrLogo{
+		height: auto;
+	    width: 7vw;
+	    margin-top: -.5vh;
+	    margin-left: 3vw;
+	}
+	.navbar-default .navbar-nav>li>a {
+    color: #777;
+    font-size: 4vw;
+    margin-top: 0vh;
+    margin-right: 17px;
+	}
+}

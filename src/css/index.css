@@ -1,0 +1,31 @@
+body{
+
+}
+
+.navbar-brand{
+	margin-top: 2vh;
+	color: #003484 !important;
+	font-size: 1.5vw
+}
+
+.indexNavbarIitrLogo{
+	height: auto;
+    width: 4.5vw;
+    margin-top: -3.2vh;
+    margin-left: 3vw;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #777;
+    font-size: 1.2vw;
+    margin-top: 2vh;
+    margin-right: 1vw;
+}
+
+/* slider css */
+
+.indexSliderImage{
+	height:18vh;
+	width: 100vw; 
+
+}
