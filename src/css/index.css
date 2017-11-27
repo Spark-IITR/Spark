@@ -1,7 +1,36 @@
-body{
+body, html {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
+	letter-spacing: 0.3px;
+	color: #333333;
+	margin-bottom: 350vh
+	}
 
+::-webkit-scrollbar {
+    width: 0px ; /*  remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible*/ 
+    height:3px;
 }
 
+::-webkit-scrollbar-thumb {
+	width: 0px ;
+	border-radius:10px;
+	background-color: #53a374;
+	height:2px;
+}
+
+::-webkit-scrollbar-button  {
+    height:0px;
+}
+
+
+::-webkit-scrollbar-corner  {
+    display:none;    
+}
 .navbar-brand{
 	margin-top: 2vh;
 	color: #003484 !important;
@@ -25,7 +54,71 @@ body{
 /* slider css */
 
 .indexSliderImage{
-	height:18vh;
+	height:80vh !important;
 	width: 100vw; 
+
+}
+
+/* main body css */
+
+.indexIntroductionTag{
+	font-size: 3vw;
+    color: #666;
+    letter-spacing: -0px;
+    /*text-align: center;*/
+    border-bottom: 1px solid #999;
+    margin-top: 15vh;
+    font-weight: 700;
+    padding-bottom: 1.5vh
+}
+
+.indexIntroductionText{
+	font-size: 1.1vw;
+    letter-spacing: .5px;
+    word-spacing: 1px;
+    padding: 1vh 2vw 0 6vw;
+}
+
+.indexGuidelinesTag{
+	font-size: 3vw;
+    color: #666;
+    letter-spacing: -0px;
+    /*text-align: center;*/
+    border-bottom: 1px solid #999;
+    margin-top: 15vh;
+    font-weight: 700;
+    padding-bottom: 1.5vh
+}
+.indexGuidelines{
+	padding-left: 8vw
+}
+.indexGuidelines li{
+    font-size: 1.1vw;
+    padding-top: 2vh;
+    letter-spacing: .5px;
+    word-spacing: 1px;
+}
+
+.indexApplyNowButton{
+	font-size: 1.4vw;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: #fff;
+    border: none;
+    background-color: #003484;
+    border-radius: 5px;
+    width: 15vw;
+    padding: 2vh 0;
+    margin-top: 10vh;
+    -webkit-transition: color .5s;
+    transition: color .5s;
+    -webkit-transition: background-color .5s;
+    transition: background-color .5s;
+}
+
+.indexApplyNowButton:hover{
+    color: #003484;
+    border:1px solid #003484;
+    background-color: #ddd;
 
 }

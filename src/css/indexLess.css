@@ -19,4 +19,42 @@
     margin-top: 0vh;
     margin-right: 17px;
 	}
+	.indexSliderImage{
+	height:38vh !important;
+	width: 100vw;
+	}
+
+
+	/* main css*/
+	.indexIntroductionTag{
+	font-size: 7vw;
+    margin-top: 5vh;
+    padding-bottom: 0.5vh;
+    text-align: center;
+	}
+
+	.indexIntroductionText{
+		font-size: 2.4vw;
+    letter-spacing: 0.5px;
+    word-spacing: 0px;
+    padding: 0vh 2vw 0 2vw;
+	}
+
+	.indexGuidelinesTag{
+	font-size: 7vw;
+    margin-top: 5vh;
+    padding-bottom: 0.5vh;
+    text-align: center;
+	}
+
+	
+	.indexGuidelines li{
+	    font-size: 2.4vw;
+	    
+	}
+	.indexApplyNowButton{
+	font-size: 3.4vw;
+    margin-top: 4vh;
+    width: 30vw;
+}
 }
