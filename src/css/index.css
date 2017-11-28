@@ -267,31 +267,8 @@ a:focus{
     font-size: 1.5em;
 }
 
-.newsletter-box input#appendedInputButton {
-    background: #FFFFFF;
-    display: inline-block;
-    float: left;
-    height: 30px;
-    clear: both;
-    width: 100%;
-}
 
-.newsletter-box .btn {
-    border: medium none;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    -ms-border-radius: 3px;
-    border-radius: 3px;
-    display: inline-block;
-    height: 40px;
-    padding: 0;
-    width: 100%;
-    color: #fff;
-}
-.newsletter-box {
-    overflow: hidden;
-}
+
 
 .indexRegisterButton {
     background-image: -moz-linear-gradient(center bottom, #BBBBBB 0%, #F0F0F0 100%);
