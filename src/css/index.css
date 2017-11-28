@@ -6,8 +6,7 @@ body, html {
 	box-sizing: border-box;
 	font-family: 'Lato', sans-serif;
 	letter-spacing: 0.3px;
-	color: #333333;
-	margin-bottom: 350vh
+	color: #333333
 	}
 
 ::-webkit-scrollbar {
@@ -65,12 +64,12 @@ a:focus{
 /* main body css */
 
 .indexIntroductionTag{
-	font-size: 3vw;
+	font-size: 2.5vw;
     color: #666;
     letter-spacing: -0px;
     /*text-align: center;*/
     border-bottom: 1px solid #999;
-    margin-top: 15vh;
+    margin-top: 10vh;
     font-weight: 700;
     padding-bottom: 1.5vh
 }
@@ -83,12 +82,12 @@ a:focus{
 }
 
 .indexGuidelinesTag{
-	font-size: 3vw;
+	font-size: 2.5vw;
     color: #666;
     letter-spacing: -0px;
     /*text-align: center;*/
     border-bottom: 1px solid #999;
-    margin-top: 15vh;
+    margin-top: 5vh;
     font-weight: 700;
     padding-bottom: 1.5vh
 }
@@ -96,7 +95,7 @@ a:focus{
 	padding-left: 8vw
 }
 .indexGuidelines li{
-    font-size: 1.1vw;
+    font-size: 1vw;
     padding-top: 2vh;
     letter-spacing: .5px;
     word-spacing: 1px;
@@ -112,7 +111,7 @@ a:focus{
     border-radius: 5px;
     width: 15vw;
     padding: 2vh 0;
-    margin-top: 10vh;
+    margin-top: 5vh;
     -webkit-transition: color .3s;
     transition: color .3s;
     -webkit-transition: background-color .3s;
@@ -207,10 +206,18 @@ a:focus{
 .footer ul li a {
     padding: 0 0 5px 0;
     display: block;
+    text-decoration: none;
+     color: #78828D
 }
-.footer a {
-    color: #78828D
+
+.footer ul li a:hover {
+    padding: 0 0 5px 0;
+    display: block;
+    text-decoration: none;
+     color: #000;
+     font-size: 13.5px
 }
+
 
 
 .social li {
