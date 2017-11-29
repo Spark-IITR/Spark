@@ -1,1 +1,7 @@
-- config.php
+
+
+# IntelliJ files
+
+.idea
+
+config.php

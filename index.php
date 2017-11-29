@@ -36,7 +36,7 @@
 
 
 <body>
-  <?php echo $error; ?>
+
    <nav class="navbar navbar-default">
      <div class="container-fluid">
        <div class="navbar-header">
@@ -403,11 +403,12 @@
            <div class="form-group">
              <label for="inputEmail3"  class="sr-only">Password</label>
              <div class="col-sm-6">
-               <input type="password" name="password"  class="form-control" id="inputEmail3" placeholder="Password"  >
+
+               <input type="password" name="password" id="signupPassword" class="form-control"  placeholder="Password"  >
              </div>
              <label for="inputEmail3" class="sr-only">Confirm Password</label>
              <div class="col-sm-6">
-               <input type="password" class="form-control" id="inputEmail3" placeholder="Confirm Password">
+               <input type="password" class="form-control" id="signupConfirmPassword" placeholder="Confirm Password">
              </div>
            </div>
            <div class="form-group">
@@ -416,7 +417,7 @@
              </div>
            </div>
          </form>
-          <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+
          </div>
      </div>
    </div>
@@ -424,11 +425,16 @@
 
 <script>
 
-// $(function(){
-//     $("#signupModalShow").click(function(){
-//         $("#signup").modal('show');
-//     });
-// });
+function form_validator(){
+      
+      var pass = $("#signupPassword").val();
+      var conf = $("#signupConfirmPassword").val();
+      if(pass!=conf){
+          $("#error_reset_msg").text("Passwords don't match"); 
+          return false;
+      }
+  }
+
 
 </script>
 
