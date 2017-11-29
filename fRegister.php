@@ -10,7 +10,7 @@ $department = $_POST['department'];
 $project = $_POST['project'];
 $password = $_POST['password'];
 
-/**
+/** // To check whether
 echo "Your name: {$_POST['name']}<br />";
 echo "Your name: {$_POST['email']}<br />";
 echo "Your name: {$_POST['contact']}<br />";
@@ -18,8 +18,9 @@ echo "Your name: {$_POST['department']}<br />";
 echo "Your name: {$_POST['project']}<br />";
 echo "Your name: {$_POST['password']}<br />";
 **/
-$table = faculty;
-$sql = "INSERT INTO" .$table. "(name, email,contact, department,project,password)
+
+
+$sql = "INSERT INTO faculty(name, email,contact, department,project,password)
         VALUES ( '$name', '$email','$contact', '$department','$project','$password')";
 
 mysqli_query($conn,$sql); //execution.
