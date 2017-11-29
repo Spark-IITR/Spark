@@ -1,4 +1,18 @@
 
+<?php
+   include("config.php");
+   $sql = "INSERT INTO student (name,email,gender,dob,college,contact,password)
+   VALUES ('".$_POST['name']."','".$_POST['email']."','".$_POST['gender']."','".$_POST['dob']."','".$_POST['college']."','".$_POST['contact']."','".$_POST['password']."')";
+   
+   if ($conn->query($sql) === TRUE) {
+      
+       echo 'hello';
+   } else {
+       echo "Error: " . $sql . "<br>" . $conn->error;
+   }
+   
+   $conn->close();
+?>
 
 
 <!DOCTYPE html>
@@ -20,20 +34,6 @@
     <link href="src/css/indexLess.css" rel="stylesheet">
 </head>
 
-<?php
-   include("config.php");
-   $sql = "INSERT INTO student (name,email,gender,dob,college,contact,password)
-   VALUES ('".$_POST['name']."','".$_POST['email']."','".$_POST['gender']."','".$_POST['dob']."','".$_POST['college']."','".$_POST['contact']."','".$_POST['password']."')";
-   
-   if ($conn->query($sql) === TRUE) {
-      
-       echo 'hello';
-   } else {
-       echo "Error: " . $sql . "<br>" . $conn->error;
-   }
-   
-   $conn->close();
-?>
 
 <body>
   <?php echo $error; ?>
