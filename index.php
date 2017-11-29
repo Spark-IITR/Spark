@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,73 +20,88 @@
     <link href="src/css/indexLess.css" rel="stylesheet">
 </head>
 
+<?php
+   include("config.php");
+   $sql = "INSERT INTO student (name,email,gender,dob,college,contact,password)
+   VALUES ('".$_POST['name']."','".$_POST['email']."','".$_POST['gender']."','".$_POST['dob']."','".$_POST['college']."','".$_POST['contact']."','".$_POST['password']."')";
+   
+   if ($conn->query($sql) === TRUE) {
+      
+       echo 'hello';
+   } else {
+       echo "Error: " . $sql . "<br>" . $conn->error;
+   }
+   
+   $conn->close();
+?>
 
 <body>
-	<nav class="navbar navbar-default">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="index.html"><img src="src/img/iitrLogo.png" alt="IIT Roorkee" class="indexNavbarIitrLogo"></a>
-	      <a class="navbar-brand" href="#">SPARK | IIT Roorkee</a>
-	    </div>
+  <?php echo $error; ?>
+   <nav class="navbar navbar-default">
+     <div class="container-fluid">
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="index.html"><img src="src/img/iitrLogo.png" alt="IIT Roorkee" class="indexNavbarIitrLogo"></a>
+         <a class="navbar-brand" href="#">SPARK | IIT Roorkee</a>
+       </div>
 
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#aboutUs">About SPARK </a></li>
-	        <li><a href="#guidelines">Guidelines</a></li>
-	        <li><a href="#contact">Projects</a></li>
-	        <li><a href="#timeline">Timeline</a></li>
-	        <li><a href="#contact">Contact</a></li>
-	        <li><a href="#" data-toggle="modal" data-target="#login">Log In</a></li>
-	      </ul>
-	    </div>
-	  </div>
-	</nav>
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         <ul class="nav navbar-nav navbar-right">
+           <li><a href="#aboutUs">About SPARK </a></li>
+           <li><a href="#guidelines">Guidelines</a></li>
+           <li><a href="#contact">Projects</a></li>
+           <li><a href="#timeline">Timeline</a></li>
+           <li><a href="contact.php">Contact</a></li>
+           <li><a href="#" data-toggle="modal" data-target="#login">Log In</a></li>
+         </ul>
+       </div>
+     </div>
+   </nav>
 
-	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top: -2vh; width: 98vw; margin-left: 1vw">
-	  <ol class="carousel-indicators">
-	    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-	    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-	    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-	  </ol>
-	 
-	  <div class="carousel-inner" role="listbox">
-	    <div class="item active">
-	      <img src="src/img/slider1.jpg" alt="slider1" class="indexSliderImage">
-	      <div class="carousel-caption">
-	      </div>
-	    </div>
-	    <div class="item">
-	      <img src="src/img/slider2.jpg" alt="slider2" class="indexSliderImage">
-	      <div class="carousel-caption">
-	      </div>
-	    </div>
-	    <div class="item">
-	      <img src="src/img/slider3.jpg" alt="slider3"  class="indexSliderImage">
-	      <div class="carousel-caption">
-	      </div>
-	    </div>
-	  </div>
+   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top: -2vh; width: 98vw; margin-left: 1vw">
+     <ol class="carousel-indicators">
+       <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+       <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+       <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+     </ol>
+    
+     <div class="carousel-inner" role="listbox">
+       <div class="item active">
+         <img src="src/img/slider1.jpg" alt="slider1" class="indexSliderImage">
+         <div class="carousel-caption">
+         </div>
+       </div>
+       <div class="item">
+         <img src="src/img/slider2.jpg" alt="slider2" class="indexSliderImage">
+         <div class="carousel-caption">
+         </div>
+       </div>
+       <div class="item">
+         <img src="src/img/slider3.jpg" alt="slider3"  class="indexSliderImage">
+         <div class="carousel-caption">
+         </div>
+       </div>
+     </div>
 
-	  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-	    <span class="sr-only">Previous</span>
-	  </a>
-	  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-	    <span class="sr-only">Next</span>
-	  </a>
-	</div>
+     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+       <span class="sr-only">Previous</span>
+     </a>
+     <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+       <span class="sr-only">Next</span>
+     </a>
+   </div>
 
-	<div class="container-fluid">
-		<div class="row" id="aboutUs">
-			<div class="col-sm-10 col-sm-offset-1">
-				<p class="indexIntroductionTag">ABOUT SPARK</p>
+   <div class="container-fluid">
+      <div class="row" id="aboutUs">
+         <div class="col-sm-10 col-sm-offset-1">
+            <p class="indexIntroductionTag">ABOUT SPARK</p>
                 <p class="indexIntroductionText text-justify">Starting from 2018, IIT Roorkee will have <strong>100</strong> institute-funded SPARK fellowships for summer
                     internships with a weekly stipend of<strong> Rs. 2500/week.</strong> </p>
 
@@ -175,8 +193,6 @@
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
             <p class="indexGuidelinesTag" id="timeline">Important Dates</p>
-
-
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -213,12 +229,8 @@
                 </tr>
                 </tbody>
             </table>
-
-
-
         </div>
     </div>
-
 
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3" style="text-align: center;margin-bottom:5vh;">
@@ -275,11 +287,8 @@
                 </div>
 
             </div>
-            <!--/.row-->
         </div>
-        <!--/.container-->
     </div>
-    <!--/.footer-->
 
     <div class="footer-bottom">
         <div class="container">
@@ -304,112 +313,113 @@
 </div>
 
 
-			
+         
 
 
 
-	<!-- login modal -->
-	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-	  <div class="modal-dialog modal-md loginModalWidth" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header" style="background-color: #aaa">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title loginModalHeader">Log In</h4>
-	      </div>
-	      <div class="modal-body">
-	        <form class="form-horizontal">
-			  <div class="form-group">
-			    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-			    <div class="col-sm-10">
-			      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-			    <div class="col-sm-10">
-			      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <div class="col-sm-offset-2 col-sm-10">
-			      <button type="submit" class="btn btn-primary loginModalSignupButton">Sign in</button>
-			    </div>
-			  </div>
-			  <div class="form-group">
-			  	<div class="col-sm-offset-2 col-sm-10">
-			  		 <a href=""  data-toggle="modal" data-target="#signup" id="signupModalShow" data-dismiss="modal" style="text-decoration: none;">Don't Have Account</a>
-			  	</div>
-			  </div>	
-			</form>
-	      </div>
- 	  	</div>
- 	  </div>
-	</div>
+   <!-- login modal -->
+   <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+     <div class="modal-dialog modal-md loginModalWidth" role="document">
+       <div class="modal-content">
+         <div class="modal-header" style="background-color: #aaa">
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <h4 class="modal-title loginModalHeader">Log In</h4>
+         </div>
+         <div class="modal-body">
+           <form class="form-horizontal">
+           <div class="form-group">
+             <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+             <div class="col-sm-10">
+               <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+             </div>
+           </div>
+           <div class="form-group">
+             <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+             </div>
+           </div>
+           <div class="form-group">
+             <div class="col-sm-offset-2 col-sm-10">
+               <button type="submit" class="btn btn-primary loginModalSignupButton">Sign in</button>
+             </div>
+           </div>
+           <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <a href=""  data-toggle="modal" data-target="#signup" id="signupModalShow" data-dismiss="modal" style="text-decoration: none;">Don't Have Account</a>
+            </div>
+           </div> 
+         </form>
+         </div>
+      </div>
+     </div>
+   </div>
 
 
-	<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-	  <div class="modal-dialog modal-md" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header" style="background-color: #aaa">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title loginModalHeader">Sign Up</h4>
-	      </div>
-	      <div class="modal-body">
-	        <form class="form-horizontal">
-			  <div class="form-group">
-			    <label for="inputEmail3" class="sr-only">Name</label>
-			    <div class="col-sm-12">
-			      <input type="text" class="form-control" id="inputEmail3" placeholder="Name">
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <label for="inputEmail3" class="sr-only">Email</label>
-			    <div class="col-sm-12">
-			      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <label for="inputEmail3" class="sr-only">Gender</label>
-			    <div class="col-sm-6">
-			      <select class="form-control" id="inputEmail3" placeholder="gender">
-			      	<option>Male</option>
-			      	<option>Female</option>
-			      </select>
-			    </div>
-			    <label for="inputEmail3" class="sr-only">Date Of Birth</label>
-			    <div class="col-sm-6">
-			      <input type="text" class="form-control" id="inputEmail3" placeholder="Date Of Birth"  onfocus="(this.type='date')" onblur="(this.type='text')">
-			    </div>
-			  </div>
-			  <div class="form-group">
-			  	<label for="inputEmail3" class="sr-only">College</label>
-			    <div class="col-sm-6">
-			      <input type="text" class="form-control" id="inputEmail3" placeholder="College">
-			    </div>
-			  	<label for="inputEmail3" class="sr-only">Contact</label>
-			    <div class="col-sm-6">
-			      <input type="number" class="form-control" id="inputEmail3" placeholder="Contact">
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <label for="inputEmail3" class="sr-only">Password</label>
-			    <div class="col-sm-6">
-			      <input type="password" class="form-control" id="inputEmail3" placeholder="Password"  >
-			    </div>
-			    <label for="inputEmail3" class="sr-only">Confirm Password</label>
-			    <div class="col-sm-6">
-			      <input type="password" class="form-control" id="inputEmail3" placeholder="Confirm Password">
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <div class="col-sm-offset-2 col-sm-10">
-			      <button type="submit" class="btn btn-primary signupModalSignupButton">Sign in</button>
-			    </div>
-			  </div>
-			</form>
-	      </div>
- 	  </div>
-	</div>
+   <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+     <div class="modal-dialog modal-md" role="document">
+       <div class="modal-content">
+         <div class="modal-header" style="background-color: #aaa">
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <h4 class="modal-title loginModalHeader">Sign Up</h4>
+         </div>
+         <div class="modal-body">
+           <form class="form-horizontal" method="post" action="index.php">
+           <div class="form-group">
+             <label for="inputEmail3" class="sr-only">Name</label>
+             <div class="col-sm-12">
+               <input type="text"  name="name"  class="form-control" id="inputEmail3" placeholder="Name">
+             </div>
+           </div>
+           <div class="form-group">
+             <label for="inputEmail3" class="sr-only">Email</label>
+             <div class="col-sm-12">
+               <input type="email" name="email"  class="form-control" id="inputEmail3" placeholder="Email">
+             </div>
+           </div>
+           <div class="form-group">
+             <label for="inputEmail3" class="sr-only">Gender</label>
+             <div class="col-sm-6">
+               <select class="form-control"  name="gender" id="inputEmail3" placeholder="gender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+               </select>
+             </div>
+             <label for="inputEmail3" class="sr-only">Date Of Birth</label>
+             <div class="col-sm-6">
+               <input type="text" name="dob"  class="form-control" id="inputEmail3" placeholder="Date Of Birth"  onfocus="(this.type='date')" onblur="(this.type='text')">
+             </div>
+           </div>
+           <div class="form-group">
+            <label for="inputEmail3" class="sr-only">College</label>
+             <div class="col-sm-6">
+               <input type="text" name="college"  class="form-control" id="inputEmail3" placeholder="College">
+             </div>
+            <label for="inputEmail3" class="sr-only">Contact</label>
+             <div class="col-sm-6">
+               <input type="number"  name="contact" class="form-control" id="inputEmail3" placeholder="Contact">
+             </div>
+           </div>
+           <div class="form-group">
+             <label for="inputEmail3"  class="sr-only">Password</label>
+             <div class="col-sm-6">
+               <input type="password" name="password"  class="form-control" id="inputEmail3" placeholder="Password"  >
+             </div>
+             <label for="inputEmail3" class="sr-only">Confirm Password</label>
+             <div class="col-sm-6">
+               <input type="password" class="form-control" id="inputEmail3" placeholder="Confirm Password">
+             </div>
+           </div>
+           <div class="form-group">
+             <div class="col-sm-offset-2 col-sm-10">
+               <input type="submit" value="Sign In" class="btn btn-primary signupModalSignupButton">
+             </div>
+           </div>
+         </form>
+          <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+         </div>
+     </div>
+   </div>
 
 
 <script>
@@ -424,6 +434,6 @@
 
 
 
-	<script src="src/js/jquery.min.js"></script>
+   <script src="src/js/jquery.min.js"></script>
     <script src="src/js/bootstrap.min.js"></script>
 </body>
