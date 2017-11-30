@@ -15,7 +15,7 @@
     <link href="src/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="src/css/index.css" rel="stylesheet">
     <link href="src/css/indexLess.css" rel="stylesheet">
-    <link href="src/css/facultyRegister.css" rel="stylesheet">
+    
 
 </head>
 
