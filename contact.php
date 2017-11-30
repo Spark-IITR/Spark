@@ -18,33 +18,54 @@
 </head>
 
 <body>
+
+
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-sm-6 address ">
-                <div class="contact-form">
-                    <form role="form" action="email.php" method="post">
+                <form class="form-horizontal" role="form" action="email.php" method="post">
+
+                    <h3 style="text-align:center" ><strong>Mail us any query</strong></h3>
+
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input name="name" type="text" id="name" class="form-control" required>
+                             <label for="name" class="col-sm-3 control-label">Full Name</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="name" name="name" placeholder="Name" class="form-control" autofocus required>
+                                </div>
                         </div>
+
+
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input name="email" type="email" id="email" class="form-control" required>
+                             <label for="email" class="col-sm-3 control-label">Email</label>
+                                 <div class="col-sm-6">
+                                    <input type="email" id="email" name="email" placeholder="Email" class="form-control" required>
+                                 </div>
                         </div>
+
+
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input name="subject" type="text" class="form-control">
-                        </div>
+                             <label for="subject" class="col-sm-3 control-label">Subject</label>
+                                 <div class="col-sm-6">
+                                     <input type="text" id="contact"  name="subject" placeholder="Subject" class="form-control" required>
+                                 </div>
+                             </div>
+
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea name="msg" rows="5" class="form-control input-lg"></textarea>
+                           	<label for="message" class="col-sm-3 control-label">Message</label>
+                                	<div class="col-sm-6">
+                                	<textarea  id="project"  name="msg" placeholder="Message" class="form-control input-lg" rows="3" required></textarea>
+                            </div>
                         </div>
-                        <center><button class="btn btn-info" type="submit">Submit</button></center>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
+                         <div class="contact-form">
+                             <div class="col-sm-6 col-sm-offset-3">
+                                    <button type="submit" class="btn btn-primary btn-block">Submit Query</button>
+                             </div>
+                          </div>
+                </form> <!-- /form -->
+            </div> <!-- ./container -->
+
+
+
+
     <script src="src/js/jquery.js"></script>
     <script src="src/js/bootstrap.min.js"></script>
 </body>
