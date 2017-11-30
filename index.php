@@ -1,21 +1,83 @@
 
 <?php
-   include("config.php");
-   $sql = "INSERT INTO student (name,email,gender,dob,college,contact,password)
-   VALUES ('".$_POST['name']."','".$_POST['email']."','".$_POST['gender']."','".$_POST['dob']."','".$_POST['college']."','".$_POST['contact']."','".$_POST['password']."')";
-   
- /**  if ($conn->query($sql) === TRUE) {
-      
- header("location:index.php");
-       
-   } else {
-       echo "Error: " . $sql . "<br>" . $conn->error;
-   }
-   **/
-   
-   $conn->close();
+
 ?>
 
+<?php
+require_once 'config.php';
+ 
+$name = $password = $confirm_password = "";
+$name_err = $password_err = $confirm_password_err = "";
+ 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+ 
+    if(empty(trim($_POST["name"]))){
+        $name_err = "Please enter a name.";
+    } else{
+        $sql = "SELECT id FROM student WHERE name = ?";
+        
+        if($stmt = mysqli_prepare($conn, $sql)){
+            mysqli_stmt_bind_param($stmt, "s", $param_name);
+            
+            $param_name = trim($_POST["name"]);
+            
+            if(mysqli_stmt_execute($stmt)){
+                mysqli_stmt_store_result($stmt);
+                
+                if(mysqli_stmt_num_rows($stmt) == 1){
+                    $name_err = "This name is already taken.";
+                } else{
+                    $name = trim($_POST["name"]);
+                }
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+        }
+         
+        mysqli_stmt_close($stmt);
+    }
+    
+    if(empty(trim($_POST['password']))){
+        $password_err = "Please enter a password.";     
+    } elseif(strlen(trim($_POST['password'])) < 6){
+        $password_err = "Password must have atleast 6 characters.";
+    } else{
+        $password = trim($_POST['password']);
+    }
+    
+    if(empty(trim($_POST["confirm_password"]))){
+        $confirm_password_err = 'Please confirm password.';     
+    } else{
+        $confirm_password = trim($_POST['confirm_password']);
+        if($password != $confirm_password){
+            $confirm_password_err = 'Password did not match.';
+        }
+    }
+    
+    if(empty($name_err) && empty($password_err) && empty($confirm_password_err)){
+        
+        $sql = "INSERT INTO student (name, password) VALUES (?, ?)";
+         
+        if($stmt = mysqli_prepare($conn, $sql)){
+            mysqli_stmt_bind_param($stmt, "ss", $param_name, $param_password);
+            
+            $param_name = $name;
+            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            
+            if(mysqli_stmt_execute($stmt)){
+                header("location: contact.php");
+            } else{
+                echo "Something went wrong. Please try again later.";
+            }
+        }
+         
+        mysqli_stmt_close($stmt);
+    }
+    
+    mysqli_close($conn);
+}
+?>
+ 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -328,17 +390,17 @@
            <h4 class="modal-title loginModalHeader">Log In</h4>
          </div>
          <div class="modal-body">
-           <form class="form-horizontal">
+           <form class="form-horizontal" method="post" action="index.php">
            <div class="form-group">
              <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
              <div class="col-sm-10">
-               <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+               <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
              </div>
            </div>
            <div class="form-group">
              <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
              <div class="col-sm-10">
-               <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+               <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
              </div>
            </div>
            <div class="form-group">
@@ -366,11 +428,12 @@
            <h4 class="modal-title loginModalHeader">Sign Up</h4>
          </div>
          <div class="modal-body">
-           <form class="form-horizontal" method="post" action="index.php">
-           <div class="form-group">
-             <label for="inputEmail3" class="sr-only">Name</label>
+           <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+           <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
+             <label for="inputEmail3" class="sr-only">Name<sup>*</sup></label>
              <div class="col-sm-12">
-               <input type="text"  name="name"  class="form-control" id="inputEmail3" placeholder="Name">
+               <input type="text"  name="name"  class="form-control" id="inputEmail3" placeholder="Name"  value="<?php echo $name; ?>">
+                <span class="help-block"><?php echo $name_err; ?></span>
              </div>
            </div>
            <div class="form-group">
@@ -402,15 +465,16 @@
                <input type="number"  name="contact" class="form-control" id="inputEmail3" placeholder="Contact">
              </div>
            </div>
-           <div class="form-group">
-             <label for="inputEmail3"  class="sr-only">Password</label>
+           <div class="form-group  <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+             <label for="inputEmail3"  class="sr-only">Password<sup>*</sup></label>
              <div class="col-sm-6">
-
-               <input type="password" name="password" id="signupPassword" class="form-control"  placeholder="Password"  >
+               <input type="password" name="password" id="signupPassword" class="form-control"  placeholder="Password"  value="<?php echo $password; ?>" >
+                <span class="help-block"><?php echo $password_err; ?></span>
              </div>
-             <label for="inputEmail3" class="sr-only">Confirm Password</label>
+             <label for="inputEmail3" class="sr-only">Confirm Password<sup>*</sup></label>
              <div class="col-sm-6">
-               <input type="password" class="form-control" id="signupConfirmPassword" placeholder="Confirm Password">
+               <input type="password" name="confirm_password" class="form-control" id="signupConfirmPassword" placeholder="Confirm Password"  value="<?php echo $confirm_password; ?>">
+                <span class="help-block"><?php echo $confirm_password_err; ?></span>
              </div>
            </div>
            <div class="form-group">
