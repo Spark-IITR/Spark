@@ -1,0 +1,79 @@
+@media only screen and (max-width: 768px) {
+	.navbar-brand{
+		margin-top: 0vh;
+		color: #003484 !important;
+		font-size: 4vw
+	}
+	.navbar-collapse.collapse{
+		height: 40vh
+	}
+	.indexNavbarIitrLogo{
+		height: auto;
+	    width: 7vw;
+	    margin-top: -.5vh;
+	    margin-left: 3vw;
+	}
+	.navbar-default .navbar-nav>li>a {
+    color: #777;
+    font-size: 4vw;
+    margin-top: 0vh;
+    margin-right: 17px;
+	}
+	.indexSliderImage{
+	height:38vh !important;
+	width: 100vw;
+	}
+
+
+	/* main css*/
+	.indexIntroductionTag{
+	font-size: 7vw;
+    margin-top: 5vh;
+    padding-bottom: 0.5vh;
+    text-align: center;
+	}
+	.indexObjectiveTag {
+    font-size: 5vw;}
+
+	.indexIntroductionText{
+		font-size: 3.6vw;
+    letter-spacing: 0.5px;
+    word-spacing: 0px;
+    padding: 0vh 2vw 0 2vw;
+	}
+
+	.indexGuidelinesTag{
+	font-size: 7vw;
+    margin-top: 5vh;
+    padding-bottom: 0.5vh;
+    text-align: center;
+	}
+
+	
+	.indexGuidelines li{
+	    font-size: 3.6vw;
+	    
+	}
+	.indexApplyNowButton{
+	font-size: 3.4vw;
+    margin-top: 4vh;
+    width: 30vw;
+	}
+
+	.loginModalHeader{
+    font-size: 4vw;
+	}
+	.loginModalSignupButton{
+	font-size: 3.7vw;
+    padding: 1vh 38vw;
+	}
+	.modal-dialog{
+	margin-top: 0vh
+}
+.loginModalWidth{
+	width: 95%
+}
+
+.indexContactUs{
+	margin-top: -6vh
+}
