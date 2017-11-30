@@ -6,7 +6,8 @@ body, html {
 	box-sizing: border-box;
 	font-family: 'Lato', sans-serif;
 	letter-spacing: 0.3px;
-	color: #333333
+	color: #333333;
+    overflow-x: hidden;
 	}
 
 ::-webkit-scrollbar {
@@ -300,3 +301,18 @@ a:focus{
     margin-bottom: 0 !important;
     padding-bottom: 0;
 }
+
+.projectsAvailableTag{
+    font-size: 2.5vw;
+    color: #666;
+    letter-spacing: -0px;
+    
+    margin-top: 4vh;
+    font-weight: 700;
+    padding-bottom: 1.5vh
+}
+
+.projectSearchingInput{
+    margin-top: 5vh
+}
+
