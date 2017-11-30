@@ -15,7 +15,6 @@
     <link href="src/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="src/css/index.css" rel="stylesheet">
     <link href="src/css/indexLess.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -24,7 +23,6 @@
 
 
 <body>
-<?php echo $error; ?>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -48,22 +46,22 @@
     </div>
 </nav>
 
-        
-        
-  
+
 <div class="container-fluid">
     <div class="row" id="aboutUs">
-        <div class="col-sm-10 col-sm-offset-1">
-            <p class="indexIntroductionTag">PROJECTS AVAILABLE</p>
-            <p class="text-justify"><strong>The following projects are available to work upon as summer intern during summer vacations, 2018 </strong></p>
-
+        <div class="col-sm-7 col-sm-offset-1">
+            <p class="projectsAvailableTag">PROJECTS AVAILABLE</p>
+            <!-- <p class="text-justify"><strong>The following projects are available to work upon as summer intern during summer vacations, 2018 </strong></p> -->
+        </div>
+        <div class="col-sm-3">
+            <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Projects..">
+        </div>
             <div class="row" id="objectives">
 
-                <div class="container">
-                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
-                    <br>
+                <div class="container" style="margin-top: 18vh">
+                    
                     <table class="table table-hover">
-                        <thead><tr><th title="Field #1">#</th>
+                        <thead style="font-size: 20px;"><tr><th title="Field #1">#</th>
                             <th title="Field #2">Name</th>
                             <th title="Field #3">Department</th>
                             <th title="Field #4">E-mail</th>
@@ -566,12 +564,9 @@
                             <td>thangfwt@iitr.ac.in</td>
                             <td>Power Electronics, Electric Machine Drives, Renewable Energy, Control Systems for Hydropower Plants, Energy Storage including Flywheel</td>
                         </tr>
-                        </tbody></table>
-
+                    </tbody>
+                </table>
             </div>
-
-
-
         </div>
     </div>
 
@@ -640,139 +635,11 @@
     <!--/.footer-bottom-->
 </footer>
 
-
-
-
 <div>
     <footer class="container-fluid footerBottom text-center">
         <p>For Technical Assistance Contact:  Prashant Verma (+91-9919431223) Pratham Gupta (+91-8126119585)</p>
     </footer>
 </div>
-
-
-
-
-
-
-<!-- login modal -->
-<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog modal-md loginModalWidth" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color: #aaa">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title loginModalHeader">Log In</h4>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary loginModalSignupButton">Sign in</button>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <a href=""  data-toggle="modal" data-target="#signup" id="signupModalShow" data-dismiss="modal" style="text-decoration: none;">Don't Have Account</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color: #aaa">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title loginModalHeader">Sign Up</h4>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal" method="post" action="index.php">
-                    <div class="form-group">
-                        <label for="inputEmail3" class="sr-only">Name</label>
-                        <div class="col-sm-12">
-                            <input type="text"  name="name"  class="form-control" id="inputEmail3" placeholder="Name">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputEmail3" class="sr-only">Email</label>
-                        <div class="col-sm-12">
-                            <input type="email" name="email"  class="form-control" id="inputEmail3" placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputEmail3" class="sr-only">Gender</label>
-                        <div class="col-sm-6">
-                            <select class="form-control"  name="gender" id="inputEmail3" placeholder="gender">
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                        </div>
-                        <label for="inputEmail3" class="sr-only">Date Of Birth</label>
-                        <div class="col-sm-6">
-                            <input type="text" name="dob"  class="form-control" id="inputEmail3" placeholder="Date Of Birth"  onfocus="(this.type='date')" onblur="(this.type='text')">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputEmail3" class="sr-only">College</label>
-                        <div class="col-sm-6">
-                            <input type="text" name="college"  class="form-control" id="inputEmail3" placeholder="College">
-                        </div>
-                        <label for="inputEmail3" class="sr-only">Contact</label>
-                        <div class="col-sm-6">
-                            <input type="number"  name="contact" class="form-control" id="inputEmail3" placeholder="Contact">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputEmail3"  class="sr-only">Password</label>
-                        <div class="col-sm-6">
-                            <input type="password" name="password"  class="form-control" id="inputEmail3" placeholder="Password"  >
-                        </div>
-                        <label for="inputEmail3" class="sr-only">Confirm Password</label>
-                        <div class="col-sm-6">
-                            <input type="password" class="form-control" id="inputEmail3" placeholder="Confirm Password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <input type="submit" value="Sign In" class="btn btn-primary signupModalSignupButton">
-                        </div>
-                    </div>
-                </form>
-                <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-            </div>
-        </div>
-    </div>
-
-
-   <!-- <script>
-
-        // $(function(){
-        //     $("#signupModalShow").click(function(){
-        //         $("#signup").modal('show');
-        //     });
-        // });
-
-    </script>
--->
-
-
-    <script src="src/js/jquery.min.js"></script>
-    <script src="src/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function(){
             $("#myInput").on("keyup", function() {

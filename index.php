@@ -6,7 +6,8 @@
    
  /**  if ($conn->query($sql) === TRUE) {
       
-       echo 'hello';
+ header("location:index.php");
+       
    } else {
        echo "Error: " . $sql . "<br>" . $conn->error;
    }
