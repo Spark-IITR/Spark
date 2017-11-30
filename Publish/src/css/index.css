@@ -34,25 +34,33 @@ a:focus{
 	border: none;
 }
 .navbar-brand{
-	margin-top: 2vh;
-	color: #003484 !important;
-	font-size: 1.5vw
+	margin-top: 1vh;
+    color: #003484 !important;
+    font-size: 1.5vw;
 }
 
 .indexNavbarIitrLogo{
 	height: auto;
     width: 4.5vw;
-    margin-top: -3.2vh;
+    margin-top: -1.5vh;
     margin-left: 3vw;
+    margin-right: 1vw;
 }
 
 .navbar-default .navbar-nav>li>a {
     color: #777;
     font-size: 1.2vw;
-    margin-top: 2vh;
+        margin-top: 3vh;
     margin-right: 1vw;
 }
 
+.sparkFullFormTag{
+    margin-left: 29%;
+    font-size: 1.1vw;
+}
+.sparkNavbarTag{
+    font-size: 2.5vw !important;
+}
 /* slider css */
 
 .indexSliderImage{
@@ -289,4 +297,17 @@ a:focus{
     line-height: normal;
     margin-bottom: 0 !important;
     padding-bottom: 0;
+}
+.projectsAvailableTag{
+    font-size: 2.5vw;
+    color: #666;
+    letter-spacing: -0px;
+    
+    margin-top: 4vh;
+    font-weight: 700;
+    padding-bottom: 1.5vh
+}
+
+.projectSearchingInput{
+    margin-top: 5vh
 }
