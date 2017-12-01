@@ -22,36 +22,30 @@
 
     <div class="container">
                 <form class="form-horizontal" role="form" action="email.php" method="post">
-
                     <h3 style="text-align:center" ><strong>Mail us any query</strong></h3>
-
                         <div class="form-group">
-                             <label for="name" class="col-sm-3 control-label">Full Name</label>
-                                <div class="col-sm-6">
-                                    <input type="text" id="name" name="name" placeholder="Name" class="form-control" autofocus required>
-                                </div>
+                            <label for="name" class="col-sm-3 control-label">Full Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="name" name="name" placeholder="Name" class="form-control" autofocus required>
+                            </div>
                         </div>
-
-
                         <div class="form-group">
                              <label for="email" class="col-sm-3 control-label">Email</label>
-                                 <div class="col-sm-6">
-                                    <input type="email" id="email" name="email" placeholder="Email" class="form-control" required>
-                                 </div>
+                             <div class="col-sm-6">
+                                <input type="email" id="email" name="email" placeholder="Email" class="form-control" required>
+                             </div>
                         </div>
-
-
                         <div class="form-group">
                              <label for="subject" class="col-sm-3 control-label">Subject</label>
-                                 <div class="col-sm-6">
-                                     <input type="text" id="contact"  name="subject" placeholder="Subject" class="form-control" required>
-                                 </div>
+                             <div class="col-sm-6">
+                                 <input type="text" id="contact"  name="subject" placeholder="Subject" class="form-control" required>
+                             </div>
                              </div>
 
                         <div class="form-group">
                            	<label for="message" class="col-sm-3 control-label">Message</label>
-                                	<div class="col-sm-6">
-                                	<textarea  id="project"  name="msg" placeholder="Message" class="form-control input-lg" rows="3" required></textarea>
+                            	<div class="col-sm-6">
+                            	<textarea  id="project"  name="msg" placeholder="Message" class="form-control input-lg" rows="3" required></textarea>
                             </div>
                         </div>
 
@@ -66,12 +60,8 @@
                                 <a href="logout.php">Logout</a>
                              </div>
                           </div>
-                </form> <!-- /form -->
-            </div> <!-- ./container -->
-
-
-
-
+                </form> 
+            </div>
     <script src="src/js/jquery.js"></script>
     <script src="src/js/bootstrap.min.js"></script>
 </body>
