@@ -60,6 +60,12 @@
                                     <button type="submit" class="btn btn-primary btn-block">Submit Query</button>
                              </div>
                           </div>
+
+                          <div class="contact-form">
+                             <div class="col-sm-6 col-sm-offset-3">
+                                <a href="logout.php">Logout</a>
+                             </div>
+                          </div>
                 </form> <!-- /form -->
             </div> <!-- ./container -->
 
