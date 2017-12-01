@@ -4,13 +4,20 @@
 <html lang="en">
 
 <head>
+
+    <title> Spark | IIT Roorkee</title>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    
+    <meta name="description" content="Spark is a internship programme to provide research exposure to interested undergraduate students in IIT Roorkee.  To attract and nurture talented undergraduate students of other institutes. ">
+
+    <meta name="keywords" content="IIT,iitr,IIT Roorkee,iit roorkee,intern,Intern,Project,Project in IIT,Spark,Chemical department,Computer department,IITR,Civil department,electrical department,electronics and Computer science,biotechnology, labs, research, summer intern,university, institute,technical,technology,mechanial department, metallurgy department,civil, Chemical,roorkee,chemistry, physics,mathematics,biotech,paid intern">
+
+    <meta name="author" content="Spark | IIT Roorkee">
+
     <link rel="icon" href="../../favicon.ico">
-    <title> Spark </title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="src/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +31,7 @@
 
 <body>
 
-   <nav class="navbar navbar-default navbar-fixed-top">
+   <nav class="navbar navbar-default">
      <div class="container-fluid">
        <div class="navbar-header">
          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">

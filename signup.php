@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $username_err = "This email is already taken.";
                 } else{
                     $username = trim($_POST["username"]);
-                    echo $username;
+                    // echo $username;
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -38,14 +38,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $name_err = "Please enter a name.";     
     }  else{
         $name = trim($_POST['name']);
-        echo $name;
+        // echo $name;
     }
     
     if(empty(trim($_POST['gender']))){
         $gender_err = "Please select gender";     
     } else{
         $gender = trim($_POST['gender']);
-        echo $gender;
+        // echo $gender;
     }
     
     if(empty(trim($_POST['contact']))){
@@ -54,21 +54,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $contact_err = "Password must have atleast 10 digits.";
     } else{
         $contact = trim($_POST['contact']);
-        echo $contact;
+        // echo $contact;
     }
     
     if(empty(trim($_POST['dob']))){
         $dob_err = "Please enter a date of birth";     
     } else{
         $dob = trim($_POST['dob']);
-        echo $dob;
+        // echo $dob;
     }
     
     if(empty(trim($_POST['college']))){
         $college_err = "Please enter a college name.";     
     } else{
         $college = trim($_POST['college']);
-        echo $college;
+        // echo $college;
     }
     
 
@@ -79,7 +79,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $password_err = "Password must have atleast 6 characters.";
     } else{
         $password = trim($_POST['password']);
-        echo $password;
+        // echo $password;
     }
     
     if(empty(trim($_POST["confirm_password"]))){
@@ -90,13 +90,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $confirm_password_err = 'Password did not match.';
         }
     }
-    echo $username_err; echo $password_err; echo $confirm_password_err;
+    // echo $username_err; echo $password_err; echo $confirm_password_err;
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
          $sql = "INSERT INTO student (email, password, name, contact, dob, college, gender) VALUES (?, ?, ?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password, $param_name, $param_contact, $param_dob, $param_college, $param_gender);
-            echo 'hello';
+            mysqli_stmt_bind_param($stmt, "sssssss", $param_username, $param_password, $param_name, $param_contact, $param_dob, $param_college, $param_gender);
+            // echo 'hello';
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); 
             $param_name = $name;
@@ -104,10 +104,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_dob = $dob;
             $param_college = $college;
             $param_gender = $gender;
-            echo $param_gender;
-            echo $param_username;
+            // echo $param_gender;
+            // echo $param_username;
             if(mysqli_stmt_execute($stmt)){
-                header("location: contact.php");
+                header("location: index.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -120,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
-<?php include('header.php'); ?>
+// <?php include('header.php'); ?>
 
 
 

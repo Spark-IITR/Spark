@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $username_err = "This email is already taken.";
                 } else{
                     $username = trim($_POST["username"]);
-                    echo $username;
+                    // echo $username;
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $name_err = "Please enter a name.";     
     }  else{
         $name = trim($_POST['name']);
-        echo $name;
+        // echo $name;
     }
     
    
@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $contact_err = "Password must have atleast 10 digits.";
     } else{
         $contact = trim($_POST['contact']);
-        echo $contact;
+        // echo $contact;
     }
     
     
@@ -58,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $department_err = "Please enter a department name.";     
     } else{
         $department = trim($_POST['department']);
-        echo $department;
+        // echo $department;
     }
     
 
@@ -69,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $password_err = "Password must have atleast 6 characters.";
     } else{
         $password = trim($_POST['password']);
-        echo $password;
+        // echo $password;
     }
     
     if(empty(trim($_POST["confirm_password"]))){
@@ -80,22 +80,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $confirm_password_err = 'Password did not match.';
         }
     }
-    echo $username_err; echo $password_err; echo $confirm_password_err;
+    // echo $username_err; echo $password_err; echo $confirm_password_err;
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
          $sql = "INSERT INTO faculty (email, password, name, contact, department) VALUES (?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password, $param_name, $param_contact,  $param_department);
-            echo 'hello';
+            mysqli_stmt_bind_param($stmt, "sssss", $param_username, $param_password, $param_name, $param_contact,  $param_department);
+            // echo 'hello';
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); 
             $param_name = $name;
             $param_contact = $contact;
             $param_department = $department;
-            echo $param_gender;
-            echo $param_username;
+            // echo $param_gender;
+            // echo $param_username;
             if(mysqli_stmt_execute($stmt)){
-               echo 'hello';
+               // echo 'hello';
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -109,28 +109,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
  
 
-<!DOCTYPE html>
-<html lang="en">
+<?php include('header.php'); ?>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-    <title> Spark </title>
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="src/css/bootstrap.min.css" rel="stylesheet">
-    <link href="src/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="src/css/index.css" rel="stylesheet">
-    <link href="src/css/indexLess.css" rel="stylesheet">
-    
 
-</head>
-
-<body>
 <div class="container">
             
          

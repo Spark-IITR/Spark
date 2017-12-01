@@ -1,11 +1,4 @@
 
-<?php
-
-?>
-
-
- 
-
  <?php
   require_once 'config.php';
  
@@ -63,11 +56,9 @@
 }
 ?>
 
-    <div class="container-fluid">
-        <div class="row">
-            <?php require_once 'header.php' ?>
-        </div>
-    </div>
+    
+    <?php require_once 'header.php' ?>
+       
 
    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top: -2vh; width: 98vw; margin-left: 1vw" id="top">
      <ol class="carousel-indicators">
@@ -253,7 +244,7 @@
 </div>
 
 
-<?php require_once('footer.php'); ?>
+    <?php require_once('footer.php'); ?>
 
    <!-- login modal -->
    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
