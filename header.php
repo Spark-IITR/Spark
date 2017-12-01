@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,14 +15,16 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="src/css/bootstrap.min.css" rel="stylesheet">
     <link href="src/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="src/css/index.css" rel="stylesheet">
-    <link href="src/css/indexLess.css" rel="stylesheet">
+    <link href="src/css/inde.css" rel="stylesheet">
+    <link href="src/css/indeLess.css" rel="stylesheet">
+    <script src="src/js/jquery.min.js"></script>
+    <script src="src/js/bootstrap.min.js"></script>
 </head>
 
 
 <body>
 
-   <nav class="navbar navbar-default">
+   <nav class="navbar navbar-default navbar-fixed-top">
      <div class="container-fluid">
        <div class="navbar-header">
          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -30,7 +34,7 @@
            <span class="icon-bar"></span>
          </button>
          <a class="navbar-brand" href="https://www.iitr.ac.in"><img src="src/img/iitrLogo.png" alt="IIT Roorkee" class="indexNavbarIitrLogo"></a>
-         <a class="navbar-brand sparkNavbarTag" href="#">SPARK | IIT Roorkee</a><br/>
+         <a class="navbar-brand sparkNavbarTag" href="index.php">SPARK | IIT Roorkee</a><br/>
          <p class="sparkFullFormTag">Summer Internship Programme at IIT Roorkee</p>
        </div>
 
@@ -40,9 +44,11 @@
            <li><a href="#guidelines">Guidelines</a></li>
            <li><a href="project.html">Projects</a></li>
            <li><a href="#timeline">Timeline</a></li>
-           <li><a href="#contact">Contact</a></li>
+           <li><a href="signup.php">Contact</a></li>
            <li><a href="#" data-toggle="modal" data-target="#login">Log In</a></li>
          </ul>
        </div>
      </div>
    </nav>
+
+
