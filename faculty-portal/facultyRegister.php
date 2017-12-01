@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once '../config/config.php';
  
 $name = $username = $contact = $gender = $dob = $department = $password = $confirm_password = "";
 $name_err = $username_err = $contact_err = $gender_err = $dob_err = $department_err = $password_err = $confirm_password_err = "";
@@ -109,7 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
  
 
-<?php include('header.php'); ?>
+<?php include('../header.php'); ?>
 
 
 <div class="container">

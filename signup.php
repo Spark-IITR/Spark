@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once 'config/config.php';
  
 $name = $username = $contact = $gender = $dob = $college = $password = $confirm_password = "";
 $name_err = $username_err = $contact_err = $gender_err = $dob_err = $college_err = $password_err = $confirm_password_err = "";
@@ -120,12 +120,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
-// <?php include('header.php'); ?>
+ <?php include('header.php'); ?>
 
 
 
 		<div class="container">
-			<div class="row" style="margin-top: 5vh">
+			<div class="row" style="margin-top: -19vh">
 				<div class="col-sm-8 col-sm-offset-2">
 					<p class="signupHereTag">Sign Up Here ..</p>
 					<form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">

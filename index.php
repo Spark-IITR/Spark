@@ -1,6 +1,6 @@
 
  <?php
-  require_once 'config.php';
+  require_once 'config/config.php';
  
   $username = $password = "";
   $username_err = $password_err = "";
@@ -40,7 +40,7 @@
                         } else{
                             $password_err = 'The password you entered was not valid.';
                         }
-                    }
+                    }else{echo 'error';}
                 } else{
                     $username_err = 'No account found with that username.';
                 }
