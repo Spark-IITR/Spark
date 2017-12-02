@@ -336,3 +336,11 @@ a:focus{
     margin-top: 20vh;
     color: rgba(41, 0, 255, 0.73);
 }
+
+.uploadResumeButton{
+    margin-top: 2vh;
+}
+.uploadResumeSubmitButton{
+    margin-top: -5vh;
+    float: right;
+}

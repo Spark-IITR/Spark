@@ -75,12 +75,12 @@
     <link rel="icon" href="../../favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="src/css/bootstrap.min.css" rel="stylesheet">
-    <link href="src/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="src/css/inde.css" rel="stylesheet">
-    <link href="src/css/indeLess.css" rel="stylesheet">
-    <script src="src/js/jquery.min.js"></script>
-    <script src="src/js/bootstrap.min.js"></script>
+    <link href="<?php echo base_url; ?>src/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/index.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/indexLess.css" rel="stylesheet">
+    <script src="<?php echo base_url; ?>src/js/jquery.min.js"></script>
+    <script src="<?php echo base_url; ?>src/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -95,7 +95,7 @@
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="https://www.iitr.ac.in"><img src="src/img/iitrLogo.png" alt="IIT Roorkee" class="indexNavbarIitrLogo"></a>
+         <a class="navbar-brand" href="https://www.iitr.ac.in"><img src="<?php echo base_url; ?>src/img/iitrLogo.png" alt="IIT Roorkee" class="indexNavbarIitrLogo"></a>
          <a class="navbar-brand sparkNavbarTag" href="index.php">SPARK | IIT Roorkee</a><br/>
          <p class="sparkFullFormTag">Summer Internship Programme at IIT Roorkee</p>
        </div>

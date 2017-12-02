@@ -1,4 +1,5 @@
 <?php
+define('base_url', 'http://localhost/folder_name/');
 $servername = "localhost";
 $username = "";
 $password = "";
