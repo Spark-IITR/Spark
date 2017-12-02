@@ -102,10 +102,10 @@
 
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav navbar-right">
-           <li><a href="#aboutUs">About SPARK </a></li>
-           <li><a href="#guidelines">Guidelines</a></li>
-           <li><a href="project.html">Projects</a></li>
-           <li><a href="#timeline">Timeline</a></li>
+           <li><a href="index.php#aboutUs">About SPARK </a></li>
+           <li><a href="index.php#guidelines">Guidelines</a></li>
+           <li><a href="Publish/project.html">Projects</a></li>
+           <li><a href="index.php#timeline">Timeline</a></li>
            <li><a href="signup.php">Contact</a></li>
            <li><a href="#" data-toggle="modal" data-target="#login">Log In</a></li>
          </ul>
