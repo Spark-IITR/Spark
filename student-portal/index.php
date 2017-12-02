@@ -39,7 +39,7 @@
 							    <li role="presentation" class="active"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
 							    <li role="presentation"><a href="#available" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
 						  	</ul>
-						  	<div class="tab-content" style="max-height: 60vh;overflow: scroll;">
+						  	<div class="tab-content" style="max-height: 50vh;overflow: scroll;">
 								<div role="tabpanel" class="tab-pane fade in active" id="applied">
 									<table class="table table-striped">
 										<thead style="font-size: 14px;"><tr><th title="Field #1">#</th>

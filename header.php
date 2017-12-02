@@ -77,8 +77,8 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="<?php echo base_url; ?>src/css/index.css" rel="stylesheet">
-    <link href="<?php echo base_url; ?>src/css/indexLess.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/inde.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/indeLess.css" rel="stylesheet">
     <script src="<?php echo base_url; ?>src/js/jquery.min.js"></script>
     <script src="<?php echo base_url; ?>src/js/bootstrap.min.js"></script>
 </head>
