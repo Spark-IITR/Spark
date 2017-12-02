@@ -1,14 +1,39 @@
     <?php require_once '../header.php' ?>
 
-    <div class="container">
+    <div class="container-fluid">
     	<div class="row">
-    		<div class="col-sm-3">
-    			
+    		<div class="col-sm-3  studentProfileContainer">
+    			<div class="row">
+    				 <div class="col-sm-12" style="text-align: center;">
+		    			<img src="<?php echo base_url; ?>src/img/iitrLogo.png" class="studentProfileImg">
+    				 </div>
+    				 <div class="col-sm-12">
+    					<input type="file" name="file" id="file" class="inputfile" />
+						<label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
+    					<input type="submit" name="" class="btn btn-primary studentProfileImageSubmitButton" value="Change Image" placeholder="" >
+    				 </div>
+    			</div>
+    			<p class="studentProfileDetailsTag  studentProfileUpperMargin">Name</p>
+    			<p class="studentProfileDetails">Prashant Verma</p>
+
+    			<p class="studentProfileDetailsTag">Department</p>
+    			<p class="studentProfileDetails">Chemical Engineering</p>
+
+    			<p class="studentProfileDetailsTag">College</p>
+    			<p class="studentProfileDetails">Indian Institute Of Technology, Roorkee</p>
+
+    			<p class="studentProfileDetailsTag">Email</p>
+    			<p class="studentProfileDetails">prashantverma12223@gmail.com</p>
+
+    			<p class="studentProfileDetailsTag">Contact No.</p>
+    			<p class="studentProfileDetails">9919431223</p>
+
+    			<input type="button" name="" class="btn btn-primary studentProfileLogoutButton" value="Logout">
     		</div>
     		<div class="col-sm-9">
     			<div class="row">
     				<div class="col-sm-12">
-    					<p>Projects</p>
+    					<p class="studentProjectTag">Projects</p>
     					<div>
 						  	<ul class="nav nav-tabs" role="tablist">
 							    <li role="presentation" class="active"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
@@ -30,7 +55,7 @@
 				                            <td>Architecture and Planning</td>
 				                            <td>ukroyfap@iitr.ac.in</td>
 				                            <td>Affordable Housing Design, Industrialised Building system, New town and Smart City Development, Building codes</td>
-				                            <td></td>
+				                            <td><span class="glyphicon glyphicon-ok-circle studentProjectStatus" style="color: green"></span></td>
 				                        </tr>
 				                        <tr>
 				                            <td align="right">2</td>
@@ -38,7 +63,7 @@
 				                            <td>Architecture and Planning</td>
 				                            <td>ramsateeshfap@iitr.ac.in</td>
 				                            <td>Build Back Better- A book editing exercise, under GADRI initiative , Kyoto, Japan</td>
-				                            <td></td>
+				                            <td><span class="glyphicon glyphicon-remove-circle studentProjectStatus" style="color: red"></span></td>
 				                        </tr>
 				                        <tr>
 				                            <td align="right">3</td>
@@ -46,7 +71,7 @@
 				                            <td>Architecture and Planning</td>
 				                            <td>sonalfap@iitr.ac.in</td>
 				                            <td>anthropometrics and ergonomics</td>
-				                            <td></td>
+				                            <td><span class="glyphicon glyphicon-remove-circle studentProjectStatus" style="color: red"></td>
 				                        </tr>
 									</table>
 								</div>
@@ -266,12 +291,14 @@
     			</div>
     			<div class="row" style="margin-left: 0%">
     				<div class="col-sm-5">
-    					<input type="file" class="btn btn-primary btn-sm uploadResumeButton" value="Upload Resume">
-    					<button type="button" class="btn btn-primary btn-sm uploadResumeSubmitButton">Submit</button>
+    					<input type="file" name="file" id="file" class="inputfile" />
+						<label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
+    					<input type="submit" name="" class="btn btn-primary studentProfileImageSubmitButton" value="Upload Resume" placeholder="" >
     				</div>
     				<div class="col-sm-5 col-sm-offset-1">
-    					<input type="file" class="btn btn-primary btn-sm uploadResumeButton" value="Upload NOC/LOR">
-    					<button type="button" class="btn btn-primary btn-sm uploadResumeSubmitButton">Submit</button>
+    					<input type="file" name="file" id="file" class="inputfile" />
+						<label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
+    					<input type="submit" name="" class="btn btn-primary studentProfileImageSubmitButton" value="Upload LOR/NOC" placeholder="" >
     				</div>
     			</div>
     		</div>
