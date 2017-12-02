@@ -151,6 +151,14 @@
                     </div>
                 </div>
 
+                <div class="row" style="margin-bottom: 5vh;padding-left: 5%">
+                    <div class="col-sm-2" style="font-size: 1.2vw">
+                        Add Remark :                     
+                    </div>
+                    <div class="col-sm-7">
+                         <textarea class="facultyAddRemark" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
                 
             </div>
         </div>
