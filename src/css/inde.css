@@ -341,6 +341,9 @@ a:focus{
     color: rgba(41, 0, 255, 0.73);
 }
 
+
+/* student page   */
+
 .uploadResumeButton{
     margin-top: 2vh;
 }
@@ -411,4 +414,32 @@ height: auto;
 
 .studentProjectTag{
     font-size: 3vw;
+}
+
+
+
+/* doctor page */
+.doctorsStudentContainer{
+    margin-left: 2%;
+    padding:3vh 10px;
+    -webkit-box-shadow: 0px 0px 11px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 11px -3px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 11px -3px rgba(0,0,0,0.75);
+border-radius: 10px;
+margin-top: 5vh;
+margin-bottom: 8vh
+}
+.doctorsStudentTabImg{
+        height: auto;
+    width: 10vw;
+}
+.doctorsStudentTabName{
+    font-size: 1.3vw;
+    text-align: center;
+    padding-top: 1.5vh;
+}
+.doctorsStudentTabYear{
+    font-size: 1vw;
+    margin-top: -1vh;
+    text-align: center;
 }
