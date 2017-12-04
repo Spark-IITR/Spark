@@ -5,7 +5,7 @@
 		font-size: 4vw
 	}
 	.navbar-collapse.collapse{
-		height: 40vh
+		height: 35vh
 	}
 	.indexNavbarIitrLogo{
 		height: auto;
@@ -23,7 +23,14 @@
 	height:38vh !important;
 	width: 100vw;
 	}
-
+.sparkFullFormTag{
+    margin-left: 29%;
+    font-size: 1.1vw;
+    display: none;
+	}
+	.sparkNavbarTag{
+	    font-size: 5.6vw !important;
+	}
 
 	/* main css*/
 	.indexIntroductionTag{
@@ -77,3 +84,9 @@
 .indexContactUs{
 	margin-top: -6vh
 }
+.moveToUpButton{
+	    padding: .5% 4px .5% 5px;
+	    top: 87vh;
+	    left: 83%;
+	    font-size: 10.6vw
+	}
