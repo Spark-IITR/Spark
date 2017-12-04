@@ -304,3 +304,5 @@
     		</div>
     	</div>
     </div>
+<div style="height:5vh;"> </div>
+    <?php require_once('../footer.php');?>

@@ -11,17 +11,17 @@
     
      <div class="carousel-inner" role="listbox">
        <div class="item active">
-         <img src="src/img/slider1.jpg" alt="slider1" class="indexSliderImage">
+         <img src="src/img/slider1.jpg" alt="slider1" class="indexSliderImage responsive">
          <div class="carousel-caption">
          </div>
        </div>
        <div class="item">
-         <img src="src/img/slider2.jpg" alt="slider2" class="indexSliderImage">
+         <img src="src/img/slider2.jpg" alt="slider2" class="indexSliderImage responsive">
          <div class="carousel-caption">
          </div>
        </div>
        <div class="item">
-         <img src="src/img/slider3.jpg" alt="slider3"  class="indexSliderImage">
+         <img src="src/img/slider3.jpg" alt="slider3"  class="indexSliderImage responsive">
          <div class="carousel-caption">
          </div>
        </div>
@@ -160,16 +160,11 @@
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td>Online Application Closed</td>
-                    <td>15th March 2018</td>
-                </tr>
-                <tr>
-                    <td>4</td>
                     <td>Application Submission Deadline</td>
                     <td>28th February 2018</td>
                 </tr>
                 <tr>
-                    <td>5</td>
+                    <td>4</td>
                     <td>Result Anoouncement</td>
                     <td>15th March 2018</td>
                 </tr>
