@@ -121,7 +121,12 @@
            <li><a href="Publish/project.html">Projects</a></li>
            <li><a href="index.php#timeline">Timeline</a></li>
            <li><a href="signup.php">Contact</a></li>
-           <li><a href="#" data-toggle="modal" data-target="#login">Log In</a></li>
+           <?php if($_SESSION['role'] == ""){?>
+            <li><a href="#" data-toggle="modal" data-target="#login">Log In</a></li>
+           <?php }else{ ?>
+            <li><a href="logout.php">Logout</a></li>
+          <?php } ?>
+           
          </ul>
        </div>
      </div>

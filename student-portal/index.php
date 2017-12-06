@@ -346,5 +346,5 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
 
     
 else
-      header ("location:logout.php");
+      header ("location:../index.php");
     ?>
