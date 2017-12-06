@@ -2,6 +2,8 @@
 ob_start();
 session_start();
 require_once '../config/config.php';
+$name = $email = $contact = $department = $college = ""; 
+
 if(isset($_SESSION['role'])=='student')
 {
 $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? and role = ?";
@@ -19,14 +21,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                     mysqli_stmt_bind_result($stmt, $name,$email,$contact,$department,$college);
                     if(mysqli_stmt_fetch($stmt)){
 
-
-
-
-
-
                         require_once '../header.php';
-                    	
-
            ?>        
     
 

@@ -1,4 +1,34 @@
-    <?php require_once '../header.php' ?>
+<?php
+ob_start();
+session_start();
+require_once '../config/config.php';
+$name = $email = $contact = $department = $college = ""; 
+if(isset($_SESSION['role'])=='faculty')
+{
+$sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? and role = ?";
+        
+        if($stmt = mysqli_prepare($conn, $sql)){
+            mysqli_stmt_bind_param($stmt, "ss", $param_username,$param_role);
+            
+            $param_username = $_SESSION['username'];
+            $param_role = $_SESSION['role'];
+            
+            if(mysqli_stmt_execute($stmt)){
+                mysqli_stmt_store_result($stmt);
+                
+                if(mysqli_stmt_num_rows($stmt) == 1){                    
+                    mysqli_stmt_bind_result($stmt, $name,$email,$contact,$department,$college);
+                    if(mysqli_stmt_fetch($stmt)){
+
+
+
+
+
+
+                        require_once '../header.php';
+                        
+
+           ?>         
 
     <div class="container-fluid">
         <div class="row">
@@ -14,19 +44,20 @@
                      </div>
                 </div>
                 <p class="studentProfileDetailsTag  studentProfileUpperMargin">Name</p>
-                <p class="studentProfileDetails">Prashant Verma</p>
+                <p class="studentProfileDetails"><?php echo $name; ?></p>
 
                 <p class="studentProfileDetailsTag">Department</p>
-                <p class="studentProfileDetails">Chemical Engineering</p>
+                <p class="studentProfileDetails"><?php echo $department; ?></p>
 
                 <p class="studentProfileDetailsTag">College</p>
-                <p class="studentProfileDetails">Indian Institute Of Technology, Roorkee</p>
+                <p class="studentProfileDetails"><?php echo $college; ?></p>
 
                 <p class="studentProfileDetailsTag">Email</p>
-                <p class="studentProfileDetails">prashantverma12223@gmail.com</p>
+                <p class="studentProfileDetails"><?php echo $email; ?></p>
 
                 <p class="studentProfileDetailsTag">Contact No.</p>
-                <p class="studentProfileDetails">9919431223</p>
+                <p class="studentProfileDetails"><?php echo $contact; ?></p>
+
 
                 <input type="button" name="" class="btn btn-primary studentProfileLogoutButton" value="Logout">
             </div>
@@ -166,3 +197,22 @@
 
 
     <?php require_once('../footer.php');?>
+
+
+    <?php
+         }else{echo 'error';}
+                } else{
+                    $username_err = 'No account found with that username.';
+                }
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+        }
+        
+        mysqli_stmt_close($stmt);
+    }
+
+    
+else
+      header ("location:logout.php");
+    ?>

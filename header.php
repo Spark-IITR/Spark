@@ -37,17 +37,17 @@
                                 session_start();
                                 $_SESSION['username'] = $username; 
                                 $_SESSION['role']=$role;
-                                header("location: faculty-portal/index.php");
+                                header("location: faculty-portal/");
                               }else if($role == "student"){
                                 session_start();
                                 $_SESSION['username'] = $username; 
                                 $_SESSION['role']=$role;
-                                header("location: student-portal/index.php");
+                                header("location: student-portal/");
                               }else if($role == "admin"){
                                 session_start();
                                 $_SESSION['username'] = $username; 
                                 $_SESSION['role']=$role;
-                                header("location: admin-portal/index.php");
+                                header("location: admin-portal/");
                           }
                             
                         } else{
