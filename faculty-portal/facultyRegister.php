@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a email.";
     } else{
-        $sql = "SELECT * FROM faculty WHERE email = ?";
+        $sql = "SELECT * FROM user WHERE email = ?";
        
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -82,16 +82,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     // echo $username_err; echo $password_err; echo $confirm_password_err;
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-         $sql = "INSERT INTO faculty (email, password, name, contact, department) VALUES (?, ?, ?, ?, ?)";
+         $sql = "INSERT INTO user (email, password, name, contact, department,role) VALUES (?, ?, ?, ?, ?,?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "sssss", $param_username, $param_password, $param_name, $param_contact,  $param_department);
+            mysqli_stmt_bind_param($stmt, "ssssss", $param_username, $param_password, $param_name, $param_contact,  $param_department,$param_role);
             // echo 'hello';
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); 
             $param_name = $name;
             $param_contact = $contact;
             $param_department = $department;
+            $param_role = "faculty";
             // echo $param_gender;
             // echo $param_username;
             if(mysqli_stmt_execute($stmt)){
@@ -136,7 +137,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            <div class="form-group   <?php echo (!empty($department_err)) ? 'has-error' : ''; ?>">
             <label for="inputEmail3" class="sr-only ">department</label>
              <div class="col-sm-6">
-               <input type="text" name="department"  class="form-control" id="inputEmail3" placehdepartment" value="<?php echo $department; ?>">
+               <input type="text" name="department"  class="form-control" id="inputEmail3" placeholder="Department" value="<?php echo $department; ?>">
                 <span class="help-block"><?php echo $department_err; ?></span>
              </div>
             

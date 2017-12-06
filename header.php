@@ -19,7 +19,7 @@
     }
     
     if(empty($username_err) && empty($password_err)){
-        $sql = "SELECT email, password FROM student WHERE email = ?";
+        $sql = "SELECT email,password,role FROM user WHERE email = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -30,12 +30,18 @@
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    mysqli_stmt_bind_result($stmt, $username, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $username, $hashed_password, $role);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
-                            session_start();
-                            $_SESSION['username'] = $username;      
+                            if($role == "faculty"){
+                              session_start();
+                            $_SESSION['username'] = $username; 
+                            $_SESSION['role']=$row['role'];
                             header("location: contact.php");
+                          }else{
+                           header("location: index.php"); 
+                          }
+                            
                         } else{
                             $password_err = 'The password you entered was not valid.';
                         }
@@ -77,8 +83,8 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="<?php echo base_url; ?>src/css/inde.css" rel="stylesheet">
-    <link href="<?php echo base_url; ?>src/css/indeLess.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/index1.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/index1Less.css" rel="stylesheet">
     <script src="<?php echo base_url; ?>src/js/jquery.min.js"></script>
     <script src="<?php echo base_url; ?>src/js/bootstrap.min.js"></script>
 </head>
