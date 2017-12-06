@@ -34,12 +34,20 @@
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             if($role == "faculty"){
-                              session_start();
-                            $_SESSION['username'] = $username; 
-                            $_SESSION['role']=$row['role'];
-                            header("location: contact.php");
-                          }else{
-                           header("location: index.php"); 
+                                session_start();
+                                $_SESSION['username'] = $username; 
+                                $_SESSION['role']=$role;
+                                header("location: faculty-portal/index.php");
+                              }else if($role == "student"){
+                                session_start();
+                                $_SESSION['username'] = $username; 
+                                $_SESSION['role']=$role;
+                                header("location: student-portal/index.php");
+                              }else if($role == "admin"){
+                                session_start();
+                                $_SESSION['username'] = $username; 
+                                $_SESSION['role']=$role;
+                                header("location: admin-portal/index.php");
                           }
                             
                         } else{
