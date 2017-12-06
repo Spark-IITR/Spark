@@ -124,7 +124,9 @@
            <?php if($_SESSION['role'] == ""){?>
             <li><a href="#" data-toggle="modal" data-target="#login">Log In</a></li>
            <?php }else{ ?>
-            <li><a href="logout.php">Logout</a></li>
+          <li style="font-size: 1.4vw;
+    margin-top: 4.4vh;
+    color: #777;"><?php echo $name; ?></li>
           <?php } ?>
            
          </ul>
