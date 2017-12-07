@@ -82,10 +82,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     // echo $username_err; echo $password_err; echo $confirm_password_err;
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-         $sql = "INSERT INTO user (email, password, name, contact, department,role) VALUES (?, ?, ?, ?, ?,?)";
+         $sql = "INSERT INTO user (email, password, name, contact, department,role,project) VALUES (?, ?, ?, ?, ?,?,?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "ssssss", $param_username, $param_password, $param_name, $param_contact,  $param_department,$param_role);
+            mysqli_stmt_bind_param($stmt, "sssssss", $param_username, $param_password, $param_name, $param_contact,  $param_department,$param_role,$param_project);
             // echo 'hello';
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); 
@@ -93,6 +93,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_contact = $contact;
             $param_department = $department;
             $param_role = "faculty";
+            $param_project = $_POST['project'];
             // echo $param_gender;
             // echo $param_username;
             if(mysqli_stmt_execute($stmt)){
@@ -160,7 +161,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                <input type="password" name="confirm_password" class="form-control" id="signupConfirmPassword" placeholder="Confirm Password"  value="<?php echo $confirm_password; ?>">
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
              </div>
-          
+            
+           </div>
+
+           <div class="form-group   <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
+             <label for="inputEmail3" class="sr-only">Name<sup>*</sup></label>
+             <div class="col-sm-12">
+               <textarea  name="project"  class="form-control" ></textarea>
+                <span class="help-block"><?php echo $name_err; ?></span>
+             </div>
            </div>
            <div class="form-group">
              <div class="col-sm-offset-2 col-sm-10">

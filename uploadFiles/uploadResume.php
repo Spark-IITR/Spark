@@ -18,12 +18,7 @@ if ($_POST && !empty($_FILES)) {
         $result = $conn->query($query);
  
         if($result) {
-           
-           
-            echo '<script language="javascript">';
-echo 'alert("message successfully sent")';
-echo '</script>';
-
+            header ("location:../student-portal/");
         }
         else {
             echo 'Error! Failed to insert the file'
