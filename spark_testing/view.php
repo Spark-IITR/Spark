@@ -15,7 +15,7 @@ if(!empty($_GET['id'])){
     }
     
     //Get image data from database
-    $result = $db->query("SELECT image FROM images WHERE id = {$_GET['id']}");
+    $result = $db->query("SELECT image FROM images WHERE id = 1");
     
     if($result->num_rows > 0){
         $imgData = $result->fetch_assoc();
