@@ -1,7 +1,6 @@
 <?php
     require_once('../config/config.php');
 
-    $content = mysqli_real_escape_string($conn, $content);
 	if (empty($_GET['email'])) {
 		echo 'A valid image file id is required to display the image file.';
 		exit;

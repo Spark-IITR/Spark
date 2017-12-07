@@ -10,11 +10,17 @@ if(isset($_FILES['uploaded_file'])) {
         }
  
         // Gather all required data
+
         $name = $dbLink->real_escape_string($_FILES['uploaded_file']['name']);
-        $mime = $dbLink->real_escape_string($_FILES['uploaded_file']['type']);
+        $type = $dbLink->real_escape_string($_FILES['uploaded_file']['type']);
         $data = $dbLink->real_escape_string(file_get_contents($_FILES  ['uploaded_file']['tmp_name']));
         $size = intval($_FILES['uploaded_file']['size']);
  
+ if ( in_array($type, array('application/pdf'))) {
+     if ( $size < 5000) {
+
+        // echo "Error: Unsupported file extension. Supported extensions is PDF.";
+    
         // Create the SQL query
         $query = "
             INSERT INTO `file` (
@@ -35,7 +41,9 @@ if(isset($_FILES['uploaded_file'])) {
             echo 'Error! Failed to insert the file'
                . "<pre>{$dbLink->error}</pre>";
         }
-    }
+    }else{echo "file too large";}
+}else{echo "choose pdf format";}
+}
     else {
         echo 'An error accured while the file was being uploaded. '
            . 'Error code: '. intval($_FILES['uploaded_file']['error']);

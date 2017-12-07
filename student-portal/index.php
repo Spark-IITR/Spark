@@ -323,14 +323,20 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
     			</div>
     			<div class="row" style="margin-left: 0%">
     				<div class="col-sm-5">
-    					<input type="file" name="file" id="file" class="inputfile" />
-						<label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
-    					<input type="submit" name="" class="btn btn-primary studentProfileImageSubmitButton" value="Upload Resume" placeholder="" >
+    					<form action="../uploadFiles/uploadResume.php" method="post" enctype="multipart/form-data">
+					        <input type="hidden" name="resumeId" value="<?php echo $email; ?>" />
+					        <input type="file" name="resume" id="resume" class="inputfile" />
+							<label for="resume"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
+	    					<input type="submit" name="submit" class="btn btn-primary studentProfileImageSubmitButton" value="Upload Resume" placeholder="" >
+						</form>
     				</div>
     				<div class="col-sm-5 col-sm-offset-1">
-    					<input type="file" name="file" id="file" class="inputfile" />
-						<label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
-    					<input type="submit" name="" class="btn btn-primary studentProfileImageSubmitButton" value="Upload LOR/NOC" placeholder="" >
+    					<form action="../uploadFiles/uploadNOC.php" method="post" enctype="multipart/form-data">
+					        <input type="hidden" name="nocId" value="<?php echo $email; ?>" />
+					        <input type="file" name="noc" id="noc" class="inputfile" />
+							<label for="noc"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
+	    					<input type="submit" name="submit" class="btn btn-primary studentProfileImageSubmitButton" value="Upload NOC/LOR" placeholder="" >
+						</form>
     				</div>
     			</div>
     		</div>
