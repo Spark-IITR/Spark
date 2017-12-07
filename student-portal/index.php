@@ -30,12 +30,17 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
     		<div class="col-sm-3  studentProfileContainer">
     			<div class="row">
     				 <div class="col-sm-12" style="text-align: center;">
-		    			<img src="<?php echo base_url; ?>src/img/iitrLogo.png" class="studentProfileImg">
+		    			<img src="showProfileImage.php?id=<?=2 ?>" class="studentProfileImg" alt="<?php echo $name; ?>">
+
     				 </div>
     				 <div class="col-sm-12">
-    					<input type="file" name="file" id="file" class="inputfile" />
-						<label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
-    					<input type="submit" name="" class="btn btn-primary studentProfileImageSubmitButton" value="Change Image" placeholder="" >
+    				 	<form action="imageUpload.php" method="post" enctype="multipart/form-data">
+					        Select image to upload:
+					        <input type="hidden" name="imageId" value="<?php echo $email; ?>">
+					        <input type="file" name="image" id="file" class="inputfile" />
+							<label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
+	    					<input type="submit" name="submit" class="btn btn-primary studentProfileImageSubmitButton" value="Change Image" placeholder="" >
+						</form>
     				 </div>
     			</div>
     			<p class="studentProfileDetailsTag  studentProfileUpperMargin">Name</p>
