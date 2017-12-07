@@ -5,6 +5,7 @@ require_once '../config/config.php';
 $name = $email = $contact = $department = $college = ""; 
 if(isset($_SESSION['role'])=='faculty')
 {
+    $role = $_SESSION['role'];
 $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? and role = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
@@ -20,14 +21,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                     mysqli_stmt_bind_result($stmt, $name,$email,$contact,$department,$college);
                     if(mysqli_stmt_fetch($stmt)){
 
-
-
-
-
-
                         require_once '../header.php';
-                        
-
            ?>         
 
     <div class="container-fluid">
@@ -35,12 +29,16 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
             <div class="col-sm-3  studentProfileContainer">
                 <div class="row">
                      <div class="col-sm-12" style="text-align: center;">
-                        <img src="<?php echo base_url; ?>src/img/iitrLogo.png" class="studentProfileImg">
+                        <img src="../uploadFiles/showProfileImage.php?email=<?=$email ?>" class="studentProfileImg" alt="<?php echo $name; ?>">
                      </div>
                      <div class="col-sm-12">
-                        <input type="file" name="file" id="file" class="inputfile" />
-                        <label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
-                        <input type="submit" name="" class="btn btn-primary studentProfileImageSubmitButton" value="Change Image" placeholder="" >
+                        <form action="../uploadFiles/imageUpload.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="imageId" value="<?php echo $email; ?>">
+                            <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
+                            <input type="file" name="image" id="file" class="inputfile" />
+                            <label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
+                            <input type="submit" name="submit" class="btn btn-primary studentProfileImageSubmitButton" value="Change Image" placeholder="" >
+                        </form>
                      </div>
                 </div>
                 <p class="studentProfileDetailsTag  studentProfileUpperMargin">Name</p>
@@ -59,7 +57,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                 <p class="studentProfileDetails"><?php echo $contact; ?></p>
 
 
-                <input type="button" name="" class="btn btn-primary studentProfileLogoutButton" value="Logout">
+                <a class="btn btn-primary studentProfileLogoutButton" href="../logout.php" >Logout</a>
             </div>
             <div class="col-sm-9">
                 <div class="row">

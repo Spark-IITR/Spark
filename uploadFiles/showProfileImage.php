@@ -2,15 +2,15 @@
     require_once('../config/config.php');
 
     $content = mysqli_real_escape_string($conn, $content);
-	if (empty($_GET['id']) || !is_numeric($_GET['id'])) {
+	if (empty($_GET['email'])) {
 		echo 'A valid image file id is required to display the image file.';
 		exit;
 	}
 
-	$imageId = $_GET['id'];
+	$imageId = $_GET['email'];
 
 		$content = mysqli_real_escape_string($conn, $content);
-		$sql = "SELECT  image FROM user where id = 2";
+		$sql = "SELECT  image FROM user where email='$imageId'";
 
 		if ($rs = mysqli_query($conn, $sql)) {
 			$imageData = mysqli_fetch_array($rs, MYSQLI_ASSOC);

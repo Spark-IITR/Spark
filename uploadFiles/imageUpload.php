@@ -4,11 +4,13 @@
 if ($_POST && !empty($_FILES)) {
     $formOk = true;
 
+     $email = $_POST['imageId'];
+     $role = $_POST['imageRole'];
     $path = $_FILES['image']['tmp_name'];
-    $email = $_POST['imageId'];
     $size = $_FILES['image']['size'];
     $type = $_FILES['image']['type'];
-
+echo $role;
+echo 'hello';
     if ($_FILES['image']['error'] || !is_uploaded_file($path)) {
         $formOk = false;
         echo "Error: Error in uploading file. Please try again.";
@@ -29,7 +31,11 @@ if ($_POST && !empty($_FILES)) {
             $sql = "update user set image='$content' where email='$email'";
 
             if (mysqli_query($conn, $sql)) {
-                header ("location:index.php");
+                if($role=='faculty'){
+                    header ("location:../faculty-portal/");
+                }else if($role=='student'){
+                    header ("location:../student-portal/");
+                }
             } else {
                 echo "Error: Could not save the data to mysql database. Please try again.";
             }
