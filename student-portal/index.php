@@ -65,6 +65,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
     		<div class="col-sm-9">
     			<div class="row">
     				<div class="col-sm-12">
+    					<!-- <div class="alert alert-success" role="alert"> PLease Upload Your  NOC ( for student of other than IIT,Roorkee ) and Resume ( compulsory for all students ) ..</div> -->
     					<p class="studentProjectTag">Projects</p>
     					<div>
 						  	<ul class="nav nav-tabs" role="tablist">
@@ -195,6 +196,19 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
 							<label for="noc"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
 	    					<input type="submit" name="submit" class="btn btn-primary studentProfileImageSubmitButton" value="Upload NOC/LOR" placeholder="" >
 						</form>
+    				</div>
+    			</div>
+
+    			<div class="row" style="margin-top: 5vh">
+    				<div class="col-sm-12">
+    					<div class="jumbotron">
+						  <h2>Status</h2>
+						  <ul>
+						  	<li>Application Submitted</li>
+						  	<li>Not Recommended</li>
+						  	<li>Last date is coming soon..</li>
+						  </ul>
+						</div>
     				</div>
     			</div>
     		</div>

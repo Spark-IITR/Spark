@@ -68,76 +68,155 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                                 <li role="presentation" class="active"><a href="#application" aria-controls="home" role="tab" data-toggle="tab">Applications</a></li>
                                 <li role="presentation"><a href="#accepted" aria-controls="kill" role="tab" data-toggle="tab">Approved</a></li>
                                 <li role="presentation"><a href="#yourProjects" aria-controls="profile" role="tab" data-toggle="tab">Your Projects</a></li>
+                                <li role="presentation"><a href="#allProject" aria-controls="kill" role="tab" data-toggle="tab">All Projects</a></li>
                             </ul>
                             <div class="tab-content" style="max-height: 50vh;overflow: scroll;">
+
                                 <div role="tabpanel" class="tab-pane fade in active" id="application">
                                     <table class="table table-striped">
-                                        <thead style="font-size: 14px;"><tr><th title="Field #1">#</th>
-                                            <th title="Field #2">Name</th>
-                                            <th title="Field #3">College</th>
-                                            <th title="Field #5">Tentative projects for summer internship</th>
-                                            <th title="Field #6">Status</th>
-                                        </tr></thead>
+                                        <thead style="font-size: 14px;">
+                                            <tr>
+                                                <th title="Field #1">#</th>
+                                                <th title="Field #2">Name</th>
+                                                <th title="Field #3">College</th>
+                                                <th title="Field #5">Tentative projects for summer internship</th>
+                                                <th title="Field #6">Status</th>
+                                            </tr>
+                                        </thead>
                                         <tbody id="myTable">
-                                        <tr>
-                                            <td align="right">1</td>
-                                            <td>Uttam Kumar Roy</td>
-                                            <td>Indian Institute of technology, IIT Roorkee</td>
-                                            <td>Affordable Housing Design, Industrialised Building system, New town and Smart City Development, Building codes</td>
-                                            <td><span class="glyphicon glyphicon-ok-circle studentProjectStatus" style="color: green"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td align="right">2</td>
-                                            <td>Prashant verma</td>
-                                            <td>Indian Institute of technology, IIT Roorkee</td>
-                                            <td>Affordable Housing Design, Industrialised Building system, New town and Smart City Development, Building codes</td>
-                                            <td><span class="glyphicon glyphicon-ok-circle studentProjectStatus" style="color: green"></span></td>
-                                        </tr>
-                                        
-                                    </table>
-                                </div>
-
-
-                                <div role="tabpanel" class="tab-pane fade" id="yourProjects">
-                                    <div class="">
-                                    <table class="table table-striped">
-                                        <thead style=""><tr><th title="Field #1">#</th>
-                                            <th title="Field #5">Research interests/Tentative projects for summer internship</th>
-                                        </tr></thead>
-                                        <tbody id="myTable"><tr>
-                                            <td align="right">1</td>
-                                            <td>Affordable Housing Design, Industrialised Building system, New town and Smart City Development, Building codes</td>
-                                        </tr>
+                                            <tr>
+                                                <td align="right">1</td>
+                                                <td>Uttam Kumar Roy</td>
+                                                <td>Indian Institute of technology, IIT Roorkee</td>
+                                                <td>Affordable Housing Design, Industrialised Building system, New town and Smart City Development, Building codes</td>
+                                                <td><span class="glyphicon glyphicon-ok-circle studentProjectStatus" style="color: green"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">2</td>
+                                                <td>Prashant verma</td>
+                                                <td>Indian Institute of technology, IIT Roorkee</td>
+                                                <td>Affordable Housing Design, Industrialised Building system, New town and Smart City Development, Building codes</td>
+                                                <td><span class="glyphicon glyphicon-ok-circle studentProjectStatus" style="color: green"></span></td>
+                                            </tr>
                                         </tbody>
-                                    </div>
                                     </table>
                                 </div>
-                            </div>
-
 
                                 <div role="tabpanel" class="tab-pane fade" id="accepted">
                                     <div class="">
-                                    <table class="table table-striped">
-                                        <thead style=""><tr><th title="Field #1">#</th>
-                                            <th title="Field #2">Name</th>
-                                            <th title="Field #3">Department</th>
-                                            <th title="Field #4">E-mail</th>
-                                            <th title="Field #5">Research interests/Tentative projects for summer internship</th>
-                                        </tr></thead>
-                                        <tbody id="myTable"><tr>
-                                            <td align="right">1</td>
-                                            <td>Uttam Kumar Roy</td>
-                                            <td>Architecture and Planning</td>
-                                            <td>ukroyfap@iitr.ac.in</td>
-                                            <td>Affordable Housing Design, Industrialised Building system, New town and Smart City Development, Building codes</td>
-                                        </tr>
+                                        <table class="table table-striped">
+                                            <thead style="">
+                                                <tr>
+                                                    <th title="Field #1">#</th>
+                                                    <th title="Field #2">Name</th>
+                                                    <th title="Field #3">Department</th>
+                                                    <th title="Field #4">E-mail</th>
+                                                    <th title="Field #5">Research interests/Tentative projects for summer internship</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="myTable">
+                                                <tr>
+                                                    <td align="right">1</td>
+                                                    <td>Uttam Kumar Roy</td>
+                                                    <td>Architecture and Planning</td>
+                                                    <td>ukroyfap@iitr.ac.in</td>
+                                                    <td>Affordable Housing Design, Industrialised Building system, New town and Smart City Development, Building codes</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    </table>
+                                </div>
+
+                                <div role="tabpanel" class="tab-pane fade" id="yourProjects">
+                                    <div class="">
+                                        <table class="table table-striped">
+                                            <thead style="">
+                                                <tr>
+                                                    <th title="Field #1">#</th>
+                                                    <th title="Field #5">Research interests/Tentative projects for summer internship</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="myTable">
+                                                <?php  
+                                                $sql    = "select project from user where email='$email'";
+                                                $result = $conn->query($sql);
+                                                if($result) {
+                                                        while($row = $result->fetch_assoc()) {
+                                                            echo "
+                                                                <tr>
+                                                                    <td align='right'>1</td>
+                                                                    <td>{$row['project']}</td>
+                                                                </tr>";
+                                                        }
+                                                    
+                                                    $result->free();
+                                                }
+                                                 ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                           
+
+                                <div role="tabpanel" class="tab-pane fade" id="allProject">
+                                    <div class="">
+                                        <table class="table table-striped">
+                                            <?php  
+                                                $sql = "select id,name,department,project from user where role='faculty'";
+                                                $result = $conn->query($sql);
+                                                if($result) {
+                                                    if($result->num_rows == 0) {
+                                                        echo '<p>There are no files in the database</p>';
+                                                    }
+                                                    else {
+                                                        echo '<thead style="">
+                                                                <tr>
+                                                                    <th title="Field #1">ID</th>
+                                                                    <th title="Field #2">Name</th>
+                                                                    <th title="Field #3">Department</th>
+                                                                    <th title="Field #4">Research interests/Tentative projects for summer internship</th>
+                                                                    <th title="Field #5">Set Priority</th>
+                                                                </tr>
+                                                             </thead>';
+                                                                 
+                                                        while($row = $result->fetch_assoc()) {
+                                                            echo "
+                                                                <tbody id='myTable'>
+                                                                    <tr>
+                                                                        <td>{$row['id']}</td>
+                                                                        <td>{$row['name']}</td>
+                                                                        <td>{$row['department']}</td>
+                                                                        <td>{$row['project']}</td>
+                                                                        <td>
+                                                                            <div class='btn-group'>
+                                                                              <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                                                                Priority <span class='caret'></span>
+                                                                              </button>
+                                                                              <ul class='dropdown-menu'>
+                                                                                <li><a href='#'>1st </a></li>
+                                                                                <li><a href='#'>2nd </a></li>
+                                                                                <li><a href='#'>3rd </a></li>
+                                                                                <li><a href='#'>4rd </a></li>
+                                                                                <li><a href='#'>5rd </a></li>
+                                                                              </ul>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>";
+                                                        }
+                                                    }
+                                                 
+                                                    $result->free();
+                                                }
+                                            ?>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-0">
