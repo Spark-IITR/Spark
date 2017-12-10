@@ -24,6 +24,10 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                     if(mysqli_stmt_fetch($stmt)){
 
                         require_once '../header.php';
+
+                        function setPriority1(){
+                        	 header ("location:../inde.php");
+                        }
            ?>        
     
 
@@ -133,44 +137,84 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
 											        echo '<p>There are no files in the database</p>';
 											    }
 											    else {
-											        echo '<thead style=""><tr><th title="Field #1">ID</th>
-								                            <th title="Field #2">Name</th>
-								                            <th title="Field #3">Department</th>
-								                            <th title="Field #4">Research interests/Tentative projects for summer internship</th>
-								                            <th title="Field #5">Set Priority</th>
-								                        	</tr></thead>';
+											        echo '<thead style="">
+											        		<tr>
+											        			<th title="Field #1">ID</th>
+									                            <th title="Field #2">Name</th>
+									                            <th title="Field #3">Department</th>
+									                            <th title="Field #4">Research interests/Tentative projects for summer internship</th>
+									                            <th title="Field #5">Set Priority</th>
+								                        	</tr>
+								                        </thead>';
 															 
 											        while($row = $result->fetch_assoc()) {
 											            echo "
-											                <tbody id='myTable'><tr>
-											                	
-											                    <td>{$row['id']}</td>
-											                    <td>{$row['name']}</td>
-											                    <td>{$row['department']}</td>
-											                    <td>{$row['project']}</td>
-											                    <td><div class='btn-group'>
-												  <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-												    Priority <span class='caret'></span>
-												  </button>
-												  <ul class='dropdown-menu'>
-												    <li><a href='#'>1st </a></li>
-												    <li><a href='#'>2nd </a></li>
-												    <li><a href='#'>3rd </a></li>
-												  </ul>
-												</div>
-											</td>
-											                </tr>";
+											                <tbody id='myTable'>
+											                	<tr>
+												                    <td>{$row['id']}</td>
+												                    <td>{$row['name']}</td>
+												                    <td>{$row['department']}</td>
+												                    <td>{$row['project']}</td>
+												                    <td><div class='btn-group'>
+																			<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+																			    Priority <span class='caret'></span>
+																			</button>
+																			<ul class='dropdown-menu'>
+																			    <li>
+																			    	<form method='post' class='spriority1Form";echo $row['id']; echo "'>
+														                    			<input type='hidden' class='spriority1StudentId";echo $row['id']; echo "' value='hello1@gmail.com' >
+														                    			<input type='hidden' class='spriority1FacultyId";echo $row['id']; echo "' value='50'  >
+														                    			<input type='submit' id='spriority1Button";echo $row['id']; echo "' value='1st' > 
+													                    			</form>
+													                    		</li>
+																			    <li><button> 2nd </button></li>
+																			    <li><button> 3rd </button></li>
+																			</ul>
+																		</div>
+																	</td>
+											                	</tr>
+											                </tbody>
+											                 <script type='text/javascript'>
+																$(function() {
+																	$('.spriority1Form";echo $row['id']; echo "').submit(function() {
+																	window.alert('hello');
+																	 var facultyId=$('.spriority1FacultyId";echo $row['id']; echo "').val();
+																     var studentId= $('.spriority1StudentId";echo $row['id']; echo "').val();
+
+																 	 $.ajax({
+
+																        url: 'spriority1.php',
+
+																        async: true,
+
+																        cache: false,
+
+																        data: 'studentId=' + studentId + '&facultyId=' + facultyId,
+
+																		type: 'post',          
+																		success: function (data) {
+																				data=data.replace(/\s+/g,'true');
+
+																          if(data == 'true'){
+
+																               alert('form submitted');     
+																        
+																        }},
+																        error : function(XMLHttpRequest, textStatus, errorThrown) {
+																            alert('error205');
+																        }
+																    });
+																    
+																	});
+																});
+
+ 
+
+</script>";
 											        }
-											 
-											        echo '</table>';
 											    }
 											 
 											    $result->free();
-											}
-											else
-											{
-											    echo 'Error! SQL query failed:';
-											    echo "<pre>{$dbLink->error}</pre>";
 											}
 											 ?>
 									</div>
@@ -218,7 +262,8 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
     <?php require_once('../footer.php');?>
 
 <?php
-		 }else{echo 'error';}
+		 }
+		 else{echo 'error';}
                 } else{
                     $username_err = 'No account found with that username.';
                 }
@@ -234,3 +279,48 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
 else
       header ("location:../index.php");
     ?>
+
+
+<?php  echo "
+
+    <script type='text/javascript'>
+
+ 
+
+$(function() {
+	$('.spriority1Form";echo $row['id']; echo "').submit(function() {
+	window.alert('hello');
+	 var facultyId=8;
+     var studentId= 2;
+
+ 	 $.ajax({
+
+        url: 'spriority1.php',
+
+        async: true,
+
+        cache: false,
+
+        data: 'studentId=' + studentId + '&facultyId=' + facultyId,
+
+		type: 'post',          
+		success: function (data) {
+				data=data.replace(/\s+/g,'true');
+
+          if(data == 'true'){
+
+               alert('form submitted');     
+        
+        }},
+        error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert('error205');
+        }
+    });
+    
+	});
+});
+
+ 
+
+</script>
+"

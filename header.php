@@ -89,11 +89,12 @@
     <link rel="icon" href="../../favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link href="<?php echo base_url; ?>src/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/index1.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/index1Less.css" rel="stylesheet">
-    <script src="<?php echo base_url; ?>src/js/jquery.min.js"></script>
     <script src="<?php echo base_url; ?>src/js/bootstrap.min.js"></script>
 </head>
 
@@ -116,17 +117,42 @@
 
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav navbar-right">
+           
+           <?php if($_SESSION['role'] == ""){?>
+
            <li><a href="index.php#aboutUs">About SPARK </a></li>
            <li><a href="index.php#guidelines">Guidelines</a></li>
            <li><a href="Publish/project.html">Projects</a></li>
            <li><a href="index.php#timeline">Timeline</a></li>
            <li><a href="signup.php">Contact</a></li>
-           <?php if($_SESSION['role'] == ""){?>
-            <li><a href="#" data-toggle="modal" data-target="#login">Log In</a></li>
-           <?php }else{ ?>
-          <li style="font-size: 1.4vw;
-    margin-top: 4.4vh;
-    color: #777;"><?php echo $name; ?></li>
+           <li><a href="#login" data-toggle="modal" data-target="#login">Log In</a></li>
+
+           <?php } else if($_SESSION['role'] == "faculty"){?>
+           <li><a href="../index.php#aboutUs">About SPARK </a></li>
+           <li><a href="../index.php#guidelines">Guidelines</a></li>
+           <li><a href="../Publish/project.html">Projects</a></li>
+           <li><a href="../index.php#timeline">Timeline</a></li>
+           <li><a href="../signup.php">Contact</a></li>
+           <li style="font-size: 1.4vw;color: #777;"><a href="../faculty-portal/"><?php echo $name; ?></a></li>
+
+
+           <?php }else if($_SESSION['role'] == "student"){?>
+           <li><a href="../index.php#aboutUs">About SPARK </a></li>
+           <li><a href="../index.php#guidelines">Guidelines</a></li>
+           <li><a href="../Publish/project.html">Projects</a></li>
+           <li><a href="../index.php#timeline">Timeline</a></li>
+           <li><a href="../signup.php">Contact</a></li>
+            <li style="font-size: 1.4vw;color: #777;"><a href="../student-portal/"><?php echo $name; ?></a></li>
+            
+
+          <?php }else if($_SESSION['role'] == "admin"){?>
+            <li><a href="../index.php#aboutUs">About SPARK </a></li>
+           <li><a href="../index.php#guidelines">Guidelines</a></li>
+           <li><a href="../Publish/project.html">Projects</a></li>
+           <li><a href="../index.php#timeline">Timeline</a></li>
+           <li><a href="../signup.php">Contact</a></li>
+            <li style="font-size: 1.4vw;color: #777;"><a href="../admin-portal/"><?php echo $name; ?></a></li>
+            
           <?php } ?>
            
          </ul>
