@@ -53,7 +53,7 @@
             <p class="pull-left"> Copyright © 2017, All Rights Reserved, Indian Institute of Technology, Roorkee </p>
             <div class="pull-right">
                 <ul class="social">
-                    <li> <a href="#"> <i class="fa fa-facebook">   </i> </a> </li>
+                    <li> <a href="https://www.facebook.com/SPARK-IIT-Roorkee-1938628919796672/"> <i class="fa fa-facebook">   </i> </a> </li>
                 </ul>
             </div>
         </div>

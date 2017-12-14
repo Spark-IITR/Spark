@@ -200,7 +200,8 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
     		</div>
     	</div>
     </div>
-
+<div style="height:5vh;"> </div>
+    <?php require_once('../footer.php');?>
 
 <?php
 		 }else{echo 'error';}
