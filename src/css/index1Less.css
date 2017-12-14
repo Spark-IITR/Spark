@@ -5,7 +5,7 @@
 		font-size: 4vw
 	}
 	.navbar-collapse.collapse{
-		height: 35vh
+		height: 40vh
 	}
 	.indexNavbarIitrLogo{
 		height: auto;
@@ -23,7 +23,8 @@
 	height:38vh !important;
 	width: 100vw;
 	}
-.sparkFullFormTag{
+
+	.sparkFullFormTag{
     margin-left: 29%;
     font-size: 1.1vw;
     display: none;
@@ -31,6 +32,14 @@
 	.sparkNavbarTag{
 	    font-size: 5.6vw !important;
 	}
+
+	.moveToUpButton{
+	    padding: .5% 4px .5% 5px;
+	    top: 87vh;
+	    left: 83%;
+	    font-size: 10.6vw
+	}
+
 
 	/* main css*/
 	.indexIntroductionTag{
@@ -84,9 +93,8 @@
 .indexContactUs{
 	margin-top: -6vh
 }
-.moveToUpButton{
-	    padding: .5% 4px .5% 5px;
-	    top: 87vh;
-	    left: 83%;
-	    font-size: 10.6vw
-	}
+.signupHereTag{
+    font-size: 8vw;
+    margin-bottom: 2vh;
+    margin-top: -5vh;
+}

@@ -1,34 +1,63 @@
-    <?php require_once '../header.php' ?>
+<?php
+ob_start();
+session_start();
+require_once '../config/config.php';
+$name = $email = $contact = $department = $college = ""; 
+if(isset($_SESSION['role'])=='faculty')
+{
+    $role = $_SESSION['role'];
+$sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? and role = ?";
+        
+        if($stmt = mysqli_prepare($conn, $sql)){
+            mysqli_stmt_bind_param($stmt, "ss", $param_username,$param_role);
+            
+            $param_username = $_SESSION['username'];
+            $param_role = $_SESSION['role'];
+            
+            if(mysqli_stmt_execute($stmt)){
+                mysqli_stmt_store_result($stmt);
+                
+                if(mysqli_stmt_num_rows($stmt) == 1){                    
+                    mysqli_stmt_bind_result($stmt, $name,$email,$contact,$department,$college);
+                    if(mysqli_stmt_fetch($stmt)){
+
+                        require_once '../header.php';
+           ?>         
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3  studentProfileContainer">
                 <div class="row">
                      <div class="col-sm-12" style="text-align: center;">
-                        <img src="<?php echo base_url; ?>src/img/iitrLogo.png" class="studentProfileImg">
+                        <img src="../uploadFiles/showProfileImage.php?email=<?=$email ?>" class="studentProfileImg" alt="<?php echo $name; ?>">
                      </div>
                      <div class="col-sm-12">
-                        <input type="file" name="file" id="file" class="inputfile" />
-                        <label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
-                        <input type="submit" name="" class="btn btn-primary studentProfileImageSubmitButton" value="Change Image" placeholder="" >
+                        <form action="../uploadFiles/imageUpload.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="imageId" value="<?php echo $email; ?>">
+                            <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
+                            <input type="file" name="image" id="file" class="inputfile" />
+                            <label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
+                            <input type="submit" name="submit" class="btn btn-primary studentProfileImageSubmitButton" value="Change Image" placeholder="" >
+                        </form>
                      </div>
                 </div>
                 <p class="studentProfileDetailsTag  studentProfileUpperMargin">Name</p>
-                <p class="studentProfileDetails">Prashant Verma</p>
+                <p class="studentProfileDetails"><?php echo $name; ?></p>
 
                 <p class="studentProfileDetailsTag">Department</p>
-                <p class="studentProfileDetails">Chemical Engineering</p>
+                <p class="studentProfileDetails"><?php echo $department; ?></p>
 
                 <p class="studentProfileDetailsTag">College</p>
-                <p class="studentProfileDetails">Indian Institute Of Technology, Roorkee</p>
+                <p class="studentProfileDetails"><?php echo $college; ?></p>
 
                 <p class="studentProfileDetailsTag">Email</p>
-                <p class="studentProfileDetails">prashantverma12223@gmail.com</p>
+                <p class="studentProfileDetails"><?php echo $email; ?></p>
 
                 <p class="studentProfileDetailsTag">Contact No.</p>
-                <p class="studentProfileDetails">9919431223</p>
+                <p class="studentProfileDetails"><?php echo $contact; ?></p>
 
-                <input type="button" name="" class="btn btn-primary studentProfileLogoutButton" value="Logout">
+
+                <a class="btn btn-primary studentProfileLogoutButton" href="../logout.php" >Logout</a>
             </div>
             <div class="col-sm-9">
                 <div class="row">
@@ -166,3 +195,22 @@
 
 
     <?php require_once('../footer.php');?>
+
+
+    <?php
+         }else{echo 'error';}
+                } else{
+                    $username_err = 'No account found with that username.';
+                }
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+        }
+        
+        mysqli_stmt_close($stmt);
+    }
+
+    
+else
+      header ("location:../index.php");
+    ?>
