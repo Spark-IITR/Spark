@@ -2,11 +2,11 @@
 ob_start();
 session_start();
 require_once '../config/config.php';
-$name = $email = $contact = $department = $college = ""; 
+$facultyRealId = $name = $email = $contact = $department = $college = ""; 
 if(isset($_SESSION['role'])=='faculty')
 {
     $role = $_SESSION['role'];
-$sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? and role = ?";
+$sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = ? and role = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "ss", $param_username,$param_role);
@@ -18,10 +18,51 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    mysqli_stmt_bind_result($stmt, $name,$email,$contact,$department,$college);
+                    mysqli_stmt_bind_result($stmt,$facultyRealId, $name,$email,$contact,$department,$college);
                     if(mysqli_stmt_fetch($stmt)){
 
                         require_once '../header.php';
+
+                        /* fetch applications */
+                             $sql    = "select name,email,department,college,year,spriority1,spriority2,spriority3 from user where spriority1=$facultyRealId or spriority2=$facultyRealId or spriority3=$facultyRealId";
+                            $result = $conn->query($sql);
+
+                            while($row=mysqli_fetch_assoc($result)) {
+                                    
+                                }
+
+
+
+                            // if(!$result->num_rows == 0) {
+                            //    $row = $result->fetch_assoc();
+
+                            //    if($row['spriority1']==$facultyRealId){
+
+                            //    $spriority1StudentName =  $row['name'];
+                            //    $spriority1StudentEmail =  $row['email'];
+                            //    $spriority1StudentDepartment =  $row['department'];
+                            //    $spriority1StudentCollege =  $row['college'];
+                            //    $spriority1StudentYear =  $row['year'];
+                                
+                            //     }else if($row['spriority2']==$facultyRealId){
+                                 
+                            //    $spriority2StudentName =  $row['name'];
+                            //    $spriority2StudentEmail =  $row['email'];
+                            //    $spriority2StudentDepartment =  $row['department'];
+                            //    $spriority2StudentCollege =  $row['college'];
+                            //    $spriority2StudentYear =  $row['year'];
+
+                            //     }else if($row['spriority3']==$facultyRealId){
+                                 
+                            //    $spriority3StudentName =  $row['name'];
+                            //    $spriority3StudentEmail =  $row['email'];
+                            //    $spriority3StudentDepartment =  $row['department'];
+                            //    $spriority3StudentCollege =  $row['college'];
+                            //    $spriority3StudentYear =  $row['year'];
+                            //     }
+                            // }
+
+
            ?>         
 
     <div class="container-fluid">
@@ -76,28 +117,55 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                                     <table class="table table-striped">
                                         <thead style="font-size: 14px;">
                                             <tr>
-                                                <th title="Field #1">#</th>
+                                                
                                                 <th title="Field #2">Name</th>
-                                                <th title="Field #3">College</th>
-                                                <th title="Field #5">Tentative projects for summer internship</th>
-                                                <th title="Field #6">Status</th>
+                                                <th title="Field #3">Year</th>
+                                                <th title="Field #5">Department</th>
+                                                <th title="Field #6">College</th>
+                                                <th title="Field #7">Approve</th>
                                             </tr>
                                         </thead>
                                         <tbody id="myTable">
-                                            <tr>
-                                                <td align="right">1</td>
-                                                <td>Uttam Kumar Roy</td>
-                                                <td>Indian Institute of technology, IIT Roorkee</td>
-                                                <td>Affordable Housing Design, Industrialised Building system, New town and Smart City Development, Building codes</td>
-                                                <td><span class="glyphicon glyphicon-ok-circle studentProjectStatus" style="color: green"></span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="right">2</td>
-                                                <td>Prashant verma</td>
-                                                <td>Indian Institute of technology, IIT Roorkee</td>
-                                                <td>Affordable Housing Design, Industrialised Building system, New town and Smart City Development, Building codes</td>
-                                                <td><span class="glyphicon glyphicon-ok-circle studentProjectStatus" style="color: green"></span></td>
-                                            </tr>
+                                            <?php 
+                                                 $sql    = "select name,email,department,college,year,spriority1,spriority2,spriority3 from user where spriority1=$facultyRealId or spriority2=$facultyRealId or spriority3=$facultyRealId";
+                                                $result = $conn->query($sql);
+
+                                                while($row=mysqli_fetch_assoc($result)) {
+                                                        if($row['spriority1']==$facultyRealId){ ?>
+                                                            <tr>
+                                                                <td><?php echo $row['name']; ?></td>
+                                                                <td><?php echo $row['year']; ?></td>
+                                                                <td><?php echo $row['department']; ?></td>
+                                                                <td><?php echo $row['college']; ?></td>
+                                                                <td><input type="button" name="approve" class="btn btn-default" value="Approve"></td>
+                                                            </tr>
+                                                        <?php }else if($row['spriority2']==$facultyRealId){?>
+
+                                                            <tr>
+                                                                <td><?php echo $row['name']; ?></td>
+                                                                <td><?php echo $row['year']; ?></td>
+                                                                <td><?php echo $row['department']; ?></td>
+                                                                <td><?php echo $row['college']; ?></td>
+                                                                <td><input type="button" name="approve" class="btn btn-default" value="Approve"></td>
+                                                            </tr>
+
+                                                        <?php }else if($row['spriority3']==$facultyRealId){?>
+
+                                                            <tr>
+                                                                <td><?php echo $row['name']; ?></td>
+                                                                <td><?php echo $row['year']; ?></td>
+                                                                <td><?php echo $row['department']; ?></td>
+                                                                <td><?php echo $row['college']; ?></td>
+                                                                <td><input type="button" name="approve" class="btn btn-default" value="Approve"></td>
+                                                            </tr>
+
+                                                        <?php }
+                                                    }
+
+                                            ?>
+
+                                            
+                                            
                                         </tbody>
                                     </table>
                                 </div>
