@@ -31,10 +31,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                         	 $sql    = "select spriority1,spriority2,spriority3 from user where id=$studentRealId";
 							$result = $conn->query($sql);
 
-							if($result->num_rows == 0) {
-											        echo '<p> Priorities are not choosen</p>';
-											    }
-						    else {
+							if(!$result->num_rows == 0) {
 						       $row = $result->fetch_assoc();
 						       $spriority1FacultyId =  $row['spriority1'];
 						       $spriority2FacultyId =  $row['spriority2'];
@@ -75,8 +72,6 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
 								    	$spriority3FacultyProject = $row3['project'];
 
 								    }
-
-
 							}
 
 							 
@@ -231,6 +226,8 @@ $(function() {
 	$('#spriority1Button";echo $row['id']; echo "').click(function() {	
 	 var data = $('#spriority1Form";echo $row['id']; echo "').serialize();
 
+	 confirm = confirm('If you want to set 1st priority for your project to ";echo $row['name']; echo " ? ');
+	 if(confirm==true ){
  	 $.ajax({
         url: 'spriority1.php',
         data: data,
@@ -238,12 +235,21 @@ $(function() {
 		type: 'POST',          
 
 		success: function(data){
-               console.log('form submitted');     
-        },
-        error : function(XMLHttpRequest, textStatus, errorThrown) {
-            console.log(errorThrown);
+    		data=data.replace(/\s+/g,'true');
+ 
+           if(data == 'true'){
+ 
+                console.log('form submitted');     
+         
+         }else{
+         	alert('Priority already selected . ');
+         }
+     },
+       error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert('Priority inserted .');
         }
 	    });
+	}
 	});
 });
 
