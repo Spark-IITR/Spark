@@ -23,45 +23,6 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
 
                         require_once '../header.php';
 
-                        /* fetch applications */
-                             $sql    = "select name,email,department,college,year,spriority1,spriority2,spriority3 from user where spriority1=$facultyRealId or spriority2=$facultyRealId or spriority3=$facultyRealId";
-                            $result = $conn->query($sql);
-
-                            while($row=mysqli_fetch_assoc($result)) {
-                                    
-                                }
-
-
-
-                            // if(!$result->num_rows == 0) {
-                            //    $row = $result->fetch_assoc();
-
-                            //    if($row['spriority1']==$facultyRealId){
-
-                            //    $spriority1StudentName =  $row['name'];
-                            //    $spriority1StudentEmail =  $row['email'];
-                            //    $spriority1StudentDepartment =  $row['department'];
-                            //    $spriority1StudentCollege =  $row['college'];
-                            //    $spriority1StudentYear =  $row['year'];
-                                
-                            //     }else if($row['spriority2']==$facultyRealId){
-                                 
-                            //    $spriority2StudentName =  $row['name'];
-                            //    $spriority2StudentEmail =  $row['email'];
-                            //    $spriority2StudentDepartment =  $row['department'];
-                            //    $spriority2StudentCollege =  $row['college'];
-                            //    $spriority2StudentYear =  $row['year'];
-
-                            //     }else if($row['spriority3']==$facultyRealId){
-                                 
-                            //    $spriority3StudentName =  $row['name'];
-                            //    $spriority3StudentEmail =  $row['email'];
-                            //    $spriority3StudentDepartment =  $row['department'];
-                            //    $spriority3StudentCollege =  $row['college'];
-                            //    $spriority3StudentYear =  $row['year'];
-                            //     }
-                            // }
-
 
            ?>         
 
@@ -111,7 +72,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                                 <li role="presentation"><a href="#yourProjects" aria-controls="profile" role="tab" data-toggle="tab">Your Projects</a></li>
                                 <li role="presentation"><a href="#allProject" aria-controls="kill" role="tab" data-toggle="tab">All Projects</a></li>
                             </ul>
-                            <div class="tab-content" style="max-height: 50vh;overflow: scroll;">
+                            <div class="tab-content" style="max-height: 50vh;overflow: scroll;min-height: 40vh">
 
                                 <div role="tabpanel" class="tab-pane fade in active" id="application">
                                     <table class="table table-striped">
@@ -127,17 +88,30 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                                         </thead>
                                         <tbody id="myTable">
                                             <?php 
-                                                 $sql    = "select name,email,department,college,year,spriority1,spriority2,spriority3 from user where spriority1=$facultyRealId or spriority2=$facultyRealId or spriority3=$facultyRealId";
+                                                 $sql    = "select id,name,email,department,college,year,spriority1,spriority2,spriority3 from user where spriority1=$facultyRealId or spriority2=$facultyRealId or spriority3=$facultyRealId";
                                                 $result = $conn->query($sql);
 
                                                 while($row=mysqli_fetch_assoc($result)) {
                                                         if($row['spriority1']==$facultyRealId){ ?>
-                                                            <tr>
+                                                            <tr onclick="fetch_student_detail(<?php echo $row['id']; ?>);">
                                                                 <td><?php echo $row['name']; ?></td>
                                                                 <td><?php echo $row['year']; ?></td>
                                                                 <td><?php echo $row['department']; ?></td>
                                                                 <td><?php echo $row['college']; ?></td>
-                                                                <td><input type="button" name="approve" class="btn btn-default" value="Approve"></td>
+                                                                <td>
+                                                                    <div class='btn-group'>
+                                                                      <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                                                        Priority <span class='caret'></span>
+                                                                      </button>
+                                                                      <ul class='dropdown-menu'>
+                                                                        <li><a href='#'>1st </a></li>
+                                                                        <li><a href='#'>2nd </a></li>
+                                                                        <li><a href='#'>3rd </a></li>
+                                                                        <li><a href='#'>4rd </a></li>
+                                                                        <li><a href='#'>5rd </a></li>
+                                                                      </ul>
+                                                                    </div>
+                                                                </td>
                                                             </tr>
                                                         <?php }else if($row['spriority2']==$facultyRealId){?>
 
@@ -146,7 +120,20 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                                                                 <td><?php echo $row['year']; ?></td>
                                                                 <td><?php echo $row['department']; ?></td>
                                                                 <td><?php echo $row['college']; ?></td>
-                                                                <td><input type="button" name="approve" class="btn btn-default" value="Approve"></td>
+                                                                <td>
+                                                                    <div class='btn-group'>
+                                                                      <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                                                        Priority <span class='caret'></span>
+                                                                      </button>
+                                                                      <ul class='dropdown-menu'>
+                                                                        <li><a href='#'>1st </a></li>
+                                                                        <li><a href='#'>2nd </a></li>
+                                                                        <li><a href='#'>3rd </a></li>
+                                                                        <li><a href='#'>4rd </a></li>
+                                                                        <li><a href='#'>5rd </a></li>
+                                                                      </ul>
+                                                                    </div>
+                                                                </td>
                                                             </tr>
 
                                                         <?php }else if($row['spriority3']==$facultyRealId){?>
@@ -156,7 +143,20 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                                                                 <td><?php echo $row['year']; ?></td>
                                                                 <td><?php echo $row['department']; ?></td>
                                                                 <td><?php echo $row['college']; ?></td>
-                                                                <td><input type="button" name="approve" class="btn btn-default" value="Approve"></td>
+                                                                <td>
+                                                                    <div class='btn-group'>
+                                                                      <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                                                        Priority <span class='caret'></span>
+                                                                      </button>
+                                                                      <ul class='dropdown-menu'>
+                                                                        <li><a href='#'>1st </a></li>
+                                                                        <li><a href='#'>2nd </a></li>
+                                                                        <li><a href='#'>3rd </a></li>
+                                                                        <li><a href='#'>4rd </a></li>
+                                                                        <li><a href='#'>5rd </a></li>
+                                                                      </ul>
+                                                                    </div>
+                                                                </td>
                                                             </tr>
 
                                                         <?php }
@@ -189,6 +189,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                                                     <td>Architecture and Planning</td>
                                                     <td>ukroyfap@iitr.ac.in</td>
                                                     <td>Affordable Housing Design, Industrialised Building system, New town and Smart City Development, Building codes</td>
+
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -243,7 +244,6 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                                                                     <th title="Field #2">Name</th>
                                                                     <th title="Field #3">Department</th>
                                                                     <th title="Field #4">Research interests/Tentative projects for summer internship</th>
-                                                                    <th title="Field #5">Set Priority</th>
                                                                 </tr>
                                                              </thead>';
                                                                  
@@ -255,20 +255,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                                                                         <td>{$row['name']}</td>
                                                                         <td>{$row['department']}</td>
                                                                         <td>{$row['project']}</td>
-                                                                        <td>
-                                                                            <div class='btn-group'>
-                                                                              <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                                                                Priority <span class='caret'></span>
-                                                                              </button>
-                                                                              <ul class='dropdown-menu'>
-                                                                                <li><a href='#'>1st </a></li>
-                                                                                <li><a href='#'>2nd </a></li>
-                                                                                <li><a href='#'>3rd </a></li>
-                                                                                <li><a href='#'>4rd </a></li>
-                                                                                <li><a href='#'>5rd </a></li>
-                                                                              </ul>
-                                                                            </div>
-                                                                        </td>
+                                                                        
                                                                     </tr>
                                                                 </tbody>";
                                                         }
@@ -284,57 +271,17 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                         </div>
                     </div>
                 </div>
-            </div>
-
                 <div class="row">
-                    <div class="col-sm-10 col-sm-offset-0">
-                        <div class="row doctorsStudentContainer" >
-                            <div class="col-sm-4" style="text-align: center;">
-                                <img src="<?php echo base_url; ?>src/img/iitrLogo.png" alt="prashant" class="doctorsStudentTabImg" >
-                                <p class="doctorsStudentTabName">Prashant Verma</p>
-                                <p class="doctorsStudentTabYear">2nd Year, B.Tech</p>
-                            </div>
-                            <div class="col-sm-2" style="font-weight: 700">
-                                <p>Email : </p>
-                                <p>Contact : </p>
-                                <p>D.O.B : </p>
-                                <p>Department:</p>
-                                <p>College : </p>
-                                <p>Project :</p>
-                            </div>
-                            <div class="col-sm-6">
-                                <p>prashantverma1223@gmail.com</p>
-                                <p>9919431223</p>
-                                <p>09/12/1999</p>
-                                <p>Chemical Engineering</p>
-                                <p>Indian institute of technology, Roorkee</p>
-                                <p>Affordable Housing Design, Industrialised Building system, New town and Smart City Development, Building codes</p>
-                            </div>
-                            <div class="col-sm-6 col-sm-offset-6">
-                                <div class="row">
-                                    <div class="col-sm-3" style="text-align: center;">
-                                        <input type="submit" name="" class="btn btn-default studentProfileImageSubmitButton" value="Resume" placeholder="" >
-                                    </div>
-                                   <div class="col-sm-3" style="text-align: center;">
-                                        <input type="submit" name="" class="btn btn-default studentProfileImageSubmitButton" value="NOC/LOR" placeholder="" >
-                                    </div>
-                                    <div class="col-sm-6" style="text-align: center;">
-                                        <input type="submit" name="" onclick="return confirm('Do you want to accept the application of Prashant Verma')" class="btn btn-primary studentProfileImageSubmitButton" value="Accept Application" placeholder="" >
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="col-sm-11 col-sm-offset-0">
+                        <div class="row doctorsStudentContainer" id="FetchDetailDiv">
+                            
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="row" style="margin-bottom: 5vh;padding-left: 5%">
-                    <div class="col-sm-2" style="font-size: 1.2vw">
-                        Add Remark :                     
-                    </div>
-                    <div class="col-sm-7">
-                         <textarea class="facultyAddRemark" rows="4" cols="50"></textarea>
-                    </div>
-                </div>
+                
+
                 
             </div>
         </div>
@@ -361,3 +308,27 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
 else
       header ("location:../index.php");
     ?>
+
+
+    <script>
+       
+    function fetch_student_detail(data){
+        var id = data;
+     $.ajax({
+        url: 'fetchStudentDetail.php',
+        data: {"id":id},
+        async: true,
+        type: 'POST',          
+
+        success: function(data){
+            console.log(data);
+            $('#FetchDetailDiv').html(data);
+     },
+       error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+        });
+ }
+    
+   
+    </script>
