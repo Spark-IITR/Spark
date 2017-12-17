@@ -2,13 +2,13 @@
 ob_start();
 session_start();
 require_once '../config/config.php';
-$name = $email = $contact = $department = $college = ""; 
+$studentRealId = $name = $email = $contact = $department = $college = ""; 
 
 if(isset($_SESSION['role'])=='student')
 {
 	$role = $_SESSION['role'];
 
-$sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? and role = ?";
+$sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = ? and role = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "ss", $param_username,$param_role);
@@ -20,7 +20,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    mysqli_stmt_bind_result($stmt, $name,$email,$contact,$department,$college);
+                    mysqli_stmt_bind_result($stmt, $studentRealId ,$name,$email,$contact,$department,$college);
                     if(mysqli_stmt_fetch($stmt)){
 
                         require_once '../header.php';
@@ -30,7 +30,6 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                         }
            ?>        
     
-
     <div class="container-fluid">
     	<div class="row">
     		<div class="col-sm-3  studentProfileContainer">
@@ -73,11 +72,11 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
     					<p class="studentProjectTag">Projects</p>
     					<div>
 						  	<ul class="nav nav-tabs" role="tablist">
-							    <li role="presentation" class="active"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
-							    <li role="presentation"><a href="#available" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
+							    <li role="presentation" class="active"><a href="#available" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
+							     <li role="presentation"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
 						  	</ul>
 						  	<div class="tab-content" style="max-height: 50vh;overflow: scroll;">
-								<div role="tabpanel" class="tab-pane fade in active" id="applied">
+								<div role="tabpanel" class="tab-pane fade in" id="applied">
 									<table class="table table-striped">
 										<thead style="font-size: 14px;"><tr><th title="Field #1">#</th>
 				                            <th title="Field #2">Name</th>
@@ -124,7 +123,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
 								</div>
 
 
-								<div role="tabpanel" class="tab-pane fade" id="available">
+								<div role="tabpanel" class="tab-pane fade in active" id="available">
 									<div class="">
 									<table class="table table-striped">
 										
@@ -161,10 +160,10 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
 																			</button>
 																			<ul class='dropdown-menu'>
 																			    <li>
-																			    	<form method='post' class='spriority1Form";echo $row['id']; echo "'>
-														                    			<input type='hidden' class='spriority1StudentId";echo $row['id']; echo "' value='hello1@gmail.com' >
-														                    			<input type='hidden' class='spriority1FacultyId";echo $row['id']; echo "' value='50'  >
-														                    			<input type='submit' id='spriority1Button";echo $row['id']; echo "' value='1st' > 
+																			    	<form method='post' id='spriority1Form";echo $row['id']; echo "'>
+														                    			<input type='hidden' name='studentId' id='spriority1StudentId";echo $row['id']; echo "' value='";echo $studentRealId; echo"' >
+														                    			<input type='hidden' name='facultyId' id='spriority1FacultyId";echo $row['id']; echo "' value='";echo $row['id']; echo"'  >
+														                    			<input type='submit' id='spriority1Button";echo $row['id']; echo "'  value='1st' > 
 													                    			</form>
 													                    		</li>
 																			    <li><button> 2nd </button></li>
@@ -174,47 +173,34 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
 																	</td>
 											                	</tr>
 											                </tbody>
-											                 <script type='text/javascript'>
-																$(function() {
-																	$('.spriority1Form";echo $row['id']; echo "').submit(function() {
-																	window.alert('hello');
-																	 var facultyId=$('.spriority1FacultyId";echo $row['id']; echo "').val();
-																     var studentId= $('.spriority1StudentId";echo $row['id']; echo "').val();
+											                <script>
 
-																 	 $.ajax({
+$(function() {
+	$('#spriority1Button";echo $row['id']; echo "').click(function() {	
+	 var data = $('#spriority1Form";echo $row['id']; echo "').serialize();
 
-																        url: 'spriority1.php',
+ 	 $.ajax({
 
-																        async: true,
+        url: 'spriority1.php',
+        data: data,
+        async: false,
+		type: 'POST',          
 
-																        cache: false,
+		success: function(data){
+               alert('form submitted');     
+        },
+        error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+	    });
+	});
+});
 
-																        data: 'studentId=' + studentId + '&facultyId=' + facultyId,
-
-																		type: 'post',          
-																		success: function (data) {
-																				data=data.replace(/\s+/g,'true');
-
-																          if(data == 'true'){
-
-																               alert('form submitted');     
-																        
-																        }},
-																        error : function(XMLHttpRequest, textStatus, errorThrown) {
-																            alert('error205');
-																        }
-																    });
-																    
-																	});
-																});
-
- 
-
-</script>";
+</script>
+											                 ";
 											        }
 											    }
 											 
-											    $result->free();
 											}
 											 ?>
 									</div>
@@ -275,52 +261,14 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
         mysqli_stmt_close($stmt);
     }
 
-    
+    // var facultyId=document.getElementById('spriority1FacultyId";echo $row['id']; echo "').value;
+      // var studentId=document.getElementById('spriority1StudentId";echo $row['id']; echo "').value;
 else
       header ("location:../index.php");
     ?>
 
 
-<?php  echo "
+<?php echo"
 
-    <script type='text/javascript'>
 
- 
-
-$(function() {
-	$('.spriority1Form";echo $row['id']; echo "').submit(function() {
-	window.alert('hello');
-	 var facultyId=8;
-     var studentId= 2;
-
- 	 $.ajax({
-
-        url: 'spriority1.php',
-
-        async: true,
-
-        cache: false,
-
-        data: 'studentId=' + studentId + '&facultyId=' + facultyId,
-
-		type: 'post',          
-		success: function (data) {
-				data=data.replace(/\s+/g,'true');
-
-          if(data == 'true'){
-
-               alert('form submitted');     
-        
-        }},
-        error : function(XMLHttpRequest, textStatus, errorThrown) {
-            alert('error205');
-        }
-    });
-    
-	});
-});
-
- 
-
-</script>
-"
+";?>
