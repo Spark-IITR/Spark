@@ -93,7 +93,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
 
                                                 while($row=mysqli_fetch_assoc($result)) {
                                                         if($row['spriority1']==$facultyRealId){ ?>
-                                                            <tr onclick="fetch_student_detail(<?php echo $row['id']; ?>);">
+                                                            <tr onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;" >
                                                                 <td><?php echo $row['name']; ?></td>
                                                                 <td><?php echo $row['year']; ?></td>
                                                                 <td><?php echo $row['department']; ?></td>
@@ -115,7 +115,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                                                             </tr>
                                                         <?php }else if($row['spriority2']==$facultyRealId){?>
 
-                                                            <tr>
+                                                            <tr onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;" >
                                                                 <td><?php echo $row['name']; ?></td>
                                                                 <td><?php echo $row['year']; ?></td>
                                                                 <td><?php echo $row['department']; ?></td>
@@ -138,7 +138,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
 
                                                         <?php }else if($row['spriority3']==$facultyRealId){?>
 
-                                                            <tr>
+                                                            <tr onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;" >
                                                                 <td><?php echo $row['name']; ?></td>
                                                                 <td><?php echo $row['year']; ?></td>
                                                                 <td><?php echo $row['department']; ?></td>
@@ -273,7 +273,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                 </div>
                 <div class="row">
                     <div class="col-sm-11 col-sm-offset-0">
-                        <div class="row doctorsStudentContainer" id="FetchDetailDiv">
+                        <div class="row doctorsStudentContainer"  id="FetchDetailDiv">
                             
                         </div>
                     </div>
@@ -321,7 +321,7 @@ else
         type: 'POST',          
 
         success: function(data){
-            console.log(data);
+            
             $('#FetchDetailDiv').html(data);
      },
        error : function(XMLHttpRequest, textStatus, errorThrown) {
