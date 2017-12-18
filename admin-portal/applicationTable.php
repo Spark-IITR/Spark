@@ -1,6 +1,6 @@
 <?php 
 	
-	$sql = "select id,name,cgpa,department,year,college,email,contact,dob,gender,degree,project from user where role='student'";
+	$sql = "select id,name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3 from user where role='student'";
 	$result = $conn->query($sql);
 	
 	if($result){
@@ -22,6 +22,7 @@
 
             <?php 
         	while($row = $result->fetch_assoc()) {
+                if($row['spriority1']!=NULL || $row['spriority1']!=NULL || $row['spriority1']!=NULL ){
         		?>
                          <tr  onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
                             <td ><?php echo $row['id']; ?></td>
@@ -31,10 +32,22 @@
                             <td><?php echo $row['college']; ?></td>
                         </tr>
                         
-                <?php } ?> 
+                <?php } } ?> 
 
                     </tbody>
                 </table>
+             </div>
+            </div>
+        </div>
+    </div>
+
+                 <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div class="row doctorsStudentContainer"  id="FetchDetailDiv">
+                            
+                        </div>
+                    </div>
+                </div>
 	<?php }
 }	        
             mysqli_close($conn);
@@ -46,7 +59,7 @@
     function fetch_student_detail(data){
         var id = data;
      $.ajax({
-        url: 'fetchStudentDetail.php',
+        url: 'fetchStudentDetailAdmin.php',
         data: {"id":id},
         async: true,
         type: 'POST',          

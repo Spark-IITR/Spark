@@ -45,7 +45,7 @@ require_once '../config/config.php';
                             <div class="col-sm-10 col-sm-offset-1" style="margin-top:4vh">
                             	<a target="_blank"><embed src="../uploadFiles/showResume.php?email='; echo $email; echo '" type="application/pdf"   height="1000vh" width="100%" id="showResume" style="display:none"></a>
                             	<a target="_blank"><embed src="../uploadFiles/showNOC.php?email='; echo $email; echo '" type="application/pdf"   height="1000vh" width="100%" id="showNOC" style="display:none"></a>
-                            </div>"
+                            </div>
 
                             <script>
 
