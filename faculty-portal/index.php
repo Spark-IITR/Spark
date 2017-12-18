@@ -39,7 +39,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                             <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
                             <input type="file" name="image" id="file" class="inputfile" />
                             <label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
-                            <input type="submit" name="submit" class="btn btn-primary studentProfileImageSubmitButton" value="Change Image" placeholder="" >
+                            <input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton" value="Change Image" placeholder="" >
                         </form>
                      </div>
                 </div>
@@ -59,7 +59,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                 <p class="studentProfileDetails"><?php echo $contact; ?></p>
 
 
-                <a class="btn btn-primary studentProfileLogoutButton" href="../logout.php" >Logout</a>
+                <a class="btn btn-default studentProfileLogoutButton" href="../logout.php" >Logout</a>
             </div>
             <div class="col-sm-9">
                 <div class="row">

@@ -30,11 +30,32 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
 
            ?>         
 
-    <div class="container-fluid">
-        <div class="row">
-            <h1>Welcome Admin</h1>
-        </div>
-    </div>
+            <div class="container-fluid">
+                <div class="row" style="margin-top: -3vh;margin-left: .5%">
+                    <div class="col-sm-6">
+                        <h3>Welcome Admin</h3>
+                    </div>
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Applications..">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#application" aria-controls="profile" role="tab" data-toggle="tab">Applications</a></li>
+                        </ul>
+                        <div class="tab-content" style="max-height: 70vh;overflow: scroll;">
+                            <div role="tabpanel" class="tab-pane fade in active" id="application">
+                                <?php require_once 'applicationTable.php'; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
 
 
@@ -56,3 +77,15 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
 else
       header ("location:../index.php");
     ?>
+
+
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
