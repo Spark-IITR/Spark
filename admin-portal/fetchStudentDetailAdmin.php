@@ -98,7 +98,7 @@ require_once '../config/config.php';
 
 
                                     <div class="col-sm-2" style="text-align: center;">
-                                        <form class="form-horizontal" id="recommendForm'; echo $row['id'];echo '">
+                                        <form class="form-horizontal" id="recommendForm'; echo $row['id'];echo '" method="post">
                                             <input type="hidden" name="studentId" value="';echo $row['id'];echo '">
                                           <div class="form-group">
                                               <div class="btn-group">
@@ -106,8 +106,8 @@ require_once '../config/config.php';
                                                     Recommend <span class="caret"></span>
                                                   </button>
                                                   <ul class="dropdown-menu">
-                                                    <li><a href="#"><input type="button" name="recommendStatus" id="recommendStatusYes';echo $row['id'];echo '" value="yes" placeholder="Yes"></a></li>
-                                                    <li><a href="#"><input type="button" name="recommendStatus" id="recommendStatusNo';echo $row['id'];echo '" value="no" placeholder="No"></a></li>
+                                                    <li><a><input type="button" name="recommendStatus" id="recommendStatusYes';echo $row['id'];echo '" value="1" ></a></li>
+                                                    <li><a><input type="button" name="recommendStatus" id="recommendStatusNo';echo $row['id'];echo '" value="0" ></a></li>
                                                   </ul>
                                               </div>
                                           </div>
@@ -167,7 +167,7 @@ require_once '../config/config.php';
 
                                      var data = $("#recommendForm'; echo $row['id'];echo '").serialize();
 
-                                    
+                                    alert(data);
                                      $.ajax({
                                         url: "recommend.php",
                                         data: data,
