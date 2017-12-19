@@ -23,7 +23,37 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                         require_once '../header.php';
                         
            ?>         
-           
+
+           <div class="container-fluid">
+               <div class="row">
+                   <div class="col-sm-6 col-sm-offset-3">
+                        <input type="number" class="form-control" placeholder="ID..." name="facultyName" id="facultyName" onkeyup="fetch_faculty_name(this.value)">
+                        <div id="FetchFacultyNameDiv"></div>
+                   </div>
+               </div>
+           </div>
+
+           <script>
+                function fetch_faculty_name(data){
+                        var id = data;
+                     $.ajax({
+                        url: 'fetchFacultyName.php',
+                        data: {"id":id},
+                        async: true,
+                        type: 'POST',          
+
+                        success: function(data){
+                            
+                            $('#FetchFacultyNameDiv').html(data);
+                     },
+                       error : function(XMLHttpRequest, textStatus, errorThrown) {
+                            alert(errorThrown);
+                        }
+                        });
+                 }
+           </script>
+
+
             <div class="container-fluid">
                 <div class="row" style="margin-top: -3vh;margin-left: .5%">
                     <div class="col-sm-6">
