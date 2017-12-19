@@ -9,9 +9,11 @@ require_once '../config/config.php';
 
 
 
+
 	$sql = "update user set recommendedFaculty=$recommendFacultyId,fundingType='$recommendFundingStatus',recommendStatus=$recommendStatus where id=$studentId";
 		
 			if (mysqli_query($conn, $sql)) {
+
 	               echo "true";
 	            
 	        }
