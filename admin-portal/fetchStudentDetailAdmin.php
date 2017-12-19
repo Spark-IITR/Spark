@@ -99,27 +99,33 @@ require_once '../config/config.php';
 
                                     <div class="col-sm-2" style="text-align: center;">
                                         <form class="form-horizontal" id="recommendForm'; echo $row['id'];echo '">
+                                            <input type="hidden" name="studentId" value="';echo $row['id'];echo '">
                                           <div class="form-group">
-                                              <select id="recommendStatus';echo $row['id'];echo '">
-                                                <option value="yes" id="recommendStatusYes';echo $row['id'];echo '">Yes</option>
-                                                <option value="no">No</option>
-                                              </select>
+                                              <div class="btn-group">
+                                                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Recommend <span class="caret"></span>
+                                                  </button>
+                                                  <ul class="dropdown-menu">
+                                                    <li><a href="#"><input type="button" name="recommendStatus" id="recommendStatusYes';echo $row['id'];echo '" value="yes" placeholder="Yes"></a></li>
+                                                    <li><a href="#"><input type="button" name="recommendStatus" id="recommendStatusNo';echo $row['id'];echo '" value="no" placeholder="No"></a></li>
+                                                  </ul>
+                                              </div>
                                           </div>
 
                                           <div id="statusYesDiv';echo $row['id'];echo '" style="display:none">
                                             <div class="form-group">
-                                                <label for="facultyId" class="sr-only">Email address</label>
-                                                <input type="number" class="form-control" id="recommendFacultyId';echo $row['id'];echo '" placeholder="Faculty Id..">
+                                                <label for="facultyId" class="sr-only"></label>
+                                                <input type="number" name="recommendFacultyId" class="form-control" id="recommendFacultyId';echo $row['id'];echo '" placeholder="Faculty Id..">
                                             </div>
                                             <div class="form-group">
-                                              <select id="recommendFundingStatus';echo $row['id'];echo '">
+                                              <select name="recommendFundingStatus" id="recommendFundingStatus';echo $row['id'];echo '">
                                                 <option value="spark">Spark</option>
                                                 <option value="project">Project</option>
                                                 <option value="none">None</option>
                                               </select>
                                             </div>
                                           </div>
-                                          <button type="submit" class="btn btn-default">Submit</button>
+                                          <button type="submit" class="btn btn-default"  id="recommendSubmitButton';echo $row['id'];echo '">Submit</button>
                                         </form>
                                     </div>
                                 </div>
@@ -148,9 +154,46 @@ require_once '../config/config.php';
 
                             $(document).ready(function(){
                                 $("#recommendStatusYes';echo $row['id'];echo '").click(function(){
-                                    $("#statusYesDiv';echo $row['id'];echo '").css("display", "");
+                                    $("#statusYesDiv';echo $row['id'];echo '").css("display","");
                                 });
                             });
+
+                            
+                            </script>
+
+                            <script>
+                                $(function() {
+                                    $("#recommendSubmitButton';echo $row['id'];echo '").click(function() { 
+
+                                     var data = $("#recommendForm'; echo $row['id'];echo '").serialize();
+
+                                    
+                                     $.ajax({
+                                        url: "recommend.php",
+                                        data: data,
+                                        async: true,
+                                        type: "POST",          
+
+                                        success: function(data){
+                                            data=data.replace(/\s+/g,"true");
+                                 
+                                           if(data == "true"){
+                                 
+                                                console.log("form submitted");     
+                                         
+                                         }else{
+                                            alert("Priority already selected . ");
+                                         }
+                                     },
+                                       error : function(XMLHttpRequest, textStatus, errorThrown) {
+                                            alert("Priority inserted .");
+                                        }
+                                        });
+                                    
+                                    });
+                                });
+
+                                
 
                             </script>
 
