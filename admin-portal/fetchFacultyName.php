@@ -9,11 +9,11 @@ require_once '../config/config.php';
 	
 	if($result){
 		if($result->num_rows == 0) {
-            echo '<p>Wrong Faculty Id </p>';
+            echo '<p style="color:red">Wrong Faculty Id </p>';
         }else{
         	while($row = $result->fetch_assoc()) {
                 echo '
-                <h1> '; echo $row['name']; echo'  </h1>
+                <p> '; echo $row['name']; echo'  </p>
                 ';
         		
         }
