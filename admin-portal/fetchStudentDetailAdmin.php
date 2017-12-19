@@ -111,22 +111,36 @@ require_once '../config/config.php';
                                                   </ul>
                                               </div>
                                           </div>
-
-                                          <div id="statusYesDiv';echo $row['id'];echo '" style="display:none">
-                                            <div class="form-group">
-                                                <label for="facultyId" class="sr-only"></label>
-                                                <input type="number" name="recommendFacultyId" class="form-control" id="recommendFacultyId';echo $row['id'];echo '" placeholder="Faculty Id..">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-sm-offset-4" id="statusYesDiv';echo $row['id'];echo '" style="display:none">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="facultyId" class="sr-only"></label>
+                                                        <input type="number" name="recommendFacultyId" class="form-control" id="recommendFacultyId';echo $row['id'];echo '" placeholder="Faculty Id.." onkeyup="fetch_faculty_name(this.value)">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6" id="FetchFacultyNameDiv">
+                                                    
+                                                </div>
                                             </div>
                                             <div class="form-group">
-                                              <select name="recommendFundingStatus" id="recommendFundingStatus';echo $row['id'];echo '">
-                                                <option value="spark">Spark</option>
-                                                <option value="project">Project</option>
-                                                <option value="none">None</option>
-                                              </select>
+                                                <select name="recommendFundingStatus" id="recommendFundingStatus';echo $row['id'];echo '">
+                                                    <option value="spark">Spark</option>
+                                                    <option value="project">Project</option>
+                                                    <option value="none">None</option>
+                                                </select>
                                             </div>
-                                          </div>
-                                          <button type="submit" class="btn btn-default"  id="recommendSubmitButton';echo $row['id'];echo '">Submit</button>
-                                        </form>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-offset-4 col-sm-6">
+                                                <button type="submit" class="btn btn-default"  id="recommendSubmitButton';echo $row['id'];echo '">Submit</button>
+                                            </div>
+                                        <div>
+                                            </form>
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -174,7 +188,7 @@ require_once '../config/config.php';
                                         
 
                                         if(splitDataStatus[0]=="1"){
-                                            
+
                                          $.ajax({
                                             url: "recommend.php",
                                             data: data,
@@ -228,6 +242,26 @@ require_once '../config/config.php';
                                 
 
                             </script>
+
+                            <script>
+                                function fetch_faculty_name(data){
+                                        var id = data;
+                                     $.ajax({
+                                        url: "fetchFacultyName.php",
+                                        data: {"id":id},
+                                        async: true,
+                                        type: "POST",          
+
+                                        success: function(data){
+                                            
+                                            $("#FetchFacultyNameDiv").html(data);
+                                     },
+                                       error : function(XMLHttpRequest, textStatus, errorThrown) {
+                                            alert(errorThrown);
+                                        }
+                                        });
+                                 }
+                           </script>
                             ';
         }
 	}

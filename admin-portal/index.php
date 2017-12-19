@@ -24,6 +24,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                         
            ?>         
 
+
            <div class="container-fluid">
                <div class="row">
                    <div class="col-sm-6 col-sm-offset-3">
@@ -52,7 +53,6 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                         });
                  }
            </script>
-
 
             <div class="container-fluid">
                 <div class="row" style="margin-top: -3vh;margin-left: .5%">
@@ -106,6 +106,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
 
                  
             </div>
+
 
     <?php
          }else{echo 'error';}
