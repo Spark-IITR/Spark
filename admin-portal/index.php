@@ -42,6 +42,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                             <li role="presentation"><a href="#application" role="tab" data-toggle="tab">Applications</a></li>
                             <li role="presentation"  class="active"><a href="#faculty"  role="tab" data-toggle="tab">Faculty Profile</a></li>
                         </ul>
+
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade" id="application">
                                 <?php include 'applicationTable.php'; ?>

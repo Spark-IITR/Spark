@@ -4,7 +4,7 @@ require_once '../config/config.php';
 	
 	$studentId = $_POST['id'];
 
-	$sql = "select name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3 from user where id=$studentId";
+	$sql = "select id,name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3 from user where id=$studentId";
 	$result = $conn->query($sql);
 	
 	if($result){
@@ -95,6 +95,33 @@ require_once '../config/config.php';
                                 	<div class="col-sm-2" style="text-align: center;">
                                         <input type="button"  class="btn btn-default studentProfileImageSubmitButton" value="NOC/LOR" id="showNOCButton">
                                     </div>
+
+
+                                    <div class="col-sm-2" style="text-align: center;">
+                                        <form class="form-horizontal" id="recommendForm'; echo $row['id'];echo '">
+                                          <div class="form-group">
+                                              <select id="recommendStatus';echo $row['id'];echo '">
+                                                <option value="yes" id="recommendStatusYes';echo $row['id'];echo '">Yes</option>
+                                                <option value="no">No</option>
+                                              </select>
+                                          </div>
+
+                                          <div id="statusYesDiv';echo $row['id'];echo '" style="display:none">
+                                            <div class="form-group">
+                                                <label for="facultyId" class="sr-only">Email address</label>
+                                                <input type="number" class="form-control" id="recommendFacultyId';echo $row['id'];echo '" placeholder="Faculty Id..">
+                                            </div>
+                                            <div class="form-group">
+                                              <select id="recommendFundingStatus';echo $row['id'];echo '">
+                                                <option value="spark">Spark</option>
+                                                <option value="project">Project</option>
+                                                <option value="none">None</option>
+                                              </select>
+                                            </div>
+                                          </div>
+                                          <button type="submit" class="btn btn-default">Submit</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
 
@@ -118,6 +145,13 @@ require_once '../config/config.php';
 							        $("#showNOC").css("display","");
 							    });
 							});
+
+                            $(document).ready(function(){
+                                $("#recommendStatusYes';echo $row['id'];echo '").click(function(){
+                                    $("#statusYesDiv';echo $row['id'];echo '").css("display", "");
+                                });
+                            });
+
                             </script>
 
                             ';
