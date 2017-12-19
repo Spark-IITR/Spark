@@ -96,9 +96,9 @@ require_once '../config/config.php';
                                         <input type="button"  class="btn btn-default studentProfileImageSubmitButton" value="NOC/LOR" id="showNOCButton">
                                     </div>
 
-
+                                    <form class="form-horizontal" id="recommendForm'; echo $row['id'];echo '" method="post">
                                     <div class="col-sm-2" style="text-align: center;">
-                                        <form class="form-horizontal" id="recommendForm'; echo $row['id'];echo '" method="post">
+                                        
                                             <input type="hidden" name="studentId" value="';echo $row['id'];echo '">
                                           <div class="form-group">
                                               <div class="btn-group">
@@ -185,7 +185,7 @@ require_once '../config/config.php';
                                         splitData = data.split("=");
                                         var splitDataStatus = new Array();
                                         splitDataStatus = splitData[2].split("&");
-                                        
+                                        alert(data);
 
                                         if(splitDataStatus[0]=="1"){
 
