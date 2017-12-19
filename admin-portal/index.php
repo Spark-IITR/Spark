@@ -50,10 +50,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                         <div class="tab-content" style="max-height: 70vh;overflow: scroll;">
                             <div role="tabpanel" class="tab-pane fade in active" id="application">
                                 <?php require_once 'applicationTable.php'; ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                           
             </div>
 
 

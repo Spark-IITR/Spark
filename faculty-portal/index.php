@@ -272,8 +272,8 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-11 col-sm-offset-0">
-                        <div class="row doctorsStudentContainer"  id="FetchDetailDiv">
+                    <div class="col-sm-11 col-sm-offset-0"   id="FetchDetailDiv">
+                        <div class="row doctorsStudentContainer">
                             
                         </div>
                     </div>
