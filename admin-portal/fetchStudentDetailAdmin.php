@@ -106,8 +106,8 @@ require_once '../config/config.php';
                                                     Recommend <span class="caret"></span>
                                                   </button>
                                                   <ul class="dropdown-menu">
-                                                    <li><a><input type="button" name="recommendStatus" id="recommendStatusYes';echo $row['id'];echo '" value="1" ></a></li>
-                                                    <li><a><input type="button" name="recommendStatus" id="recommendStatusNo';echo $row['id'];echo '" value="0" ></a></li>
+                                                    <li><a><input type="radio" name="recommendStatus" id="recommendStatusYes';echo $row['id'];echo '" value="1" > Yes </a></li>
+                                                    <li><a><input type="radio" name="recommendStatus" id="recommendStatusNo';echo $row['id'];echo '" value="0" > No </a></li>
                                                   </ul>
                                               </div>
                                           </div>
@@ -167,36 +167,67 @@ require_once '../config/config.php';
 
                                      var data = $("#recommendForm'; echo $row['id'];echo '").serialize();
 
-                                    alert(data);
-                                     $.ajax({
-                                        url: "recommend.php",
-                                        data: data,
-                                        async: true,
-                                        type: "POST",          
+                                        var splitData = new Array();
+                                        splitData = data.split("=");
+                                        var splitDataStatus = new Array();
+                                        splitDataStatus = splitData[2].split("&");
+                                        
 
-                                        success: function(data){
-                                            data=data.replace(/\s+/g,"true");
-                                 
-                                           if(data == "true"){
-                                 
-                                                console.log("form submitted");     
-                                         
-                                         }else{
-                                            alert("Priority already selected . ");
-                                         }
-                                     },
-                                       error : function(XMLHttpRequest, textStatus, errorThrown) {
-                                            alert("Priority inserted .");
+                                        if(splitDataStatus[0]=="1"){
+                                            
+                                         $.ajax({
+                                            url: "recommend.php",
+                                            data: data,
+                                            async: true,
+                                            type: "POST",          
+
+                                            success: function(data){
+                                                data=data.replace(/\s+/g,"true");
+                                                alert(data);
+                                               if(data == "true"){
+                                     
+                                                    alert("form submitted");     
+                                             
+                                             }else{
+                                                alert("Priority already selected . ");
+                                             }
+                                         },
+                                           error : function(XMLHttpRequest, textStatus, errorThrown) {
+                                                alert(errorThrown);
+                                            }
+                                            });
+                                    }else if(splitDataStatus[0]=="0"){
+                                        var confirmNo = confirm("Are you sure to reject his/her application ? ");
+                                        if(confirmNo==true){
+                                        $.ajax({
+                                            url: "recommend.php",
+                                            data: {"studentId":';echo $row['id'];echo ',"recommendStatus":0,"recommendFacultyId":0,"recommendFundingStatus":""},
+                                            async: true,
+                                            type: "POST",          
+
+                                            success: function(data){
+                                                data=data.replace(/\s+/g,"true");
+                                                alert(data);
+                                               if(data == "true"){
+                                     
+                                                    alert("form submitted");     
+                                             
+                                             }else{
+                                                alert("Priority already selected . ");
+                                             }
+                                         },
+                                           error : function(XMLHttpRequest, textStatus, errorThrown) {
+                                                alert(errorThrown);
+                                            }
+                                            });
                                         }
-                                        });
-                                    
+                                    }
                                     });
                                 });
 
                                 
 
                             </script>
-
                             ';
         }
 	}
