@@ -87,6 +87,79 @@ require_once '../config/config.php';
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <h3>Faculty Choice : </h3>
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th title="Field #1">ID</th>
+                                            <th title="Field #2">Faculty Name</th>
+                                            <th title="Field #3">Email</th>
+                                            <th title="Field #4">Department</th>
+                                            <th title="Field #5">Priority</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    ';  
+                                     $sql1    = "select id,name,email,department,fpriority1,fpriority2,fpriority3,fpriority4,fpriority5 from user where fpriority1=$studentId or fpriority2=$studentId or fpriority3=$studentId or fpriority4=$studentId or fpriority5=$studentId";
+                                    $result1 = $conn->query($sql1);
+
+                                    while($row1=mysqli_fetch_assoc($result1)) {
+                                            if($row1['fpriority1']==$studentId){ echo '
+
+                                        <tr>
+                                            <td >'; echo $row1['id']; echo ' </td>
+                                            <td>'; echo $row1['name']; echo '</td>
+                                            <td>'; echo $row1['email']; echo '</td>
+                                            <td>'; echo $row1['department']; echo '</td>
+                                            <td>1st</td>
+                                        </tr>
+
+                                        ';  }else if($row1['fpriority2']==$studentId){ echo '
+
+                                        <tr>
+                                            <td >'; echo $row1['id']; echo ' </td>
+                                            <td>'; echo $row1['name']; echo '</td>
+                                            <td>'; echo $row1['email']; echo '</td>
+                                            <td>'; echo $row1['department']; echo '</td>
+                                            <td>2nd</td>
+                                        </tr>
+
+                                        ';  }else if($row1['fpriority3']==$studentId){ echo '
+
+                                        <tr>
+                                            <td >'; echo $row1['id']; echo ' </td>
+                                            <td>'; echo $row1['name']; echo '</td>
+                                            <td>'; echo $row1['email']; echo '</td>
+                                            <td>'; echo $row1['department']; echo '</td>
+                                            <td>3rd</td>
+                                        </tr>
+
+                                        ';  }else if($row1['fpriority4']==$studentId){ echo '
+
+                                        <tr>
+                                            <td >'; echo $row1['id']; echo ' </td>
+                                            <td>'; echo $row1['name']; echo '</td>
+                                            <td>'; echo $row1['email']; echo '</td>
+                                            <td>'; echo $row1['department']; echo '</td>
+                                            <td>4th</td>
+                                        </tr>
+
+                                        ';  }else if($row1['fpriority5']==$studentId){ echo '
+
+                                        <tr>
+                                            <td >'; echo $row1['id']; echo ' </td>
+                                            <td>'; echo $row1['name']; echo '</td>
+                                            <td>'; echo $row1['email']; echo '</td>
+                                            <td>'; echo $row1['department']; echo '</td>
+                                            <td>5th</td>
+                                        </tr>
+                                        '; }} echo '
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-12 ">
                                 <div class="row">
                                     <div class="col-sm-1 col-sm-offset-0" style="text-align: center;margin-left:3%">
@@ -112,6 +185,7 @@ require_once '../config/config.php';
                                               </div>
                                           </div>
                                     </div>
+
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-4" id="statusYesDiv';echo $row['id'];echo '" style="display:none">
                                             <div class="row">
