@@ -5,6 +5,7 @@ require_once '../config/config.php';
     $facultyId = $_POST['id'];
 
     $sql = "select id,name,department,email,contact,gender,project,fpriority1,fpriority2,fpriority3,fpriority4,fpriority5 from user where id=$facultyId";
+
     $result = $conn->query($sql);
     
     if($result){
@@ -20,6 +21,7 @@ require_once '../config/config.php';
 
                  /* fetch details of first priority */
                   $sql1    = "select name from user where id=$fpriority1Id";
+
                   $result1 = $conn->query($sql1);
                     if(!$result1->num_rows == 0) {
                         $row1 = $result1->fetch_assoc();
@@ -29,6 +31,7 @@ require_once '../config/config.php';
 
                     /* fetch details of second priority */
                     $sql2    = "select name from user where id=$fpriority2Id";
+
                   $result2 = $conn->query($sql2);
                     if(!$result2->num_rows == 0) {
                         $row2 = $result2->fetch_assoc();
@@ -38,6 +41,7 @@ require_once '../config/config.php';
 
                     /* fetch details of third priority */
                     $sql3    = "select name from user where id=$fpriority3Id";
+
                   $result3 = $conn->query($sql3);
                     if(!$result3->num_rows == 0) {
                         $row3 = $result3->fetch_assoc();
@@ -61,6 +65,7 @@ require_once '../config/config.php';
                         $row5 = $result5->fetch_assoc();
 
                         $fpriority5StudentName = $row5['name'];
+
                     }
 
                     $email = $row['email'];
@@ -117,6 +122,7 @@ require_once '../config/config.php';
                         
                         </div>
                         
+
                             ';
         }
     }
