@@ -6,6 +6,7 @@ require_once '../config/config.php';
 
     $sql = "select id,name,department,email,contact,gender,project,fpriority1,fpriority2,fpriority3,fpriority4,fpriority5 from user where id=$facultyId";
 
+
     $result = $conn->query($sql);
     
     if($result){
@@ -98,6 +99,7 @@ require_once '../config/config.php';
                             </div>
                             <div class="col-sm-3">
                                 
+
                                 '; if($fpriority1Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
                                 <p>'; echo $fpriority1StudentName.' ( '.$fpriority1Id.' ) '; } echo '</p>
 
@@ -122,6 +124,7 @@ require_once '../config/config.php';
                         
                         </div>
                         
+
 
                             ';
         }
