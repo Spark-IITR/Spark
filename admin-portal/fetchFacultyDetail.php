@@ -4,7 +4,7 @@ require_once '../config/config.php';
     
     $facultyId = $_POST['id'];
 
-    $sql = "select id,name,cgpa,department,year,college,email,contact,dob,gender,degree,fpriority1,fpriority2,fpriority3,fpriority4,fpriority5 from user where id=$facultyId";
+    $sql = "select id,name,department,email,contact,gender,project,fpriority1,fpriority2,fpriority3,fpriority4,fpriority5 from user where id=$facultyId";
     $result = $conn->query($sql);
     
     if($result){
@@ -68,41 +68,49 @@ require_once '../config/config.php';
             echo '          <div class="col-sm-3" style="text-align: center;">
                                 <img src="../uploadFiles/showProfileImage.php?email='; echo $email; echo '" alt="prashant" class="doctorsStudentTabImg" >
                                 <p class="doctorsStudentTabName">'; echo $row['name']; echo '</p>
-                                <p class="doctorsStudentTabYear">'; echo $row['year']; echo ' Year, '.$row['degree']; echo '</p>
+                            
                             </div>
                             <div class="col-sm-1" style="font-weight: 700">
+                                <p>ID : </p>
                                 <p>Email : </p>
                                 <p>Contact : </p>
-                                <p>D.O.B : </p>
                                 <p>Gender : </p>
-                                <p>College : </p>
+                                <p>Department: </p>
                             </div>
                             <div class="col-sm-2">
+                                <p>'; echo $row['id']; echo '</p>
                                 <p>'; echo $row['email']; echo '</p>
                                 <p>'; echo $row['contact']; echo '</p>
-                                <p>'; echo $row['dob']; echo '</p>
                                 <p>'; echo $row['gender']; echo '</p>
-                                <p>'; echo $row['college']; echo '</p>
+                                <p>'; echo $row['department']; echo '</p>
                             </div>
                             <div class="col-sm-2 col-sm-offset-1" style="font-weight: 700">
-                                <p>Department : </p>
-                                <p>C.G.P.A : </p>
-                                <p>1st Priority : </p>
-                                <p>2nd Priority : </p>
+                                <p>1st Priority  : </p>
+                                <p>2nd Priority  : </p>
                                 <p>3rd Priority : </p>
+                                <p>4th Priority : </p>
+                                <p>5th Priority : </p>
                             </div>
                             <div class="col-sm-3">
-                                <p>'; echo $row['department']; echo '</p>
-                                <p>'; echo $row['cgpa']; echo '</p>
                                 
-                                '; if($spriority1Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
-                                <p>'; echo $spriority1FacultyName.' ( '.$spriority1Id.' ) '; } echo '</p>
+                                '; if($fpriority1Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $fpriority1StudentName.' ( '.$fpriority1Id.' ) '; } echo '</p>
 
-                                '; if($spriority2Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
-                                <p>'; echo $spriority2FacultyName.' ( '.$spriority2Id.' ) '; } echo '</p>
+                                '; if($fpriority2Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $fpriority2StudentName.' ( '.$fpriority2Id.' ) '; } echo '</p>
 
-                                '; if($spriority3Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
-                                <p>'; echo $spriority3FacultyName.' ( '.$spriority3Id.' ) '; } echo '</p>
+                                '; if($fpriority3Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $fpriority3StudentName.' ( '.$fpriority3Id.' ) '; } echo '</p>
+
+                                '; if($fpriority4Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $fpriority5StudentName.' ( '.$fpriority4Id.' ) '; } echo '</p>
+
+                                '; if($fpriority5Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $fpriority5StudentName.' ( '.$fpriority5Id.' ) '; } echo '</p>
+
+                            </div>
+                            <div class="col-sm-9 col-sm-offset-3">
+                            <p><span style="font-weight: 700"> Project : </span>'; echo $row['project']; echo '</p>
                             </div>
                         </div>
                         
