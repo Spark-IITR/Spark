@@ -101,12 +101,11 @@ require_once '../config/config.php';
                                     </thead>
                                     <tbody>
                                     ';  
-                                     $sql1    = "select id,name,email,department,fpriority1,fpriority2,fpriority3,fpriority4,fpriority5 from user where fpriority1=$studentId or fpriority2=$studentId or fpriority3=$studentId or fpriority4=$studentId or fpriority5=$studentId";
+                                     $sql1    = "select id,name,email,department from user where fpriority1=$studentId";
                                     $result1 = $conn->query($sql1);
 
                                     while($row1=mysqli_fetch_assoc($result1)) {
-                                            if($row1['fpriority1']==$studentId){ echo '
-
+                                             echo '
                                         <tr>
                                             <td >'; echo $row1['id']; echo ' </td>
                                             <td>'; echo $row1['name']; echo '</td>
@@ -115,46 +114,75 @@ require_once '../config/config.php';
                                             <td>1st</td>
                                         </tr>
 
-                                        ';  }else if($row1['fpriority2']==$studentId){ echo '
+                                        '; }  
 
+                                        $sql2    = "select id,name,email,department from user where fpriority2=$studentId";
+                                    $result2 = $conn->query($sql2);
+
+                                    while($row2=mysqli_fetch_assoc($result2)) {
+                                             echo '
                                         <tr>
-                                            <td >'; echo $row1['id']; echo ' </td>
-                                            <td>'; echo $row1['name']; echo '</td>
-                                            <td>'; echo $row1['email']; echo '</td>
-                                            <td>'; echo $row1['department']; echo '</td>
+                                            <td >'; echo $row2['id']; echo ' </td>
+                                            <td>'; echo $row2['name']; echo '</td>
+                                            <td>'; echo $row2['email']; echo '</td>
+                                            <td>'; echo $row2['department']; echo '</td>
                                             <td>2nd</td>
                                         </tr>
 
-                                        ';  }else if($row1['fpriority3']==$studentId){ echo '
+                                        '; }
 
+                                        $sql3    = "select id,name,email,department from user where fpriority3=$studentId";
+                                    $result3 = $conn->query($sql3);
+
+                                    while($row3=mysqli_fetch_assoc($result3)) {
+                                             echo '
                                         <tr>
-                                            <td >'; echo $row1['id']; echo ' </td>
-                                            <td>'; echo $row1['name']; echo '</td>
-                                            <td>'; echo $row1['email']; echo '</td>
-                                            <td>'; echo $row1['department']; echo '</td>
+                                            <td >'; echo $row3['id']; echo ' </td>
+                                            <td>'; echo $row3['name']; echo '</td>
+                                            <td>'; echo $row3['email']; echo '</td>
+                                            <td>'; echo $row3['department']; echo '</td>
                                             <td>3rd</td>
                                         </tr>
 
-                                        ';  }else if($row1['fpriority4']==$studentId){ echo '
+                                        '; }
 
+                                        $sql4    = "select id,name,email,department from user where fpriority4=$studentId";
+                                    $result4 = $conn->query($sql4);
+
+                                    while($row4=mysqli_fetch_assoc($result4)) {
+                                             echo '
                                         <tr>
-                                            <td >'; echo $row1['id']; echo ' </td>
-                                            <td>'; echo $row1['name']; echo '</td>
-                                            <td>'; echo $row1['email']; echo '</td>
-                                            <td>'; echo $row1['department']; echo '</td>
+                                            <td >'; echo $row4['id']; echo ' </td>
+                                            <td>'; echo $row4['name']; echo '</td>
+                                            <td>'; echo $row4['email']; echo '</td>
+                                            <td>'; echo $row4['department']; echo '</td>
                                             <td>4th</td>
                                         </tr>
 
-                                        ';  }else if($row1['fpriority5']==$studentId){ echo '
+                                        '; }
 
+                                        $sql5    = "select id,name,email,department from user where fpriority5=$studentId";
+                                    $result5 = $conn->query($sql5);
+
+                                    while($row5=mysqli_fetch_assoc($result5)) {
+                                             echo '
                                         <tr>
-                                            <td >'; echo $row1['id']; echo ' </td>
-                                            <td>'; echo $row1['name']; echo '</td>
-                                            <td>'; echo $row1['email']; echo '</td>
-                                            <td>'; echo $row1['department']; echo '</td>
+                                            <td >'; echo $row5['id']; echo ' </td>
+                                            <td>'; echo $row5['name']; echo '</td>
+                                            <td>'; echo $row5['email']; echo '</td>
+                                            <td>'; echo $row5['department']; echo '</td>
                                             <td>5th</td>
                                         </tr>
-                                        '; }} echo '
+
+                                        '; }
+
+                                        if($row1==0 && $row2==0 && $row3==0 && $row4==0 && $row5==0 ){
+                                            echo ' <tr>
+                                                       <td  colspan="4" style="color:red;font-size:1.2vw"> His Application is not aprroved by any faculty . </td>
+                                                    </tr>';
+                                        }
+
+                                        echo '
                                     </tbody>
                                 </table>
                             </div>
