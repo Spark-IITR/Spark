@@ -7,7 +7,7 @@
 		if(!$result->num_rows == 0) {
 
             ?>
-            <table class="table table-striped">
+            <table class="table table-striped" style="max-height: 70vh;overflow: scroll;">
                     <thead >
                         <tr>
                             <th title="Field #1">ID</th>
@@ -22,7 +22,7 @@
 
             <?php 
         	while($row = $result->fetch_assoc()) {
-                if($row['spriority1']!=NULL || $row['spriority1']!=NULL || $row['spriority1']!=NULL ){
+                if($row['spriority1']!=NULL || $row['spriority2']!=NULL || $row['spriority3']!=NULL ){
         		?>
                          <tr  onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
                             <td ><?php echo $row['id']; ?></td>
@@ -36,43 +36,13 @@
 
                     </tbody>
                 </table>
-             </div>
-            </div>
-        </div>
-    </div>
-
-                 <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1">
-                        <div class="row doctorsStudentContainer"  id="FetchDetailDiv">
+             
                             
-                        </div>
-                    </div>
-                </div>
+                        
 	<?php }
 }	        
             mysqli_close($conn);
 ?>
 
 
- <script>
-       
-    function fetch_student_detail(data){
-        var id = data;
-     $.ajax({
-        url: 'fetchStudentDetailAdmin.php',
-        data: {"id":id},
-        async: true,
-        type: 'POST',          
-
-        success: function(data){
-            
-            $('#FetchDetailDiv').html(data);
-     },
-       error : function(XMLHttpRequest, textStatus, errorThrown) {
-            alert(errorThrown);
-        }
-        });
- }
-    
-   
-    </script>
+ 

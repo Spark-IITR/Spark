@@ -176,9 +176,9 @@ require_once '../config/config.php';
 
                                         '; }
 
-                                        if($row1==0 && $row2==0 && $row3==0 && $row4==0 && $row5==0 ){
+                                        if($result1->num_rows == 0 && $result2->num_rows == 0 && $result3->num_rows == 0 && $result4->num_rows == 0 && $result5->num_rows == 0 ) {
                                             echo ' <tr>
-                                                       <td  colspan="4" style="color:red;font-size:1.2vw"> His Application is not aprroved by any faculty . </td>
+                                                       <td  colspan="5" style="color:red;font-size:1.2vw"> His Application is not aprroved by any faculty . </td>
                                                     </tr>';
                                         }
 
