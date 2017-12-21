@@ -82,7 +82,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
     
     <div class="container-fluid">
     	<div class="row">
-    		<div class="col-sm-3  studentProfileContainer">
+    		<div class="col-sm-3 col-xs-12 studentProfileContainer" style="text-align:center">
     			<div class="row">
     				 <div class="col-sm-12" style="text-align: center;">
 		    			<img src="../uploadFiles/showProfileImage.php?email=<?=$email ?>" class="studentProfileImg" alt="<?php echo $name; ?>">
@@ -93,8 +93,8 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
 					        <input type="hidden" name="imageId" value="<?php echo $email; ?>">
 					        <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
 					        <input type="file" name="image" id="file" class="inputfile" />
-							<label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
-	    					<input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton" value="Change Image" placeholder="" >
+							<label for="file"style="width: 80%;" ><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
+	    					<input type="submit" style="width: 80%;" name="submit" class="btn btn-default studentProfileImageSubmitButton" value="Update" placeholder="" >
 						</form>
     				 </div>
     			</div>
@@ -113,10 +113,10 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
     			<p class="studentProfileDetailsTag">Contact No.</p>
     			<p class="studentProfileDetails"><?php echo $contact; ?></p>
 
-    			 <a class="btn btn-default studentProfileLogoutButton" href="../logout.php" >Logout</a>
+    			 <div class="row">    <div class="col-sm-9" > <a class="btn btn-default studentProfileLogoutButton" href="../logout.php" >Logout</a></div></div>
     		</div>
     		<div class="col-sm-9">
-    			<div class="row">
+    			<div class="row studentProfileProjectGrid">
     				<div class="col-sm-12">
     					<!-- <div class="alert alert-success" role="alert"> PLease Upload Your  NOC ( for student of other than IIT,Roorkee ) and Resume ( compulsory for all students ) ..</div> -->
     					<p class="studentProjectTag">Projects</p>
@@ -125,7 +125,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
 							    <li role="presentation" class="active"><a href="#available" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
 							     <li role="presentation"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
 						  	</ul>
-						  	<div class="tab-content" style="max-height: 50vh;overflow: scroll;">
+						  	<div class="tab-content" style="overflow: none;">
 								<div role="tabpanel" class="tab-pane fade in" id="applied">
 									<table class="table table-striped">
 										<thead style="font-size: 14px;"><tr><th title="Field #1">Priority</th>
@@ -268,7 +268,7 @@ $(function() {
     				</div>
     			</div>
     			<div class="row" style="margin-left: 0%">
-    				<div class="col-sm-5">
+    				<div class="col-sm-5 col-xs-5">
     					<form action="../uploadFiles/uploadResume.php" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="resumeId" value="<?php echo $email; ?>" />
 					        <input type="file" name="resume" id="resume" class="inputfile" />
@@ -276,7 +276,7 @@ $(function() {
 	    					<input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton" value="Upload Resume" placeholder="" >
 						</form>
     				</div>
-    				<div class="col-sm-5 col-sm-offset-1">
+    				<div class="col-sm-5 col-xs-5 col-sm-offset-1">
     					<form action="../uploadFiles/uploadNOC.php" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="nocId" value="<?php echo $email; ?>" />
 					        <input type="file" name="noc" id="noc" class="inputfile" />
@@ -285,6 +285,8 @@ $(function() {
 						</form>
     				</div>
     			</div>
+</div>
+    		</div>
 
     			<div class="row" style="margin-top: 5vh">
     				<div class="col-sm-12">
@@ -297,8 +299,7 @@ $(function() {
 						  </ul>
 						</div>
     				</div>
-    			</div>
-    		</div>
+    			
     	</div>
     </div>
 <div style="height:5vh;"> </div>
