@@ -16,6 +16,7 @@
              <label for="inputEmail3" class="col-sm-2 control-label">Email<sup>*</sup></label>
              <div class="col-sm-10">
                <input type="email" name="username" class="form-control" placeholder="Email" id="loginEmail" value="<?php echo $username; ?>">
+
                 <span class="help-block"><?php echo $username_err; ?></span>
              </div>
            </div>
@@ -34,6 +35,7 @@
            <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <a href="signup.php" id="signupModalShow"  style="text-decoration: none;">Don't Have Account ( For Student ..)</a>
+
             </div>
            </div> 
          </form>
