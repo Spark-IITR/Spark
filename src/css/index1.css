@@ -362,7 +362,8 @@ height: auto;
 .studentProfileDetailsTag{
     margin-top: -1vh;
     margin-bottom: 1vh;
-    padding-left: 5%
+    padding-left: 5%;
+    text-align: left;
 }
 .studentProfileDetails{
     font-size: 1.2vw;
@@ -372,14 +373,23 @@ height: auto;
     padding-bottom:1vh;
 }
 .studentProfileLogoutButton{
-    width: 10vw;
-    margin-left: 5%;
-    margin-top: 0vh;
+
+
 }
 .studentProfileUpperMargin{
     margin-top: 3vh
 }
 .studentProfileImageSubmitButton{
+ margin-left: 5%;
+
+}
+
+.studentProfileProjectGrid{
+    margin-left: 2%;
+}
+
+.studentProfileStatusBox{
+ margin-left: 2%;
 
 }
 
