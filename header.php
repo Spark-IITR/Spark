@@ -51,11 +51,16 @@
                           }
                             
                         } else{
-                            $password_err = 'The password you entered was not valid.';
+                            $password_err = 'The password you entered was incorrect.
+                                            <script>
+                                              $("#login").modal("show");
+                                            </script>';
                         }
                     }else{echo 'error';}
                 } else{
-                    $username_err = 'No account found with that username.';
+                    $username_err = 'No account found with this username.<script>
+                                              $("#login").modal("show");
+                                            </script>';
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -103,6 +108,7 @@
 
    <nav class="navbar navbar-default">
      <div class="container-fluid">
+      <div class="row">
        <div class="navbar-header">
          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
            <span class="sr-only">Toggle navigation</span>
@@ -124,7 +130,7 @@
            <li><a href="index.php#guidelines">Guidelines</a></li>
            <li><a href="Publish/project.html">Projects</a></li>
            <li><a href="index.php#timeline">Timeline</a></li>
-           <li><a href="signup.php">Contact</a></li>
+           <li><a href="index.php#contact">Contact</a></li>
            <li><a href="#login" data-toggle="modal" data-target="#login">Log In</a></li>
 
            <?php } else if($_SESSION['role'] == "faculty"){?>
@@ -158,6 +164,7 @@
          </ul>
        </div>
      </div>
+   </div>
    </nav>
 
 
