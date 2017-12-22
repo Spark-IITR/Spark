@@ -8,7 +8,7 @@ if($_SESSION['role']=='student')
 {
 	$role = $_SESSION['role'];
 
-$sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = ? and role = ?";
+$sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommendedFaculty,fundingType FROM user WHERE email = ? and role = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "ss", $param_username,$param_role);
@@ -20,7 +20,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    mysqli_stmt_bind_result($stmt, $studentRealId ,$name,$email,$contact,$department,$college);
+                    mysqli_stmt_bind_result($stmt, $studentRealId ,$name,$email,$contact,$department,$college,$recommendStatus,$recommendedFaculty,$fundingType);
                     if(mysqli_stmt_fetch($stmt)){
 
                         require_once '../header.php';
@@ -291,9 +291,30 @@ $(function() {
     					<div class="jumbotron">
 						  <h2>Status</h2>
 						  <ul>
-						  	<li>Application Submitted</li>
-						  	<li>Not Recommended</li>
-						  	<li>Last date is coming soon..</li>
+
+						  	<?php if($recommendStatus==1){ ?>
+
+							  	<span style="font-weight: 800;color: green"><h3>Application Accepted</h1></span>
+
+
+							  	<?php	$query    = "select name from user where id=$recommendedFaculty";
+											$result5 = $conn->query($query);
+											if($result5) {
+											    if(!$result5->num_rows == 0) {
+											    	while($row5 = $result5->fetch_assoc()) {
+											        ?><li><span style="font-weight: 800">Faculty Recommended : </span> <?php echo $row5['name']; ?></li>
+											    <?php	}
+											    }
+											}  ?>
+							  	
+							  	<li><span style="font-weight: 800">Funding Type/Stipend : </span> <?php echo $fundingType; ?></li>
+							  	
+						  	<?php }else{ ?>
+
+						  	<span style="font-weight: 800;"><h3> Yet not recommend any faculty. </h1></span>
+
+						  	<?php } ?>
+
 						  </ul>
 						</div>
     				</div>
