@@ -16,7 +16,7 @@ if ($_POST && !empty($_FILES)) {
                 $sql = "select resume from user where email='$email'";
                 $result1 = $conn->query($sql);
                 if($result1){
-                    if($result1->num_rows == 0) {
+                    if(!$result1->num_rows == 0) {
                         $query = "update user set resume='$data' where email='$email'";
              
                         $result = $conn->query($query);

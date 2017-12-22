@@ -120,20 +120,35 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     		<div class="col-sm-9">
     			<div class="row">
     				<div class="col-sm-12">
-    					<!-- <div class="alert alert-success" role="alert">
+    					<div class="alert alert-success" role="alert">
     						<ul>Instructions
-    							<li>
-    								PLease Upload Your  NOC (for student of other than IITR) and Resume ( compulsory for all students ) .	
-    							</li>
+    							<li>PLease Upload Your  NOC (for student of other than IITR) and Resume ( compulsory for all students ) otherwise your application will be rejected.</li>
+    							<li>Size of Image / Resume / NOC should be less than 100 KB.</li>
+    							<li>You will not be able to change the Resume / Image / NOC once uploaded . </li>
+    							<li>Each student have three choices to select their project according to his/her priority.</li>
+    							<li>Once the priorities are selected you will not be able to change it. So, choose priorities carefully after inspecting all the projects.</li>
     						</ul>
-    				    </div> -->
-    					<p class="studentProjectTag">Projects</p>
+    				    </div>
+    					
+    					<div class="container-fluid">
+			                <div class="row" style="margin-top: 0vh;">
+			                    <div class="col-sm-6">
+			                        <p class="studentProjectTag">Projects</p>
+			                    </div>
+			                    <div class="col-sm-4 col-sm-offset-2" style="margin-top: -2.5vh">
+			                        <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Projects..">
+			                    </div>
+			                </div>
+			            </div>
+			            
+
     					<div>
 						  	<ul class="nav nav-tabs" role="tablist">
 							    <li role="presentation" class="active"><a href="#available" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
 							     <li role="presentation"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
 						  	</ul>
-						  	<div class="tab-content" style="max-height: 50vh;overflow: scroll;">
+
+						  	<div class="tab-content"  style="max-height: 50vh;overflow: scroll;">
 								<div role="tabpanel" class="tab-pane fade in" id="applied">
 									<table class="table table-striped">
 										<thead style="font-size: 14px;"><tr><th title="Field #1">Priority</th>
@@ -141,10 +156,10 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 				                            <th title="Field #3">Department</th>
 				                            <th title="Field #5">Tentative projects for summer internship</th>
 				                        </tr></thead>
-				                        <tbody id="myTable"><tr>
+				                        <tbody id="myTable" ><tr>
 				                            <td align="right">1st</td>
 				                            <?php if(!$spriority1FacultyId){ ?>
-				                            <td colspan="4"> <?php echo ' Priority not selected';?></td>
+				                            <td colspan="4"> <?php echo ' Project yet not choosen';?></td>
 				                            <?php }else{ ?>
 				                            
 				                            <td><?php echo $spriority1FacultyName; ?></td>
@@ -155,7 +170,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 				                        <tr>
 											<td align="right">2nd</td>
 				                            <?php if(!$spriority2FacultyId){ ?>
-				                            <td colspan="4"> <?php echo ' Priority yet not selected';?></td>
+				                            <td colspan="4"> <?php echo ' Project yet not choosen';?></td>
 				                            <?php }else{ ?>
 				                            
 				                            <td><?php echo $spriority2FacultyName; ?></td>
@@ -166,7 +181,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 				                        <tr>
 				                            <td align="right">3rd</td>
 				                            <?php if(!$spriority3FacultyId){ ?>
-				                            <td colspan="4"> <?php echo 'Priority yet not selected';?></td>
+				                            <td colspan="4"> <?php echo 'Project yet not choosen';?></td>
 				                            <?php }else{ ?>
 				                            
 				                            <td><?php echo $spriority3FacultyName; ?></td>
@@ -323,10 +338,7 @@ $(function() {
 							  	
 						  	<?php }else{ ?>
 
-						  	<span style="font-weight: 800;"><h3> Yet n+
-
-
-						  	ot recommend any faculty. </h1></span>
+						  	<span style="font-weight: 800;"><h3> Yet not recommended any faculty. </h1></span>
 
 						  	<?php } ?>
 
@@ -365,3 +377,14 @@ else
 
 
 ";?>
+
+<script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
