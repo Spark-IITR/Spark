@@ -1,4 +1,5 @@
-<?php
+ <?php include('header.php'); ?>
+ <?php
 require 'config/config.php';
  
 $name = $username = $contact = $gender = $dob = $college = $password = $confirm_password = "";
@@ -121,7 +122,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
- <?php include('header.php'); ?>
+
 
 
 

@@ -4,7 +4,7 @@ session_start();
 require_once '../config/config.php';
 $studentRealId = $name = $email = $contact = $department = $college = ""; 
 
-if(isset($_SESSION['role'])=='student')
+if($_SESSION['role']=='student')
 {
 	$role = $_SESSION['role'];
 
