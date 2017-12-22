@@ -3,7 +3,7 @@ ob_start();
 session_start();
 require_once '../config/config.php';
 $name = $email = $contact = $department = $college = ""; 
-if(isset($_SESSION['role'])=='admin')
+if($_SESSION['role']=='admin')
 {
 $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? and role = ?";
         
