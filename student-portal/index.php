@@ -120,7 +120,13 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     		<div class="col-sm-9">
     			<div class="row">
     				<div class="col-sm-12">
-    					<!-- <div class="alert alert-success" role="alert"> PLease Upload Your  NOC ( for student of other than IIT,Roorkee ) and Resume ( compulsory for all students ) ..</div> -->
+    					<!-- <div class="alert alert-success" role="alert">
+    						<ul>Instructions
+    							<li>
+    								PLease Upload Your  NOC (for student of other than IITR) and Resume ( compulsory for all students ) .	
+    							</li>
+    						</ul>
+    				    </div> -->
     					<p class="studentProjectTag">Projects</p>
     					<div>
 						  	<ul class="nav nav-tabs" role="tablist">
@@ -317,7 +323,10 @@ $(function() {
 							  	
 						  	<?php }else{ ?>
 
-						  	<span style="font-weight: 800;"><h3> Yet not recommend any faculty. </h1></span>
+						  	<span style="font-weight: 800;"><h3> Yet n+
+
+
+						  	ot recommend any faculty. </h1></span>
 
 						  	<?php } ?>
 
