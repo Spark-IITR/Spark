@@ -124,14 +124,14 @@
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav navbar-right">
            
-           <?php if($_SESSION['role'] == ""){?>
+           <?php if($_SESSION['role'] == "admin"){?>
 
-           <li><a href="index.php#aboutUs">About SPARK </a></li>
-           <li><a href="index.php#guidelines">Guidelines</a></li>
-           <li><a href="Publish/project.html">Projects</a></li>
-           <li><a href="index.php#timeline">Timeline</a></li>
-           <li><a href="index.php#contact">Contact</a></li>
-           <li><a href="#login" data-toggle="modal" data-target="#login">Log In</a></li>
+           <li><a href="../index.php#aboutUs">About SPARK </a></li>
+           <li><a href="../index.php#guidelines">Guidelines</a></li>
+           <li><a href="../Publish/project.html">Projects</a></li>
+           <li><a href="../index.php#timeline">Timeline</a></li>
+           <li><a href="../signup.php">Contact</a></li>
+            <li style="font-size: 1.4vw;color: #777;"><a href="../admin-portal/"><?php echo $name; ?></a></li>
 
            <?php } else if($_SESSION['role'] == "faculty"){?>
            <li><a href="../index.php#aboutUs">About SPARK </a></li>
@@ -151,13 +151,13 @@
             <li style="font-size: 1.4vw;color: #777;"><a href="../student-portal/"><?php echo $name; ?></a></li>
             
 
-          <?php }else if($_SESSION['role'] == "admin"){?>
-            <li><a href="../index.php#aboutUs">About SPARK </a></li>
-           <li><a href="../index.php#guidelines">Guidelines</a></li>
-           <li><a href="../Publish/project.html">Projects</a></li>
-           <li><a href="../index.php#timeline">Timeline</a></li>
-           <li><a href="../signup.php">Contact</a></li>
-            <li style="font-size: 1.4vw;color: #777;"><a href="../admin-portal/"><?php echo $name; ?></a></li>
+          <?php }else {?>
+            <li><a href="index.php#aboutUs">About SPARK </a></li>
+           <li><a href="index.php#guidelines">Guidelines</a></li>
+           <li><a href="Publish/project.html">Projects</a></li>
+           <li><a href="index.php#timeline">Timeline</a></li>
+           <li><a href="index.php#contact">Contact</a></li>
+           <li><a href="#login" data-toggle="modal" data-target="#login">Log In</a></li>
             
           <?php } ?>
            

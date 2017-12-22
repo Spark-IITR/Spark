@@ -13,7 +13,7 @@ if ($_POST && !empty($_FILES)) {
  if ( in_array($type, array('application/pdf'))) {
      if ( $size < 500000) {
         
-        $sql = "select resume from user where email='$email'";
+        $sql = "select noc from user where email='$email'";
         $result1 = $conn->query($sql);
         if($result1){
             if($result1->num_rows == 0) {
@@ -29,7 +29,7 @@ if ($_POST && !empty($_FILES)) {
                        . "<pre>{$conn->error}</pre>";
                 }
             }else{
-                echo 'already uploaded;';
+                header ("location:../student-portal/");
             }
          }
 
