@@ -22,6 +22,7 @@ if ($_POST && !empty($_FILES)) {
                         $result = $conn->query($query);
                  
                         if($result) {
+                            // echo 'resume uploaded';
                             header ("location:../student-portal/");
                         }
                         else {
@@ -29,6 +30,7 @@ if ($_POST && !empty($_FILES)) {
                                . "<pre>{$conn->error}</pre>";
                         }
                     }else{
+                        // echo 'error going on';
                         header ("location:../student-portal/");
                     }
                  }

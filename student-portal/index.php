@@ -118,24 +118,16 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     		<div class="col-sm-9">
     			<div class="row">
     				<div class="col-sm-12">
-    					<div class="alert alert-success" role="alert">
-    						<ul>Instructions
-    							<li>PLease Upload Your  NOC (for student of other than IITR) and Resume ( compulsory for all students ) otherwise your application will be rejected.</li>
-    							<li>Size of Image / Resume / NOC should be less than 100 KB.</li>
-    							<li>You will not be able to change the Resume / Image / NOC once uploaded . </li>
-    							<li>Each student have three choices to select their project according to his/her priority.</li>
-    							<li>Once the priorities are selected you will not be able to change it. So, choose priorities carefully after inspecting all the projects.</li>
-    						</ul>
-    				    </div>
+    					
     					
     					<div class="container-fluid">
 			                <div class="row" style="margin-top: 0vh;">
 			                    <div class="col-sm-6">
-			                        <p class="studentProjectTag">Projects</p>
+			                        <p class="studentProjectTag" style="font-size: 26px">Projects</p>
 			                    </div>
-			                    <div class="col-sm-4 col-sm-offset-2" style="margin-top: -2.5vh">
+			                    <!-- <div class="col-sm-4 col-sm-offset-2" style="margin-top: -2.5vh">
 			                        <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Projects..">
-			                    </div>
+			                    </div> -->
 			                </div>
 			            </div>
 			            
@@ -144,6 +136,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 						  	<ul class="nav nav-tabs" role="tablist">
 							    <li role="presentation" class="active"><a href="#available" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
 							     <li role="presentation"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
+							     <li style="float: right;margin-top: -5vh"><input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Projects.."></li>
 						  	</ul>
 
 						  	<div class="tab-content"  style="max-height: 50vh;overflow: scroll;">
@@ -294,7 +287,7 @@ $(function() {
 					        <input type="hidden" name="resumeId" value="<?php echo $email; ?>" />
 					        <input type="file" name="resume" id="resume" class="inputfile" />
 							<label for="resume"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
-	    					<input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton" value="Upload Resume" placeholder="" >
+	    					<input type="submit" name="submit" onclick="resume_error()" class="btn btn-default studentProfileImageSubmitButton" value="Upload Resume" placeholder="" >
 						</form>
     				</div>
     				<div class="col-sm-5 col-sm-offset-1">
@@ -307,39 +300,60 @@ $(function() {
     				</div>
     			</div>
 
-    			<div class="row" style="margin-top: 5vh">
-    				<div class="col-sm-12">
-    					<div class="jumbotron">
-						  <h2>Status</h2>
-						  <ul>
+   <script>
+   		function resume_error(){
+	   		var resume = $('#resume').value;
+	   		alert(resume);
+		}
+   </script> 			
 
-						  	<?php if($recommendStatus==1){ ?>
+    			<div class="container-fluid" style="margin-top: 5vh">
+	    			<div class="alert alert-success" role="alert">
+						<ul>Instructions
+							<li>PLease Upload Your  NOC (for student of other than IITR) and Resume ( compulsory for all students ) otherwise your application will be rejected.</li>
+							<li>Size of Image / Resume / NOC should be less than 100 KB.</li>
+							<li>You will not be able to change the Resume / Image / NOC once uploaded . </li>
+							<li>Each student have three choices to select their project according to his/her priority.</li>
+							<li>Once the priorities are selected you will not be able to change it. So, choose priorities carefully after inspecting all the projects.</li>
+						</ul>
+				    </div>
+				</div>
 
-							  	<span style="font-weight: 800;color: green"><h3>Application Accepted</h1></span>
+				<div class="container-fluid" style="margin-top: 5vh">
+	    			<div class="row">
+	    				<div class="col-sm-12">
+	    					<div class="jumbotron">
+							  <h2>Status</h2>
+							  <ul>
+
+							  	<?php if($recommendStatus==1){ ?>
+
+								  	<span style="font-weight: 800;color: green"><h3>Application Accepted</h1></span>
 
 
-							  	<?php	$query    = "select name from user where id=$recommendedFaculty";
-											$result5 = $conn->query($query);
-											if($result5) {
-											    if(!$result5->num_rows == 0) {
-											    	while($row5 = $result5->fetch_assoc()) {
-											        ?><li><span style="font-weight: 800">Faculty Recommended : </span> <?php echo $row5['name']; ?></li>
-											    <?php	}
-											    }
-											}  ?>
-							  	
-							  	<li><span style="font-weight: 800">Funding Type/Stipend : </span> <?php echo $fundingType; ?></li>
-							  	
-						  	<?php }else{ ?>
+								  	<?php	$query    = "select name from user where id=$recommendedFaculty";
+												$result5 = $conn->query($query);
+												if($result5) {
+												    if(!$result5->num_rows == 0) {
+												    	while($row5 = $result5->fetch_assoc()) {
+												        ?><li><span style="font-weight: 800">Faculty Recommended : </span> <?php echo $row5['name']; ?></li>
+												    <?php	}
+												    }
+												}  ?>
+								  	
+								  	<li><span style="font-weight: 800">Funding Type/Stipend : </span> <?php echo $fundingType; ?></li>
+								  	
+							  	<?php }else{ ?>
 
-						  	<span style="font-weight: 800;"><h3> Yet not recommended any faculty. </h1></span>
+							  	<span style="font-weight: 800;"><h3> Yet not recommended any faculty. </h1></span>
 
-						  	<?php } ?>
+							  	<?php } ?>
 
-						  </ul>
-						</div>
-    				</div>
-    			</div>
+							  </ul>
+							</div>
+	    				</div>
+	    			</div>
+	    		</div>
     		</div>
     	</div>
     </div>
