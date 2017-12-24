@@ -3,28 +3,35 @@ require_once '../config/config.php';
 	$facultyId = $_POST['facultyId'];
 	$studentId  = $_POST['studentId'];
 
-	$sql = "select spriority1 from user where id=$studentId";
-	$result = $conn->query($sql);
-	$row = $result->fetch_assoc();
-		if($row['spriority1']==NULL){
-		$sql1 = "update user set spriority1=$facultyId where id=$studentId";
+	$sql100 = "SELECT spriority1 from user where id=?";
+	if($stmt1 = mysqli_prepare($conn, $sql100)){
+		            mysqli_stmt_bind_param($stmt1, "i", $param_id);
+		            
+		            $param_username = $studentId;
+		            
+		            if(mysqli_stmt_execute($stmt1)){
+		                mysqli_stmt_store_result($stmt1);
+
+		                if(!mysqli_stmt_num_rows($stmt1) == 0){                    
+		                    mysqli_stmt_bind_result($stmt1, $resumePdf);
+		                    if(mysqli_stmt_fetch($stmt1)){
+	$result100 = $conn->query($sql100);
+	$row100 = $result100->fetch_assoc();
+		if($row100['spriority1']==NULL){
+		$sql101 = "update user set spriority1=$facultyId where id=$studentId";
 	 
-			if (mysqli_query($conn, $sql1)) {
+			if (mysqli_query($conn, $sql101)) {
 	               echo "true";
 	            } else {
-	                echo "Error: Could not save the data to mysql database. Please try again.";
+	                echo "error";
 	            }
 	        }
 
     else{
-    	echo 'false';
+    	echo 'already present';
     }
    
 
-            mysqli_close($conn);
-
-?>
-
-
+            // mysqli_close($conn);
 
 ?>
