@@ -76,110 +76,37 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                             <div class="tab-content" style="max-height: 50vh;overflow: scroll;min-height: 40vh">
 
 
+                                <div role="tabpanel" class="tab-pane fade in active" id="application">
 
-                                <?php require_once('facultyApplication.php') ?>
-
+                                    <?php include('facultyApplications.php'); ?>
                                 
-                                <?php require_once('allApplications.php') ?>
+                                </div>
 
+                                <div role="tabpanel" class="tab-pane fade" id="allApplications">
+                                    
+                                    <?php include('allApplications.php'); ?>
+                                
+                                </div>
 
                                 <div role="tabpanel" class="tab-pane fade" id="accepted">
-                                    <div class="">
-                                        <table class="table table-striped">
-                                            <thead style="">
-                                                <tr>
-                                                    <th title="Field #1">#</th>
-                                                    <th title="Field #2">Name</th>
-                                                    <th title="Field #3">Department</th>
-                                                    <th title="Field #4">E-mail</th>
-                                                    <th title="Field #5">Research interests/Tentative projects for summer internship</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="myTable">
-                                                <tr>
-                                                    <td align="right">1</td>
-                                                    <td>Uttam Kumar Roy</td>
-                                                    <td>Architecture and Planning</td>
-                                                    <td>ukroyfap@iitr.ac.in</td>
-                                                    <td>Affordable Housing Design, Industrialised Building system, New town and Smart City Development, Building codes</td>
-
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    
+                                    <?php include('acceptedProject.php'); ?>
+                                
                                 </div>
 
                                 <div role="tabpanel" class="tab-pane fade" id="yourProjects">
-                                    <div class="">
-                                        <table class="table table-striped">
-                                            <thead style="">
-                                                <tr>
-                                                    <th title="Field #1">#</th>
-                                                    <th title="Field #5">Research interests/Tentative projects for summer internship</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="myTable">
-                                                <?php  
-                                                $sql    = "select project from user where email='$email'";
-                                                $result = $conn->query($sql);
-                                                if($result) {
-                                                        while($row = $result->fetch_assoc()) {
-                                                            echo "
-                                                                <tr>
-                                                                    <td align='right'>1</td>
-                                                                    <td>{$row['project']}</td>
-                                                                </tr>";
-                                                        }
-                                                    
-                                                    $result->free();
-                                                }
-                                                 ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    
+                                    <?php include('yourProject.php'); ?>
+                                
                                 </div>
-                           
 
                                 <div role="tabpanel" class="tab-pane fade" id="allProject">
-                                    <div class="">
-                                        <table class="table table-striped">
-                                            <?php  
-                                                $sql = "select id,name,department,project from user where role='faculty'";
-                                                $result = $conn->query($sql);
-                                                if($result) {
-                                                    if($result->num_rows == 0) {
-                                                        echo '<p>There are no files in the database</p>';
-                                                    }
-                                                    else {
-                                                        echo '<thead style="">
-                                                                <tr>
-                                                                    <th title="Field #1">ID</th>
-                                                                    <th title="Field #2">Name</th>
-                                                                    <th title="Field #3">Department</th>
-                                                                    <th title="Field #4">Research interests/Tentative projects for summer internship</th>
-                                                                </tr>
-                                                             </thead>';
-                                                                 
-                                                        while($row = $result->fetch_assoc()) {
-                                                            echo "
-                                                                <tbody id='myTable'>
-                                                                    <tr>
-                                                                        <td>{$row['id']}</td>
-                                                                        <td>{$row['name']}</td>
-                                                                        <td>{$row['department']}</td>
-                                                                        <td>{$row['project']}</td>
-                                                                        
-                                                                    </tr>
-                                                                </tbody>";
-                                                        }
-                                                    }
-                                                 
-                                                    $result->free();
-                                                }
-                                            ?>
-                                        </table>
-                                    </div>
+                                    
+                                    <?php include('allProject.php'); ?>
+                                
                                 </div>
+                                
+                                
                             </div>
                         </div>
                     </div>

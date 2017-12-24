@@ -2,7 +2,7 @@
 
 
 
-            <div role="tabpanel" class="tab-pane fade" id="allApplications">
+            
                 <table class="table table-striped">
                     <thead style="font-size: 14px;">
                         <tr>
@@ -50,4 +50,3 @@
                         
                     </tbody>
                 </table>
-            </div>

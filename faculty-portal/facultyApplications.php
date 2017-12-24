@@ -2,7 +2,6 @@
 
 
 
-            <div role="tabpanel" class="tab-pane fade in active" id="application">
                 <table class="table table-striped">
                     <thead style="font-size: 14px;">
                         <tr>
@@ -96,5 +95,4 @@
                         
                     </tbody>
                 </table>
-            </div>
 
