@@ -53,10 +53,10 @@ require_once '../config/config.php';
                             </div>
                             <div class="col-sm-1" style="font-weight: 700">
                                 <p>Email : </p>
-                                <p>Contact : </p>
-                                <p>D.O.B : </p>
-                                <p>Gender : </p>
-                                <p>College : </p>
+                                <p>Contact: </p>
+                                <p>D.O.B: </p>
+                                <p>Gender: </p>
+                                <p>College: </p>
                             </div>
                             <div class="col-sm-2">
                                 <p>'; echo $row['email']; echo '</p>

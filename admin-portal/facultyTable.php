@@ -18,7 +18,7 @@
                         </tr>
                     </thead>
 
-                    <tbody id="">
+                    <tbody id="myTable">
 
             <?php
             while($row10 = $result10->fetch_assoc()) {

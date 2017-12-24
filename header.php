@@ -131,7 +131,7 @@
            <li><a href="../Publish/project.html">Projects</a></li>
            <li><a href="../index.php#timeline">Timeline</a></li>
            <li><a href="../signup.php">Contact</a></li>
-            <li style="font-size: 1.4vw;color: #777;"><a href="../admin-portal/"><?php echo $name; ?></a></li>
+            <li style="font-size: 1.4vw;color: #777;"><a href="../logout.php" data-toggle="tooltip" data-placement="left" title="Logout"><?php echo $name; ?></a></li>
 
            <?php } else if($_SESSION['role'] == "faculty"){?>
            <li><a href="../index.php#aboutUs">About SPARK </a></li>

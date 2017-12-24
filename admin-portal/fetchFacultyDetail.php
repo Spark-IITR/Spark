@@ -77,9 +77,9 @@ require_once '../config/config.php';
                             </div>
                             <div class="col-sm-1" style="font-weight: 700">
                                 <p>ID : </p>
-                                <p>Email : </p>
-                                <p>Contact : </p>
-                                <p>Gender : </p>
+                                <p>Email: </p>
+                                <p>Contact: </p>
+                                <p>Gender: </p>
                                 <p>Department: </p>
                             </div>
                             <div class="col-sm-2">

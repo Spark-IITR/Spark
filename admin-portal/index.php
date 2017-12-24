@@ -25,7 +25,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
            ?>         
 
 
-           <div class="container-fluid">
+           <!-- <div class="container-fluid">
                <div class="row">
                    <div class="col-sm-6 col-sm-offset-3">
                         <input type="number" class="form-control" placeholder="ID..." name="facultyName" id="facultyName" onkeyup="fetch_faculty_name(this.value)">
@@ -52,7 +52,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                         }
                         });
                  }
-           </script>
+           </script> -->
 
             <div class="container-fluid">
                 <div class="row" style="margin-top: -3vh;margin-left: .5%">
@@ -67,14 +67,14 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-10 col-sm-offset-1">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation"><a href="#application" role="tab" data-toggle="tab">Applications</a></li>
-                            <li role="presentation"  class="active"><a href="#faculty"  role="tab" data-toggle="tab">Faculty Profile</a></li>
+                            <li role="presentation"   class="active"><a href="#application" role="tab" data-toggle="tab">Applications</a></li>
+                            <li role="presentation"><a href="#faculty"  role="tab" data-toggle="tab">Faculty Profile</a></li>
                         </ul>
 
                  <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane fade" id="application">
+                            <div role="tabpanel" class="tab-pane fade in active" id="application">
                                 <?php include 'applicationTable.php'; ?>
 
 
@@ -87,7 +87,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                                 </div>
                             </div>
 
-                            <div role="tabpanel" class="tab-pane fade in active" id="faculty">
+                            <div role="tabpanel" class="tab-pane fade" id="faculty">
                                 <?php include 'facultyTable.php'; ?>
 
 

@@ -38,7 +38,7 @@ if ($_POST && !empty($_FILES)) {
         $content = file_get_contents($path);
 
             $content = mysqli_real_escape_string($conn, $content);
-
+            // echo $content;
             $sql1 = "SELECT image from user where email=?";
                 if($stmt1 = mysqli_prepare($conn, $sql1)){
                     mysqli_stmt_bind_param($stmt1, "s", $param_email);
@@ -56,9 +56,11 @@ if ($_POST && !empty($_FILES)) {
                                 $sql = "UPDATE user set image=? where email=?";
          
                                     if($stmt = mysqli_prepare($conn, $sql)){
-                                        mysqli_stmt_bind_param($stmt, "ss",$param_image, $param_Email);
+                                        mysqli_stmt_bind_param($stmt, "bs",$param_image, $param_Email);
                                         $param_Email= $email;
-                                        $param_image = $content;
+                                        $param_image = NULL;
+                                        $stmt->send_long_data(0, file_get_contents($path));
+                                        // echo $param_image;
                                         if(mysqli_stmt_execute($stmt)){
                                             if($role=='faculty'){
                                                 header ("location:../faculty-portal/");
@@ -82,14 +84,14 @@ if ($_POST && !empty($_FILES)) {
                                     if($role=='faculty'){
                                                 header ("location:../faculty-portal/");
                                             }else if($role=='student'){
-                                                header ("location:../student-portal/index.php?$x=5");
+                                                header ("location:../student-portal/");
                                             }
                                 }
                             }
 
                             
                         }
-                    // }//mysqli_stmt_close($stmt1);
+                     }//mysqli_stmt_close($stmt1);
                 }
             // mysqli_close($conn);
         
