@@ -20,16 +20,10 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                     mysqli_stmt_bind_result($stmt, $name,$email,$contact,$department,$college);
                     if(mysqli_stmt_fetch($stmt)){
 
-
-
-
-
-
                         require_once '../header.php';
                         
-
            ?>         
-
+           
             <div class="container-fluid">
                 <div class="row" style="margin-top: -3vh;margin-left: .5%">
                     <div class="col-sm-6">
@@ -45,20 +39,42 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                 <div class="row">
                     <div class="col-sm-12">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#application" aria-controls="profile" role="tab" data-toggle="tab">Applications</a></li>
+                            <li role="presentation"><a href="#application" role="tab" data-toggle="tab">Applications</a></li>
+                            <li role="presentation"  class="active"><a href="#faculty"  role="tab" data-toggle="tab">Faculty Profile</a></li>
                         </ul>
-                        <div class="tab-content" style="max-height: 70vh;overflow: scroll;">
-                            <div role="tabpanel" class="tab-pane fade in active" id="application">
-                                <?php require_once 'applicationTable.php'; ?>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade" id="application">
+                                <?php include 'applicationTable.php'; ?>
+
+
+                                <div class="row">
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <div class="row doctorsStudentContainer"  id="FetchStudentDetailDiv">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane fade in active" id="faculty">
+                                <?php include 'facultyTable.php'; ?>
+
+
+                                <div class="row">
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <div class="row doctorsStudentContainer"  id="FetchFacultyDetailDiv">
+
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
+
+                 
             </div>
-
-
-
-
 
     <?php
          }else{echo 'error';}
@@ -78,7 +94,6 @@ else
       header ("location:../index.php");
     ?>
 
-
     <script>
         $(document).ready(function(){
             $("#myInput").on("keyup", function() {
@@ -88,4 +103,47 @@ else
                 });
             });
         });
+    </script>
+
+
+    <script>
+       
+    function fetch_student_detail(data){
+        var id = data;
+     $.ajax({
+        url: 'fetchStudentDetail.php',
+        data: {"id":id},
+        async: true,
+        type: 'POST',          
+
+        success: function(data){
+            
+            $('#FetchStudentDetailDiv').html(data);
+     },
+       error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+        });
+ }
+
+
+ function fetch_faculty_detail(data){
+        var id = data;
+     $.ajax({
+        url: 'fetchFacultyDetail.php',
+        data: {"id":id},
+        async: true,
+        type: 'POST',          
+
+        success: function(data){
+            
+            $('#FetchFacultyDetailDiv').html(data);
+     },
+       error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+        });
+ }
+    
+   
     </script>

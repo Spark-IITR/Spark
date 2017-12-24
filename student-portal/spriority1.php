@@ -1,6 +1,5 @@
 <?php 
 require_once '../config/config.php';
-	echo "string";
 	$facultyId = $_POST['facultyId'];
 	$studentId  = $_POST['studentId'];
 

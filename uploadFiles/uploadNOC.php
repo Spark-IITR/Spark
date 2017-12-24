@@ -13,17 +13,27 @@ if ($_POST && !empty($_FILES)) {
  if ( in_array($type, array('application/pdf'))) {
      if ( $size < 500000) {
         
-        $query = "update user set noc='$data' where email='$email'";
- 
-        $result = $conn->query($query);
- 
-        if($result) {
-            header ("location:../student-portal/");
-        }
-        else {
-            echo 'Error! Failed to insert the file'
-               . "<pre>{$conn->error}</pre>";
-        }
+        $sql = "select resume from user where email='$email'";
+        $result1 = $conn->query($sql);
+        if($result1){
+            if($result1->num_rows == 0) {
+                $query = "update user set noc='$data' where email='$email'";
+     
+                $result = $conn->query($query);
+         
+                if($result) {
+                    header ("location:../student-portal/");
+                }
+                else {
+                    echo 'Error! Failed to insert the file'
+                       . "<pre>{$conn->error}</pre>";
+                }
+            }else{
+                echo 'already uploaded;';
+            }
+         }
+
+        
         }else{echo "file size too large. Size Limit is 500kb only.";}
     }else{echo "choose pdf format";}
 }
