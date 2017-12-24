@@ -4,7 +4,7 @@ require_once '../config/config.php';
 	
 	$studentId = $_POST['id'];
 
-	$sql = "select id,name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3 from user where id=$studentId";
+	$sql = "select id,name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3,spriority4,spriority5 from user where id=$studentId";
 	$result = $conn->query($sql);
 	
 	if($result){
@@ -15,6 +15,8 @@ require_once '../config/config.php';
         		$spriority1Id = $row['spriority1'];
                 $spriority2Id = $row['spriority2'];
                 $spriority3Id = $row['spriority3'];
+                $spriority4Id = $row['spriority4'];
+                $spriority5Id = $row['spriority5'];
 
 
                  /* fetch details of first priority */
@@ -44,6 +46,24 @@ require_once '../config/config.php';
                         $spriority3FacultyName = $row3['name'];
                     }
 
+                    /* fetch details of third priority */
+                    $sql4    = "select name from user where id=$spriority4Id";
+                  $result4 = $conn->query($sql4);
+                    if(!$result4->num_rows == 0) {
+                        $row4 = $result4->fetch_assoc();
+
+                        $spriority4FacultyName = $row4['name'];
+                    }
+
+                    /* fetch details of third priority */
+                    $sql5    = "select name from user where id=$spriority5Id";
+                  $result5 = $conn->query($sql5);
+                    if(!$result5->num_rows == 0) {
+                        $row5 = $result5->fetch_assoc();
+
+                        $spriority5FacultyName = $row5['name'];
+                    }
+
                     $email = $row['email'];
 
         	echo '			<div class="col-sm-3" style="text-align: center;">
@@ -56,6 +76,7 @@ require_once '../config/config.php';
                                 <p>Contact: </p>
                                 <p>D.O.B: </p>
                                 <p>Gender: </p>
+                                <p>Department: </p>
                                 <p>College: </p>
                             </div>
                             <div class="col-sm-2">
@@ -63,17 +84,20 @@ require_once '../config/config.php';
                                 <p>'; echo $row['contact']; echo '</p>
                                 <p>'; echo $row['dob']; echo '</p>
                                 <p>'; echo $row['gender']; echo '</p>
+                                <p style="margin-left:8%">'; echo $row['department']; echo '</p>
                                 <p>'; echo $row['college']; echo '</p>
                             </div>
                             <div class="col-sm-2 col-sm-offset-1" style="font-weight: 700">
-                                <p>Department : </p>
+                                
                                 <p>C.G.P.A : </p>
                                 <p>1st Priority : </p>
                                 <p>2nd Priority : </p>
                                 <p>3rd Priority : </p>
+                                <p>4th Priority : </p>
+                                <p>5th Priority : </p>
                             </div>
                             <div class="col-sm-3">
-                                <p>'; echo $row['department']; echo '</p>
+                                
                                 <p>'; echo $row['cgpa']; echo '</p>
                                 
                                 '; if($spriority1Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
@@ -84,6 +108,12 @@ require_once '../config/config.php';
 
                                 '; if($spriority3Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
                                 <p>'; echo $spriority3FacultyName.' ( '.$spriority3Id.' ) '; } echo '</p>
+
+                                '; if($spriority4Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $spriority4FacultyName.' ( '.$spriority4Id.' ) '; } echo '</p>
+
+                                '; if($spriority5Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $spriority5FacultyName.' ( '.$spriority5Id.' ) '; } echo '</p>
                             </div>
                         </div>
                         <div class="row">
