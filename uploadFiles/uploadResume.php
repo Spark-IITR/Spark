@@ -37,7 +37,7 @@ if ($_POST && !empty($_FILES)) {
 
 
             }else{echo "file size too large. Size Limit is 500kb only.";}
-        }
+        
         }else{echo "choose pdf format";}
     }
         else {

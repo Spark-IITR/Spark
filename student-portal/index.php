@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-require_once '../config/config.php';
+require '../config/config.php';
 $studentRealId = $name = $email = $contact = $department = $college = ""; 
 
 if($_SESSION['role']=='student')
@@ -75,11 +75,16 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 							}
 
 							 
+					}
+		 
+                } 
+            } 
+        }
+        
+        // mysqli_stmt_close($stmt);
+    }
+?>
 
-
-                        
-           ?>        
-    
     <div class="container-fluid">
     	<div class="row">
     		<div class="col-sm-3  studentProfileContainer">
@@ -283,7 +288,7 @@ $(function() {
     			</div>
     			<div class="row" style="margin-left: 0%">
     				<div class="col-sm-5">
-    					<form action="../uploadFiles/uploadResume.php" method="post" enctype="multipart/form-data">
+    					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="resumeId" value="<?php echo $email; ?>" />
 					        <input type="file" name="resume" id="resume" class="inputfile" />
 							<label for="resume"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
@@ -291,7 +296,7 @@ $(function() {
 						</form>
     				</div>
     				<div class="col-sm-5 col-sm-offset-1">
-    					<form action="../uploadFiles/uploadNOC.php" method="post" enctype="multipart/form-data">
+    					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="nocId" value="<?php echo $email; ?>" />
 					        <input type="file" name="noc" id="noc" class="inputfile" />
 							<label for="noc"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
@@ -300,10 +305,62 @@ $(function() {
     				</div>
     			</div>
 
+<?php
+require '../config/config.php';
+
+if ($_POST && !empty($_FILES)) {
+    if($_FILES['resume']['error'] == 0) {
+        $email = $_POST['resumeId'];
+        $type = $conn->real_escape_string($_FILES['resume']['type']);
+        $data = $conn->real_escape_string(file_get_contents($_FILES  ['resume']['tmp_name']));
+        $size = intval($_FILES['resume']['size']);
+ 
+ if ( in_array($type, array('application/pdf'))) {
+     if ( $size < 500000) {
+
+                $sql = "select resume from user where email='$email'";
+                $result1 = $conn->query($sql);
+                if($result1){
+                    
+                    	while($row1 = $result1->fetch_assoc()) {
+                    		if($row1['resume']==null){
+                        $query = "update user set resume='$data' where email='$email'";
+             
+                        $result = $conn->query($query);
+                 
+                        if($result) {
+                            // echo 'resume uploaded';
+                            header ("location:../student-portal/");
+                        }
+                        else {
+                            echo 'Error! Failed to insert the file'
+                               . "<pre>{$conn->error}</pre>";
+                        }
+                    }else{echo 'already uploaded';
+                        // header ("location:../student-portal/");
+                }
+            }
+      }
+            }else{echo "File size too large. Size limit is 100kb only.<script>alert('kjf');</script> ";}
+        
+        }else{echo "Choose pdf format.";}
+    }
+        else {
+            echo 'File is not selected.';
+        }
+ 
+    $conn->close();
+}
+
+
+?>
+
    <script>
    		function resume_error(){
 	   		var resume = $('#resume').value;
-	   		alert(resume);
+	   		if(resume==NULL){
+	   			alert('no file selected');
+	   		}
 		}
    </script> 			
 
@@ -360,25 +417,8 @@ $(function() {
 <div style="height:5vh;"> </div>
     <?php require_once('../footer.php');?>
 
-<?php
-		 }
-		 else{echo 'error';}
-                } else{
-                    $username_err = 'No account found with that username.';
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-        }
-        
-        mysqli_stmt_close($stmt);
-    }
 
-    // var facultyId=document.getElementById('spriority1FacultyId";echo $row['id']; echo "').value;
-      // var studentId=document.getElementById('spriority1StudentId";echo $row['id']; echo "').value;
-else
-      header ("location:../index.php");
-    ?>
+		 
 
 
 <?php echo"
