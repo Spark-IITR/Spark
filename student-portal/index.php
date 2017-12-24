@@ -376,20 +376,24 @@ if ($_POST && !empty($_FILES)) {
 		                    if(mysqli_stmt_fetch($stmt1)){
 		                
 		                    	if($resumePdf==null){
-			                        $query = "update user set resume='$data' where email='$email'";
-			             
-			                        $result = $conn->query($query);
-			                 
-			                        if($result) {
-			                            echo 'resume uploaded';
-			                            // header ("location:../student-portal/");
-			                        }
-			                        else {
-			                            echo 'Error! Failed to insert the file'
+			                        $query = "UPDATE user set resume=? where email=?";
+			             			if($stmt3 = mysqli_prepare($conn, $query)){
+							            mysqli_stmt_bind_param($stmt3, "ss",$param_resume, $param_email);
+							            $param_email = $email;
+							            $param_resume = $data;
+							            if(mysqli_stmt_execute($stmt3)){
+							                 echo 'Resume uploaded';
+							                  // header ("location:../student-portal/");
+							            } else{
+							               echo 'Error! Failed to insert the file'
 			                               . "<pre>{$conn->error}</pre>";
-			                        }
-		                    	}
-		                    		else{echo 'already uploaded';
+							            }
+							        }else {
+							        	echo 'Already uploaded';
+		                        		// header ("location:../student-portal/");
+		                        		// mysqli_stmt_close($stmt);
+							    	}
+		                    	}else{echo 'Already uploaded';
 		                        // header ("location:../student-portal/");
 		                		}
 		            		}
@@ -398,7 +402,7 @@ if ($_POST && !empty($_FILES)) {
 		 		}
 			}
 			else{
-					echo "File size too large. Size limit is 100kb only.<script>alert('kjf');</script> ";
+					echo "File size too large. Size limit is 100kb only.";
 			}
 		        
 		}
@@ -410,7 +414,7 @@ if ($_POST && !empty($_FILES)) {
             echo 'File is not selected.';
     }
  
-   mysqli_stmt_close($stmt);
+   mysqli_stmt_close($stmt1);
 }
 
 

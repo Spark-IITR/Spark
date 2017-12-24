@@ -40,7 +40,7 @@ require_once '../config/config.php';
 						    
 						}
 					}mysqli_stmt_close($stmt1);
-				}else{echo "string";}
+				}
 			
 
 
