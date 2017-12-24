@@ -19,7 +19,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
             if(mysqli_stmt_execute($stmt)){
                 mysqli_stmt_store_result($stmt);
                 
-                if(mysqli_stmt_num_rows($stmt) == 1){                    
+                if(!mysqli_stmt_num_rows($stmt) == 0){                    
                     mysqli_stmt_bind_result($stmt, $studentRealId ,$name,$email,$contact,$department,$college,$recommendStatus,$recommendedFaculty,$fundingType);
                     if(mysqli_stmt_fetch($stmt)){
 
@@ -28,14 +28,14 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
 
                         	/* fetch applied projects*/
-                        	 $sql    = "select spriority1,spriority2,spriority3 from user where id=$studentRealId";
-							$result = $conn->query($sql);
+                        	 $sql0    = "select spriority1,spriority2,spriority3 from user where id=$studentRealId";
+							$result0 = $conn->query($sql0);
 
-							if(!$result->num_rows == 0) {
-						       $row = $result->fetch_assoc();
-						       $spriority1FacultyId =  $row['spriority1'];
-						       $spriority2FacultyId =  $row['spriority2'];
-						       $spriority3FacultyId =  $row['spriority3'];
+							if(!$result0->num_rows == 0) {
+						       $row0 = $result0->fetch_assoc();
+						       $spriority1FacultyId =  $row0['spriority1'];
+						       $spriority2FacultyId =  $row0['spriority2'];
+						       $spriority3FacultyId =  $row0['spriority3'];
 					             
 					             /* fetch details of first priority */
 					              $sql1    = "select id,name,department,project from user where id=$spriority1FacultyId";
@@ -75,14 +75,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 							}
 
 							 
-					}
-		 
-                } 
-            } 
-        }
-        
-        // mysqli_stmt_close($stmt);
-    }
+					
 ?>
 
     <div class="container-fluid">
@@ -197,11 +190,11 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 										
 				                        <?php  
 										
-											$sql    = "select id,name,department,project from user where role='faculty'";
-											$result = $conn->query($sql);
-											if($result) {
-											    if($result->num_rows == 0) {
-											        echo '<p>There are no files in the database</p>';
+											$sql11    = "select id,name,department,project from user where role='faculty'";
+											$result11 = $conn->query($sql11);
+											if($result11) {
+											    if($result11->num_rows == 0) {
+											        echo '<p>There are no entries in the database</p>';
 											    }
 											    else {
 											        echo '<thead style="">
@@ -214,27 +207,35 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 								                        	</tr>
 								                        </thead>';
 															 
-											        while($row = $result->fetch_assoc()) {
+											        while($row11 = $result11->fetch_assoc()) {
 											            echo "
 											                <tbody id='myTable'>
 											                	<tr>
-												                    <td>{$row['id']}</td>
-												                    <td>{$row['name']}</td>
-												                    <td>{$row['department']}</td>
-												                    <td>{$row['project']}</td>
+												                    <td>{$row11['id']}</td>
+												                    <td>{$row11['name']}</td>
+												                    <td>{$row11['department']}</td>
+												                    <td>{$row11['project']}</td>
 												                    <td><div class='btn-group'>
 																			<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
 																			    Priority <span class='caret'></span>
 																			</button>
 																			<ul class='dropdown-menu'>
 																			    <li>
-																			    	<form method='post' id='spriority1Form";echo $row['id']; echo "'>
-														                    			<input type='hidden' name='studentId' id='spriority1StudentId";echo $row['id']; echo "' value='";echo $studentRealId; echo"' >
-														                    			<input type='hidden' name='facultyId' id='spriority1FacultyId";echo $row['id']; echo "' value='";echo $row['id']; echo"'  >
-														                    			<input type='submit' id='spriority1Button";echo $row['id']; echo "'  value='1st' > 
+																			    	<form method='post' id='spriority1Form{$row11['id']}'>
+														                    			<input type='hidden' name='studentId' id='spriority1StudentId{$row11['id']}' value='{$studentRealId}' >
+														                    			<div id='a'></div>
+														                    			<input type='hidden' name='facultyId' id='spriority1FacultyId{$row11['id']}' value='{$row11['id']}'  >
+														                    			<input type='submit' id='spriority1Button{$row11['id']}'  value='1st' > 
 													                    			</form>
 													                    		</li>
-																			    <li><button> 2nd </button></li>
+																			    <li>
+																			    	<form method='post' id='spriority2Form{$row11['id']}'>
+														                    			<input type='hidden' name='studentId' id='spriority2StudentId{$row11['id']}' value='{$studentRealId}' >
+														                    			<div id='a'></div>
+														                    			<input type='hidden' name='facultyId' id='spriority2FacultyId{$row11['id']}' value='{$row11['id']}'  >
+														                    			<input type='submit' id='spriority2Button{$row11['id']}'  value='2nd' > 
+													                    			</form>
+													                    		</li>
 																			    <li><button> 3rd </button></li>
 																			</ul>
 																		</div>
@@ -244,10 +245,10 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 <script>
 
 $(function() {
-	$('#spriority1Button";echo $row['id']; echo "').click(function() {	
-	 var data = $('#spriority1Form";echo $row['id']; echo "').serialize();
-
-	 confirm = confirm('If you want to set 1st priority for your project to ";echo $row['name']; echo " ? ');
+	$('#spriority1Button{$row11['id']}').click(function() {	
+	 var data = $('#spriority1Form{$row11['id']}').serialize();
+	 //alert(data);
+	 confirm = confirm('If you want to set 1st priority for your project to {$row11['id']} ? ');
 	 if(confirm==true ){
  	 $.ajax({
         url: 'spriority1.php',
@@ -256,18 +257,53 @@ $(function() {
 		type: 'POST',          
 
 		success: function(data){
-    		data=data.replace(/\s+/g,'true');
- 
-           if(data == 'true'){
- 
-                console.log('form submitted');     
-         
-         }else{
-         	alert('Priority already selected . ');
-         }
+			//alert(data);
+
+			if(data=='already present'){
+				alert('Priority already choosen.');
+			}
+			if(data=='error'){
+				alert('There is some internal error.');
+			}
+    		
      },
        error : function(XMLHttpRequest, textStatus, errorThrown) {
-            alert('Priority inserted .');
+            alert('Priority Set.');
+        }
+	    });
+	}
+	});
+});
+
+</script>
+
+<script>
+
+$(function() {
+	$('#spriority2Button{$row11['id']}').click(function() {	
+	 var data = $('#spriority2Form{$row11['id']}').serialize();
+	 //alert(data);
+	 confirm = confirm('If you want to set 2nd priority for your project to {$row11['id']} ? ');
+	 if(confirm==true ){
+ 	 $.ajax({
+        url: 'spriority2.php',
+        data: data,
+        async: true,
+		type: 'POST',          
+
+		success: function(data){
+			//alert(data);
+
+			if(data=='already present'){
+				alert('Priority already choosen.');
+			}
+			if(data=='error'){
+				alert('There is some internal error.');
+			}
+    		
+     },
+       error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert('Priority Set.');
         }
 	    });
 	}
@@ -281,8 +317,8 @@ $(function() {
 											 // $result->free();
 											}
 											 ?>
-									</div>
 									</table>
+									</div>
 								</div>
 					      	</div>
 						</div>
@@ -320,41 +356,59 @@ if ($_POST && !empty($_FILES)) {
         $data = $conn->real_escape_string(file_get_contents($_FILES  ['resume']['tmp_name']));
         $size = intval($_FILES['resume']['size']);
  
- if ( in_array($type, array('application/pdf'))) {
-     if ( $size < 500000) {
+		 if ( in_array($type, array('application/pdf'))) {
+		     if ( $size < 500000) {
 
-                $sql = "select resume from user where email='$email'";
-                $result1 = $conn->query($sql);
-                if($result1){
-                    
-                    	while($row1 = $result1->fetch_assoc()) {
-                    		if($row1['resume']==null){
-                        $query = "update user set resume='$data' where email='$email'";
-             
-                        $result = $conn->query($query);
-                 
-                        if($result) {
-                            // echo 'resume uploaded';
-                            header ("location:../student-portal/");
-                        }
-                        else {
-                            echo 'Error! Failed to insert the file'
-                               . "<pre>{$conn->error}</pre>";
-                        }
-                    }else{echo 'already uploaded';
-                        // header ("location:../student-portal/");
-                }
-            }
-      }
-            }else{echo "File size too large. Size limit is 100kb only.<script>alert('kjf');</script> ";}
-        
-        }else{echo "Choose pdf format.";}
-    }
+		                $sql1 = "SELECT resume from user WHERE email= ? ";
+
+		        if($stmt1 = mysqli_prepare($conn, $sql1)){
+		            mysqli_stmt_bind_param($stmt1, "s", $param_username);
+		            
+		            $param_username = $email;
+		            
+		            if(mysqli_stmt_execute($stmt1)){
+		                mysqli_stmt_store_result($stmt1);
+
+		                if(!mysqli_stmt_num_rows($stmt1) == 0){                    
+		                    mysqli_stmt_bind_result($stmt1, $resumePdf);
+		                    if(mysqli_stmt_fetch($stmt1)){
+		                
+		                    	if($resumePdf==null){
+			                        $query = "update user set resume='$data' where email='$email'";
+			             
+			                        $result = $conn->query($query);
+			                 
+			                        if($result) {
+			                            echo 'resume uploaded';
+			                            // header ("location:../student-portal/");
+			                        }
+			                        else {
+			                            echo 'Error! Failed to insert the file'
+			                               . "<pre>{$conn->error}</pre>";
+			                        }
+		                    	}
+		                    		else{echo 'already uploaded';
+		                        // header ("location:../student-portal/");
+		                		}
+		            		}
+		      			}
+		    		}
+		 		}
+			}
+			else{
+					echo "File size too large. Size limit is 100kb only.<script>alert('kjf');</script> ";
+			}
+		        
+		}
+			else{
+				echo "Choose pdf format.";
+		}
+	}
         else {
             echo 'File is not selected.';
-        }
+    }
  
-    $conn->close();
+   mysqli_stmt_close($stmt);
 }
 
 
@@ -421,7 +475,17 @@ if ($_POST && !empty($_FILES)) {
     </div>
 <div style="height:5vh;"> </div>
     <?php require_once('../footer.php');?>
+<?php
+					}
+		 
+                } 
+            } 
+        }
+        
+        mysqli_stmt_close($stmt);
+    }
 
+?>
 
 		 
 
