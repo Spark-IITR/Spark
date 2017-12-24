@@ -86,17 +86,19 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 		    			<img src="../uploadFiles/showProfileImage.php?email=<?=$email ?>" class="studentProfileImg" alt="<?php echo $name; ?>">
 
     				 </div>
-    				 <div class="col-sm-12">
+    				 <div class="col-sm-12 col-xs-12">
+                         <p class="studentProfileUploadTag0" >Update Profile Picture</p>
     				 	<form action="../uploadFiles/imageUpload.php" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="imageId" value="<?php echo $email; ?>">
 					        <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
-					        <input type="file" name="image" id="file" class="inputfile" />
-							<label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
-	    					<input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton" value="Change Image" placeholder="" >
+					        <div class="col-sm-7 col-xs-7"><input type="file" name="image" id="file" class="inputfile" />
+							<label for="file"><span class="glyphicon glyphicon-folder-open hidden-sm" style="padding-right: 7px;"></span>Select Image</label></div>
+	    					<div class="col-sm-5 col-xs-5"><input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" value="Change" placeholder="" ></div>
 						</form>
     				 </div>
     			</div>
-    			<p class="studentProfileDetailsTag  studentProfileUpperMargin">Name</p>
+    			<div class="row">
+                <p class="studentProfileDetailsTag  studentProfileUpperMargin">Name</p>
     			<p class="studentProfileDetails"><?php echo $name; ?></p>
 
     			<p class="studentProfileDetailsTag">Department</p>
@@ -109,7 +111,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     			<p class="studentProfileDetails"><?php echo $email; ?></p>
 
     			<p class="studentProfileDetailsTag">Contact No.</p>
-    			<p class="studentProfileDetails"><?php echo $contact; ?></p>
+    			<p class="studentProfileDetails"><?php echo $contact; ?></p></div>
 
     			 <a class="btn btn-default studentProfileLogoutButton" href="../logout.php" >Logout</a>
     		</div>
@@ -323,20 +325,25 @@ $(function() {
     				</div>
     			</div>
     			<div class="row" style="margin-left: 0%">
-    				<div class="col-sm-5">
+
+    				<div class="col-sm-6 col-xs-12">
+                        <p class="studentProfileUploadTag" >Upload Resume</p>
     					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="resumeId" value="<?php echo $email; ?>" />
-					        <input type="file" name="resume" id="resume" class="inputfile" />
-							<label for="resume"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
-	    					<input type="submit" name="submit" onclick="resume_error()" class="btn btn-default studentProfileImageSubmitButton" value="Upload Resume" placeholder="" >
+                            <div class="col-sm-7 col-xs-7"><input type="file" name="resume" id="resume" class="inputfile" />
+							<label for="resume"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Select File</label></div>
+                                <div class="col-sm-5 col-xs-5"><input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" value="Upload" placeholder="" ></div>
+
 						</form>
     				</div>
-    				<div class="col-sm-5 col-sm-offset-1">
+    				<div class="col-sm-6 col-xs-12" style="display: block;">
+                        <p class="studentProfileUploadTag" >Upload NOC/LOR</p>
+
     					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="nocId" value="<?php echo $email; ?>" />
-					        <input type="file" name="noc" id="noc" class="inputfile" />
-							<label for="noc"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
-	    					<input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton" value="Upload NOC/LOR" placeholder="" >
+					        <div class="col-sm-7 col-xs-7"> <input type="file" name="noc" id="noc" class="inputfile" />
+							<label for="noc"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Select File</label></div>
+                            <div class="col-sm-5 col-xs-5"><input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" value="Upload" placeholder="" ></div>
 						</form>
     				</div>
     			</div>

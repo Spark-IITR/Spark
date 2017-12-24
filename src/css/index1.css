@@ -365,34 +365,62 @@ height: auto;
     padding-left: 5%
 }
 .studentProfileDetails{
-    font-size: 1.2vw;
+    font-size: 2.5vh;
     color: rgba(9, 9, 9, 0.48);
     margin-top: -1vh;
     padding-left: 5%;
     padding-bottom:1vh;
 }
 .studentProfileLogoutButton{
-    width: 10vw;
+    width: 10vh
     margin-left: 5%;
-    margin-top: 0vh;
+    margin-bottom: 10vw;
 }
 .studentProfileUpperMargin{
     margin-top: 3vh
 }
 .studentProfileImageSubmitButton{
 
+
 }
 
+.studentProfileUploadTag0{
+    font-size: 2.5vh;
+    font-weight: bold;
+    text-align: center;
+    margin: unset;
+    margin-left: 4%;
+    margin-bottom: 1.5vh;
+    margin-top: 2.5vh;
+}
+
+.studentProfileUploadTag{
+    font-size: 2.5vh;
+    font-weight: bold;
+    margin: unset;
+    margin-top: 2.5vh;
+    margin-left: 4%;
+    margin-bottom: 1.5vh;
+}
+
+
+
 .inputfile {
-    width: 0.1px;
-    height: 0.1px;
+
     opacity: 0;
     overflow: hidden;
-    position: absolute;
-    z-index: -1;
+position: absolute;
+z-index: -1;
 }
+.inputfile1 {
+    overflow: hidden;
+    position: absolute;
+    margin-top: 13px;
+}
+
+
 .inputfile + label {
-    font-size: 1vw;
+    font-size: 2vh;
     font-weight: 700;
     color: white;
     background-color: rgb(42, 101, 152);
@@ -404,6 +432,42 @@ height: auto;
     margin-left:5%
 }
 
+/*
+
+.inputfile {
+
+
+
+}
+
+.inputfile1 {
+
+    font-size: 2vh;
+    font-weight: 700;
+    border-radius: 3px;
+    border: 1px solid #777;
+
+
+
+
+
+}
+
+
+.inputfile + label {
+    font-size: 2vh;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(42, 101, 152);
+    display: inline-block;
+    border-radius: 3px;
+    border: 1px solid #777;
+    padding: 6px 7px;
+    margin-top: 1vh;
+
+}
+*/
+
 .inputfile:focus + label,
 .inputfile + label:hover {
     background-color: red;
@@ -413,7 +477,8 @@ height: auto;
 }
 
 .studentProjectTag{
-    font-size: 3vw;
+    font-size: 3.5vh;
+
 }
 
 
@@ -434,15 +499,20 @@ margin-bottom: 8vh
     width: 10vw;
 }
 .doctorsStudentTabName{
-    font-size: 1.3vw;
+    font-size: 2.5vh;
     text-align: center;
     padding-top: 1.5vh;
 }
 .doctorsStudentTabYear{
-    font-size: 1vw;
+    font-size: 1.8vh;
     margin-top: -1vh;
     text-align: center;
 }
 .facultyAddRemark{
     border-radius: 8px
+}
+
+.viewFile{
+
+
 }

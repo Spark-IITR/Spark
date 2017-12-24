@@ -33,13 +33,13 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                      <div class="col-sm-12" style="text-align: center;">
                         <img src="../uploadFiles/showProfileImage.php?email=<?=$email ?>" class="studentProfileImg" alt="<?php echo $name; ?>">
                      </div>
-                     <div class="col-sm-12">
+                     <div class="col-sm-12 col-xs-12">
                         <form action="../uploadFiles/imageUpload.php" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="imageId" value="<?php echo $email; ?>">
                             <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
-                            <input type="file" name="image" id="file" class="inputfile" />
-                            <label for="file"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span><span class="glyphicons glyphicons-folder-open"></span>Choose File</label>
-                            <input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton" value="Change Image" placeholder="" >
+                            <div class="col-sm-7 col-xs-7"><input type="file" name="image" id="file" class="inputfile" />
+                                <label for="file"><span class="glyphicon glyphicon-folder-open hidden-sm" style="padding-right: 7px"></span>Choose File</label></div>
+                                <div class="col-sm-5 col-xs-5"><input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" value="Change Image" placeholder="" ></div>
                         </form>
                      </div>
                 </div>
@@ -59,18 +59,18 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                 <p class="studentProfileDetails"><?php echo $contact; ?></p>
 
 
-                <a class="btn btn-default studentProfileLogoutButton" href="../logout.php" >Logout</a>
+                <a class="btn btn-default studentProfileLogoutButton" style="margin-left:2vh; " href="../logout.php" >Logout</a>
             </div>
             <div class="col-sm-9">
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 col-xs-12">
                         <p class="studentProjectTag">Projects</p>
                         <div>
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#application" aria-controls="home" role="tab" data-toggle="tab">Applications</a></li>
-                                <li role="presentation"><a href="#accepted" aria-controls="kill" role="tab" data-toggle="tab">Approved</a></li>
-                                <li role="presentation"><a href="#yourProjects" aria-controls="profile" role="tab" data-toggle="tab">Your Projects</a></li>
-                                <li role="presentation"><a href="#allProject" aria-controls="kill" role="tab" data-toggle="tab">All Projects</a></li>
+                                <li role="presentation" class="active col-xs-3"><a href="#application" aria-controls="home" role="tab" data-toggle="tab">Applications</a></li>
+                                <li role="presentation" class="col-xs-3"><a href="#accepted" aria-controls="kill" role="tab" data-toggle="tab">Approved</a></li>
+                                <li role="presentation" class="col-xs-3"><a href="#yourProjects" aria-controls="profile" role="tab" data-toggle="tab">Your Projects</a></li>
+                                <li role="presentation" class="col-xs-3"><a href="#allProject" aria-controls="kill" role="tab" data-toggle="tab">All Projects</a></li>
                             </ul>
                             <div class="tab-content" style="max-height: 50vh;overflow: scroll;min-height: 40vh">
 

@@ -23,7 +23,37 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                         require_once '../header.php';
                         
            ?>         
-           
+
+
+           <div class="container-fluid">
+               <div class="row">
+                   <div class="col-sm-6 col-sm-offset-3">
+                        <input type="number" class="form-control" placeholder="ID..." name="facultyName" id="facultyName" onkeyup="fetch_faculty_name(this.value)">
+                        <div id="FetchFacultyNameDiv"></div>
+                   </div>
+               </div>
+           </div>
+
+           <script>
+                function fetch_faculty_name(data){
+                        var id = data;
+                     $.ajax({
+                        url: 'fetchFacultyName.php',
+                        data: {"id":id},
+                        async: true,
+                        type: 'POST',          
+
+                        success: function(data){
+                            
+                            $('#FetchFacultyNameDiv').html(data);
+                     },
+                       error : function(XMLHttpRequest, textStatus, errorThrown) {
+                            alert(errorThrown);
+                        }
+                        });
+                 }
+           </script>
+
             <div class="container-fluid">
                 <div class="row" style="margin-top: -3vh;margin-left: .5%">
                     <div class="col-sm-6">
@@ -42,7 +72,8 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                             <li role="presentation"><a href="#application" role="tab" data-toggle="tab">Applications</a></li>
                             <li role="presentation"  class="active"><a href="#faculty"  role="tab" data-toggle="tab">Faculty Profile</a></li>
                         </ul>
-                        <div class="tab-content">
+
+                 <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade" id="application">
                                 <?php include 'applicationTable.php'; ?>
 
@@ -63,6 +94,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                                 <div class="row">
                                     <div class="col-sm-10 col-sm-offset-1">
                                         <div class="row doctorsStudentContainer"  id="FetchFacultyDetailDiv">
+
 
                                         </div>
                                     </div>
