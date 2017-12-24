@@ -9,11 +9,15 @@ if ($_POST && !empty($_FILES)) {
     $path = $_FILES['image']['tmp_name'];
     $size = $_FILES['image']['size'];
     $type = $_FILES['image']['type'];
-echo $role;
-echo 'hello';
+
     if ($_FILES['image']['error'] || !is_uploaded_file($path)) {
         $formOk = false;
-        echo "Error: Error in uploading file. Please try again.";
+        // echo "Error: Error in uploading file. Please try again.";
+        if($role=='faculty'){
+                    header ("location:../faculty-portal/");
+                }else if($role=='student'){
+                    header ("location:../student-portal/");
+                }
     }
 
     if ($formOk && !in_array($type, array('image/png', 'image/x-png', 'image/jpeg', 'image/pjpeg', 'image/gif'))) {
@@ -22,7 +26,12 @@ echo 'hello';
     }
     if ($formOk && filesize($path) > 500000) {
         $formOk = false;
-        echo "Error: File size must be less than 500 KB.";
+        // echo "Error: File size must be less than 500 KB.";
+        if($role=='faculty'){
+                    header ("location:../faculty-portal/");
+                }else if($role=='student'){
+                    header ("location:../student-portal/");
+                }
     }
     if ($formOk) {
         $content = file_get_contents($path);
@@ -37,13 +46,23 @@ echo 'hello';
                     header ("location:../student-portal/");
                 }
             } else {
-                echo "Error: Could not save the data to mysql database. Please try again.";
+                // echo "Error: Could not save the data to mysql database. Please try again.";
+                if($role=='faculty'){
+                    header ("location:../faculty-portal/");
+                }else if($role=='student'){
+                    header ("location:../student-portal/");
+                }
             }
 
             mysqli_close($conn);
         
 }else{
-        echo "not able to access";
+        // echo "not able to access";
+        if($role=='faculty'){
+                    header ("location:../faculty-portal/");
+                }else if($role=='student'){
+                    header ("location:../student-portal/");
+                }
     }
 }
 ?>
