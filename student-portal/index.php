@@ -27,53 +27,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
 
 
-                        	/* fetch applied projects*/
-                        	 $sql0    = "select spriority1,spriority2,spriority3 from user where id=$studentRealId";
-							$result0 = $conn->query($sql0);
-
-							if(!$result0->num_rows == 0) {
-						       $row0 = $result0->fetch_assoc();
-						       $spriority1FacultyId =  $row0['spriority1'];
-						       $spriority2FacultyId =  $row0['spriority2'];
-						       $spriority3FacultyId =  $row0['spriority3'];
-					             
-					             /* fetch details of first priority */
-					              $sql1    = "select id,name,department,project from user where id=$spriority1FacultyId";
-							      $result1 = $conn->query($sql1);
-									if(!$result1->num_rows == 0) {
-								    	$row1 = $result1->fetch_assoc();
-
-								    	$spriority1FacultyName = $row1['name'];
-								    	$spriority1FacultyDepartment = $row1['department'];
-								    	$spriority1FacultyProject = $row1['project'];
-
-								    }
-
-								    /* fetch details of second priority */
-								    $sql2    = "select id,name,department,project from user where id=$spriority2FacultyId";
-							      $result2 = $conn->query($sql2);
-									if(!$result2->num_rows == 0) {
-								    	$row2 = $result2->fetch_assoc();
-
-								    	$spriority2FacultyName = $row2['name'];
-								    	$spriority2FacultyDepartment = $row2['department'];
-								    	$spriority2FacultyProject = $row2['project'];
-
-								    }
-
-								    /* fetch details of third priority */
-								    $sql3    = "select id,name,department,project from user where id=$spriority3FacultyId";
-							      $result3 = $conn->query($sql3);
-									if(!$result3->num_rows == 0) {
-										$row3 = $result3->fetch_assoc();
-
-								    	$spriority3FacultyName = $row3['name'];
-								    	$spriority3FacultyDepartment = $row3['department'];
-								    	$spriority3FacultyProject = $row3['project'];
-
-								    }
-							}
-
+                        	
 							 
 					
 ?>
@@ -141,184 +95,16 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
 						  	<div class="tab-content"  style="max-height: 50vh;overflow: scroll;">
 								<div role="tabpanel" class="tab-pane fade in" id="applied">
-									<table class="table table-striped">
-										<thead style="font-size: 14px;"><tr><th title="Field #1">Priority</th>
-				                            <th title="Field #2">Name</th>
-				                            <th title="Field #3">Department</th>
-				                            <th title="Field #5">Tentative projects for summer internship</th>
-				                        </tr></thead>
-				                        <tbody id="myTable" ><tr>
-				                            <td align="right">1st</td>
-				                            <?php if(!$spriority1FacultyId){ ?>
-				                            <td colspan="4"> <?php echo ' Project yet not choosen';?></td>
-				                            <?php }else{ ?>
-				                            
-				                            <td><?php echo $spriority1FacultyName; ?></td>
-				                            <td><?php echo $spriority1FacultyDepartment; ?></td>
-				                            <td><?php echo $spriority1FacultyProject; ?></td>
-				                          	<?php } ?>
-				                        </tr>
-				                        <tr>
-											<td align="right">2nd</td>
-				                            <?php if(!$spriority2FacultyId){ ?>
-				                            <td colspan="4"> <?php echo ' Project yet not choosen';?></td>
-				                            <?php }else{ ?>
-				                            
-				                            <td><?php echo $spriority2FacultyName; ?></td>
-				                            <td><?php echo $spriority2FacultyDepartment; ?></td>
-				                            <td><?php echo $spriority2FacultyProject; ?></td>
-				                          	<?php } ?>
-				                        </tr>
-				                        <tr>
-				                            <td align="right">3rd</td>
-				                            <?php if(!$spriority3FacultyId){ ?>
-				                            <td colspan="4"> <?php echo 'Project yet not choosen';?></td>
-				                            <?php }else{ ?>
-				                            
-				                            <td><?php echo $spriority3FacultyName; ?></td>
-				                            <td><?php echo $spriority3FacultyDepartment; ?></td>
-				                            <td><?php echo $spriority3FacultyProject; ?></td>
-				                          	<?php } ?>
-				                        </tr>
-									</table>
+									
+									<?php require_once('appliedProject.php'); ?>
+
 								</div>
 
 
 								<div role="tabpanel" class="tab-pane fade in active" id="available">
-									<div class="">
-									<table class="table table-striped">
-										
-				                        <?php  
-										
-											$sql11    = "select id,name,department,project from user where role='faculty'";
-											$result11 = $conn->query($sql11);
-											if($result11) {
-											    if($result11->num_rows == 0) {
-											        echo '<p>There are no entries in the database</p>';
-											    }
-											    else {
-											        echo '<thead style="">
-											        		<tr>
-											        			<th title="Field #1">ID</th>
-									                            <th title="Field #2">Name</th>
-									                            <th title="Field #3">Department</th>
-									                            <th title="Field #4">Research interests/Tentative projects for summer internship</th>
-									                            <th title="Field #5">Set Priority</th>
-								                        	</tr>
-								                        </thead>';
-															 
-											        while($row11 = $result11->fetch_assoc()) {
-											            echo "
-											                <tbody id='myTable'>
-											                	<tr>
-												                    <td>{$row11['id']}</td>
-												                    <td>{$row11['name']}</td>
-												                    <td>{$row11['department']}</td>
-												                    <td>{$row11['project']}</td>
-												                    <td><div class='btn-group'>
-																			<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-																			    Priority <span class='caret'></span>
-																			</button>
-																			<ul class='dropdown-menu'>
-																			    <li>
-																			    	<form method='post' id='spriority1Form{$row11['id']}'>
-														                    			<input type='hidden' name='studentId' id='spriority1StudentId{$row11['id']}' value='{$studentRealId}' >
-														                    			<div id='a'></div>
-														                    			<input type='hidden' name='facultyId' id='spriority1FacultyId{$row11['id']}' value='{$row11['id']}'  >
-														                    			<input type='submit' id='spriority1Button{$row11['id']}'  value='1st' > 
-													                    			</form>
-													                    		</li>
-																			    <li>
-																			    	<form method='post' id='spriority2Form{$row11['id']}'>
-														                    			<input type='hidden' name='studentId' id='spriority2StudentId{$row11['id']}' value='{$studentRealId}' >
-														                    			<div id='a'></div>
-														                    			<input type='hidden' name='facultyId' id='spriority2FacultyId{$row11['id']}' value='{$row11['id']}'  >
-														                    			<input type='submit' id='spriority2Button{$row11['id']}'  value='2nd' > 
-													                    			</form>
-													                    		</li>
-																			    <li><button> 3rd </button></li>
-																			</ul>
-																		</div>
-																	</td>
-											                	</tr>
-											                </tbody>
-<script>
+									
+									<?php require_once('availableProject.php'); ?>
 
-$(function() {
-	$('#spriority1Button{$row11['id']}').click(function() {	
-	 var data = $('#spriority1Form{$row11['id']}').serialize();
-	 //alert(data);
-	 confirm = confirm('If you want to set 1st priority for your project to {$row11['id']} ? ');
-	 if(confirm==true ){
- 	 $.ajax({
-        url: 'spriority1.php',
-        data: data,
-        async: true,
-		type: 'POST',          
-
-		success: function(data){
-			//alert(data);
-
-			if(data=='already present'){
-				alert('Priority already choosen.');
-			}
-			if(data=='error'){
-				alert('There is some internal error.');
-			}
-    		
-     },
-       error : function(XMLHttpRequest, textStatus, errorThrown) {
-            alert('Priority Set.');
-        }
-	    });
-	}
-	});
-});
-
-</script>
-
-<script>
-
-$(function() {
-	$('#spriority2Button{$row11['id']}').click(function() {	
-	 var data = $('#spriority2Form{$row11['id']}').serialize();
-	 //alert(data);
-	 confirm = confirm('If you want to set 2nd priority for your project to {$row11['id']} ? ');
-	 if(confirm==true ){
- 	 $.ajax({
-        url: 'spriority2.php',
-        data: data,
-        async: true,
-		type: 'POST',          
-
-		success: function(data){
-			//alert(data);
-
-			if(data=='already present'){
-				alert('Priority already choosen.');
-			}
-			if(data=='error'){
-				alert('There is some internal error.');
-			}
-    		
-     },
-       error : function(XMLHttpRequest, textStatus, errorThrown) {
-            alert('Priority Set.');
-        }
-	    });
-	}
-	});
-});
-
-</script>
-											                 ";
-											        }
-											    }
-											 // $result->free();
-											}
-											 ?>
-									</table>
-									</div>
 								</div>
 					      	</div>
 						</div>
@@ -348,77 +134,11 @@ $(function() {
     				</div>
     			</div>
 
-<?php
-require '../config/config.php';
-
-if ($_POST && !empty($_FILES)) {
-    if($_FILES['resume']['error'] == 0) {
-        $email = $_POST['resumeId'];
-        $type = $conn->real_escape_string($_FILES['resume']['type']);
-        $data = $conn->real_escape_string(file_get_contents($_FILES  ['resume']['tmp_name']));
-        $size = intval($_FILES['resume']['size']);
- 
-		 if ( in_array($type, array('application/pdf'))) {
-		     if ( $size < 500000) {
-
-		                $sql1 = "SELECT resume from user WHERE email= ? ";
-
-		        if($stmt1 = mysqli_prepare($conn, $sql1)){
-		            mysqli_stmt_bind_param($stmt1, "s", $param_username);
-		            
-		            $param_username = $email;
-		            
-		            if(mysqli_stmt_execute($stmt1)){
-		                mysqli_stmt_store_result($stmt1);
-
-		                if(!mysqli_stmt_num_rows($stmt1) == 0){                    
-		                    mysqli_stmt_bind_result($stmt1, $resumePdf);
-		                    if(mysqli_stmt_fetch($stmt1)){
-		                
-		                    	if($resumePdf==null){
-			                        $query = "UPDATE user set resume=? where email=?";
-			             			if($stmt3 = mysqli_prepare($conn, $query)){
-							            mysqli_stmt_bind_param($stmt3, "ss",$param_resume, $param_email);
-							            $param_email = $email;
-							            $param_resume = $data;
-							            if(mysqli_stmt_execute($stmt3)){
-							                 echo 'Resume uploaded';
-							                  // header ("location:../student-portal/");
-							            } else{
-							               echo 'Error! Failed to insert the file'
-			                               . "<pre>{$conn->error}</pre>";
-							            }
-							        }else {
-							        	echo 'Already uploaded';
-		                        		// header ("location:../student-portal/");
-		                        		// mysqli_stmt_close($stmt);
-							    	}
-		                    	}else{echo 'Already uploaded';
-		                        // header ("location:../student-portal/");
-		                		}
-		            		}
-		      			}
-		    		}
-		 		}
-			}
-			else{
-					echo "File size too large. Size limit is 100kb only.";
-			}
-		        
-		}
-			else{
-				echo "Choose pdf format.";
-		}
-	}
-        else {
-            echo 'File is not selected.';
-    }
- 
-   mysqli_stmt_close($stmt1);
-}
 
 
-?>
+    			<?php require_once('../uploadFiles/uploadResume.php'); ?>
+
+
 
    <script>
    		function resume_error(){

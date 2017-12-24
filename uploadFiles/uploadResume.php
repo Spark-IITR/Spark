@@ -1,7 +1,5 @@
 <?php
-    require_once('../config/config.php');
-
-
+require '../config/config.php';
 
 if ($_POST && !empty($_FILES)) {
     if($_FILES['resume']['error'] == 0) {
@@ -10,48 +8,64 @@ if ($_POST && !empty($_FILES)) {
         $data = $conn->real_escape_string(file_get_contents($_FILES  ['resume']['tmp_name']));
         $size = intval($_FILES['resume']['size']);
  
- if ( in_array($type, array('application/pdf'))) {
-     if ( $size < 500000) {
+         if ( in_array($type, array('application/pdf'))) {
+             if ( $size < 500000) {
 
-                $sql = "select resume from user where email='$email'";
-                $result1 = $conn->query($sql);
-                if($result1){
-                    if(!$result1->num_rows == 0) {
-                        $query = "update user set resume='$data' where email='$email'";
-             
-                        $result = $conn->query($query);
-                 
-                        if($result) {
-                            // echo 'resume uploaded';
-                            header ("location:../student-portal/");
+                        $sql1 = "SELECT resume from user WHERE email= ? ";
+
+                if($stmt1 = mysqli_prepare($conn, $sql1)){
+                    mysqli_stmt_bind_param($stmt1, "s", $param_username);
+                    
+                    $param_username = $email;
+                    
+                    if(mysqli_stmt_execute($stmt1)){
+                        mysqli_stmt_store_result($stmt1);
+
+                        if(!mysqli_stmt_num_rows($stmt1) == 0){                    
+                            mysqli_stmt_bind_result($stmt1, $resumePdf);
+                            if(mysqli_stmt_fetch($stmt1)){
+                        
+                                if($resumePdf==null){
+                                    $query = "UPDATE user set resume=? where email=?";
+                                    if($stmt3 = mysqli_prepare($conn, $query)){
+                                        mysqli_stmt_bind_param($stmt3, "ss",$param_resume, $param_email);
+                                        $param_email = $email;
+                                        $param_resume = $data;
+                                        if(mysqli_stmt_execute($stmt3)){
+                                             echo 'Resume uploaded';
+                                              // header ("location:../student-portal/");
+                                        } else{
+                                           echo 'Error! Failed to insert the file'
+                                           . "<pre>{$conn->error}</pre>";
+                                        }
+                                    }else {
+                                        echo 'Already uploaded';
+                                        // header ("location:../student-portal/");
+                                        // mysqli_stmt_close($stmt);
+                                    }
+                                }else{echo 'Already uploaded';
+                                // header ("location:../student-portal/");
+                                }
+                            }
                         }
-                        else {
-                            echo 'Error! Failed to insert the file'
-                               . "<pre>{$conn->error}</pre>";
-                        }
-                    }else{
-                        // echo 'error going on';
-                        header ("location:../student-portal/");
                     }
-                 }
-
-
-            }else{echo "file size too large. Size Limit is 500kb only.";}
+                }
+            }
+            else{
+                    echo "File size too large. Size limit is 100kb only.";
+            }
+                
         }
-        }else{echo "choose pdf format";}
+            else{
+                echo "Choose pdf format.";
+        }
     }
         else {
-            echo 'An error accured while the file was being uploaded. '
-               . 'Error code: '. intval($_FILES['resume']['error']);
-        }
+            echo 'File is not selected.';
+    }
  
-    $conn->close();
+   mysqli_stmt_close($stmt1);
 }
-else {
-    echo 'Error! A file was not sent!';
-}
- 
-
 
 
 ?>
