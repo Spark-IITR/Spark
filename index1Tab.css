@@ -1,0 +1,78 @@
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+
+
+
+    .navbar-default .navbar-nav>li>a {
+        font-size: 2vh;
+        margin-right: 0px;
+    }
+
+    .navbarTabFix{
+
+    }
+
+
+    .inputfile {
+
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+
+    }
+
+    .inputfile1 {
+        overflow: hidden;
+        position: absolute;
+        margin-top: 13px;
+        margin-left: -2vh;
+    }
+
+
+    .inputfile + label {
+        font-size: 2vh;
+        font-weight: 700;
+        color: white;
+        background-color: rgb(42, 101, 152);
+        display: inline-block;
+        border-radius: 3px;
+        border: 1px solid #777;
+        padding: 6px 7px;
+        margin-top: 2vh;
+        margin-left:5%
+    }
+
+
+
+    .studentProfileUploadTag0{
+        font-size: 2vh;
+        font-weight: bold;
+        text-align: center;
+        margin: unset;
+        margin-left: 4%;
+
+        margin-top: 2.5vh;
+    }
+
+    .studentProfileUploadTag{
+        font-size: 2vh;
+        font-weight: bold;
+        margin: unset;
+        margin-top: 2.5vh;
+        margin-left: -1vh;
+
+        text-align: center;
+    }
+
+
+
+    .selectImageButtonTabFix {
+        margin: 0vh;
+        width: 100%;
+    }
+
+
+
+
+
+}
