@@ -99,7 +99,8 @@
     <link href="<?php echo base_url; ?>src/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/index1.css" rel="stylesheet">
-    <link href="<?php echo base_url; ?>src/css/index1Less.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/index1Tab.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/index1Mob.css" rel="stylesheet">
     <script src="<?php echo base_url; ?>src/js/bootstrap.min.js"></script>
 </head>
 
@@ -126,7 +127,7 @@
            
            <?php if($_SESSION['role'] == "admin"){?>
 
-           <li><a href="../index.php#aboutUs">About SPARK </a></li>
+           <li><a style="font-weight: 700" href="../index.php#aboutUs">About SPARK </a></li>
            <li><a href="../index.php#guidelines">Guidelines</a></li>
            <li><a href="../Publish/project.html">Projects</a></li>
            <li><a href="../index.php#timeline">Timeline</a></li>
