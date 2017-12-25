@@ -356,9 +356,15 @@ a:focus{
     margin-top: 1vh;
 }
 .studentProfileImg{
-height: auto;
+    height: auto;
     width: 8vw;
 }
+
+ .studentProfileName{
+        font-size: 3vh;
+ }
+
+
 .studentProfileDetailsTag{
     margin-top: -1vh;
     margin-bottom: 1vh;
@@ -385,7 +391,7 @@ height: auto;
 }
 
 .studentProfileUploadTag0{
-    font-size: 2.5vh;
+    font-size: 2.2vh;
     font-weight: bold;
     text-align: center;
     margin: unset;
@@ -395,12 +401,47 @@ height: auto;
 }
 
 .studentProfileUploadTag{
-    font-size: 2.5vh;
+    font-size: 2.2vh;
     font-weight: bold;
     margin: unset;
     margin-top: 2.5vh;
     margin-left: 4%;
-    margin-bottom: 1.5vh;
+    margin-bottom: 0vh;
+}
+
+
+p.studentProfileInstructionsTag {
+    margin-bottom: 0vh;
+    font-size: 4vh;
+}
+
+p.studentProfileInstructionsTag:first-letter{
+    font-size: 4vh;
+    margin-bottom: 4vh;
+}
+
+
+p.studentProfileStatusTag {
+    margin-left: 2vh;
+    margin-bottom: 0vh;
+    font-size: 4vh;
+}
+
+p.studentProfileStatusTag:first-letter{
+    font-size: 4vh; }
+
+.studentProfileStatusBox{
+   
+}
+
+.studentProfileStatus {
+
+    margin-top: 0px;
+    font-size: 2vh;
+}
+
+.studentProfileInstructionBox{
+    margin-bottom: 0px;
 }
 
 
@@ -409,9 +450,11 @@ height: auto;
 
     opacity: 0;
     overflow: hidden;
-position: absolute;
-z-index: -1;
+    position: absolute;
+    z-index: -1;
+
 }
+
 .inputfile1 {
     overflow: hidden;
     position: absolute;
