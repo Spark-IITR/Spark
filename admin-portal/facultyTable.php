@@ -1,6 +1,6 @@
 <?php 
     
-    $sql10 = "select id,name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3 from user where role='faculty'";
+    $sql10 = "SELECT id,name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3 from user where role='faculty'";
     $result10 = $conn->query($sql10);
     
     if($result10){

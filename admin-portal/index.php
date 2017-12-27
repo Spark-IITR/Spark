@@ -60,21 +60,25 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                         <h3>Welcome Admin</h3>
                     </div>
                     <div class="col-sm-4 col-sm-offset-2">
-                        <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Applications..">
+                        <form action="exportCsv.php" method="post">
+                            <input type="submit" name="export" class="btn btn-primary" value="Export CSV" style="float: right;margin-right: 10%;margin-top: 2vh">
+                        </form>
                     </div>
                 </div>
             </div>
 
             <div class="container-fluid">
-                <div class="row">
+                <div class="row" style="margin-top: 5vh">
                     <div class="col-sm-10 col-sm-offset-1">
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation"   class="active"><a href="#application" role="tab" data-toggle="tab">Applications</a></li>
                             <li role="presentation"><a href="#faculty"  role="tab" data-toggle="tab">Faculty Profile</a></li>
+                            <li style="float: right;margin-top: -5vh"> <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Applications.."> </li>
                         </ul>
 
                  <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="application">
+
                                 <?php include 'applicationTable.php'; ?>
 
 
