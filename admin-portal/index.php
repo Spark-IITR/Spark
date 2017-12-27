@@ -185,6 +185,9 @@ else
     
  function delete_application(data){
     var id = data;
+    var x = confirm('Do you want to delete his/her Application? It will be deleted Permanently . ')
+
+    if(x==true){
      $.ajax({
         url: 'deleteApplication.php',
         data: {"id":id},
@@ -194,11 +197,12 @@ else
         success: function(data){
             
             $('#DeleteApplicationDiv').html(data);
-     },
+        },
        error : function(XMLHttpRequest, textStatus, errorThrown) {
             alert(errorThrown);
-        }
+            }
         });
+    }
  }
 
     </script>
