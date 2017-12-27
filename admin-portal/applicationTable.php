@@ -12,9 +12,11 @@
                         <tr>
                             <th title="Field #1">ID</th>
                             <th title="Field #2">Name</th>
-                            <th title="Field #3">Department</th>
-                            <th title="Field #4">Degree</th>
-                            <th title="Field #5">College</th>
+                            <th title="Field #3">Email</th>
+                            <th title="Field #4">Department</th>
+                            <th title="Field #5">Degree</th>
+                            <th title="Field #6">College</th>
+                            <th title="Field #7">Delete</th>
                         </tr>
                     </thead>
 
@@ -27,9 +29,14 @@
                          <tr  onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
                             <td ><?php echo $row['id']; ?></td>
                             <td><?php echo $row['name']; ?></td>
+                            <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['department']; ?></td>
                             <td><?php echo $row['degree']; ?></td>
                             <td><?php echo $row['college']; ?></td>
+                            <td><form action="" method="post">
+                                    <input type="button" name="deleteButton" value="Delete" class="btn btn-danger" onclick="delete_application('<?php echo $row['id']; ?>')">
+                                </form>
+                            </td>
                         </tr>
                         
                 <?php } } ?> 

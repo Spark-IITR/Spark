@@ -108,7 +108,9 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                         </div>
                     </div>
                 </div>
-
+                <div id="DeleteApplicationDiv">
+                    
+                </div>
                  
             </div>
 
@@ -181,5 +183,22 @@ else
         });
  }
     
-   
+ function delete_application(data){
+    var id = data;
+     $.ajax({
+        url: 'deleteApplication.php',
+        data: {"id":id},
+        async: true,
+        type: 'POST',          
+
+        success: function(data){
+            
+            $('#DeleteApplicationDiv').html(data);
+     },
+       error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+        });
+ }
+
     </script>
