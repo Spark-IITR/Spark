@@ -8,7 +8,8 @@
                         <tr>
                             
                             <th title="Field #2">Name</th>
-                            <th title="Field #3">Year</th>
+                            <th title="Field #3">C.G.P.A</th>
+                            <th title="Field #4">Year</th>
                             <th title="Field #5">Department</th>
                             <th title="Field #6">College</th>
                             <th title="Field #7">Approve</th>
@@ -16,13 +17,14 @@
                     </thead>
                     <tbody id="myTable">
                         <?php 
-                             $sql    = "select id,name,email,department,college,year,spriority1,spriority2,spriority3 from user where spriority1!=0 or spriority2!=0 or spriority3!=0";
+                             $sql    = "select id,name,email,department,college,year,spriority1,spriority2,spriority3,cgpa from user where spriority1!=0 or spriority2!=0 or spriority3!=0";
                             $result = $conn->query($sql);
 
                             while($row=mysqli_fetch_assoc($result)) {
                                     ?>
                                         <tr onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;" >
                                             <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['cgpa']; ?></td>
                                             <td><?php echo $row['year']; ?></td>
                                             <td><?php echo $row['department']; ?></td>
                                             <td><?php echo $row['college']; ?></td>
