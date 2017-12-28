@@ -8,7 +8,7 @@ if($_SESSION['role']=='student')
 {
 	$role = $_SESSION['role'];
 
-$sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommendedFaculty,fundingType FROM user WHERE email = ? and role = ?";
+$sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommendedFaculty,fundingType,adminRemark FROM user WHERE email = ? and role = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "ss", $param_username,$param_role);
@@ -20,7 +20,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                 mysqli_stmt_store_result($stmt);
                 
                 if(!mysqli_stmt_num_rows($stmt) == 0){                    
-                    mysqli_stmt_bind_result($stmt, $studentRealId ,$name,$email,$contact,$department,$college,$recommendStatus,$recommendedFaculty,$fundingType);
+                    mysqli_stmt_bind_result($stmt, $studentRealId ,$name,$email,$contact,$department,$college,$recommendStatus,$recommendedFaculty,$fundingType,$adminRemark);
                     if(mysqli_stmt_fetch($stmt)){
 
                         require_once '../header.php';
@@ -124,7 +124,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 						</form>
     				</div>
     				<div class="col-md-6 col-sm-6 col-xs-12" style=" display: block;">
-                        <p class="studentProfileUploadTag" >Upload NOC/LOR</p>
+                        <p class="studentProfileUploadTag" >Upload Transcript</p>
 
     					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="nocId" value="<?php echo $email; ?>" />
@@ -207,35 +207,39 @@ if ($_POST && !empty($_FILES)) {
 
 ?>
 
-   <script>
+   <!-- <script>
    		function resume_error(){
 	   		var resume = $('#resume').value;
 	   		if(resume==NULL){
 	   			alert('no file selected');
 	   		}
 		}
-   </script> 			
+   </script> 	 -->		
 
 
     		</div>
     	</div>
 
-        <div class="container-fluid" style="margin-top: 5vh;">
-            <div class="alert alert-success studentProfileInstructionBox " role="alert">
-                <ul><p class="studentProfileInstructionsTag"> <strong>Instructions :</strong> </p>
-                    <li>Please Upload Your  NOC (for student other than IITR) and Resume ( compulsory for all students ) otherwise your application will be rejected.</li>
-                    <li>Size of Image / Resume / NOC should be less than 100 KB.</li>
-                    <li>Resume / NOC must be in pdf format.</li>
-                    <li>Once uploaded, you will not be able to change the Resume / Image / NOC. </li>
-                    <li>Each student have three choices to select their project according to his/her priority.</li>
-                    <li>Once the priorities are selected you will not be able to change it. So, choose priorities carefully after inspecting all the projects.</li>
-                </ul>
+        <div class="container-fluid" style="margin-top: 0vh;">
+            <div class="row">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <div class="alert alert-success studentProfileInstructionBox " role="alert">
+                        <ul><p class="studentProfileInstructionsTag"> <strong>Instructions :</strong> </p>
+                            <li>Please Upload Your  Transcrit (for student other than IITR) and Resume ( compulsory for all students ) otherwise your application will be rejected.</li>
+                            <li>Size of Image / Resume / Transcrit should be less than 100 KB.</li>
+                            <li>Resume / Transcrit must be in pdf format.</li>
+                            <li>Once uploaded, you will not be able to change the Resume / Image / Transcrit. </li>
+                            <li>Each student have  choices to select their project according to his/her priority.</li>
+                            <li>Once the priorities are selected you will not be able to change it. So, choose priorities carefully after inspecting all the projects.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="container-fluid" style="margin-top: 5vh">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-9 col-sm-offset-3">
                     <div class="alert alert-warning studentProfileStatusBox">
                         <p class="studentProfileStatusTag"><strong>Status : </strong></p>
                         <ul>
@@ -251,11 +255,19 @@ if ($_POST && !empty($_FILES)) {
                                     if(!$result5->num_rows == 0) {
                                         while($row5 = $result5->fetch_assoc()) {
                                             ?><li><span style="font-weight: 800">Faculty Recommended : </span> <?php echo $row5['name']; ?></li>
-                                        <?php	}
-                                    }
-                                }  ?>
+                                        <?php 
+                                            
+                                               
+                                    	}  
+                                    }else{}
+                                } }else{}  ?>
 
                                 <li><span style="font-weight: 800">Funding Type/Stipend : </span> <?php echo $fundingType; ?></li>
+
+                                <?php if(){?>
+                                            <li><span style="font-weight: 800">Remark : </span> <?php echo $adminRemark; ?></li>
+
+                                <?php ?>
 
                             <?php }else{ ?>
 

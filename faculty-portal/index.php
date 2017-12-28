@@ -127,6 +127,20 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
         </div>
     </div>
 
+    <div class="container-fluid" style="margin-top: 0vh; ">
+        <div class="row">
+            <div class="col-sm-9 col-sm-offset-3">
+                <div class="alert alert-success studentProfileInstructionBox " role="alert">
+                    <ul><p class="studentProfileInstructionsTag"> <strong>Instructions :</strong> </p>
+                        <li>Size of Image should be less than 100 KB.</li>
+                        <li>Each faculty have choices to set their student according to their priority.</li>
+                        <li>Once the priorities are selected you will not be able to change it. So, choose priorities carefully after inspecting all the applications.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <?php require_once('../footer.php');?>
 
