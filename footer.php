@@ -64,12 +64,12 @@
 
 
 
-<div>
+<!-- <div>
     <footer class="container-fluid footerBottom text-center">
         <p>For Technical Assistance Contact:  Prashant Verma (+91-9919431223) Pratham Gupta (+91-8126119585)</p>
     </footer>
 </div>
-
+ -->
 
          
 

@@ -34,7 +34,7 @@
            </div>
            <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-
+              <a href="signup.php">Don't Have Account (Only For Student.)</a>
             </div>
            </div> 
          </form>

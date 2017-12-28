@@ -1,10 +1,10 @@
 <?php 
-	
-	$sql = "SELECT id,name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3 from user where role='student'";
-	$result = $conn->query($sql);
-	
-	if($result){
-		if(!$result->num_rows == 0) {
+    
+    $sql = "SELECT id,name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3 from user where fundingType='project'";
+    $result = $conn->query($sql);
+    
+    if($result){
+        if(!$result->num_rows == 0) {
 
             ?>
             <table class="table table-striped" style="max-height: 70vh;overflow: scroll;">
@@ -22,9 +22,9 @@
                     <tbody id="myTable">
 
             <?php 
-        	while($row = $result->fetch_assoc()) {
+            while($row = $result->fetch_assoc()) {
                 if($row['spriority1']!=NULL || $row['spriority2']!=NULL || $row['spriority3']!=NULL ){
-        		?>
+                ?>
                          <tr  onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
                             <td ><?php echo $row['id']; ?></td>
                             <td><?php echo $row['name']; ?></td>
@@ -42,7 +42,7 @@
              
                             
                         
-	<?php }
-}	        
+    <?php }
+}           
             ?>
 

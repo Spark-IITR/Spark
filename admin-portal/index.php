@@ -73,6 +73,8 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation"   class="active"><a href="#application" role="tab" data-toggle="tab">Applications</a></li>
                             <li role="presentation"><a href="#faculty"  role="tab" data-toggle="tab">Faculty Profile</a></li>
+                            <li role="presentation"><a href="#sparkFunding"  role="tab" data-toggle="tab">Spark</a></li>
+                            <li role="presentation"><a href="#projectFunding"  role="tab" data-toggle="tab">Project</a></li>
                             <li style="float: right;margin-top: -5vh"> <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Applications.."> </li>
                         </ul>
 
@@ -81,10 +83,9 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
 
                                 <?php include 'applicationTable.php'; ?>
 
-
                                 <div class="row">
                                     <div class="col-sm-10 col-sm-offset-1">
-                                        <div class="row doctorsStudentContainer"  id="FetchStudentDetailDiv">
+                                        <div class="row doctorsStudentContainer FetchStudentDetailDiv"  >
 
                                         </div>
                                     </div>
@@ -93,8 +94,6 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
 
                             <div role="tabpanel" class="tab-pane fade" id="faculty">
                                 <?php include 'facultyTable.php'; ?>
-
-
                                 <div class="row">
                                     <div class="col-sm-10 col-sm-offset-1">
                                         <div class="row doctorsStudentContainer"  id="FetchFacultyDetailDiv">
@@ -103,8 +102,34 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
+
+                            <div role="tabpanel" class="tab-pane fade" id="sparkFunding">
+                                
+                                <?php include 'sparkFunding.php'; ?>
+                                <div class="row">
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <div class="row doctorsStudentContainer FetchStudentDetailDiv"  >
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane fade" id="projectFunding">
+                                
+                                <?php include 'projectFunding.php'; ?>
+                                <div class="row">
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <div class="row doctorsStudentContainer FetchStudentDetailDiv"  >
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -156,7 +181,7 @@ else
 
         success: function(data){
             
-            $('#FetchStudentDetailDiv').html(data);
+            $('.FetchStudentDetailDiv').html(data);
      },
        error : function(XMLHttpRequest, textStatus, errorThrown) {
             alert(errorThrown);
