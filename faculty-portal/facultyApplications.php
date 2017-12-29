@@ -54,12 +54,13 @@
                                                     Priority <span class='caret'></span>
                                                   </button>
                                                   <ul class='dropdown-menu'>
-                                                    <li><a><span onclick="fpriority1(<?php $row['id']; ?>)">1st </span></a></li>
-                                                    <li><a><span onclick="fpriority2(<?php $row['id']; ?>)">2nd </span></a></li>
-                                                    <li><a><span onclick="fpriority3(<?php $row['id']; ?>)">3rd </span></a></li>
-                                                    <li><a><span onclick="fpriority4(<?php $row['id']; ?>)">4rd </span></a></li>
-                                                    <li><a><span onclick="fpriority5(<?php $row['id']; ?>)">5rd </span></a></li>
+                                                    <li><a><span onclick="fpriority1(<?php echo $row['id']; ?>)">1st </span></a></li>
+                                                    <li><a><span onclick="fpriority2(<?php echo $row['id']; ?>)">2nd </span></a></li>
+                                                    <li><a><span onclick="fpriority3(<?php echo $row['id']; ?>)">3rd </span></a></li>
+                                                    <li><a><span onclick="fpriority4(<?php echo $row['id']; ?>)">4rd </span></a></li>
+                                                    <li><a><span onclick="fpriority5(<?php echo $row['id']; ?>)">5rd </span></a></li>
                                                   </ul>
+                                                  <div id="fpriority1Div"></div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -80,12 +81,12 @@
 
             var studentId = data;
             var facultyId = <?php echo $facultyRealId; ?> ;
-            con = confirm('If you want to set 1st priority for your project to <?php echo $row11['name']; ?> ? ');
+            con = confirm('If you want to set him/her as 1st priority for your project? ');
             if(con==true ){
                 $.ajax({
                     url: 'fpriority1.php',
                     data: {"studentId":studentId,"facultyId":facultyId},
-                    async: false,
+                    async: true,
                     type: 'POST',          
 
                     success: function(data){
@@ -103,7 +104,7 @@
 
             var studentId = data;
             var facultyId = <?php echo $facultyRealId; ?> ;
-            con = confirm('If you want to set 2nd priority for your project to <?php echo $row11['name']; ?> ? ');
+            con = confirm('If you want to set him/her as 2nd priority for your project? ');
             if(con==true ){
                 $.ajax({
                     url: 'fpriority2.php',
@@ -125,7 +126,7 @@
 
             var studentId = data;
             var facultyId = <?php echo $facultyRealId; ?> ;
-            con = confirm('If you want to set 3rd priority for your project to <?php echo $row11['name']; ?> ? ');
+            con = confirm('If you want to set him/her as 3rd priority for your project? ');
             if(con==true ){
                 $.ajax({
                     url: 'fpriority3.php',
@@ -147,7 +148,7 @@
 
             var studentId = data;
             var facultyId = <?php echo $facultyRealId; ?> ;
-            con = confirm('If you want to set 4th priority for your project to <?php echo $row11['name']; ?> ? ');
+            con = confirm('If you want to set him/her as 4th priority for your project? ');
             if(con==true ){
                 $.ajax({
                     url: 'fpriority4.php',
@@ -169,7 +170,7 @@
 
             var studentId = data;
             var facultyId = <?php echo $facultyRealId; ?> ;
-            con = confirm('If you want to set 5th priority for your project to <?php echo $row11['name']; ?> ? ');
+            con = confirm('If you want to set him/her as 5th priority for your project? ');
             if(con==true ){
                 $.ajax({
                     url: 'fpriority5.php',
