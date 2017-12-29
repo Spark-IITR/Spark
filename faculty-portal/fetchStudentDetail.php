@@ -4,7 +4,7 @@ require_once '../config/config.php';
 	
 	$studentId = $_POST['id'];
 
-	$sql = "select name,cgpa,department,year,college,email,contact,dob,gender,degree,project from user where id=$studentId";
+	$sql = "select name,cgpa,department,year,college,email,contact,dob,gender,degree,project,cgpa from user where id=$studentId";
 	$result = $conn->query($sql);
 	
 	if($result){
@@ -20,6 +20,7 @@ require_once '../config/config.php';
                             </div>
                             <div class="col-sm-2 col-xs-3" style="font-weight: 700">
                                 <p>Email : </p>
+                                <p>C.G.P.A : </p>
                                 <p>Contact: </p>
                                 <p>D.O.B : </p>
                                 <p>Department:</p>
@@ -27,6 +28,7 @@ require_once '../config/config.php';
                             </div>
                             <div class="col-sm-6 col-xs-6">
                                 <p>'; echo $row['email']; echo '</p>
+                                <p>'; echo $row['cgpa']; echo '</p>
                                 <p>'; echo $row['contact']; echo '</p>
                                 <p>'; echo $row['dob']; echo '</p>
                                 <p>'; echo $row['department']; echo '</p>
