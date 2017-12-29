@@ -24,7 +24,7 @@ require_once '../config/config.php';
 							            $param_facultyId = $facultyId;
 							            $param_studentId = $studentId;
 							            if(mysqli_stmt_execute($stmt)){
-							                echo '<script>alert("1st Priority set.")</script>';
+							                echo '<script>alert("3rd Priority set.")</script>';
 							            } else{
 							                echo '<script>alert("Something Went Wrong.")</script>';
 							            }

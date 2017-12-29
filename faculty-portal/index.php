@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 require_once '../config/config.php';
-$facultyRealId = $name = $email = $contact = $department = $college = ""; 
+$facultyRealId = $name = $email1 = $contact = $department = $college = ""; 
 if($_SESSION['role']=='faculty')
 {
     $role = $_SESSION['role'];
@@ -18,7 +18,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    mysqli_stmt_bind_result($stmt,$facultyRealId, $name,$email,$contact,$department,$college);
+                    mysqli_stmt_bind_result($stmt,$facultyRealId, $name,$email1,$contact,$department,$college);
                     if(mysqli_stmt_fetch($stmt)){
 
                         require_once '../header.php';
@@ -31,11 +31,11 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
             <div class="col-sm-3  studentProfileContainer">
                 <div class="row">
                      <div class="col-sm-12" style="text-align: center;">
-                        <img src="../uploadFiles/showProfileImage.php?email=<?=$email ?>" class="studentProfileImg" alt="<?php echo $name; ?>">
+                        <img src="../uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class="studentProfileImg" alt="<?php echo $name; ?>">
                      </div>
                      <div class="col-sm-12 col-xs-12">
                         <form action="../uploadFiles/imageUpload.php" method="post" enctype="multipart/form-data">
-                            <input type="hidden" name="imageId" value="<?php echo $email; ?>">
+                            <input type="hidden" name="imageId" value="<?php echo $email1; ?>">
                             <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
                             <div class="col-sm-7 col-xs-7"><input type="file" name="image" id="file" class="inputfile" />
                                 <label for="file"><span class="glyphicon glyphicon-folder-open hidden-sm" style="padding-right: 7px"></span>Choose File</label></div>
@@ -53,7 +53,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                 <p class="studentProfileDetails"><?php echo $college; ?></p>
 
                 <p class="studentProfileDetailsTag">Email</p>
-                <p class="studentProfileDetails"><?php echo $email; ?></p>
+                <p class="studentProfileDetails"><?php echo $email1; ?></p>
 
                 <p class="studentProfileDetailsTag">Contact No.</p>
                 <p class="studentProfileDetails"><?php echo $contact; ?></p>
