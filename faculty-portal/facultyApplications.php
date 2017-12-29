@@ -74,3 +74,119 @@
                     </tbody>
                 </table>
 
+<script>
+
+        function fpriority1(data){
+
+            var studentId = data;
+            var facultyId = <?php echo $facultyRealId; ?> ;
+            con = confirm('If you want to set 1st priority for your project to <?php echo $row11['name']; ?> ? ');
+            if(con==true ){
+                $.ajax({
+                    url: 'fpriority1.php',
+                    data: {"studentId":studentId,"facultyId":facultyId},
+                    async: false,
+                    type: 'POST',          
+
+                    success: function(data){
+                        $("#fpriority1Div").html(data);
+                    },
+                   error : function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert(errorThrown+ 'Priority Set.');
+                    }
+                });
+            }
+        }
+
+
+        function fpriority2(data){
+
+            var studentId = data;
+            var facultyId = <?php echo $facultyRealId; ?> ;
+            con = confirm('If you want to set 2nd priority for your project to <?php echo $row11['name']; ?> ? ');
+            if(con==true ){
+                $.ajax({
+                    url: 'fpriority2.php',
+                    data: {"studentId":studentId,"facultyId":facultyId},
+                    async: true,
+                    type: 'POST',          
+
+                    success: function(data){
+                            $("#fpriority1Div").html(data);
+                    },
+                    error : function(XMLHttpRequest, textStatus, errorThrown) {
+                            alert(errorThrown+ 'Priority Set.');
+                    }
+                });
+            }
+        }
+
+        function fpriority3(data){
+
+            var studentId = data;
+            var facultyId = <?php echo $facultyRealId; ?> ;
+            con = confirm('If you want to set 3rd priority for your project to <?php echo $row11['name']; ?> ? ');
+            if(con==true ){
+                $.ajax({
+                    url: 'fpriority3.php',
+                    data: {"studentId":studentId,"facultyId":facultyId},
+                    async: true,
+                    type: 'POST',          
+
+                    success: function(data){
+                            $("#fpriority1Div").html(data);
+                    },
+                    error : function(XMLHttpRequest, textStatus, errorThrown) {
+                            alert(errorThrown+ 'Priority Set.');
+                    }
+                });
+            }
+        }
+
+        function fpriority4(data){
+
+            var studentId = data;
+            var facultyId = <?php echo $facultyRealId; ?> ;
+            con = confirm('If you want to set 4th priority for your project to <?php echo $row11['name']; ?> ? ');
+            if(con==true ){
+                $.ajax({
+                    url: 'fpriority4.php',
+                    data: {"studentId":studentId,"facultyId":facultyId},
+                    async: true,
+                    type: 'POST',          
+
+                    success: function(data){
+                            $("#fpriority1Div").html(data);
+                    },
+                    error : function(XMLHttpRequest, textStatus, errorThrown) {
+                            alert(errorThrown+ 'Priority Set.');
+                    }
+                });
+            }
+        }
+
+        function fpriority5(data){
+
+            var studentId = data;
+            var facultyId = <?php echo $facultyRealId; ?> ;
+            con = confirm('If you want to set 5th priority for your project to <?php echo $row11['name']; ?> ? ');
+            if(con==true ){
+                $.ajax({
+                    url: 'fpriority5.php',
+                    data: {"studentId":studentId,"facultyId":facultyId},
+                    async: true,
+                    type: 'POST',          
+
+                    success: function(data){
+                            $("#fpriority1Div").html(data);
+                    },
+                    error : function(XMLHttpRequest, textStatus, errorThrown) {
+                            alert(errorThrown+ 'Priority Set.');
+                    }
+                });
+            }
+        }
+
+    </script>
+
+
