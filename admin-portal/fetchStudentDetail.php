@@ -227,10 +227,9 @@ require_once '../config/config.php';
                                         <input type="button"  class="btn btn-default studentProfileImageSubmitButton" value="NOC/LOR" id="showNOCButton">
                                     </div>
 
-                                    <form class="form-horizontal" id="recommendForm'; echo $row['id'];echo '" method="post">
+                                    
                                     <div class="col-sm-2" style="text-align: center;">
                                         
-                                            <input type="hidden" name="studentId" value="';echo $row['id'];echo '">
                                           <div class="form-group">
                                               <div class="btn-group">
                                                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -256,24 +255,27 @@ require_once '../config/config.php';
                                                 <div class="col-sm-6" id="FetchFacultyNameDiv">
                                                     
                                                 </div>
+                                                <div id="recommendDiv2"></div>
                                             </div>
                                             <div class="form-group">
-                                                <select name="recommendFundingStatus" id="recommendFundingStatus';echo $row['id'];echo '">
+                                                Funding Type : <select name="recommendFundingType" id="recommendFundingType';echo $row['id'];echo '">
+                                                    <option style="display:none" ></option>
                                                     <option value="spark">Spark</option>
                                                     <option value="project">Project</option>
                                                     <option value="none">None</option>
                                                 </select>
+                                            <div id="recommendDiv1"></div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-offset-4 col-sm-6">
-                                                <button type="submit" class="btn btn-default"  id="recommendSubmitButton';echo $row['id'];echo '">Submit</button>
+                                                <button  class="btn btn-default" onclick="recommend_faculty(';echo $row['id'];echo ');">Submit</button>
                                             </div>
                                         <div>
-                                            </form>
-                                            
+                                        <div id="recommendDiv"></div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
 
@@ -285,50 +287,36 @@ require_once '../config/config.php';
                             <form  method="post">
                                     <input type="button" name="deleteButton" value="Delete Application" class="btn btn-danger" onclick="delete_application('; echo $row['id']; echo ')">
                             </form>
-                            <div id="recommendDiv"></div>
                         </div>
-                            <script>
 
-                            $(document).ready(function(){
-							    $("#showResumeButton").click(function(){
-							        $("#showResume").css("display", "");
-							        $("#showNOC").css("display","none");
-							    });
-							});
 
-							 $(document).ready(function(){
-							    $("#showNOCButton").click(function(){
-							        $("#showResume").css("display", "none");
-							        $("#showNOC").css("display","");
-							    });
-							});
+                        '; ?>
 
-                            $(document).ready(function(){
-                                $("#recommendStatusYes';echo $row['id'];echo '").click(function(){
-                                    $("#statusYesDiv';echo $row['id'];echo '").css("display","");
-                                });
-                            });
-
-                            
-                            </script>
 
                             <script>
-                                $(function() {
-                                    $("#recommendSubmitButton';echo $row['id'];echo '").click(function() { 
+                                
+                                function recommend_faculty(data){
+                                        
+                                        var id = data;
+                                        var fundingType = $('#recommendFundingType<?php echo $row['id'];?> ').val();
+                                        var recommendFacultyId = $('#recommendFacultyId<?php echo $row['id'] ?>').val();
+                                        var recommendStatus = $("input[name=recommendStatus]:checked").val();
+                                        if(!recommendStatus){
+                                            $("#recommendDiv").html('Select if you want to recommend or not.');
+                                        }
+                                        if(!fundingType){
+                                            $("#recommendDiv1").html('Select Funding Type.');
+                                        }
+                                        if(!recommendFacultyId){
+                                            $("#recommendDiv2").html('Insert faculty id.');
+                                        }
+                                        alert(id+fundingType+recommendFacultyId+recommendStatus);
 
-                                     var data = $("#recommendForm'; echo $row['id'];echo '").serialize();
-
-                                        var splitData = new Array();
-                                        splitData = data.split("=");
-                                        var splitDataStatus = new Array();
-                                        splitDataStatus = splitData[2].split("&");
-                                        alert(data);
-
-                                        if(splitDataStatus[0]=="1"){
+                                        if(recommendStatus=="1"){
 
                                          $.ajax({
                                             url: "recommend.php",
-                                            data: data,
+                                            data: {"studentId":id,"recommendStatus":recommendStatus,"recommendFacultyId":recommendFacultyId,"recommendFundingStatus":fundingType},
                                             async: true,
                                             type: "POST",          
 
@@ -340,12 +328,12 @@ require_once '../config/config.php';
                                                 alert(errorThrown);
                                             }
                                             });
-                                    }else if(splitDataStatus[0]=="0"){
+                                    }else if(recommendStatus=="0"){
                                         var confirmNo = confirm("Are you sure to reject his/her application ? ");
                                         if(confirmNo==true){
                                         $.ajax({
                                             url: "recommend.php",
-                                            data: {"studentId":';echo $row['id'];echo ',"recommendStatus":0,"recommendFacultyId":0,"recommendFundingStatus":""},
+                                            data: {"studentId":id,"recommendStatus":0,"recommendFacultyId":0,"recommendFundingStatus":""},
                                             async: true,
                                             type: "POST",          
 
@@ -366,8 +354,8 @@ require_once '../config/config.php';
                                             });
                                         }
                                     }
-                                    });
-                                });
+                                }
+                                
 
                                 
 
@@ -392,7 +380,36 @@ require_once '../config/config.php';
                                         });
                                  }
                            </script>
-                            ';
+
+
+
+
+                            <script>
+
+                            $(document).ready(function(){
+                                $("#showResumeButton").click(function(){
+                                    $("#showResume").css("display", "");
+                                    $("#showNOC").css("display","none");
+                                });
+                            });
+
+                             $(document).ready(function(){
+                                $("#showNOCButton").click(function(){
+                                    $("#showResume").css("display", "none");
+                                    $("#showNOC").css("display","");
+                                });
+                            });
+
+                            $(document).ready(function(){
+                                $("#recommendStatusYes<?php echo $row['id'];?>").click(function(){
+                                    $("#statusYesDiv<?php echo $row['id'];?>").css("display","");
+                                });
+                            });
+
+                            
+                            </script>
+
+                            <?php
         }
 	}
 }
