@@ -34,12 +34,13 @@
                                                     Priority <span class='caret'></span>
                                                   </button>
                                                   <ul class='dropdown-menu'>
-                                                    <li><a href='#'>1st </a></li>
-                                                    <li><a href='#'>2nd </a></li>
-                                                    <li><a href='#'>3rd </a></li>
-                                                    <li><a href='#'>4rd </a></li>
-                                                    <li><a href='#'>5rd </a></li>
+                                                    <li onclick="fpriority1(<?php echo $row['id']; ?>)"><a>1st </a></li>
+                                                    <li onclick="fpriority2(<?php echo $row['id']; ?>)"><a>2nd </a></li>
+                                                    <li onclick="fpriority3(<?php echo $row['id']; ?>)"><a>3rd </a></li>
+                                                    <li onclick="fpriority4(<?php echo $row['id']; ?>)"><a>4rd </a></li>
+                                                    <li onclick="fpriority5(<?php echo $row['id']; ?>)"><a>5rd </a></li>
                                                   </ul>
+                                                  <div id="fpriority1Div"></div>
                                                 </div>
                                             </td>
                                         </tr>

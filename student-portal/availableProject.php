@@ -35,11 +35,11 @@
 																			    Priority <span class='caret'></span>
 																			</button>
 																			<ul class='dropdown-menu'>
-																			    <li><a style='cursor:pointer'><span onclick='spriority1({$row11['id']})'>1st<span></a></li>
-																			    <li><a style='cursor:pointer'><span onclick='spriority2({$row11['id']})'>2nd<span></a></li>
-																			    <li><a style='cursor:pointer'><span onclick='spriority3({$row11['id']})'>3rd<span></a></li>
-																			    <li><a style='cursor:pointer'><span onclick='spriority4({$row11['id']})'>4th<span></a></li>
-																			    <li><a style='cursor:pointer'><span onclick='spriority5({$row11['id']})'>5th<span></a></li>
+																			    <li onclick='spriority1({$row11['id']})'><a>1st</a></li>
+																			    <li onclick='spriority2({$row11['id']})'><a>2nd</a></li>
+																			    <li onclick='spriority3({$row11['id']})'><a>3rd</a></li>
+																			    <li onclick='spriority4({$row11['id']})'><a>4th</a></li>
+																			    <li onclick='spriority5({$row11['id']})'><a>5th</a></li>
 																			    
 																			</ul>
 																		</div>
