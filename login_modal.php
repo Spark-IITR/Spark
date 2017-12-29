@@ -12,19 +12,19 @@
          </div>
          <div class="modal-body">
            <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="loginForm">
-           <div class="form-group  <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+           <div class="form-group  <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
              <label for="inputEmail3" class="col-sm-2 control-label">Email<sup>*</sup></label>
              <div class="col-sm-10">
-               <input type="email" name="username" class="form-control" placeholder="Email" id="loginEmail" value="<?php echo $username; ?>">
+               <input type="email" name="email" class="form-control" placeholder="Email" id="loginEmail" value="<?php echo $email; ?>">
 
-                <span class="help-block"><?php echo $username_err; ?></span>
+                <span class="help-block"><?php echo $email_err; ?></span>
              </div>
            </div>
-           <div class="form-group  <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>"">
-             <label for="inputPassword3" class="col-sm-2 control-label">Password<sup>*</sup></label>
+           <div class="form-group  <?php echo (!empty($pass_err)) ? 'has-error' : ''; ?>"">
+             <label for="inputpass3" class="col-sm-2 control-label">Password<sup>*</sup></label>
              <div class="col-sm-10">
-               <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Password" autocomplete="off">
-               <span class="help-block"><?php echo $password_err; ?></span>
+               <input type="password" name="pass" class="form-control" id="loginPassword" placeholder="Password" autocomplete="off">
+               <span class="help-block"><?php echo $pass_err; ?></span>
              </div>
            </div>
            <div class="form-group">

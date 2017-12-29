@@ -10,19 +10,18 @@ require_once '../config/config.php';
 
 
 	$sql = "UPDATE user set recommendedFaculty=$recommendFacultyId,fundingType='$recommendFundingStatus',recommendStatus=$recommendStatus where id=$studentId";
-		
-			if (mysqli_query($conn, $sql)) {
-
-	               echo "true";
-	            
-	        }
-
-    else{
-    	echo 'false';
-    }
-   
-
+			if($stmt = mysqli_prepare($conn, $sql)){
+	            mysqli_stmt_bind_param($stmt, "isii", $recommendFacultyId,$recommendFundingStatus,$recommendStatus,$studentId);
+	            $param_studentId = $studentId;
+	            if(mysqli_stmt_execute($stmt)){
+	                echo '<span style="color:green;font-size:20px">Recommended..</span>';
+	            } else{
+	                echo '<span style="color:red;font-size:20px">Something Went Wrong !..</span>';
+	            }
+	        }else {echo '<span style="color:red;font-size:20px">Something Went Wrong !..</span>';}
+	         
+	        mysqli_stmt_close($stmt);
+							        
             mysqli_close($conn);
-
 ?>
 

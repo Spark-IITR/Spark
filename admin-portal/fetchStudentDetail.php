@@ -302,13 +302,13 @@ require_once '../config/config.php';
                                         var recommendFacultyId = $('#recommendFacultyId<?php echo $row['id'] ?>').val();
                                         var recommendStatus = $("input[name=recommendStatus]:checked").val();
                                         if(!recommendStatus){
-                                            $("#recommendDiv").html('Select if you want to recommend or not.');
+                                            $("#recommendDiv").html('<span style="color:red;font-size:14px">Select if you want to recommend or not.</span>');
                                         }
                                         if(!fundingType){
-                                            $("#recommendDiv1").html('Select Funding Type.');
+                                            $("#recommendDiv1").html('<span style="color:red;font-size:14px">Select Funding Type.</span>');
                                         }
                                         if(!recommendFacultyId){
-                                            $("#recommendDiv2").html('Insert faculty id.');
+                                            $("#recommendDiv2").html('<span style="color:red;font-size:14px">Insert faculty id.</span>');
                                         }
                                         alert(id+fundingType+recommendFacultyId+recommendStatus);
 
@@ -317,7 +317,7 @@ require_once '../config/config.php';
                                          $.ajax({
                                             url: "recommend.php",
                                             data: {"studentId":id,"recommendStatus":recommendStatus,"recommendFacultyId":recommendFacultyId,"recommendFundingStatus":fundingType},
-                                            async: true,
+                                            async: false,
                                             type: "POST",          
 
                                             success: function(data){

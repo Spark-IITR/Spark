@@ -1,64 +1,64 @@
 <?php
   require_once 'config/config.php';
  
-  $username = $password = "";
-  $username_err = $password_err = "";
+  $email = $pass = "";
+  $email_err = $pass_err = "";
  
   if($_SERVER["REQUEST_METHOD"] == "POST"){
  
-      if(empty(trim($_POST["username"]))){
-        $username_err = 'Please enter username.';
+      if(empty(trim($_POST["email"]))){
+        $email_err = 'Please enter email.';
     } else{
-        $username = trim($_POST["username"]);
+        $email = trim($_POST["email"]);
     }
     
-    if(empty(trim($_POST['password']))){
-        $password_err = 'Please enter your password.';
+    if(empty(trim($_POST['pass']))){
+        $pass_err = 'Please enter your password.';
     } else{
-        $password = trim($_POST['password']);
+        $pass = trim($_POST['pass']);
     }
     
-    if(empty($username_err) && empty($password_err)){
+    if(empty($email_err) && empty($pass_err)){
         $sql = "SELECT email,password,role FROM user WHERE email = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
+            mysqli_stmt_bind_param($stmt, "s", $param_email);
             
-            $param_username = $username;
+            $param_email = $email;
             
             if(mysqli_stmt_execute($stmt)){
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    mysqli_stmt_bind_result($stmt, $username, $hashed_password, $role);
+                    mysqli_stmt_bind_result($stmt, $email, $hashed_pass, $role);
                     if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
+                        if(password_verify($pass, $hashed_pass)){
                             if($role == "faculty"){
                                 session_start();
-                                $_SESSION['username'] = $username; 
+                                $_SESSION['username'] = $email; 
                                 $_SESSION['role']=$role;
                                 header("location: faculty-portal/");
                               }else if($role == "student"){
                                 session_start();
-                                $_SESSION['username'] = $username; 
+                                $_SESSION['username'] = $email; 
                                 $_SESSION['role']=$role;
                                 header("location: student-portal/");
                               }else if($role == "admin"){
                                 session_start();
-                                $_SESSION['username'] = $username; 
+                                $_SESSION['username'] = $email; 
                                 $_SESSION['role']=$role;
                                 header("location: admin-portal/");
                           }
                             
                         } else{
-                            $password_err = 'The password you entered was incorrect.
+                            $pass_err = 'The password you entered was incorrect.
                                             <script>
                                               $("#login").modal("show");
                                             </script>';
                         }
                     }else{echo 'error';}
                 } else{
-                    $username_err = 'No account found with this username.<script>
+                    $email_err = 'No account found with this email.<script>
                                               $("#login").modal("show");
                                             </script>';
                 }
