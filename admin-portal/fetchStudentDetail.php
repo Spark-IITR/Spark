@@ -285,6 +285,7 @@ require_once '../config/config.php';
                             <form  method="post">
                                     <input type="button" name="deleteButton" value="Delete Application" class="btn btn-danger" onclick="delete_application('; echo $row['id']; echo ')">
                             </form>
+                            <div id="recommendDiv"></div>
                         </div>
                             <script>
 
@@ -332,15 +333,8 @@ require_once '../config/config.php';
                                             type: "POST",          
 
                                             success: function(data){
-                                                data=data.replace(/\s+/g,"true");
-                                                alert(data);
-                                               if(data == "true"){
-                                     
-                                                    alert("form submitted");     
-                                             
-                                             }else{
-                                                alert("Priority already selected . ");
-                                             }
+                                                $("#recommendDiv").html(data);
+                                               
                                          },
                                            error : function(XMLHttpRequest, textStatus, errorThrown) {
                                                 alert(errorThrown);

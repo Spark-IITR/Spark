@@ -53,7 +53,9 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     				 </div>
     			</div>
     			<div class="row">
-                <p class="studentProfileDetailsTag  studentProfileUpperMargin">Name</p>
+                <p class="studentProfileDetailsTag  studentProfileUpperMargin">Id</p>
+                <p class="studentProfileDetails"><?php echo $studentRealId; ?></p>
+                <p class="studentProfileDetailsTag">Name</p>
     			<p class="studentProfileDetails"><?php echo $name; ?></p>
 
     			<p class="studentProfileDetailsTag">Department</p>
@@ -282,12 +284,9 @@ if ($_POST && !empty($_FILES)) {
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-sm-9 col-sm-offset-3">
-                    <form method="post" id="complaintForm">
-                        <!-- Complaint or Any suggestions ... -->
-                        <input type="hidden" name="complaintId" value="<?php echo $studentRealId; ?>">
+                        <input type="hidden" name="complaintId" id="complaintId" value="<?php echo $studentRealId; ?>">
                         <textarea rows="5" cols="100" name="complaintText" id="complaintText" placeholder="Text here .. "></textarea>
                         <input type="submit" name="complaintSubmit" onclick="student_complaint();"> 
-                    </form>
                     <div id="complaintDiv">
                         
                     </div>
@@ -332,13 +331,15 @@ if ($_POST && !empty($_FILES)) {
 
     <script>
        
-    function student_complaint(data){
-        var data = $('#complaintForm').serialize();
-
-        alert(data);
+    function student_complaint(){
+        
+        var id = <?php echo $studentRealId; ?>;
+        var complaint = $('#complaintText').val();
+        // alert(complaint);
+        if(complaint!=''){
      $.ajax({
         url: '../complaint.php',
-        data: data,
+        data: {"complaintId":id,"complaintText":complaint},
         async: true,
         type: 'POST',          
 
@@ -350,6 +351,9 @@ if ($_POST && !empty($_FILES)) {
             alert(errorThrown);
         }
         });
+    }else{
+        $('#complaintDiv').html('Insert text');
+    }
  }
     
    
