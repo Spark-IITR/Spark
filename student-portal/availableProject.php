@@ -35,17 +35,10 @@
 																			    Priority <span class='caret'></span>
 																			</button>
 																			<ul class='dropdown-menu'>
-																			    <li><a style='cursor:pointer'><span onclick='spriority1({$row11['id']})'>1st<span></a>
-													                    		</li>
-																			    <li>
-																			    	<form method='post' id='spriority2Form{$row11['id']}'>
-														                    			<input type='hidden' name='studentId' id='spriority2StudentId{$row11['id']}' value='{$studentRealId}' >
-														                    			<div id='a'></div>
-														                    			<input type='hidden' name='facultyId' id='spriority2FacultyId{$row11['id']}' value='{$row11['id']}'  >
-														                    			<input type='submit' id='spriority2Button{$row11['id']}'  value='2nd' > 
-													                    			</form>
-													                    		</li>
-																			    <li><button> 3rd </button></li>
+																			    <li><a style='cursor:pointer'><span onclick='spriority1({$row11['id']})'>1st<span></a></li>
+																			    <li><a style='cursor:pointer'><span onclick='spriority2({$row11['id']})'>2nd<span></a></li>
+																			    
+																			    
 																			</ul>
 																		</div>
 																	</td>
@@ -65,6 +58,29 @@
 															 if(confirm==true ){
 														 	 $.ajax({
 														        url: 'spriority1.php',
+														        data: {"studentId":studentId,"facultyId":facultyId},
+														        async: true,
+																type: 'POST',          
+
+																success: function(data){
+																	$("#spriority1Div").html(data);
+														     },
+														       error : function(XMLHttpRequest, textStatus, errorThrown) {
+														            alert(errorThrown+ 'Priority Set.');
+														        }
+															    });
+															}
+															}
+
+
+															function spriority2(data){
+
+																var facultyId = data;
+																var studentId = <?php echo $studentRealId; ?> ;
+															 confirm = confirm('If you want to set 2nd priority for your project to <?php echo $row11['name']; ?> ? ');
+															 if(confirm==true ){
+														 	 $.ajax({
+														        url: 'spriority2.php',
 														        data: {"studentId":studentId,"facultyId":facultyId},
 														        async: true,
 																type: 'POST',          
