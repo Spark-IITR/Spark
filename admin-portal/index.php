@@ -75,6 +75,8 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                             <li role="presentation"><a href="#faculty"  role="tab" data-toggle="tab">Faculty Profile</a></li>
                             <li role="presentation"><a href="#sparkFunding"  role="tab" data-toggle="tab">Spark</a></li>
                             <li role="presentation"><a href="#projectFunding"  role="tab" data-toggle="tab">Project</a></li>
+                            <li role="presentation"><a href="#complaintStudent"  role="tab" data-toggle="tab">Student Complaint</a></li>
+                            <li role="presentation"><a href="#complaintFaculty"  role="tab" data-toggle="tab">Faculty Complaint</a></li>
                             <li style="float: right;margin-top: -5vh"> <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Applications.."> </li>
                         </ul>
 
@@ -96,7 +98,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                                 <?php include 'facultyTable.php'; ?>
                                 <div class="row">
                                     <div class="col-sm-10 col-sm-offset-1">
-                                        <div class="row doctorsStudentContainer"  id="FetchFacultyDetailDiv">
+                                        <div class="row doctorsStudentContainer FetchFacultyDetailDiv"  >
 
 
                                         </div>
@@ -123,6 +125,32 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                                 <div class="row">
                                     <div class="col-sm-10 col-sm-offset-1">
                                         <div class="row doctorsStudentContainer FetchStudentDetailDiv"  >
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane fade" id="complaintStudent">
+                                
+                                <?php include 'complaintStudent.php'; ?>
+                                <div class="row">
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <div class="row doctorsStudentContainer FetchStudentDetailDiv"  >
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane fade" id="complaintFaculty">
+                                
+                                <?php include 'complaintFaculty.php'; ?>
+                                <div class="row">
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <div class="row doctorsStudentContainer FetchFacultyDetailDiv"  >
 
 
                                         </div>
@@ -200,7 +228,7 @@ else
 
         success: function(data){
             
-            $('#FetchFacultyDetailDiv').html(data);
+            $('.FetchFacultyDetailDiv').html(data);
      },
        error : function(XMLHttpRequest, textStatus, errorThrown) {
             alert(errorThrown);
