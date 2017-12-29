@@ -256,18 +256,12 @@ if ($_POST && !empty($_FILES)) {
                                         while($row5 = $result5->fetch_assoc()) {
                                             ?><li><span style="font-weight: 800">Faculty Recommended : </span> <?php echo $row5['name']; ?></li>
                                         <?php 
-                                            
-                                               
                                     	}  
-                                    }else{}
-                                } }else{}  ?>
+                                    }
+                                } 
+                             ?>
 
                                 <li><span style="font-weight: 800">Funding Type/Stipend : </span> <?php echo $fundingType; ?></li>
-
-                                <?php if(){?>
-                                            <li><span style="font-weight: 800">Remark : </span> <?php echo $adminRemark; ?></li>
-
-                                <?php ?>
 
                             <?php }else{ ?>
 
@@ -275,7 +269,27 @@ if ($_POST && !empty($_FILES)) {
 
                             <?php } ?>
 
+                            <?php if($adminRemark){ ?>
+                                <li><span style="font-weight: 800">Remark : </span> <?php echo $adminRemark; ?></li>
+                        <?php } ?>
+
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" >
+            <div class="row">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <form method="post" id="complaintForm">
+                        <!-- Complaint or Any suggestions ... -->
+                        <input type="hidden" name="complaintId" value="<?php echo $studentRealId; ?>">
+                        <textarea rows="5" cols="100" name="complaintText" id="complaintText" placeholder="Text here .. "></textarea>
+                        <input type="submit" name="complaintSubmit" onclick="student_complaint();"> 
+                    </form>
+                    <div id="complaintDiv">
+                        
                     </div>
                 </div>
             </div>
@@ -314,4 +328,29 @@ if ($_POST && !empty($_FILES)) {
                 });
             });
         });
+    </script>
+
+    <script>
+       
+    function student_complaint(data){
+        var data = $('#complaintForm').serialize();
+
+        alert(data);
+     $.ajax({
+        url: '../complaint.php',
+        data: data,
+        async: true,
+        type: 'POST',          
+
+        success: function(data){
+            
+            $('#complaintDiv').html(data);
+     },
+       error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+        });
+ }
+    
+   
     </script>
