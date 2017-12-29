@@ -2,11 +2,11 @@
 ob_start();
 session_start();
 require_once '../config/config.php';
-$facultyRealId = $name = $email1 = $contact = $department = $college = ""; 
+$facultyRealId = $name = $email1 = $contact = $department = $college = $adminRemark =""; 
 if($_SESSION['role']=='faculty')
 {
     $role = $_SESSION['role'];
-$sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = ? and role = ?";
+$sql = "SELECT id,name,email,contact,department,college,adminRemark FROM user WHERE email = ? and role = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "ss", $param_username,$param_role);
@@ -18,7 +18,7 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    mysqli_stmt_bind_result($stmt,$facultyRealId, $name,$email1,$contact,$department,$college);
+                    mysqli_stmt_bind_result($stmt,$facultyRealId, $name,$email1,$contact,$department,$college,$adminRemark);
                     if(mysqli_stmt_fetch($stmt)){
 
                         require_once '../header.php';
@@ -140,20 +140,37 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
             </div>
         </div>
     </div>
-
     <div class="container-fluid" >
-            <div class="row">
-                <div class="col-sm-9 col-sm-offset-3">
-                        <textarea rows="5" cols="100" name="complaintText" id="complaintText" placeholder="Text here .. "></textarea>
-                        <input type="submit" name="complaintSubmit" onclick="faculty_complaint();"> 
-                    <div id="complaintDiv">
-                        
-                    </div>
+        <div class="row">
+            <div class="col-sm-9 col-sm-offset-3">
+                    <textarea rows="5" cols="100" name="complaintText" id="complaintText" placeholder="Text here .. "></textarea>
+                    <input type="submit" name="complaintSubmit" onclick="faculty_complaint();"> 
+                <div id="complaintDiv">
+                    
                 </div>
             </div>
         </div>
+    </div>
+
+    
+
+                        <?php if($adminRemark){ ?>
+    <div class="container-fluid" style="margin-top: 5vh">
+        <div class="row">
+            <div class="col-sm-9 col-sm-offset-3">
+                <div class="alert alert-warning studentProfileStatusBox">
+                    <ul>                                                                                                                                  <span style="font-weight: 800">Remark : </span><ul style="margin-left: 5%"> <?php echo $adminRemark; ?></ul>
+                     </ul>
+                </div>
+            </div>
+        </div>
+    </div>        
+                    <?php } ?>
+
+                   
 
 
+    
     <?php require_once('../footer.php');?>
 
 
@@ -216,6 +233,7 @@ else
         success: function(data){
             
             $('#complaintDiv').html(data);
+            $('#complaintText').val('');
      },
        error : function(XMLHttpRequest, textStatus, errorThrown) {
             alert(errorThrown);

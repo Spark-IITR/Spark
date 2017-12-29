@@ -267,7 +267,7 @@ else
         
         var id = data;
         var remark = $('#remarkText').val();
-        alert(remark);
+        // alert(remark);
         if(remark!=''){
      $.ajax({
         url: 'adminRemark.php',
@@ -278,6 +278,7 @@ else
         success: function(data){
             
             $('#remarkDiv').html(data);
+            $('#remarkText').val('');
      },
        error : function(XMLHttpRequest, textStatus, errorThrown) {
             alert(errorThrown);

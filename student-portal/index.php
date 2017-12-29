@@ -272,7 +272,7 @@ if ($_POST && !empty($_FILES)) {
                             <?php } ?>
 
                             <?php if($adminRemark){ ?>
-                                <li><span style="font-weight: 800">Remark : </span> <?php echo $adminRemark; ?></li>
+                                <span style="font-weight: 800">Remark : </span><ul style="margin-left: 5%"> <?php echo $adminRemark; ?></ul>
                         <?php } ?>
 
                         </ul>
@@ -345,6 +345,7 @@ if ($_POST && !empty($_FILES)) {
         success: function(data){
             
             $('#complaintDiv').html(data);
+            $('#complaintText').val('');
      },
        error : function(XMLHttpRequest, textStatus, errorThrown) {
             alert(errorThrown);

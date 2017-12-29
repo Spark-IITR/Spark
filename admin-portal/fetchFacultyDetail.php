@@ -120,6 +120,16 @@ require_once '../config/config.php';
                             <p><span style="font-weight: 700"> Project : </span>'; echo $row['project']; echo '</p>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-sm-7 col-sm-offset-3">
+                                    <textarea rows="3" cols="20"  id="remarkText" placeholder="Text here .. "></textarea>
+                                    <input type="submit" onclick="admin_remark(';echo $facultyId; echo')" > 
+                                <div id="remarkDiv">
+                                    
+                                </div>
+                            </div>
+                        </div>
                         
                         
                         </div>
