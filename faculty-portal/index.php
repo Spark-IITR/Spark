@@ -141,6 +141,18 @@ $sql = "SELECT id,name,email,contact,department,college FROM user WHERE email = 
         </div>
     </div>
 
+    <div class="container-fluid" >
+            <div class="row">
+                <div class="col-sm-9 col-sm-offset-3">
+                        <textarea rows="5" cols="100" name="complaintText" id="complaintText" placeholder="Text here .. "></textarea>
+                        <input type="submit" name="complaintSubmit" onclick="faculty_complaint();"> 
+                    <div id="complaintDiv">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     <?php require_once('../footer.php');?>
 
@@ -182,6 +194,36 @@ else
             alert(errorThrown);
         }
         });
+ }
+    
+   
+    </script>
+
+    <script>
+       
+    function faculty_complaint(){
+        
+        var id = <?php echo $facultyRealId; ?>;
+        var complaint = $('#complaintText').val();
+        // alert(complaint);
+        if(complaint!=''){
+     $.ajax({
+        url: '../complaint.php',
+        data: {"complaintId":id,"complaintText":complaint},
+        async: true,
+        type: 'POST',          
+
+        success: function(data){
+            
+            $('#complaintDiv').html(data);
+     },
+       error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+        });
+    }else{
+        $('#complaintDiv').html('Insert text');
+    }
  }
     
    
