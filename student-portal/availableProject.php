@@ -35,13 +35,7 @@
 																			    Priority <span class='caret'></span>
 																			</button>
 																			<ul class='dropdown-menu'>
-																			    <li>
-																			    	<form method='post' id='spriority1Form{$row11['id']}'>
-														                    			<input type='hidden' name='studentId' id='spriority1StudentId{$row11['id']}' value='{$studentRealId}' >
-														                    			<div id='a'></div>
-														                    			<input type='hidden' name='facultyId' id='spriority1FacultyId{$row11['id']}' value='{$row11['id']}'  >
-														                    			<input type='submit' id='spriority1Button{$row11['id']}'  value='1st' > 
-													                    			</form>
+																			    <li><a style='cursor:pointer'><span onclick='spriority1({$row11['id']})'>1st<span></a>
 													                    		</li>
 																			    <li>
 																			    	<form method='post' id='spriority2Form{$row11['id']}'>
@@ -56,42 +50,34 @@
 																		</div>
 																	</td>
 											                	</tr>
+											                	<div id='spriority1Div'></div>
 											                </tbody>
 														
-
+											            ";?>
 
 														<script>
 
-														$(function() {
-															$('#spriority1Button{$row11['id']}').click(function() {	
-															 var data = $('#spriority1Form{$row11['id']}').serialize();
-															 //alert(data);
-															 confirm = confirm('If you want to set 1st priority for your project to {$row11['id']} ? ');
+															function spriority1(data){
+
+																var facultyId = data;
+																var studentId = <?php echo $studentRealId; ?> ;
+															 confirm = confirm('If you want to set 1st priority for your project to <?php echo $row11['name']; ?> ? ');
 															 if(confirm==true ){
 														 	 $.ajax({
 														        url: 'spriority1.php',
-														        data: data,
+														        data: {"studentId":studentId,"facultyId":facultyId},
 														        async: true,
 																type: 'POST',          
 
 																success: function(data){
-																	//alert(data);
-
-																	if(data=='already present'){
-																		alert('Priority already choosen.');
-																	}
-																	if(data=='error'){
-																		alert('There is some internal error.');
-																	}
-														    		
+																	$("#spriority1Div").html(data);
 														     },
 														       error : function(XMLHttpRequest, textStatus, errorThrown) {
-														            alert('Priority Set.');
+														            alert(errorThrown+ 'Priority Set.');
 														        }
 															    });
 															}
-															});
-														});
+															}
 
 														</script>
 
@@ -129,7 +115,8 @@
 														});
 
 														</script>
-											                 ";
+
+											                 <?php
 											        }
 											    }
 											 // $result->free();
