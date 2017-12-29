@@ -17,14 +17,14 @@ require_once '../config/config.php';
 		                    if(mysqli_stmt_fetch($stmt1)){
 	
 								if($spriority4==NULL || $spriority4==0){
-								$sql101 = "UPDATE user set spriority2=? where id=?";
+								$sql101 = "UPDATE user set spriority4=? where id=?";
          
 							        if($stmt = mysqli_prepare($conn, $sql101)){
 							            mysqli_stmt_bind_param($stmt, "ii",$param_facultyId, $param_studentId);
 							            $param_facultyId = $facultyId;
 							            $param_studentId = $studentId;
 							            if(mysqli_stmt_execute($stmt)){
-							                echo '<script>alert("1st Priority set.")</script>';
+							                echo '<script>alert("4th Priority set.")</script>';
 							            } else{
 							                echo '<script>alert("Something Went Wrong.")</script>';
 							            }
