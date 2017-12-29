@@ -1,11 +1,11 @@
 <?php 
-require_once 'config/config.php';
+require_once '../config/config.php';
 	// echo "string";
 	
-	$id = $_POST['complaintId'];
-	$complaint = $_POST['complaintText'];
+	$id = $_POST['remarkId'];
+	$remark = $_POST['remarkText'];
 
-	$sql = "SELECT complaints from user where id=$id";
+	$sql = "SELECT adminRemark from user where id=$id";
 				if($stmt1 = mysqli_prepare($conn, $sql)){
 		            mysqli_stmt_bind_param($stmt1, "i", $param_id);
 		            
@@ -15,21 +15,21 @@ require_once 'config/config.php';
 		                mysqli_stmt_store_result($stmt1);
 
 		                if(!mysqli_stmt_num_rows($stmt1) == 0){                    
-		                    mysqli_stmt_bind_result($stmt1, $previousComplaint);
+		                    mysqli_stmt_bind_result($stmt1, $previousremark);
 		                    if(mysqli_stmt_fetch($stmt1)){
-								if($previousComplaint){
-		                    		$complaint = $previousComplaint.'<li>'.$complaint.'</li>';
+								if($previousremark){
+		                    		$remark = $previousremark.'<li>'.$remark.'</li>';
 		                    	}else{
-		                    		$complaint = '<li>'.$complaint.'</li>';
+		                    		$remark = '<li>'.$remark.'</li>';
 		                    	}
 
-								$sql101 = "UPDATE user set complaints=? where id=?";
+								$sql101 = "UPDATE user set adminRemark=? where id=?";
          
 							        if($stmt = mysqli_prepare($conn, $sql101)){
-							            mysqli_stmt_bind_param($stmt, "si",$param_complaint, $param_id);
-							            $param_complaint = $complaint;
+							            mysqli_stmt_bind_param($stmt, "si",$param_remark, $param_id);
+							            $param_remark = $remark;
 							            if(mysqli_stmt_execute($stmt)){
-							                echo 'Complaint Inserted.';
+							                echo 'Remark Inserted.';
 							            } else{
 							                echo 'false';
 							            }

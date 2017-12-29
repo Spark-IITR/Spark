@@ -279,6 +279,16 @@ require_once '../config/config.php';
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-sm-4 col-sm-offset-3">
+                                        <textarea rows="3" cols="20"  id="remarkText" placeholder="Text here .. "></textarea>
+                                        <input type="submit" onclick="admin_remark(';echo $row['id']; echo')" > 
+                                    <div id="remarkDiv">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-sm-6 col-sm-offset-3" style="margin-top:4vh">
                             	<a target="_blank"><embed src="../uploadFiles/showResume.php?email='; echo $email; echo '" type="application/pdf"   height="1000vh" width="100%" id="showResume" style="display:none"></a>
                             	<a target="_blank"><embed src="../uploadFiles/showNOC.php?email='; echo $email; echo '" type="application/pdf"   height="1000vh" width="100%" id="showNOC" style="display:none"></a>
@@ -409,6 +419,7 @@ require_once '../config/config.php';
                             
                             </script>
 
+                            
                             <?php
         }
 	}
