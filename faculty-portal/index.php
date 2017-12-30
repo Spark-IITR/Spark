@@ -265,8 +265,8 @@ else
         
         var id = <?php echo $facultyRealId; ?>;
         var addProjectText = $('#addProjectText').val();
-        // alert(complaint);
-        if(complaint!=''){
+        // alert(id);
+        if(addProjectText!=''){
      $.ajax({
         url: 'addProject.php',
         data: {"id":id,"addProjectText":addProjectText},
