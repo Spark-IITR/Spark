@@ -311,19 +311,20 @@ require_once '../config/config.php';
                                         var fundingType = $('#recommendFundingType<?php echo $row['id'];?> ').val();
                                         var recommendFacultyId = $('#recommendFacultyId<?php echo $row['id'] ?>').val();
                                         var recommendStatus = $("input[name=recommendStatus]:checked").val();
-                                        if(!recommendStatus){
+                                        if(recommendStatus==null){
                                             $("#recommendDiv").html('<span style="color:red;font-size:14px">Select if you want to recommend or not.</span>');
                                         }
+                                        
+                                        // alert(id+fundingType+recommendFacultyId+recommendStatus);
+
+                                    if(recommendStatus=="1"){
+
                                         if(!fundingType){
                                             $("#recommendDiv1").html('<span style="color:red;font-size:14px">Select Funding Type.</span>');
                                         }
                                         if(!recommendFacultyId){
                                             $("#recommendDiv2").html('<span style="color:red;font-size:14px">Insert faculty id.</span>');
                                         }
-                                        alert(id+fundingType+recommendFacultyId+recommendStatus);
-
-                                        if(recommendStatus=="1"){
-
                                          $.ajax({
                                             url: "recommend.php",
                                             data: {"studentId":id,"recommendStatus":recommendStatus,"recommendFacultyId":recommendFacultyId,"recommendFundingStatus":fundingType},
@@ -331,13 +332,22 @@ require_once '../config/config.php';
                                             type: "POST",          
 
                                             success: function(data){
-                                                $("#recommendDiv").html(data);
-                                               
+                                               $("#recommendDiv").html(data); 
+                                               $("#recommendFacultyId<?php echo $row['id'] ?>").val('');
+                                                $("input[name=recommendStatus]:checked").val('');
+                                                $('#recommendFundingType<?php echo $row['id'];?> ').val('');
+                                                $("#statusYesDiv<?php echo $row['id'];?>").css("display","none");
+                                                recommendStatus = null;
                                          },
                                            error : function(XMLHttpRequest, textStatus, errorThrown) {
                                                 alert(errorThrown);
+                                                $("#recommendFacultyId<?php echo $row['id'] ?>").val('');
+                                                $("input[name=recommendStatus]:checked").val('');
+                                                $('#recommendFundingType<?php echo $row['id'];?> ').val('');
                                             }
                                             });
+
+                                         
                                     }else if(recommendStatus=="0"){
                                         var confirmNo = confirm("Are you sure to reject his/her application ? ");
                                         if(confirmNo==true){
@@ -348,27 +358,18 @@ require_once '../config/config.php';
                                             type: "POST",          
 
                                             success: function(data){
-                                                data=data.replace(/\s+/g,"true");
-                                                alert(data);
-                                               if(data == "true"){
-                                     
-                                                    alert("form submitted");     
-                                             
-                                             }else{
-                                                alert("Priority already selected . ");
-                                             }
-                                         },
+
+                                                    $("#recommendDiv").html('<span style="color:green;font-size:14px">Recommended Status No Set</span>'); 
+                                                    recommendStatus = null;
+                                             },
                                            error : function(XMLHttpRequest, textStatus, errorThrown) {
                                                 alert(errorThrown);
+                                                $(":input").val('');
                                             }
                                             });
                                         }
                                     }
                                 }
-                                
-
-                                
-
                             </script>
 
                             <script>

@@ -25,7 +25,7 @@
                
                 ?>
                          <tr  onclick="fetch_faculty_detail(<?php echo $row10['id']; ?>);" style="cursor: pointer;">
-                            <td ><?php echo $row10['sparkId']; ?></td>
+                            <td ><?php echo $row10['id']; ?></td>
                             <td><?php echo $row10['name']; ?></td>
                             <td><?php echo $row10['department']; ?></td>
                             <td><?php echo $row10['degree']; ?></td>

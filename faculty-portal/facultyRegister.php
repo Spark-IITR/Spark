@@ -200,13 +200,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>
         </div>
 
-        <script>
+        <!-- <script>
             $(document).ready(function(){
                 $('#signUpSubmit').click(function(){
                     $(":input").val('');
                 });
             });
-        </script>
+        </script> -->
 
 
     <!-- <script src="src/js/bootstrap.min.js"></script>
