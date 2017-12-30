@@ -1,54 +1,72 @@
 <?php
-    require_once('../config/config.php');
-
-
+require '../config/config.php';
 
 if ($_POST && !empty($_FILES)) {
     if($_FILES['noc']['error'] == 0) {
         $email = $_POST['nocId'];
         $type = $conn->real_escape_string($_FILES['noc']['type']);
-        $data = $conn->real_escape_string(file_get_contents($_FILES  ['noc']['tmp_name']));
+        $data = $_FILES['noc']['tmp_name'];
         $size = intval($_FILES['noc']['size']);
  
- if ( in_array($type, array('application/pdf'))) {
-     if ( $size < 500000) {
-        
-                $sql = "select noc from user where email='$email'";
-                $result1 = $conn->query($sql);
-                if($result1){
-                    if(!$result1->num_rows == 0) {
-                        $query = "update user set noc='$data' where email='$email'";
-             
-                        $result = $conn->query($query);
-                 
-                        if($result) {
-                            header ("location:../student-portal/");
-                        }
-                        else {
-                            echo 'Error! Failed to insert the file'
-                               . "<pre>{$conn->error}</pre>";
-                        }
-                    }else{
-                        header ("location:../student-portal/");
-                    }
-                 }
+         if ( in_array($type, array('application/pdf'))) {
+             if ( $size < 500000) {
 
-        
-        }else{echo "file size too large. Size Limit is 500kb only.";}
-    }else{echo "choose pdf format";}
-}
-    else {
-        echo 'An error accured while the file was being uploaded. '
-           . 'Error code: '. intval($_FILES['noc']['error']);
+                        $sql1 = "SELECT noc from user WHERE email= ? ";
+
+                if($stmt1 = mysqli_prepare($conn, $sql1)){
+                    mysqli_stmt_bind_param($stmt1, "s", $param_username);
+                    
+                    $param_username = $email;
+                    
+                    if(mysqli_stmt_execute($stmt1)){
+                        mysqli_stmt_store_result($stmt1);
+
+                        if(!mysqli_stmt_num_rows($stmt1) == 0){                    
+                            mysqli_stmt_bind_result($stmt1, $nocPdf);
+                            if(mysqli_stmt_fetch($stmt1)){
+                        
+                                if($nocPdf==null){
+                                    $query = "UPDATE user set noc=? where email=?";
+                                    if($stmt3 = mysqli_prepare($conn, $query)){
+                                        mysqli_stmt_bind_param($stmt3, "bs",$param_noc, $param_email);
+                                        $param_email = $email;
+                                        $param_noc = NULL;
+                                        $stmt3->send_long_data(0, file_get_contents($data));
+                                        if(mysqli_stmt_execute($stmt3)){
+                                             // echo 'noc uploaded';
+                                              header ("location:../student-portal/");
+                                        } else{
+                                           echo 'Error! Failed to insert the file'
+                                           . "<pre>{$conn->error}</pre>";
+                                        }
+                                    }else {
+                                        echo 'Already uploaded';
+                                        // header ("location:../student-portal/");
+                                        // mysqli_stmt_close($stmt);
+                                    }
+                                }else{echo 'Already uploaded';
+                                // header ("location:../student-portal/");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else{
+                    echo "File size too large. Size limit is 100kb only.";
+            }
+                
+        }
+            else{
+                echo "Choose pdf format.";
+        }
+    }
+        else {
+            echo 'File is not selected.';
     }
  
-    $conn->close();
+   mysqli_stmt_close($stmt1);
 }
-else {
-    echo 'Error! A file was not sent!';
-}
- 
-
 
 
 ?>

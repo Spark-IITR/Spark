@@ -5,7 +5,7 @@ if ($_POST && !empty($_FILES)) {
     if($_FILES['resume']['error'] == 0) {
         $email = $_POST['resumeId'];
         $type = $conn->real_escape_string($_FILES['resume']['type']);
-        $data = $conn->real_escape_string(file_get_contents($_FILES  ['resume']['tmp_name']));
+        $data = $_FILES['resume']['tmp_name'];
         $size = intval($_FILES['resume']['size']);
  
          if ( in_array($type, array('application/pdf'))) {
@@ -28,9 +28,10 @@ if ($_POST && !empty($_FILES)) {
                                 if($resumePdf==null){
                                     $query = "UPDATE user set resume=? where email=?";
                                     if($stmt3 = mysqli_prepare($conn, $query)){
-                                        mysqli_stmt_bind_param($stmt3, "ss",$param_resume, $param_email);
+                                        mysqli_stmt_bind_param($stmt3, "bs",$param_resume, $param_email);
                                         $param_email = $email;
-                                        $param_resume = $data;
+                                        $param_resume = NULL;
+                                        $stmt3->send_long_data(0, file_get_contents($data));
                                         if(mysqli_stmt_execute($stmt3)){
                                              echo 'Resume uploaded';
                                               // header ("location:../student-portal/");

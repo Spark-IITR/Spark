@@ -130,94 +130,137 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
     				<div class="col-sm-6 col-xs-12">
                         <p class="studentProfileUploadTag" >Upload Resume</p>
-    					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
-					        <input type="hidden" name="resumeId" value="<?php echo $email1; ?>" />
-                            <div class="col-sm-7 col-xs-7"><input type="file" name="resume" id="resume" class="inputfile" />
-							<label for="resume"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Select File</label></div>
-                                <div class="col-sm-5 col-xs-5"><input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" value="Upload" placeholder="" ></div>
 
+    					<form action="../uploadFiles/uploadResume.php" method="post" enctype="multipart/form-data">
+					        <input type="hidden" name="resumeId" value="<?php echo $email1; ?>" />
+                            <div class="col-sm-7 col-xs-7">
+                                <input type="file" name="resume" id="resume" class="inputfile" />
+							    <label for="resume"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Select File</label>
+                            </div>
+                            <div class="col-sm-5 col-xs-5">
+                                <input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" value="Upload" placeholder="" >
+                            </div>
 						</form>
     				</div>
+
     				<div class="col-md-6 col-sm-6 col-xs-12" style=" display: block;">
                         <p class="studentProfileUploadTag" >Upload Transcript</p>
 
-    					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
+    					<form action="../uploadFiles/uploadNOC.php" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="nocId" value="<?php echo $email1; ?>" />
-					        <div class="col-md-7 col-sm-7 col-xs-7"> <input type="file" name="noc" id="noc" class="inputfile" />
-							<label for="noc"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Select File</label></div>
-                            <div class="col-md-5 col-sm-5 col-xs-5"><input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" value="Upload" placeholder="" ></div>
+					        <div class="col-md-7 col-sm-7 col-xs-7"> 
+                                <input type="file" name="noc" id="noc" class="inputfile" />
+							    <label for="noc"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Select File</label>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-xs-5">
+                                <input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" value="Upload" placeholder="" >
+                            </div>
 						</form>
     				</div>
     			</div>
 
+                <div class="row"  style="margin-top: 5vh">
+                    <div class="col-sm-12  col-xs-12 ">
+                        <div class="row">
+                            <div class="col-sm-8 col-xs-3 ">
+                                <input type="button" class="btn btn-default studentProfileImageSubmitButton" value="See Resume" id="showResumeButton">
+                            </div>
+                            <div class="col-sm-4 col-xs-3">
+                                <input type="button"  class="btn btn-default studentProfileImageSubmitButton" value="See Transcript" id="showNOCButton">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xs-12 viewFile " style="margin-top:4vh; ">
+                        <a target="_blank"><embed src="../uploadFiles/showResume.php?email=<?=$email1 ?>" type="application/pdf"   height="1000vh" width="100%" id="showResume" style="display:none"></a>
+                        <a target="_blank"><embed src="../uploadFiles/showNOC.php?email=<?=$email1 ?>" type="application/pdf"   height="1000vh" width="100%" id="showNOC" style="display:none"></a>
+                    </div>
+                </div>
+
+                <script>
+
+                $(document).ready(function(){
+                    $("#showResumeButton").click(function(){
+                        $("#showResume").css("display", "");
+                        $("#showNOC").css("display","none");
+                    });
+                });
+
+                 $(document).ready(function(){
+                    $("#showNOCButton").click(function(){
+                        $("#showResume").css("display", "none");
+                        $("#showNOC").css("display","");
+                    });
+                });
+                </script>
+
 <?php
-require '../config/config.php';
+// require '../config/config.php';
 
-if ($_POST && !empty($_FILES)) {
-    if($_FILES['resume']['error'] == 0) {
-        $email = $_POST['resumeId'];
-        $type = $conn->real_escape_string($_FILES['resume']['type']);
-        $data = $conn->real_escape_string(file_get_contents($_FILES  ['resume']['tmp_name']));
-        $size = intval($_FILES['resume']['size']);
+// if ($_POST && !empty($_FILES)) {
+//     if($_FILES['resume']['error'] == 0) {
+//         $email = $_POST['resumeId'];
+//         $type = $conn->real_escape_string($_FILES['resume']['type']);
+//         $data = $conn->real_escape_string(file_get_contents($_FILES  ['resume']['tmp_name']));
+//         $size = intval($_FILES['resume']['size']);
  
-		 if ( in_array($type, array('application/pdf'))) {
-		     if ( $size < 500000) {
+// 		 if ( in_array($type, array('application/pdf'))) {
+// 		     if ( $size < 500000) {
 
-		                $sql1 = "SELECT resume from user WHERE email= ? ";
+// 		                $sql1 = "SELECT resume from user WHERE email= ? ";
 
-		        if($stmt1 = mysqli_prepare($conn, $sql1)){
-		            mysqli_stmt_bind_param($stmt1, "s", $param_username);
+// 		        if($stmt1 = mysqli_prepare($conn, $sql1)){
+// 		            mysqli_stmt_bind_param($stmt1, "s", $param_username);
 		            
-		            $param_username = $email;
+// 		            $param_username = $email;
 		            
-		            if(mysqli_stmt_execute($stmt1)){
-		                mysqli_stmt_store_result($stmt1);
+// 		            if(mysqli_stmt_execute($stmt1)){
+// 		                mysqli_stmt_store_result($stmt1);
 
-		                if(!mysqli_stmt_num_rows($stmt1) == 0){                    
-		                    mysqli_stmt_bind_result($stmt1, $resumePdf);
-		                    if(mysqli_stmt_fetch($stmt1)){
+// 		                if(!mysqli_stmt_num_rows($stmt1) == 0){                    
+// 		                    mysqli_stmt_bind_result($stmt1, $resumePdf);
+// 		                    if(mysqli_stmt_fetch($stmt1)){
 		                
-		                    	if($resumePdf==null){
-			                        $query = "UPDATE user set resume=? where email=?";
-			             			if($stmt3 = mysqli_prepare($conn, $query)){
-							            mysqli_stmt_bind_param($stmt3, "ss",$param_resume, $param_email);
-							            $param_email = $email;
-							            $param_resume = $data;
-							            if(mysqli_stmt_execute($stmt3)){
-							                 echo 'Resume uploaded';
-							                  // header ("location:../student-portal/");
-							            } else{
-							               echo 'Error! Failed to insert the file'
-			                               . "<pre>{$conn->error}</pre>";
-							            }
-							        }else {
-							        	echo 'Already uploaded';
-		                        		// header ("location:../student-portal/");
-		                        		// mysqli_stmt_close($stmt);
-							    	}
-		                    	}else{echo 'Already uploaded';
-		                        // header ("location:../student-portal/");
-		                		}
-		            		}
-		      			}
-		    		}
-		 		}
-			}
-			else{
-					echo "File size too large. Size limit is 100kb only.";
-			}
+// 		                    	if($resumePdf==null){
+// 			                        $query = "UPDATE user set resume=? where email=?";
+// 			             			if($stmt3 = mysqli_prepare($conn, $query)){
+// 							            mysqli_stmt_bind_param($stmt3, "ss",$param_resume, $param_email);
+// 							            $param_email = $email;
+// 							            $param_resume = $data;
+// 							            if(mysqli_stmt_execute($stmt3)){
+// 							                 echo 'Resume uploaded';
+// 							                  // header ("location:../student-portal/");
+// 							            } else{
+// 							               echo 'Error! Failed to insert the file'
+// 			                               . "<pre>{$conn->error}</pre>";
+// 							            }
+// 							        }else {
+// 							        	echo 'Already uploaded';
+// 		                        		// header ("location:../student-portal/");
+// 		                        		// mysqli_stmt_close($stmt);
+// 							    	}
+// 		                    	}else{echo 'Already uploaded';
+// 		                        // header ("location:../student-portal/");
+// 		                		}
+// 		            		}
+// 		      			}
+// 		    		}
+// 		 		}
+// 			}
+// 			else{
+// 					echo "File size too large. Size limit is 100kb only.";
+// 			}
 		        
-		}
-			else{
-				echo "Choose pdf format.";
-		}
-	}
-        else {
-            echo 'File is not selected.';
-    }
+// 		}
+// 			else{
+// 				echo "Choose pdf format.";
+// 		}
+// 	}
+//         else {
+//             echo 'File is not selected.';
+//     }
  
-   mysqli_stmt_close($stmt1);
-}
+//    mysqli_stmt_close($stmt1);
+// }
 
 
 ?>
