@@ -94,10 +94,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     // echo $username_err; echo $password_err; echo $confirm_password_err;
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-         $sql = "INSERT INTO user (email, password, name, contact, department,role,project,sparkId) VALUES (?, ?, ?, ?, ?,?,?,?)";
+         $sql = "INSERT INTO user (email, password, name, contact, department,role,sparkId) VALUES (?, ?, ?,  ?,?,?,?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "ssssssss", $param_username, $param_password, $param_name, $param_contact,  $param_department,$param_role,$param_project,$param_sparkId);
+            mysqli_stmt_bind_param($stmt, "sssssss", $param_username, $param_password, $param_name, $param_contact,  $param_department,$param_role,$param_sparkId);
             // echo 'hello';
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); 
@@ -105,12 +105,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_contact = $contact;
             $param_department = $department;
             $param_role = "faculty";
-            $param_project = $_POST['project'];
+            // $param_project = $_POST['project'];
             $param_sparkId = $sparkId;
             // echo $param_gender;
             // echo $param_username;
             if(mysqli_stmt_execute($stmt)){
                // echo 'hello';
+                header("location: index.php");
+
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -128,74 +130,88 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 <div class="container">
-            
+            <p style="text-align: center;color:#0068ee;font-size: 3vw;margin-bottom: 5vh ">Faculty Signup</p>   
          
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                
+            
            <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
            
            <div class="form-group   <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
-             <label for="inputEmail3" class="sr-only">Name<sup>*</sup></label>
+             <label  class="sr-only">Name<sup>*</sup></label>
              <div class="col-sm-12">
-               <input type="text"  name="name"  class="form-control" id="inputEmail3" placeholder="Name" value="<?php echo $name; ?>" >
+               <input type="text"  name="name"  class="form-control"  placeholder="Name" value="<?php echo $name; ?>" >
                 <span class="help-block"><?php echo $name_err; ?></span>
              </div>
            </div>
             
            <div class="form-group  <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-             <label for="inputEmail3" class="sr-only">Email<sup>*</sup></label>
+             <label  class="sr-only">Email<sup>*</sup></label>
              <div class="col-sm-12">
-               <input type="email" name="username"  class="form-control" id="inputEmail3" placeholder="Email"  value="<?php echo $username; ?>">
+               <input type="email" name="username"  class="form-control"  placeholder="Email"  value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
              </div>
            </div>
           
            <div class="form-group   <?php echo (!empty($department_err)) ? 'has-error' : ''; ?>">
-            <label for="inputEmail3" class="sr-only ">department</label>
+            <label  class="sr-only ">department</label>
              <div class="col-sm-6">
-               <input type="text" name="department"  class="form-control" id="inputEmail3" placeholder="Department" value="<?php echo $department; ?>">
+               <input type="text" name="department"  class="form-control"  placeholder="Department" value="<?php echo $department; ?>">
                 <span class="help-block"><?php echo $department_err; ?></span>
              </div>
             
-            <label for="inputEmail3" class="sr-only">Contact</label>
+            <label  class="sr-only">Contact</label>
              <div class="col-sm-6">
-               <input type="number"  name="contact" class="form-control" id="inputEmail3" placeholder="Contact" value="<?php echo $contact; ?>">
+               <input type="number"  name="contact" class="form-control"  placeholder="Contact" value="<?php echo $contact; ?>">
                 <span class="help-block"><?php echo $contact_err; ?></span>
              </div>
            </div>
           
            <div class="form-group  <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-             <label for="inputEmail3"  class="sr-only">Password<sup>*</sup></label>
+             <label   class="sr-only">Password<sup>*</sup></label>
              <div class="col-sm-6">
-               <input type="password" name="password" id="signupPassword" class="form-control"  placeholder="Password"  value="<?php echo $password; ?>" >
+               <input type="password" name="password" id="signupPassword" class="form-control"  placeholder="Password"  value="<?php echo $password; ?>" autocomplete="false">
                 <span class="help-block"><?php echo $password_err; ?></span>
              </div>
             
-             <label for="inputEmail3" class="sr-only">Confirm Password<sup>*</sup></label>
+             <label  class="sr-only">Confirm Password<sup>*</sup></label>
              <div class="col-sm-6">
-               <input type="password" name="confirm_password" class="form-control" id="signupConfirmPassword" placeholder="Confirm Password"  value="<?php echo $confirm_password; ?>">
+               <input type="password" name="confirm_password" class="form-control" id="signupConfirmPassword" placeholder="Confirm Password"  value="<?php echo $confirm_password; ?>" autocomplete='false'>
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
              </div>
             
            </div>
 
-           <div class="form-group   <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
+           <!-- <div class="form-group">
              <label for="inputEmail3" class="sr-only">Name<sup>*</sup></label>
              <div class="col-sm-12">
                <textarea  name="project"  class="form-control" ></textarea>
-                <span class="help-block"><?php echo $name_err; ?></span>
+                <span class="help-block"></span>
              </div>
-           </div>
+           </div> -->
            <div class="form-group">
              <div class="col-sm-offset-2 col-sm-10">
-               <input type="submit" value="Sign In" class="btn btn-primary signupModalSignupButton">
+               <input type="submit" id="signUpSubmit" value="Sign In" class="btn btn-primary signupModalSignupButton">
              </div>
            </div>
          </form>
         </div> 
+    </div>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                $('#signUpSubmit').click(function(){
+                    $(":input").val('');
+                });
+            });
+        </script>
 
 
-    <script src="src/js/bootstrap.min.js"></script>
+    <!-- <script src="src/js/bootstrap.min.js"></script>
     <script src="src/js/jquery.js"></script>
-    <script src="src/js/facultyRegister.js"></script>
+    <script src="src/js/facultyRegister.js"></script> -->
 </body>
 
 </html>
