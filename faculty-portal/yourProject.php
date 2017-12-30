@@ -8,7 +8,7 @@
                                                     <th title="Field #5">Research interests/Tentative projects for summer internship</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="myTable">
+                                            <tbody>
                                                 <?php  
                                                 $sql    = "SELECT project from user where id=$facultyRealId";
                                                 $result = $conn->query($sql);

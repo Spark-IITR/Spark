@@ -75,6 +75,7 @@ $sql = "SELECT id,name,email,contact,department,college,adminRemark,sparkId FROM
                                 <li role="presentation" class="col-xs-2"><a href="#accepted" aria-controls="kill" role="tab" data-toggle="tab">Approved</a></li>
                                 <li role="presentation" class="col-xs-2"><a href="#yourProjects" aria-controls="profile" role="tab" data-toggle="tab">Your Projects</a></li>
                                 <li role="presentation" class="col-xs-2"><a href="#allProject" aria-controls="kill" role="tab" data-toggle="tab">All Projects</a></li>
+                                <li style="float: right;margin-top: -11vh"> <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Applications.."> </li>
                             </ul>
                             <div class="tab-content" style="max-height: 50vh;overflow: scroll;min-height: 40vh">
 
@@ -204,7 +205,16 @@ else
       header ("location:../index.php");
     ?>
 
-
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
     <script>
        
     function fetch_student_detail(data){
