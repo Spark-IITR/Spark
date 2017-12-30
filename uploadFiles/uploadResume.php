@@ -33,8 +33,12 @@ if ($_POST && !empty($_FILES)) {
                                         $param_resume = NULL;
                                         $stmt3->send_long_data(0, file_get_contents($data));
                                         if(mysqli_stmt_execute($stmt3)){
-                                             echo 'Resume uploaded';
-                                              // header ("location:../student-portal/");
+                                             // echo 'Resume uploaded';?>
+                                             <script>
+                                                 alert('sj');
+                                             </script>
+                                             <?php
+                                              header ("location:../student-portal/");
                                         } else{
                                            echo 'Error! Failed to insert the file'
                                            . "<pre>{$conn->error}</pre>";

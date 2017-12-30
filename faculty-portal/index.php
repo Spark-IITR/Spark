@@ -46,7 +46,7 @@ $sql = "SELECT id,name,email,contact,department,college,adminRemark,sparkId FROM
                         <img src="../uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class="studentProfileImg" alt="<?php echo $name; ?>">
                      </div>
                      <div class="col-sm-12 col-xs-12">
-                        <form action="../uploadFiles/imageUpload.php" method="post" enctype="multipart/form-data">
+                        <form action="../uploadFiles/facultyImageUpload.php" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="imageId" value="<?php echo $email1; ?>">
                             <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
                             <div class="col-sm-7 col-xs-7"><input type="file" name="image" id="file" class="inputfile" />
