@@ -2,7 +2,7 @@
  <?php
 require 'config/config.php';
  
-$name = $username = $contact = $gender = $dob = $college = $password = $confirm_password = $department = $year = $cgpa = $degree = "";
+$name = $username = $contact = $gender = $dob = $college = $password = $confirm_password = $department = $year = $cgpa = $degree = $sparkId = "";
 $name_err = $username_err = $contact_err = $gender_err = $dob_err = $college_err = $password_err = $confirm_password_err = $department_err = $year_err = $cgpa_err = $degree_err = "";
  
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a email.";
     } else{
-        $sql = "SELECT * FROM user WHERE email = ?";
+        $sql = "SELECT email FROM user WHERE email = ?";
        
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -24,7 +24,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $username_err = "This email is already registered.";
                 } else{
                     $username = trim($_POST["username"]);
-                    // echo $username;
+                    $query = "SELECT sparkId from user order by id desc limit 1";
+                    $result = $conn->query($query);
+                    if(!$result->num_rows == 0){
+                        while($row = $result->fetch_assoc()) {
+                        
+                        $a = $row['sparkId'];
+                        $a =  $a[3].$a[4].$a[5].$a[6].$a[7].$a[8]+1;
+                        $sparkId = "SPK".$a;
+                        }
+                    }else{
+                        $sparkId = "SPK180001";
+                    }
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -116,10 +127,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     // echo $username_err; echo $password_err; echo $confirm_password_err;
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-         $sql = "INSERT INTO user (email, password, name, contact, dob, college, gender, role, department, cgpa, year, degree) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+         $sql = "INSERT INTO user (email, password, name, contact, dob, college, gender, role, department, cgpa, year, degree,sparkId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "ssssssssssss", $param_username, $param_password, $param_name, $param_contact, $param_dob, $param_college, $param_gender, $param_role, $param_department, $param_cgpa, $param_year, $param_degree);
+            mysqli_stmt_bind_param($stmt, "sssssssssssss", $param_username, $param_password, $param_name, $param_contact, $param_dob, $param_college, $param_gender, $param_role, $param_department, $param_cgpa, $param_year, $param_degree,$param_sparkId);
             // echo 'hello';
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); 
@@ -133,6 +144,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_cgpa = $cgpa;
             $param_year = $year;
             $param_degree = $degree;
+            $param_sparkId = $sparkId;
             // echo $param_gender;
             // echo $param_username;
             if(mysqli_stmt_execute($stmt)){

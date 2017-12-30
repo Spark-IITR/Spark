@@ -251,7 +251,7 @@ if ($_POST && !empty($_FILES)) {
                                 <span style="font-weight: 800;color: green"><h3>Application Accepted</h1></span>
 
 
-                                <?php	$query    = "select name from user where id=$recommendedFaculty";
+                                <?php	$query    = "SELECT name from user where id=$recommendedFaculty";
                                 $result5 = $conn->query($query);
                                 if($result5) {
                                     if(!$result5->num_rows == 0) {
