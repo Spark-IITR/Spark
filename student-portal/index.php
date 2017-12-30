@@ -282,7 +282,7 @@ if ($_POST && !empty($_FILES)) {
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-sm-9 col-sm-offset-3">
-                        <textarea rows="5" cols="100" name="complaintText" id="complaintText" placeholder="Text here .. "></textarea>
+                        Problem/Complaint<textarea rows="5" cols="100" name="complaintText" id="complaintText" placeholder="Text here .. "></textarea>
                         <input type="submit" name="complaintSubmit" onclick="student_complaint();"> 
                     <div id="complaintDiv">
                         

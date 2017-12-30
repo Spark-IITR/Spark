@@ -2,11 +2,11 @@
 ob_start();
 session_start();
 require_once '../config/config.php';
-$facultyRealId = $name = $email1 = $contact = $department = $college = $adminRemark =""; 
+$facultyRealId = $name = $email1 = $contact = $department = $college = $adminRemark = $sparkId = ""; 
 if($_SESSION['role']=='faculty')
 {
     $role = $_SESSION['role'];
-$sql = "SELECT id,name,email,contact,department,college,adminRemark FROM user WHERE email = ? and role = ?";
+$sql = "SELECT id,name,email,contact,department,college,adminRemark,sparkId FROM user WHERE email = ? and role = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "ss", $param_username,$param_role);
@@ -18,7 +18,7 @@ $sql = "SELECT id,name,email,contact,department,college,adminRemark FROM user WH
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    mysqli_stmt_bind_result($stmt,$facultyRealId, $name,$email1,$contact,$department,$college,$adminRemark);
+                    mysqli_stmt_bind_result($stmt,$facultyRealId, $name,$email1,$contact,$department,$college,$adminRemark,$sparkId);
                     if(mysqli_stmt_fetch($stmt)){
 
                         require_once '../header.php';
@@ -43,7 +43,10 @@ $sql = "SELECT id,name,email,contact,department,college,adminRemark FROM user WH
                         </form>
                      </div>
                 </div>
-                <p class="studentProfileDetailsTag  studentProfileUpperMargin">Name</p>
+                <p class="studentProfileDetailsTag  studentProfileUpperMargin">ID</p>
+                <p class="studentProfileDetails"><?php echo $sparkId; ?></p>
+
+                <p class="studentProfileDetailsTag">Name</p>
                 <p class="studentProfileDetails"><?php echo $name; ?></p>
 
                 <p class="studentProfileDetailsTag">Department</p>
@@ -140,13 +143,22 @@ $sql = "SELECT id,name,email,contact,department,college,adminRemark FROM user WH
             </div>
         </div>
     </div>
+
     <div class="container-fluid" >
         <div class="row">
             <div class="col-sm-9 col-sm-offset-3">
-                    <textarea rows="5" cols="100" name="complaintText" id="complaintText" placeholder="Text here .. "></textarea>
-                    <input type="submit" name="complaintSubmit" onclick="faculty_complaint();"> 
-                <div id="complaintDiv">
-                    
+                <div class="row">
+                    <div class="col-sm-6">
+                        Add Project <textarea rows="5" cols="55" id="addProjectText" placeholder="Text here .. "></textarea>
+                        <input type="submit"  onclick="add_project();"> 
+                        <div id="addProjectDiv"></div>
+                    </div>
+        
+                    <div class="col-sm-6">
+                        Problem/Complaint<textarea rows="5" cols="55" id="complaintText" placeholder="Text here .. "></textarea>
+                        <input type="submit" name="complaintSubmit" onclick="faculty_complaint();"> 
+                        <div id="complaintDiv"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -241,6 +253,37 @@ else
         });
     }else{
         $('#complaintDiv').html('Insert text');
+    }
+ }
+    
+   
+    </script>
+
+    <script>
+       
+    function add_project(){
+        
+        var id = <?php echo $facultyRealId; ?>;
+        var addProjectText = $('#addProjectText').val();
+        // alert(complaint);
+        if(complaint!=''){
+     $.ajax({
+        url: 'addProject.php',
+        data: {"id":id,"addProjectText":addProjectText},
+        async: true,
+        type: 'POST',          
+
+        success: function(data){
+            
+            $('#addProjectDiv').html(data);
+            $('#addProjectText').val('');
+     },
+       error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+        });
+    }else{
+        $('#addProjectDiv').html('Insert text');
     }
  }
     
