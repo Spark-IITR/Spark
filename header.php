@@ -33,20 +33,26 @@
                     mysqli_stmt_bind_result($stmt, $email, $hashed_pass, $role);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($pass, $hashed_pass)){
+                          
                             if($role == "faculty"){
                                 session_start();
                                 $_SESSION['username'] = $email; 
                                 $_SESSION['role']=$role;
+                                $_SESSION['time'] = time();
                                 header("location: faculty-portal/");
+
                               }else if($role == "student"){
                                 session_start();
                                 $_SESSION['username'] = $email; 
                                 $_SESSION['role']=$role;
+                                $_SESSION['time'] = time();
                                 header("location: student-portal/");
+
                               }else if($role == "admin"){
                                 session_start();
                                 $_SESSION['username'] = $email; 
                                 $_SESSION['role']=$role;
+                                $_SESSION['time'] = time();
                                 header("location: admin-portal/");
                           }
                             

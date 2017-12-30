@@ -1,6 +1,18 @@
 <?php
 ob_start();
 session_start();
+
+   /* logout after 10min. */
+    
+    if(time()-$_SESSION['time']>10*60){
+        unset($_SESSION['time']);
+        session_destroy();
+        header("location: ../index.php");}
+    else{
+        $_SESSION['time']=time();
+    }
+
+    
 require_once '../config/config.php';
 $facultyRealId = $name = $email1 = $contact = $department = $college = $adminRemark = $sparkId = ""; 
 if($_SESSION['role']=='faculty')

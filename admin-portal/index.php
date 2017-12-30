@@ -1,6 +1,17 @@
 <?php
 ob_start();
 session_start();
+
+   /* logout after 5min. */
+    
+    if(time()-$_SESSION['time']>5*60){
+        unset($_SESSION['time']);
+        session_destroy();
+        header("location: ../index.php");}
+    else{
+        $_SESSION['time']=time();
+    }
+
 require_once '../config/config.php';
 $name = $email = $contact = $department = $college = ""; 
 if($_SESSION['role']=='admin')

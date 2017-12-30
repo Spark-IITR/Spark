@@ -1,11 +1,26 @@
 <?php
 ob_start();
 session_start();
+
+   /* logout after 10min. */
+    
+    if(time()-$_SESSION['time']>10*60){
+        unset($_SESSION['time']);
+        session_destroy();
+        header("location: ../index.php");}
+    else{
+        $_SESSION['time']=time();
+    }
+
+
 require '../config/config.php';
 $studentRealId = $name = $email1 = $contact = $department = $college = $sparkId = ""; 
 
 if($_SESSION['role']=='student')
 {
+    
+
+
 	$role = $_SESSION['role'];
 
 $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommendedFaculty,fundingType,adminRemark,sparkId FROM user WHERE email = ? and role = ?";
