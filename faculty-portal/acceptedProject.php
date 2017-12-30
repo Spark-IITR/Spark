@@ -132,6 +132,16 @@
                                             <td><?php echo $fpriority5StudentName; ?></td>
                                             <td><?php echo $fpriority5StudentDepartment; ?></td>
                                             <td><?php echo $fpriority5Studentcollege; ?></td>
-                                            <?php } ?>
+                                            <?php } 
+
+                               $result0->free();
+                               $result1->free();
+                               $result2->free();
+                               $result3->free();
+                               $result4->free();
+                               $result5->free();
+
+
+                                            ?>
                                         </tr>
                                     </table>

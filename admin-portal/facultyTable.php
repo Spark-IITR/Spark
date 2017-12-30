@@ -40,6 +40,7 @@
                             
                         
     <?php }
+    $result->free();
 }           
 ?>
 

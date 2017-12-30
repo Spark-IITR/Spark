@@ -1,13 +1,13 @@
 <?php 
     
-    $sql10 = "SELECT id,sparkId,name,email,complaints from user where role='faculty'";
+    $sql = "SELECT id,sparkId,name,email,complaints from user where role='faculty'";
 
 
 
-    $result10 = $conn->query($sql10);
+    $result = $conn->query($sql);
     
-    if($result10){
-        if(!$result10->num_rows == 0) {
+    if($result){
+        if(!$result->num_rows == 0) {
 
 
             ?>
@@ -25,19 +25,20 @@
                     <tbody id="myTable">
 
             <?php
-            while($row10 = $result10->fetch_assoc()) {
+            while($row = $result->fetch_assoc()) {
                
-                if($row10['complaints']!=null){
+                if($row['complaints']!=null){
                 ?>
-                         <tr  onclick="fetch_faculty_detail(<?php echo $row10['id']; ?>);" style="cursor: pointer;">
-                            <td ><?php echo $row10['id']; ?></td>
-                            <td><?php echo $row10['name']; ?></td>
-                            <td><?php echo $row10['email']; ?></td>
-                            <td style="list-style-type: none;"><?php echo $row10['complaints']; ?></td>
+                         <tr  onclick="fetch_faculty_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
+                            <td ><?php echo $row['id']; ?></td>
+                            <td><?php echo $row['name']; ?></td>
+                            <td><?php echo $row['email']; ?></td>
+                            <td style="list-style-type: none;"><?php echo $row['complaints']; ?></td>
                         </tr>
                         
                 <?php  
                 }
+                $result->free();
             } ?> 
 
                     </tbody>

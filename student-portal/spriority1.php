@@ -45,6 +45,6 @@ require_once '../config/config.php';
 
 
 
-            // mysqli_close($conn);
+            mysqli_close($conn);
 
 ?>

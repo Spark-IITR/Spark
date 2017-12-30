@@ -189,6 +189,8 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
         }
         
         mysqli_stmt_close($stmt);
+            mysqli_close($conn);
+        
     }
 
     

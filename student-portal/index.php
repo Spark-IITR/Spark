@@ -361,6 +361,9 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
         }
         
         mysqli_stmt_close($stmt);
+
+            mysqli_close($conn);
+        
     }
 
 ?>

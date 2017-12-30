@@ -93,7 +93,7 @@ if ($_POST && !empty($_FILES)) {
                         }
                      }//mysqli_stmt_close($stmt1);
                 }
-            // mysqli_close($conn);
+            mysqli_close($conn);
         
         }
     

@@ -43,6 +43,8 @@
                             
                         
     <?php }
+       $result->free();
+
 }           
             ?>
 

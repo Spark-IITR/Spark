@@ -210,6 +210,8 @@ $sql = "SELECT id,name,email,contact,department,college,adminRemark,sparkId FROM
         }
         
         mysqli_stmt_close($stmt);
+            mysqli_close($conn);
+        
     }
 
     

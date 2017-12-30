@@ -46,7 +46,7 @@
                                         </tr>
                                     <?php 
                                 }
-
+                               $result->free();
                         ?>
 
                         

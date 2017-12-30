@@ -67,7 +67,8 @@
 
                                     <?php 
                                 }
-
+                                            
+                         $result->free();
                         ?>
 
                         

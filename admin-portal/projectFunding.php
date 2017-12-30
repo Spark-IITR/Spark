@@ -10,12 +10,12 @@
             <table class="table table-striped" style="max-height: 70vh;overflow: scroll;">
                     <thead >
                         <tr>
-                            <th title="Field #1">ID</th>
-                            <th title="Field #2">Name</th>
-                            <th title="Field #3">Email</th>
-                            <th title="Field #4">Department</th>
-                            <th title="Field #5">Degree</th>
-                            <th title="Field #6">College</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Degree</th>
+                            <th>College</th>
                         </tr>
                     </thead>
 
@@ -43,6 +43,8 @@
                             
                         
     <?php }
+    $result->free();
+
 }           
             ?>
 
