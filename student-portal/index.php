@@ -2,13 +2,13 @@
 ob_start();
 session_start();
 require '../config/config.php';
-$studentRealId = $name = $email1 = $contact = $department = $college = ""; 
+$studentRealId = $name = $email1 = $contact = $department = $college = $sparkId = ""; 
 
 if($_SESSION['role']=='student')
 {
 	$role = $_SESSION['role'];
 
-$sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommendedFaculty,fundingType,adminRemark FROM user WHERE email = ? and role = ?";
+$sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommendedFaculty,fundingType,adminRemark,sparkId FROM user WHERE email = ? and role = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "ss", $param_username,$param_role);
@@ -20,7 +20,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                 mysqli_stmt_store_result($stmt);
                 
                 if(!mysqli_stmt_num_rows($stmt) == 0){                    
-                    mysqli_stmt_bind_result($stmt, $studentRealId ,$name,$email1,$contact,$department,$college,$recommendStatus,$recommendedFaculty,$fundingType,$adminRemark);
+                    mysqli_stmt_bind_result($stmt, $studentRealId ,$name,$email1,$contact,$department,$college,$recommendStatus,$recommendedFaculty,$fundingType,$adminRemark,$sparkId);
                     if(mysqli_stmt_fetch($stmt)){
 
                         require_once '../header.php';
@@ -39,10 +39,8 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     			<div class="row">
     				 <div class="col-sm-12" style="text-align: center;">
 		    			<img src="../uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class="studentProfileImg" alt="<?php echo $name; ?>">
-                         <p class="studentProfileName" ><strong><?php echo $name;?> </strong></p>
     				 </div>
     				 <div class="col-sm-12 col-xs-12">
-                         <div class="studentProfileUploadTag0" >Update Profile Picture</div>
     				 	<form action="../uploadFiles/imageUpload.php" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="imageId" value="<?php echo $email1; ?>">
 					        <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
@@ -54,7 +52,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     			</div>
     			<div class="row">
                 <p class="studentProfileDetailsTag  studentProfileUpperMargin">Id</p>
-                <p class="studentProfileDetails"><?php echo $studentRealId; ?></p>
+                <p class="studentProfileDetails"><?php echo $sparkId; ?></p>
                 <p class="studentProfileDetailsTag">Name</p>
     			<p class="studentProfileDetails"><?php echo $name; ?></p>
 

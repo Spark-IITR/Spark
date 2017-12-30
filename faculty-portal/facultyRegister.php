@@ -1,7 +1,7 @@
 <?php
 require_once '../config/config.php';
  
-$name = $username = $contact = $gender = $dob = $department = $password = $confirm_password = "";
+$name = $username = $contact = $gender = $dob = $department = $password = $confirm_password = $sparkId = "";
 $name_err = $username_err = $contact_err = $gender_err = $dob_err = $department_err = $password_err = $confirm_password_err = "";
  
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -23,6 +23,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $username_err = "This email is already taken.";
                 } else{
                     $username = trim($_POST["username"]);
+                    $query = "SELECT sparkId from user order by id desc limit 1";
+                    $result = $conn->query($query);
+                    if(!$result->num_rows == 0){
+                        while($row = $result->fetch_assoc()) {
+                        
+                        $a = $row['sparkId'];
+                        $a =  $a[3].$a[4].$a[5].$a[6].$a[7]+1;
+                        $sparkId = "SPF".$a;
+                        }
+                    }else{
+                        $sparkId = "SPF18001";
+                    }
                     // echo $username;
                 }
             } else{
@@ -82,10 +94,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     // echo $username_err; echo $password_err; echo $confirm_password_err;
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-         $sql = "INSERT INTO user (email, password, name, contact, department,role,project) VALUES (?, ?, ?, ?, ?,?,?)";
+         $sql = "INSERT INTO user (email, password, name, contact, department,role,project,sparkId) VALUES (?, ?, ?, ?, ?,?,?,?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "sssssss", $param_username, $param_password, $param_name, $param_contact,  $param_department,$param_role,$param_project);
+            mysqli_stmt_bind_param($stmt, "ssssssss", $param_username, $param_password, $param_name, $param_contact,  $param_department,$param_role,$param_project,$param_sparkId);
             // echo 'hello';
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); 
@@ -94,6 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_department = $department;
             $param_role = "faculty";
             $param_project = $_POST['project'];
+            $param_sparkId = $sparkId;
             // echo $param_gender;
             // echo $param_username;
             if(mysqli_stmt_execute($stmt)){

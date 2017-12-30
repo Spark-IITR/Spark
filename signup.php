@@ -30,11 +30,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         while($row = $result->fetch_assoc()) {
                         
                         $a = $row['sparkId'];
-                        $a =  $a[3].$a[4].$a[5].$a[6].$a[7].$a[8]+1;
+                        $a =  $a[3].$a[4].$a[5].$a[6].$a[7]+1;
                         $sparkId = "SPK".$a;
                         }
                     }else{
-                        $sparkId = "SPK180001";
+                        $sparkId = "SPK18001";
                     }
                 }
             } else{
