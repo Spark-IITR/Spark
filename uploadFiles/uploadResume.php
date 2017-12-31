@@ -40,16 +40,16 @@ if ($_POST && !empty($_FILES)) {
                                              <?php
                                               header ("location:../student-portal/");
                                         } else{
-                                           echo 'Error! Failed to insert the file'
-                                           . "<pre>{$conn->error}</pre>";
+                                              header ("location:../student-portal/");
                                         }
                                     }else {
-                                        echo 'Already uploaded';
-                                        // header ("location:../student-portal/");
+                                        // echo 'Already uploaded';
+                                        header ("location:../student-portal/");
                                         // mysqli_stmt_close($stmt);
                                     }
-                                }else{echo 'Already uploaded';
-                                // header ("location:../student-portal/");
+                                }else{
+                                    // echo 'Already uploaded';
+                                header ("location:../student-portal/");
                                 }
                             }
                         }
@@ -57,22 +57,25 @@ if ($_POST && !empty($_FILES)) {
                 }
             }
             else{
-                    echo "File size too large. Size limit is 100kb only.";
+                    // echo "File size too large. Size limit is 100kb only.";
+                header ("location:../student-portal/");
             }
                 
         }
             else{
-                echo "Choose pdf format.";
+                // echo "Choose pdf format.";
+                header ("location:../student-portal/");
         }
     }
         else {
-            echo 'File is not selected.';
+            // echo 'File is not selected.';
+            header ("location:../student-portal/");
     }
  
    mysqli_stmt_close($stmt1);
 
             mysqli_close($conn);
-   
+
 }
 
 

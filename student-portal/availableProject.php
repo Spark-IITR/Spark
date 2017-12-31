@@ -54,8 +54,8 @@
 											                 <?php
 											        }
 											    }
-											 $result->free();
+											 $result11->free();
 											}
-											
+
 											 ?>
 									</table>
