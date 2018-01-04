@@ -9,10 +9,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a email.";
     } else{
-        $sql = "SELECT * FROM user WHERE email = ?";
+        $sql = "SELECT email FROM student where email=? union select email from faculty WHERE email = ? union select email from admin WHERE email = ?";
        
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
+            mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_username, $param_username);
             
             $param_username = trim($_POST["username"]);
             
@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $username_err = "This email is already taken.";
                 } else{
                     $username = trim($_POST["username"]);
-                    $query = "SELECT sparkId from user order by id desc limit 1";
+                    $query = "SELECT sparkId from faculty order by id desc limit 1";
                     $result = $conn->query($query);
                     if(!$result->num_rows == 0){
                         while($row = $result->fetch_assoc()) {
@@ -94,15 +94,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     // echo $username_err; echo $password_err; echo $confirm_password_err;
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-         $sql = "INSERT INTO user (email, password, name, contact, department,role,sparkId) VALUES (?, ?, ?,  ?,?,?,?)";
+         $sql = "INSERT INTO faculty (email, password, name,department,role,sparkId) VALUES (?, ?,   ?,?,?,?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "sssssss", $param_username, $param_password, $param_name, $param_contact,  $param_department,$param_role,$param_sparkId);
+            mysqli_stmt_bind_param($stmt, "ssssss", $param_username, $param_password, $param_name, $param_department,$param_role,$param_sparkId);
             // echo 'hello';
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); 
             $param_name = $name;
-            $param_contact = $contact;
+            // $param_contact = $contact;
             $param_department = $department;
             $param_role = "faculty";
             // $param_project = $_POST['project'];
@@ -111,7 +111,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // echo $param_username;
             if(mysqli_stmt_execute($stmt)){
                // echo 'hello';
-                header("location: index.php");
+                // header("location: index.php");
+            header('Location: '.base_url_faculty.'index.php');
+                
 
             } else{
                 echo "Something went wrong. Please try again later.";
