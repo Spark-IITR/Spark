@@ -9,7 +9,7 @@ require_once '../config/config.php';
 
 
 
-	$sql = "UPDATE user set recommendedFaculty=$recommendFacultyId,fundingType='$recommendFundingStatus',recommendStatus=$recommendStatus where id=$studentId";
+	$sql = "UPDATE student set recommendedFaculty=$recommendFacultyId,fundingType='$recommendFundingStatus',recommendStatus=$recommendStatus where id=$studentId";
 			if($stmt = mysqli_prepare($conn, $sql)){
 	            mysqli_stmt_bind_param($stmt, "isii", $recommendFacultyId,$recommendFundingStatus,$recommendStatus,$studentId);
 	            $param_studentId = $studentId;

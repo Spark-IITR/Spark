@@ -9,7 +9,7 @@
 	$imageId = $_GET['email'];
 
 		$content = mysqli_real_escape_string($conn, $content);
-		$sql = "SELECT  image FROM user where email='$imageId'";
+		$sql = "SELECT  image FROM student where email='$imageId' union SELECT  image FROM faculty where email='$imageId'";
 
 		if ($rs = mysqli_query($conn, $sql)) {
 			$imageData = mysqli_fetch_array($rs, MYSQLI_ASSOC);

@@ -1,6 +1,6 @@
 <?php 
     
-    $sql = "SELECT id,name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3 from user where fundingType='spark'";
+    $sql = "SELECT id,name,cgpa,department,college,email,degree from user where fundingType='spark'";
     $result = $conn->query($sql);
     
     if($result){
@@ -10,12 +10,12 @@
             <table class="table table-striped" style="max-height: 70vh;overflow: scroll;">
                     <thead >
                         <tr>
-                            <th title="Field #1">ID</th>
-                            <th title="Field #2">Name</th>
-                            <th title="Field #3">Email</th>
-                            <th title="Field #4">Department</th>
-                            <th title="Field #5">Degree</th>
-                            <th title="Field #6">College</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>C.G.P.A</th>
+                            <th>Department</th>
+                            <th>College</th>
                         </tr>
                     </thead>
 
@@ -29,8 +29,8 @@
                             <td ><?php echo $row['id']; ?></td>
                             <td><?php echo $row['name']; ?></td>
                             <td><?php echo $row['email']; ?></td>
+                            <td><?php echo $row['cgpa']; ?></td>
                             <td><?php echo $row['department']; ?></td>
-                            <td><?php echo $row['degree']; ?></td>
                             <td><?php echo $row['college']; ?></td>
                            
                         </tr>

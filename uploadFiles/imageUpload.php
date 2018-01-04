@@ -39,7 +39,7 @@ if ($_POST && !empty($_FILES)) {
 
             $content = mysqli_real_escape_string($conn, $content);
             // echo $content;
-            $sql1 = "SELECT image from user where email=?";
+            $sql1 = "SELECT image from student where email=?";
                 if($stmt1 = mysqli_prepare($conn, $sql1)){
                     mysqli_stmt_bind_param($stmt1, "s", $param_email);
                     
@@ -53,7 +53,7 @@ if ($_POST && !empty($_FILES)) {
                             if(mysqli_stmt_fetch($stmt1)){
     
                                 if($image==NULL){
-                                $sql = "UPDATE user set image=? where email=?";
+                                $sql = "UPDATE student set image=? where email=?";
          
                                     if($stmt = mysqli_prepare($conn, $sql)){
                                         mysqli_stmt_bind_param($stmt, "bs",$param_image, $param_Email);

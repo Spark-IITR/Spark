@@ -1,6 +1,6 @@
 <?php 
     
-    $sql = "SELECT id,sparkId,name,email,complaints from user where role='faculty'";
+    $sql = "SELECT id,sparkId,name,email,complaints from faculty";
 
 
 

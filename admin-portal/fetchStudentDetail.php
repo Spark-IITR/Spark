@@ -4,7 +4,7 @@ require_once '../config/config.php';
 	
 	$studentId = $_POST['id'];
 
-	$sql = "select id,name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3,spriority4,spriority5 from user where id=$studentId";
+	$sql = "select id,name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3,spriority4,spriority5 from student where id=$studentId";
 	$result = $conn->query($sql);
 	
 	if($result){
@@ -20,7 +20,7 @@ require_once '../config/config.php';
 
 
                  /* fetch details of first priority */
-                  $sql1    = "select name from user where id=$spriority1Id";
+                  $sql1    = "select name from faculty where id=$spriority1Id";
                   $result1 = $conn->query($sql1);
                     if(!$result1->num_rows == 0) {
                         $row1 = $result1->fetch_assoc();
@@ -29,7 +29,7 @@ require_once '../config/config.php';
                     }
 
                     /* fetch details of second priority */
-                    $sql2    = "select name from user where id=$spriority2Id";
+                    $sql2    = "select name from faculty where id=$spriority2Id";
                   $result2 = $conn->query($sql2);
                     if(!$result2->num_rows == 0) {
                         $row2 = $result2->fetch_assoc();
@@ -38,7 +38,7 @@ require_once '../config/config.php';
                     }
 
                     /* fetch details of third priority */
-                    $sql3    = "select name from user where id=$spriority3Id";
+                    $sql3    = "select name from faculty where id=$spriority3Id";
                   $result3 = $conn->query($sql3);
                     if(!$result3->num_rows == 0) {
                         $row3 = $result3->fetch_assoc();
@@ -47,7 +47,7 @@ require_once '../config/config.php';
                     }
 
                     /* fetch details of third priority */
-                    $sql4    = "select name from user where id=$spriority4Id";
+                    $sql4    = "select name from faculty where id=$spriority4Id";
                   $result4 = $conn->query($sql4);
                     if(!$result4->num_rows == 0) {
                         $row4 = $result4->fetch_assoc();
@@ -56,7 +56,7 @@ require_once '../config/config.php';
                     }
 
                     /* fetch details of third priority */
-                    $sql5    = "select name from user where id=$spriority5Id";
+                    $sql5    = "select name from faculty where id=$spriority5Id";
                   $result5 = $conn->query($sql5);
                     if(!$result5->num_rows == 0) {
                         $row5 = $result5->fetch_assoc();

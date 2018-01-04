@@ -3,7 +3,7 @@ require_once '../config/config.php';
 	$studentId = $_POST['id'];
 
 	
-		$sql101 = "DELETE from user where id=?";
+		$sql101 = "DELETE from student where id=?";
 
 	        if($stmt = mysqli_prepare($conn, $sql101)){
 	            mysqli_stmt_bind_param($stmt, "i", $param_studentId);

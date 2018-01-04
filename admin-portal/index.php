@@ -13,10 +13,10 @@ session_start();
     }
 
 require_once '../config/config.php';
-$name = $email = $contact = $department = $college = ""; 
+$name = $email =  ""; 
 if($_SESSION['role']=='admin')
 {
-$sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? and role = ?";
+$sql = "SELECT name,email FROM admin WHERE email = ? and role = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "ss", $param_username,$param_role);
@@ -28,7 +28,7 @@ $sql = "SELECT name,email,contact,department,college FROM user WHERE email = ? a
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    mysqli_stmt_bind_result($stmt, $name,$email,$contact,$department,$college);
+                    mysqli_stmt_bind_result($stmt, $name,$email);
                     if(mysqli_stmt_fetch($stmt)){
 
                         require_once '../header.php';

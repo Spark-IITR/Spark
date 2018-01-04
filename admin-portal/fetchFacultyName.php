@@ -4,7 +4,7 @@ require_once '../config/config.php';
 	
 	$facultyId = $_POST['id'];
 
-	$sql = "select name from user where id=$facultyId and role='faculty'";
+	$sql = "select name from faculty where id=$facultyId";
 	$result = $conn->query($sql);
 	
 	if($result){

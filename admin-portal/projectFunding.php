@@ -1,6 +1,6 @@
 <?php 
     
-    $sql = "SELECT id,name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3 from user where fundingType='project'";
+    $sql = "SELECT id,name,department,college,email,degree from student where fundingType='project'";
     $result = $conn->query($sql);
     
     if($result){
@@ -13,8 +13,8 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>C.G.P.A</th>
                             <th>Department</th>
-                            <th>Degree</th>
                             <th>College</th>
                         </tr>
                     </thead>
@@ -29,8 +29,8 @@
                             <td ><?php echo $row['id']; ?></td>
                             <td><?php echo $row['name']; ?></td>
                             <td><?php echo $row['email']; ?></td>
+                            <td><?php echo $row['cgpa']; ?></td>
                             <td><?php echo $row['department']; ?></td>
-                            <td><?php echo $row['degree']; ?></td>
                             <td><?php echo $row['college']; ?></td>
                            
                         </tr>

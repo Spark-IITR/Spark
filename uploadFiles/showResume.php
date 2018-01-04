@@ -10,7 +10,7 @@
 	$imageId = $_GET['email'];
 
 		$content = mysqli_real_escape_string($conn, $content);
-		$sql = "SELECT  resume FROM user where email='$imageId'";
+		$sql = "SELECT  resume FROM student where email='$imageId'";
 
 		if ($rs = mysqli_query($conn, $sql)) {
 			$imageData = mysqli_fetch_array($rs, MYSQLI_ASSOC);

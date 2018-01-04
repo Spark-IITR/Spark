@@ -1,6 +1,6 @@
 <?php 
 	
-	$sql = "SELECT id,sparkId,name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3 from user where role='student'";
+	$sql = "SELECT id,sparkId,name,cgpa,department,year,college,email,contact,dob,gender,degree,spriority1,spriority2,spriority3 from student where role='student'";
 	$result = $conn->query($sql);
 	
 	if($result){

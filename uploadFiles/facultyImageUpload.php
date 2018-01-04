@@ -40,7 +40,7 @@ if ($_POST && !empty($_FILES)) {
             $content = mysqli_real_escape_string($conn, $content);
             // echo $content;
             
-                                $sql = "UPDATE user set image=? where email=?";
+                                $sql = "UPDATE faculty set image=? where email=?";
          
                                     if($stmt = mysqli_prepare($conn, $sql)){
                                         mysqli_stmt_bind_param($stmt, "bs",$param_image, $param_Email);
