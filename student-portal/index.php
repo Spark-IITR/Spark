@@ -23,7 +23,7 @@ if($_SESSION['role']=='student')
 
 	$role = $_SESSION['role'];
 
-$sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommendedFaculty,fundingType,adminRemark,sparkId FROM user WHERE email = ? and role = ?";
+$sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommendedFaculty,fundingType,adminRemark,sparkId FROM student WHERE email = ? and role = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "ss", $param_username,$param_role);
@@ -206,7 +206,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 // 		 if ( in_array($type, array('application/pdf'))) {
 // 		     if ( $size < 500000) {
 
-// 		                $sql1 = "SELECT resume from user WHERE email= ? ";
+// 		                $sql1 = "SELECT resume from student WHERE email= ? ";
 
 // 		        if($stmt1 = mysqli_prepare($conn, $sql1)){
 // 		            mysqli_stmt_bind_param($stmt1, "s", $param_username);
@@ -307,7 +307,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                                 <span style="font-weight: 800;color: green"><h3>Application Accepted</h1></span>
 
 
-                                <?php	$query    = "SELECT name from user where id=$recommendedFaculty";
+                                <?php	$query    = "SELECT name from student where id=$recommendedFaculty";
                                 $result5 = $conn->query($query);
                                 if($result5) {
                                     if(!$result5->num_rows == 0) {

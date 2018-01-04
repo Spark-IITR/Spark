@@ -19,10 +19,10 @@
     }
     
     if(empty($email_err) && empty($pass_err)){
-        $sql = "SELECT email,password,role FROM user WHERE email = ?";
+        $sql = "SELECT email,password,role FROM student WHERE email = ? union SELECT email,password,role FROM faculty WHERE email = ? union SELECT email,password,role FROM admin WHERE email = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "s", $param_email);
+            mysqli_stmt_bind_param($stmt, "sss", $param_email, $param_email, $param_email);
             
             $param_email = $email;
             
@@ -133,37 +133,37 @@
            
            <?php if($_SESSION['role'] == "admin"){?>
 
-           <li><a style="font-weight: 700" href="../index.php#aboutUs">About SPARK </a></li>
-           <li><a href="../index.php#guidelines">Guidelines</a></li>
-           <li><a href="../Publish/project.html">Projects</a></li>
-           <li><a href="../index.php#timeline">Timeline</a></li>
-           <li><a href="../signup.php">Contact</a></li>
-            <li style="font-size: 1.4vw;color: #777;"><a href="../logout.php" data-toggle="tooltip" data-placement="left" title="Logout"><?php echo $name; ?></a></li>
+           <li><a style="font-weight: 700" href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
+           <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
+           <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
+           <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
+           <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
+            <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url; ?>logout.php" data-toggle="tooltip" data-placement="left" title="Logout"><?php echo $name; ?></a></li>
 
            <?php } else if($_SESSION['role'] == "faculty"){?>
-           <li><a href="../index.php#aboutUs">About SPARK </a></li>
-           <li><a href="../index.php#guidelines">Guidelines</a></li>
-           <li><a href="../Publish/project.html">Projects</a></li>
-           <li><a href="../index.php#timeline">Timeline</a></li>
-           <li><a href="../signup.php">Contact</a></li>
-           <li style="font-size: 1.4vw;color: #777;"><a href="../faculty-portal/"><?php echo $name; ?></a></li>
+           <li><a href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
+           <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
+           <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
+           <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
+           <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
+           <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url_faculty; ?>"><?php echo $name; ?></a></li>
 
 
            <?php }else if($_SESSION['role'] == "student"){?>
-           <li><a href="../index.php#aboutUs">About SPARK </a></li>
-           <li><a href="../index.php#guidelines">Guidelines</a></li>
-           <li><a href="../Publish/project.html">Projects</a></li>
-           <li><a href="../index.php#timeline">Timeline</a></li>
-           <li><a href="../signup.php">Contact</a></li>
-            <li style="font-size: 1.4vw;color: #777;"><a href="../student-portal/"><?php echo $name; ?></a></li>
+           <li><a href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
+           <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
+           <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
+           <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
+           <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
+            <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url_student; ?>"><?php echo $name; ?></a></li>
             
 
           <?php }else {?>
-            <li><a href="index.php#aboutUs">About SPARK </a></li>
-           <li><a href="index.php#guidelines">Guidelines</a></li>
-           <li><a href="Publish/project.html">Projects</a></li>
-           <li><a href="index.php#timeline">Timeline</a></li>
-           <li><a href="index.php#contact">Contact</a></li>
+            <li><a href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
+           <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
+           <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
+           <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
+           <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
            <li><a href="#login" data-toggle="modal" data-target="#login">Log In</a></li>
             
           <?php } ?>
