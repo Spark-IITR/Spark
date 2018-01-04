@@ -3,8 +3,8 @@ require_once '../config/config.php';
 	$facultyId = $_POST['facultyId'];
 	$studentId  = $_POST['studentId'];
 
-	$sql100 = "SELECT fpriority2 from user where id=?";
-				if($stmt1 = mysqli_prepare($conn, $sql100)){
+	$sql = "SELECT fpriority2 from faculty where id=?";
+				if($stmt1 = mysqli_prepare($conn, $sql)){
 		            mysqli_stmt_bind_param($stmt1, "i", $param_id);
 		            
 		            $param_id = $facultyId;
@@ -17,9 +17,9 @@ require_once '../config/config.php';
 		                    if(mysqli_stmt_fetch($stmt1)){
 	
 								if($fpriority2==NULL || $fpriority2==0){
-								$sql101 = "UPDATE user set fpriority2=? where id=?";
+								$sql = "UPDATE faculty set fpriority2=? where id=?";
          
-							        if($stmt = mysqli_prepare($conn, $sql101)){
+							        if($stmt = mysqli_prepare($conn, $sql)){
 							            mysqli_stmt_bind_param($stmt, "ii",$param_studentId, $param_facultyId);
 							            $param_facultyId = $facultyId;
 							            $param_studentId = $studentId;

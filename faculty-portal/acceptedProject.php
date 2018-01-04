@@ -1,6 +1,6 @@
 
                                     <?php 
-                             $sql0    = "select fpriority1,fpriority2,fpriority3,fpriority4,fpriority5 from user where id=$facultyRealId";
+                             $sql0    = "select fpriority1,fpriority2,fpriority3,fpriority4,fpriority5 from faculty where id=$facultyRealId";
                             $result0 = $conn->query($sql0);
 
                             if(!$result0->num_rows == 0) {
@@ -13,7 +13,7 @@
 
                                  
                                  /* fetch details of first priority */
-                                  $sql1    = "select id,name,department,college from user where id=$fpriority1StudentId";
+                                  $sql1    = "select id,name,department,college from student where id=$fpriority1StudentId";
                                   $result1 = $conn->query($sql1);
                                     if(!$result1->num_rows == 0) {
                                         $row1 = $result1->fetch_assoc();
@@ -25,7 +25,7 @@
                                     }
 
                                     /* fetch details of second priority */
-                                    $sql2    = "select id,name,department,college from user where id=$fpriority2StudentId";
+                                    $sql2    = "select id,name,department,college from student where id=$fpriority2StudentId";
                                   $result2 = $conn->query($sql2);
                                     if(!$result2->num_rows == 0) {
                                         $row2 = $result2->fetch_assoc();
@@ -37,7 +37,7 @@
                                     }
 
                                     /* fetch details of third priority */
-                                    $sql3    = "select id,name,department,college from user where id=$fpriority3StudentId";
+                                    $sql3    = "select id,name,department,college from student where id=$fpriority3StudentId";
                                   $result3 = $conn->query($sql3);
                                     if(!$result3->num_rows == 0) {
                                         $row3 = $result3->fetch_assoc();
@@ -49,7 +49,7 @@
                                     }
 
                                     /* fetch details of third priority */
-                                    $sql4    = "select id,name,department,college from user where id=$fpriority4StudentId";
+                                    $sql4    = "select id,name,department,college from student where id=$fpriority4StudentId";
                                   $result4 = $conn->query($sql4);
                                     if(!$result4->num_rows == 0) {
                                         $row4 = $result4->fetch_assoc();
@@ -61,7 +61,7 @@
                                     }
 
                                     /* fetch details of third priority */
-                                    $sql5    = "select id,name,department,college from user where id=$fpriority5StudentId";
+                                    $sql5    = "select id,name,department,college from student where id=$fpriority5StudentId";
                                   $result5 = $conn->query($sql5);
                                     if(!$result5->num_rows == 0) {
                                         $row5 = $result5->fetch_assoc();

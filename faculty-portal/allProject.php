@@ -3,7 +3,7 @@
                                     <div class="">
                                         <table class="table table-striped">
                                             <?php  
-                                                $sql = "select id,name,department,project from user where role='faculty'";
+                                                $sql = "select id,name,department,project from faculty where role='faculty'";
                                                 $result = $conn->query($sql);
                                                 if($result) {
                                                     if($result->num_rows == 0) {

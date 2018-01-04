@@ -11,7 +11,7 @@ if ($_POST && !empty($_FILES)) {
          if ( in_array($type, array('application/pdf'))) {
              if ( $size < 500000) {
 
-                        $sql1 = "SELECT noc from user WHERE email= ? ";
+                        $sql1 = "SELECT noc from student WHERE email= ? ";
 
                 if($stmt1 = mysqli_prepare($conn, $sql1)){
                     mysqli_stmt_bind_param($stmt1, "s", $param_username);
@@ -26,7 +26,7 @@ if ($_POST && !empty($_FILES)) {
                             if(mysqli_stmt_fetch($stmt1)){
                         
                                 if($nocPdf==null){
-                                    $query = "UPDATE user set noc=? where email=?";
+                                    $query = "UPDATE student set noc=? where email=?";
                                     if($stmt3 = mysqli_prepare($conn, $query)){
                                         mysqli_stmt_bind_param($stmt3, "bs",$param_noc, $param_email);
                                         $param_email = $email;

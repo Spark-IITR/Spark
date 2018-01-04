@@ -10,7 +10,7 @@
                                             </thead>
                                             <tbody>
                                                 <?php  
-                                                $sql    = "SELECT project from user where id=$facultyRealId";
+                                                $sql    = "SELECT project from faculty where id=$facultyRealId";
                                                 $result = $conn->query($sql);
                                                 if($result) {
                                                         while($row = $result->fetch_assoc()) {

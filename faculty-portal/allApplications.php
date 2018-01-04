@@ -17,7 +17,7 @@
                     </thead>
                     <tbody id="myTable">
                         <?php 
-                             $sql    = "select id,name,email,department,college,year,spriority1,spriority2,spriority3,cgpa from user where spriority1!=0 or spriority2!=0 or spriority3!=0";
+                             $sql    = "select id,name,email,department,college,year,spriority1,spriority2,spriority3,cgpa from student where spriority1!=0 or spriority2!=0 or spriority3!=0";
                             $result = $conn->query($sql);
 
                             while($row=mysqli_fetch_assoc($result)) {

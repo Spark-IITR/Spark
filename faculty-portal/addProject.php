@@ -5,7 +5,7 @@ require_once '../config/config.php';
 	$id = $_POST['id'];
 	$addProjectText = $_POST['addProjectText'];
 
-	$sql = "SELECT project from user where id=$id";
+	$sql = "SELECT project from faculty where id=$id";
 				if($stmt1 = mysqli_prepare($conn, $sql)){
 		            mysqli_stmt_bind_param($stmt1, "i", $param_id);
 		            $param_id = $id;
@@ -21,7 +21,7 @@ require_once '../config/config.php';
 		                    		$addProjectText = '<li>'.$addProjectText.'</li>';
 		                    	}
 
-								$sql = "UPDATE user set project=? where id=?";
+								$sql = "UPDATE faculty set project=? where id=?";
          
 							        if($stmt = mysqli_prepare($conn, $sql)){
 							            mysqli_stmt_bind_param($stmt, "si",$param_addProject, $param_id);

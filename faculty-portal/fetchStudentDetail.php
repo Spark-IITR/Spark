@@ -4,7 +4,7 @@ require_once '../config/config.php';
 	
 	$studentId = $_POST['id'];
 
-	$sql = "select name,cgpa,department,year,college,email,contact,dob,gender,degree,project,cgpa from user where id=$studentId";
+	$sql = "select name,cgpa,department,year,college,email,contact,dob,gender,degree,project,cgpa from student where id=$studentId";
 	$result = $conn->query($sql);
 	
 	if($result){

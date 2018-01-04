@@ -14,11 +14,11 @@ session_start();
 
     
 require_once '../config/config.php';
-$facultyRealId = $name = $email1 = $contact = $department = $college = $adminRemark = $sparkId = ""; 
+$facultyRealId = $name = $email1  = $department = $college = $adminRemark = $sparkId = ""; 
 if($_SESSION['role']=='faculty')
 {
     $role = $_SESSION['role'];
-$sql = "SELECT id,name,email,contact,department,college,adminRemark,sparkId FROM user WHERE email = ? and role = ?";
+$sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE email = ? and role = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "ss", $param_username,$param_role);
@@ -30,7 +30,7 @@ $sql = "SELECT id,name,email,contact,department,college,adminRemark,sparkId FROM
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    mysqli_stmt_bind_result($stmt,$facultyRealId, $name,$email1,$contact,$department,$college,$adminRemark,$sparkId);
+                    mysqli_stmt_bind_result($stmt,$facultyRealId, $name,$email1,$department,$adminRemark,$sparkId);
                     if(mysqli_stmt_fetch($stmt)){
 
                         require_once '../header.php';
@@ -69,9 +69,6 @@ $sql = "SELECT id,name,email,contact,department,college,adminRemark,sparkId FROM
 
                 <p class="studentProfileDetailsTag">Email</p>
                 <p class="studentProfileDetails"><?php echo $email1; ?></p>
-
-                <p class="studentProfileDetailsTag">Contact No.</p>
-                <p class="studentProfileDetails"><?php echo $contact; ?></p>
 
 
                 <a class="btn btn-default studentProfileLogoutButton" style="margin-left:2vh; " href="../logout.php" >Logout</a>
