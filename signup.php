@@ -10,10 +10,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a email.";
     } else{
-        $sql = "SELECT email FROM user WHERE email = ?";
-       
+        $sql = "SELECT email FROM student where email=? union select email from faculty WHERE email = ? union select email from admin WHERE email = ?";
+        
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
+            mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_username, $param_username);
             
             $param_username = trim($_POST["username"]);
             
@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $username_err = "This email is already registered.";
                 } else{
                     $username = trim($_POST["username"]);
-                    $query = "SELECT sparkId from user order by id desc limit 1";
+                    $query = "SELECT sparkId from student order by id desc limit 1";
                     $result = $conn->query($query);
                     if(!$result->num_rows == 0){
                         while($row = $result->fetch_assoc()) {
@@ -40,7 +40,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
-        }
+        }else{
+                echo "Oops! Something went wrong. Please try again later.2";
+            }
          
         mysqli_stmt_close($stmt);
     }
@@ -127,7 +129,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     // echo $username_err; echo $password_err; echo $confirm_password_err;
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-         $sql = "INSERT INTO user (email, password, name, contact, dob, college, gender, role, department, cgpa, year, degree,sparkId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+         $sql = "INSERT INTO student (email, password, name, contact, dob, college, gender, role, department, cgpa, year, degree,sparkId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "sssssssssssss", $param_username, $param_password, $param_name, $param_contact, $param_dob, $param_college, $param_gender, $param_role, $param_department, $param_cgpa, $param_year, $param_degree,$param_sparkId);
@@ -148,15 +150,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // echo $param_gender;
             // echo $param_username;
             if(mysqli_stmt_execute($stmt)){
-                header("location: index.php");
+                echo '
+                      <script>
+                         $("#signupSubmitButton").click(function () {
+                            $("#signupForm").trigger("reset");
+                        });
+                      
+                         window.location.href="'.base_url.'index.php"; 
+                      </script>';
+            
             } else{
                 ?> <script> alert(' Something went wrong. ') </script> <?php
             }
-                ?>
-
-
-
-       <?php }
+         }
          
         mysqli_stmt_close($stmt);
     }
@@ -176,7 +182,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2">
 					<p class="signupHereTag">Sign Up Here ..</p>
-					<form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+					<form class="form-horizontal" id="signupForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
            
 			           <div class="form-group   <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
 			             <label for="" class="sr-only">Name<sup>*</sup></label>
@@ -271,7 +277,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			           </div>
 			           <div class="form-group">
 			             <div class="col-sm-offset-3 col-sm-6">
-			               <input type="submit" value="Sign In" class="btn btn-primary signupModalSignupButton" style="width: 100%;margin-bottom: 5vh" autocomplete="off">
+			               <input type="submit" value="Sign In" id="signupSubmitButton" class="btn btn-primary signupModalSignupButton" style="width: 100%;margin-bottom: 5vh" autocomplete="off">
 			             </div>
 			           </div>
 			         </form>
