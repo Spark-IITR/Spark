@@ -1,5 +1,9 @@
 <?php
-define('base_url', 'http://localhost/folder_name/');
+define('base_url', 'http://localhost/spark/');
+define('base_url_student', 'http://localhost/spark/student-portal/');
+define('base_url_faculty', 'http://localhost/spark/faculty-portal/');
+define('base_url_admin', 'http://localhost/spark/admin-portal/');
+
 $servername = "localhost";
 $username = "";
 $password = "";
