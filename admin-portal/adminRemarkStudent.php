@@ -5,7 +5,7 @@ require_once '../config/config.php';
 	$id = $_POST['remarkId'];
 	$remark = $_POST['remarkText'];
 
-	$sql = "SELECT adminRemark from user where id=$id";
+	$sql = "SELECT adminRemark from student where id=$id";
 				if($stmt1 = mysqli_prepare($conn, $sql)){
 		            mysqli_stmt_bind_param($stmt1, "i", $param_id);
 		            

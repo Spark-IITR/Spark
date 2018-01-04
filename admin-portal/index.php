@@ -276,14 +276,45 @@ else
 
     <script>
        
-    function admin_remark(data){
+    function admin_remark_faculty(data){
         
         var id = data;
         var remark = $('#remarkText').val();
         // alert(remark);
         if(remark!=''){
      $.ajax({
-        url: 'adminRemark.php',
+        url: 'adminRemarkFaculty.php',
+        data: {"remarkId":id,"remarkText":remark},
+        async: true,
+        type: 'POST',          
+
+        success: function(data){
+            
+            $('#remarkDiv').html(data);
+            $('#remarkText').val('');
+     },
+       error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+        });
+    }else{
+        $('#remarkDiv').html('Insert text');
+    }
+ }
+    
+   
+    </script>
+
+    <script>
+       
+    function admin_remark_student(data){
+        
+        var id = data;
+        var remark = $('#remarkStudentText').val();
+        // alert(remark);
+        if(remark!=''){
+     $.ajax({
+        url: 'adminRemarkStudent.php',
         data: {"remarkId":id,"remarkText":remark},
         async: true,
         type: 'POST',          

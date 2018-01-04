@@ -124,7 +124,7 @@ require_once '../config/config.php';
                         <div class="row">
                             <div class="col-sm-7 col-sm-offset-3">
                                     <textarea rows="3" cols="20"  id="remarkText" placeholder="Text here .. "></textarea>
-                                    <input type="submit" onclick="admin_remark(';echo $facultyId; echo')" > 
+                                    <input type="submit" onclick="admin_remark_faculty(';echo $facultyId; echo')" > 
                                 <div id="remarkDiv">
                                     
                                 </div>

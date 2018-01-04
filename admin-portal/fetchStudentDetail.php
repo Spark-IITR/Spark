@@ -281,8 +281,8 @@ require_once '../config/config.php';
 
                             <div class="row">
                                 <div class="col-sm-4 col-sm-offset-3">
-                                        <textarea rows="3" cols="20"  id="remarkText" placeholder="Text here .. "></textarea>
-                                        <input type="submit" onclick="admin_remark(';echo $row['id']; echo')" > 
+                                        <textarea rows="3" cols="20"  id="remarkStudentText" placeholder="Text here .. "></textarea>
+                                        <input type="submit" onclick="admin_remark_student(';echo $row['id']; echo')" > 
                                     <div id="remarkDiv">
                                         
                                     </div>
