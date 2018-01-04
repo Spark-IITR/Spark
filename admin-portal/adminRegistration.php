@@ -9,10 +9,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a email.";
     } else{
-        $sql = "SELECT * FROM user WHERE email = ?";
+        $sql = "SELECT email FROM student where email=? union select email from faculty WHERE email = ? union select email from admin WHERE email = ?";
        
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
+            mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_username, $param_username);
             
             $param_username = trim($_POST["username"]);
             
@@ -43,23 +43,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
    
     
-    if(empty(trim($_POST['contact']))){
-        $contact_err = "Please enter a contact no.";     
-    } elseif(strlen(trim($_POST['contact'])) < 10){
-        $contact_err = "Password must have atleast 10 digits.";
-    } else{
-        $contact = trim($_POST['contact']);
-        // echo $contact;
-    }
+    // if(empty(trim($_POST['contact']))){
+    //     $contact_err = "Please enter a contact no.";     
+    // } elseif(strlen(trim($_POST['contact'])) < 10){
+    //     $contact_err = "Password must have atleast 10 digits.";
+    // } else{
+    //     $contact = trim($_POST['contact']);
+    //     // echo $contact;
+    // }
     
     
     
-    if(empty(trim($_POST['department']))){
-        $department_err = "Please enter a department name.";     
-    } else{
-        $department = trim($_POST['department']);
-        // echo $department;
-    }
+    // if(empty(trim($_POST['department']))){
+    //     $department_err = "Please enter a department name.";     
+    // } else{
+    //     $department = trim($_POST['department']);
+    //     // echo $department;
+    // }
     
 
     
@@ -82,21 +82,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     // echo $username_err; echo $password_err; echo $confirm_password_err;
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-         $sql = "INSERT INTO user (email, password, name, contact, department,role) VALUES (?, ?, ?, ?, ?,?)";
+         $sql = "INSERT INTO admin (email, password, name, role) VALUES ( ?, ?, ?,?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "ssssss", $param_username, $param_password, $param_name, $param_contact,  $param_department,$param_role);
+            mysqli_stmt_bind_param($stmt, "ssss", $param_username, $param_password, $param_name, $param_role);
             // echo 'hello';
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); 
             $param_name = $name;
-            $param_contact = $contact;
-            $param_department = $department;
+            // $param_contact = $contact;
+            // $param_department = $department;
             $param_role = "admin";
             // echo $param_gender;
             // echo $param_username;
             if(mysqli_stmt_execute($stmt)){
                // echo 'hello';
+                header('Location: '.base_url_admin.'index.php');
+
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -134,19 +136,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
              </div>
            </div>
           
-           <div class="form-group   <?php echo (!empty($department_err)) ? 'has-error' : ''; ?>">
+           <!-- <div class="form-group">
             <label for="inputEmail3" class="sr-only ">department</label>
              <div class="col-sm-6">
                <input type="text" name="department"  class="form-control" id="inputEmail3" placeholder="Department" value="<?php echo $department; ?>">
-                <span class="help-block"><?php echo $department_err; ?></span>
+                <span class="help-block"></span>
              </div>
             
             <label for="inputEmail3" class="sr-only">Contact</label>
              <div class="col-sm-6">
                <input type="number"  name="contact" class="form-control" id="inputEmail3" placeholder="Contact" value="<?php echo $contact; ?>">
-                <span class="help-block"><?php echo $contact_err; ?></span>
+                <span class="help-block"></span>
              </div>
-           </div>
+           </div> -->
           
            <div class="form-group  <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
              <label for="inputEmail3"  class="sr-only">Password<sup>*</sup></label>
@@ -173,7 +175,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <script src="src/js/bootstrap.min.js"></script>
     <script src="src/js/jquery.js"></script>
-    <script src="src/js/facultyRegister.js"></script>
 </body>
 
 </html>
