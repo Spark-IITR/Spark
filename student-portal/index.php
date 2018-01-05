@@ -61,7 +61,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 					        <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
 					        <div class="col-sm-7 col-xs-7"><input type="file" name="image" id="file" class="inputfile" />
 							<label for="file"><span class="glyphicon glyphicon-folder-open hidden-sm selectImageButtonTabFix" style="padding-right: 7px;"></span>Select Image</label></div>
-	    					<div class="col-sm-5 col-xs-5"><input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" value="Change" placeholder="" ></div>
+	    					<div class="col-sm-5 col-xs-5"><input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" style="width: 100px;" value="Change" placeholder="" ></div>
 						</form>
     				 </div>
     			</div>
@@ -104,9 +104,9 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
     					<div>
 						  	<ul class="nav nav-tabs" role="tablist">
-							    <li role="presentation" class="active"><a href="#available" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
-							     <li role="presentation"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
-							     <li style="float: right;margin-top: -5vh;" ><input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Projects.."></li>
+							    <li role="presentation" class="active col-sm-4 col-xs-4"><a href="#available" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
+							     <li role="presentation" class="col-sm-4 col-xs-4"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
+							     <li class="col-sm-4 col-xs-4" ><input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Projects.."></li>
 						  	</ul>
 
 						  	<div class="tab-content"  style="max-height: 50vh;overflow: scroll;">
@@ -129,7 +129,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     			<div class="row" style="margin-left: 0%">
 
     				<div class="col-sm-6 col-xs-12">
-                        <p class="studentProfileUploadTag" >Upload Resume</p>
+                        <p class="studentProfileUploadTag" >Upload Resume :</p>
 
     					<form action="../uploadFiles/uploadResume.php" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="resumeId" value="<?php echo $email1; ?>" />
@@ -144,7 +144,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     				</div>
 
     				<div class="col-md-6 col-sm-6 col-xs-12" style=" display: block;">
-                        <p class="studentProfileUploadTag" >Upload Transcript</p>
+                        <p class="studentProfileUploadTag" >Upload Transcrip :</p>
 
     					<form action="../uploadFiles/uploadNOC.php" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="nocId" value="<?php echo $email1; ?>" />
@@ -159,20 +159,20 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     				</div>
     			</div>
 
-                <div class="row"  style="margin-top: 5vh">
+                <div class="row"  style="margin-top: 1vh">
                     <div class="col-sm-12  col-xs-12 ">
                         <div class="row">
-                            <div class="col-sm-8 col-xs-3 ">
-                                <input type="button" class="btn btn-default studentProfileImageSubmitButton" value="See Resume" id="showResumeButton">
+                            <div class="col-sm-5 col-xs-5 studentProfileSeeTranscriptsButton">
+                                <input type="button" class="btn btn-default " value="See Resume" id="showResumeButton">
                             </div>
-                            <div class="col-sm-4 col-xs-3">
-                                <input type="button"  class="btn btn-default studentProfileImageSubmitButton" value="See Transcript" id="showNOCButton">
+                            <div class="col-sm-5 col-xs-5 studentProfileSeeTranscriptsButton1" >
+                                <input type="button"  class="btn btn-default" value="See Transcript" id="showNOCButton">
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-xs-12 viewFile " style="margin-top:4vh; ">
-                        <a target="_blank"><embed src="../uploadFiles/showResume.php?email=<?=$email1 ?>" type="application/pdf"   height="1000vh" width="100%" id="showResume" style="display:none"></a>
-                        <a target="_blank"><embed src="../uploadFiles/showNOC.php?email=<?=$email1 ?>" type="application/pdf"   height="1000vh" width="100%" id="showNOC" style="display:none"></a>
+                    <div class="col-sm-12 col-xs-12 viewFile " style="margin-top:4vh; text-align: center; ">
+                        <a target="_blank"><embed src="../uploadFiles/showResume.php?email=<?=$email1 ?>" type="application/pdf"   class="pdfDisplay" width="90%" id="showResume" style="display:none"></a>
+                        <a target="_blank"><embed src="../uploadFiles/showNOC.php?email=<?=$email1 ?>" type="application/pdf"  class="pdfDisplay"  width="90%" id="showNOC" style="display:none; "></a>
                     </div>
                 </div>
 
@@ -278,7 +278,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     		</div>
     	</div>
 
-        <div class="container-fluid" style="margin-top: 0vh;">
+        <div class="container-fluid" style="margin-top: 4vh;">
             <div class="row">
                 <div class="col-sm-9 col-sm-offset-3">
                     <div class="alert alert-success studentProfileInstructionBox " role="alert">
@@ -340,8 +340,9 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-sm-9 col-sm-offset-3">
-                        Problem/Complaint<textarea rows="5" cols="100" name="complaintText" id="complaintText" placeholder="Text here .. "></textarea>
-                        <input type="submit" name="complaintSubmit" onclick="student_complaint();"> 
+                    <p class="studentProfileComplaintTag" ><strong>P</strong>roblem/<strong>C</strong>omplaint : </p>
+                    <div class="row"><textarea class="form-control studentProfileComplaintBox" rows="5" name="complaintText" id="complaintText" placeholder="Text here .. "></textarea></div>
+                        <input type="submit" class="btn studentProfileComplaintButton" name="complaintSubmit" onclick="student_complaint();">
                     <div id="complaintDiv">
                         
                     </div>
