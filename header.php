@@ -124,7 +124,7 @@
            <span class="icon-bar"></span>
          </button>
          <a class="navbar-brand" href="https://www.iitr.ac.in"><img src="<?php echo base_url; ?>src/img/iitrLogo.png" alt="IIT Roorkee" class="indexNavbarIitrLogo"></a>
-         <a class="navbar-brand sparkNavbarTag" href="index.php">SPARK | IIT Roorkee</a><br/>
+         <a class="navbar-brand sparkNavbarTag " href="index.php">SPARK | IIT Roorkee</a><br/>
          <p class="sparkFullFormTag">Summer Internship Programme at IIT Roorkee</p>
        </div>
 
