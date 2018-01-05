@@ -50,8 +50,8 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
                             <input type="hidden" name="imageId" value="<?php echo $email1; ?>">
                             <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
                             <div class="col-sm-7 col-xs-7"><input type="file" name="image" id="file" class="inputfile" />
-                                <label for="file"><span class="glyphicon glyphicon-folder-open hidden-sm" style="padding-right: 7px"></span>Choose File</label></div>
-                                <div class="col-sm-5 col-xs-5"><input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" value="Change Image" placeholder="" ></div>
+                                <label for="file"><span class="glyphicon glyphicon-folder-open hidden-sm" style="padding-right: 7px;"></span>Select Image</label></div>
+                                <div class="col-sm-5 col-xs-5"><input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" style="max-width: 80px;" value="Change" placeholder="" ></div>
                         </form>
                      </div>
                 </div>
@@ -79,12 +79,12 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
                         <p class="studentProjectTag">Projects</p>
                         <div>
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active col-xs-2"><a href="#application" aria-controls="home" role="tab" data-toggle="tab">Applications</a></li>
-                                <li role="presentation" class="col-xs-2"><a href="#allApplications" aria-controls="kill" role="tab" data-toggle="tab">All Applications</a></li>
-                                <li role="presentation" class="col-xs-2"><a href="#accepted" aria-controls="kill" role="tab" data-toggle="tab">Approved</a></li>
-                                <li role="presentation" class="col-xs-2"><a href="#yourProjects" aria-controls="profile" role="tab" data-toggle="tab">Your Projects</a></li>
-                                <li role="presentation" class="col-xs-2"><a href="#allProject" aria-controls="kill" role="tab" data-toggle="tab">All Projects</a></li>
-                                <li style="float: right;margin-top: -11vh"> <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Applications.."> </li>
+                                <li role="presentation" class="active col-sm-4 col-xs-6"><a href="#application" aria-controls="home" role="tab" data-toggle="tab">Applications</a></li>
+                                <li role="presentation" class="col-sm-4 col-xs-6"><a href="#allApplications" aria-controls="kill" role="tab" data-toggle="tab">All Applications</a></li>
+                                <li role="presentation" class="col-sm-4 col-xs-6"><a href="#accepted" aria-controls="kill" role="tab" data-toggle="tab">Approved</a></li>
+                                <li role="presentation" class="col-sm-4 col-xs-6"><a href="#yourProjects" aria-controls="profile" role="tab" data-toggle="tab">Your Projects</a></li>
+                                <li role="presentation" class="col-sm-4 col-xs-6"><a href="#allProject" aria-controls="kill" role="tab" data-toggle="tab">All Projects</a></li>
+                                <li class="col-sm-4 col-xs-6"" style="float: right;"> <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Applications.."> </li>
                             </ul>
                             <div class="tab-content" style="max-height: 50vh;overflow: scroll;min-height: 40vh">
 
@@ -159,14 +159,14 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
             <div class="col-sm-9 col-sm-offset-3">
                 <div class="row">
                     <div class="col-sm-6">
-                        Add Project <textarea rows="5" cols="55" id="addProjectText" placeholder="Text here .. "></textarea>
-                        <input type="submit"  onclick="add_project();"> 
+                        <p class="facultyProfileComplaintTag" >Add Project</p> <textarea class="form-control facultyProfileComplaintBox" rows="2" cols="55" id="addProjectText" placeholder="Text here .. "></textarea>
+                        <input class="btn facultyProfileComplaintButton" type="submit"  onclick="add_project();">
                         <div id="addProjectDiv"></div>
                     </div>
         
-                    <div class="col-sm-6">
-                        Problem/Complaint<textarea rows="5" cols="55" id="complaintText" placeholder="Text here .. "></textarea>
-                        <input type="submit" name="complaintSubmit" onclick="faculty_complaint();"> 
+                    <div class="col-sm-6 ">
+                        <p class="facultyProfileComplaintTag" >Problem/Complaint</p><textarea class="form-control facultyProfileComplaintBox" rows="2" cols="55" id="complaintText" placeholder="Text here .. "></textarea>
+                        <input class="btn facultyProfileComplaintButton" style="margin-bottom: 5vh;" type="submit" name="complaintSubmit" onclick="faculty_complaint();">
                         <div id="complaintDiv"></div>
                     </div>
                 </div>
