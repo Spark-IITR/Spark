@@ -5,9 +5,9 @@ require_once 'config/config.php';
 	$id = $_POST['complaintId'];
 	$complaint = $_POST['complaintText'];
 
-	$sql = "SELECT complaints from user where id=$id";
+	$sql = "SELECT complaints from faculty where email=? union SELECT complaints from student where email=?";
 				if($stmt1 = mysqli_prepare($conn, $sql)){
-		            mysqli_stmt_bind_param($stmt1, "i", $param_id);
+		            mysqli_stmt_bind_param($stmt1, "ss", $param_id, $param_id);
 		            
 		            $param_id = $id;
 		            
@@ -23,10 +23,19 @@ require_once 'config/config.php';
 		                    		$complaint = '<li>'.$complaint.'</li>';
 		                    	}
 
-								$sql101 = "UPDATE user set complaints=? where id=?";
+								$sql1 = "UPDATE faculty set complaints=? where email=?";
+								$sql2 = "UPDATE student set complaints=? where email=?";
          
-							        if($stmt = mysqli_prepare($conn, $sql101)){
-							            mysqli_stmt_bind_param($stmt, "si",$param_complaint, $param_id);
+							        if($stmt = mysqli_prepare($conn, $sql1)){
+							            mysqli_stmt_bind_param($stmt, "ss",$param_complaint, $param_id);
+							            $param_complaint = $complaint;
+							            if(mysqli_stmt_execute($stmt)){
+							                echo 'Complaint Inserted.';
+							            } else{
+							                echo 'false';
+							            }
+							        }else if($stmt = mysqli_prepare($conn, $sql2)){
+							            mysqli_stmt_bind_param($stmt, "ss",$param_complaint, $param_id);
 							            $param_complaint = $complaint;
 							            if(mysqli_stmt_execute($stmt)){
 							                echo 'Complaint Inserted.';
