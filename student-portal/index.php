@@ -392,9 +392,9 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
        
     function student_complaint(){
         
-        var id = <?php echo $studentRealId; ?>;
+        var id = '<?php echo $email1; ?>';
         var complaint = $('#complaintText').val();
-        // alert(complaint);
+        // alert(id);
         if(complaint!=''){
      $.ajax({
         url: '../complaint.php',

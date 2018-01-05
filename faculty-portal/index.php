@@ -253,7 +253,7 @@ else
        
     function faculty_complaint(){
         
-        var id = <?php echo $facultyRealId; ?>;
+        var id = '<?php echo $email1; ?>';
         var complaint = $('#complaintText').val();
         // alert(complaint);
         if(complaint!=''){
