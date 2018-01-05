@@ -167,12 +167,42 @@
         text-align: center;
     }
 
+	.studentProfileImageSubmitButton{
+		width: 100px;
+
+	}
+
+	.studentProfileSeeTranscriptsButton{
+		margin-top: 2vh;
+		margin-left: 6vh;
+		width: 100px;
+	}
+
+	.studentProfileSeeTranscriptsButton1{
+		margin-top: 2vh;
+		margin-left: 8vh;
+		width: 80px;
+	}
+	.studentProfileComplaintBox{
+		width:91%;
+		padding: 15px;
+		margin-bottom: 20px;
+		margin-left: 2.5vh;
+		border: 1px solid lavender;
+		border-radius: 4px;
+	}
+
+	.studentProfileComplaintTag{
+		font-size: 3vh;
+		font-weight: bold;
+		margin: unset;
+		margin-top: 2.5vh;
+		text-align: center;
+	}
 
 
     .projectSearchingInput{
-        float:left;
-        margin-top: 6vh;
-        margin-right: 25vh;
+
     }
 
     .inputfile {
@@ -204,11 +234,32 @@
         margin-left:5%
     }
 
+	.pdfDisplay{
+		height: 116vh;
+	}
 
 
 
+	.facultyProfileComplaintBox{
+		width:91%;
+		padding: 15px;
+		margin-bottom: 20px;
+		margin-left: 2.5vh;
+		border: 1px solid lavender;
+		border-radius: 4px;
+	}
+	.facultyProfileComplaintTag{
+		font-size: 3vh;
+		font-weight: bold;
+		margin: unset;
+		margin-top: 2.5vh;
+		text-align: center;
+	}
 
-
+	.facultyProfileComplaintButton{
+		margin-left: 20vh;
+		margin-top: 0vh;
+	}
 
 
 

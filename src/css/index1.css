@@ -328,7 +328,6 @@ a:focus{
 }
 
 .projectSearchingInput{
-    margin-top: 5vh
 }
 
 
@@ -386,7 +385,7 @@ a:focus{
     margin-top: 3vh
 }
 .studentProfileImageSubmitButton{
-
+    width: 120px;
 
 }
 
@@ -412,6 +411,7 @@ a:focus{
 
 p.studentProfileInstructionsTag {
     margin-bottom: 0vh;
+    margin-left: -4vh;
     font-size: 4vh;
 }
 
@@ -444,7 +444,35 @@ p.studentProfileStatusTag:first-letter{
     margin-bottom: 0px;
 }
 
+.studentProfileSeeTranscriptsButton{
+    margin-left: 4.2vh;
+}
 
+.studentProfileSeeTranscriptsButton1{
+    margin-left: 11vh;
+}
+
+.studentProfileComplaintBox{
+    width:96.5%;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-left: 2.5vh;
+    border: 1px solid #286090;
+    border-radius: 4px;
+}
+
+.studentProfileComplaintTag{
+    font-size: 3vh;
+    font-weight: bold;
+    margin: unset;
+    margin-top: 2.5vh;
+    margin-left: 0.8vh;
+    }
+
+.studentProfileComplaintButton{
+    margin-left: 0.5vw;
+    margin-top: 0vh;
+}
 
 .inputfile {
 
@@ -472,7 +500,7 @@ p.studentProfileStatusTag:first-letter{
     border: 1px solid #777;
     padding: 6px 7px;
     margin-top: 2vh;
-    margin-left:5%
+
 }
 
 /*
@@ -555,7 +583,36 @@ margin-bottom: 8vh
     border-radius: 8px
 }
 
+
+.facultyProfileComplaintButton{
+    margin-left: 30vh;
+    margin-top: 0vh;
+
+}
+
+.facultyProfileComplaintBox{
+    width:96.5%;
+    padding: 15px;
+    margin-bottom: 2vh;
+    margin-left: 2.5vh;
+    border: 1px solid #286090;
+    border-radius: 4px;
+}
+
+.facultyProfileComplaintTag{
+    font-size: 3vh;
+    font-weight: bold;
+    margin: unset;
+    margin-top: 2.5vh;
+    margin-left: 0.8vh;
+    text-align: center;
+}
+
 .viewFile{
 
 
+}
+
+.pdfDisplay{
+    height: 160vh;
 }
