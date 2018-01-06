@@ -30,28 +30,30 @@ require_once 'config/config.php';
 							            mysqli_stmt_bind_param($stmt, "ss",$param_complaint, $param_id);
 							            $param_complaint = $complaint;
 							            if(mysqli_stmt_execute($stmt)){
-							                echo 'Complaint Inserted.';
+							                echo 'Complaint Taken.';
 							            } else{
 							                echo 'false';
 							            }
-							        }else if($stmt = mysqli_prepare($conn, $sql2)){
+							        }else {echo 'Something went wrong.';}
+
+							        if($stmt = mysqli_prepare($conn, $sql2)){
 							            mysqli_stmt_bind_param($stmt, "ss",$param_complaint, $param_id);
 							            $param_complaint = $complaint;
 							            if(mysqli_stmt_execute($stmt)){
-							                echo 'Complaint Inserted.';
+							                echo '';
 							            } else{
 							                echo 'false';
 							            }
-							        }else {echo 'hello';}
+							        }else {echo 'Something went wrong.';}
 							         
 							        mysqli_stmt_close($stmt);
 							        
-						    }else{echo 'hello4';}
+						    }else{echo 'Something went wrong.';}
 
 						    
-						}else{echo 'hello3';}
-					}else{echo 'hello2';}mysqli_stmt_close($stmt1);
-				}else{echo 'hello1';}
+						}else{echo 'Something went wrong.';}
+					}else{echo 'Something went wrong.';}mysqli_stmt_close($stmt1);
+				}else{echo 'Something went wrong.';}
 			
 	             
 	        

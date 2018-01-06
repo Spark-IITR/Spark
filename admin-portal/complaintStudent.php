@@ -1,13 +1,13 @@
 <?php 
     
-    $sql = "SELECT id,sparkId,name,email,complaints from student";
+    $sql1 = "SELECT id,sparkId,name,email,complaints from student";
 
 
 
-    $result = $conn->query($sql);
+    $result1 = $conn->query($sql1);
     
-    if($result){
-        if(!$result->num_rows == 0) {
+    if($result1){
+        if(!$result1->num_rows == 0) {
 
 
             ?>
@@ -25,21 +25,20 @@
                     <tbody id="myTable">
 
             <?php
-            while($row = $result->fetch_assoc()) {
+            while($row1 = $result1->fetch_assoc()) {
                
-                if($row['complaints']!=null){
+                if($row1['complaints']!=null){
                 ?>
-                         <tr  onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
-                            <td ><?php echo $row['sparkId']; ?></td>
-                            <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td style="list-style-type: none;"><?php echo $row['complaints']; ?></td>
+                         <tr style="cursor: pointer;">
+                            <td ><?php echo $row1['id']; ?></td>
+                            <td><?php echo $row1['name']; ?></td>
+                            <td><?php echo $row1['email']; ?></td>
+                            <td style="list-style-type: none;"><?php echo $row1['complaints']; ?></td>
                         </tr>
                         
                 <?php  
                 }
-
-                $result->free();
+                $result1->free();
             } ?> 
 
                     </tbody>

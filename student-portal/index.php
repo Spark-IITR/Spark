@@ -340,9 +340,11 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-sm-9 col-sm-offset-3">
-                    <p class="studentProfileComplaintTag" ><strong>P</strong>roblem/<strong>C</strong>omplaint : </p>
-                    <div class="row"><textarea class="form-control studentProfileComplaintBox" rows="5" name="complaintText" id="complaintText" placeholder="Text here .. "></textarea></div>
-                        <input type="submit" class="btn studentProfileComplaintButton" name="complaintSubmit" onclick="student_complaint();">
+                    <p class="studentProfileComplaintTag" >Problem/Complaint : </p>
+                    <div class="row">
+                        <textarea class="form-control studentProfileComplaintBox" rows="5" name="complaintText" id="complaintText" placeholder="Text here .. "></textarea>
+                    </div>
+                        <input type="submit" class="btn studentProfileComplaintButton" name="complaintSubmit" onclick="student_complaint('<?php echo $email1; ?>');">
                     <div id="complaintDiv">
                         
                     </div>
@@ -390,9 +392,9 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
     <script>
        
-    function student_complaint(){
+    function student_complaint(data){
         
-        var id = '<?php echo $email1; ?>';
+        var id = data;
         var complaint = $('#complaintText').val();
         // alert(id);
         if(complaint!=''){
@@ -403,7 +405,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
         type: 'POST',          
 
         success: function(data){
-            
+            // alert(data);
             $('#complaintDiv').html(data);
             $('#complaintText').val('');
      },

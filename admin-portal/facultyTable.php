@@ -1,19 +1,19 @@
 <?php 
     
-    $sql10 = "SELECT id,sparkId,name,department,email from faculty";
-    $result10 = $conn->query($sql10);
+    $sql = "SELECT id,sparkId,name,department,email from faculty";
+    $result = $conn->query($sql);
     
-    if($result10){
-        if(!$result10->num_rows == 0) {
+    if($result){
+        if(!$result->num_rows == 0) {
 
             ?>
             <table class="table table-striped" style="max-height: 70vh;overflow: scroll;">
                     <thead >
                         <tr>
                             <th>ID</th>
+                            <th>Spark ID</th>
                             <th>Name</th>
                             <th>Department</th>
-                            <th>Degree</th>
                             <th>College</th>
                         </tr>
                     </thead>
@@ -21,15 +21,15 @@
                     <tbody id="myTable">
 
             <?php
-            while($row10 = $result10->fetch_assoc()) {
+            while($row = $result->fetch_assoc()) {
                
                 ?>
-                         <tr  onclick="fetch_faculty_detail(<?php echo $row10['id']; ?>);" style="cursor: pointer;">
-                            <td ><?php echo $row10['id']; ?></td>
-                            <td><?php echo $row10['name']; ?></td>
-                            <td><?php echo $row10['department']; ?></td>
-                            <td><?php echo $row10['degree']; ?></td>
-                            <td><?php echo $row10['college']; ?></td>
+                         <tr  onclick="fetch_faculty_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
+                            <td ><?php echo $row['id']; ?></td>
+                            <td ><?php echo $row['sparkId']; ?></td>
+                            <td><?php echo $row['name']; ?></td>
+                            <td><?php echo $row['department']; ?></td>
+                            <td><?php echo $row['college']; ?></td>
                         </tr>
                         
                 <?php  } ?> 

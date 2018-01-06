@@ -165,7 +165,8 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
                     </div>
         
                     <div class="col-sm-6 ">
-                        <p class="facultyProfileComplaintTag" >Problem/Complaint</p><textarea class="form-control facultyProfileComplaintBox" rows="2" cols="55" id="complaintText" placeholder="Text here .. "></textarea>
+                        <p class="facultyProfileComplaintTag" >Problem/Complaint</p>
+                        <textarea class="form-control facultyProfileComplaintBox" rows="2" cols="55" id="complaintText" placeholder="Text here .. "></textarea>
                         <input class="btn facultyProfileComplaintButton" style="margin-bottom: 5vh;" type="submit" name="complaintSubmit" onclick="faculty_complaint();">
                         <div id="complaintDiv"></div>
                     </div>

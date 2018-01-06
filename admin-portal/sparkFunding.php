@@ -1,6 +1,6 @@
 <?php 
     
-    $sql = "SELECT id,name,cgpa,department,college,email,degree from user where fundingType='spark'";
+    $sql = "SELECT id,name,cgpa,department,college,email,degree from student where fundingType='spark'";
     $result = $conn->query($sql);
     
     if($result){

@@ -1,6 +1,6 @@
 <?php 
     
-    $sql = "SELECT id,name,department,college,email,degree from student where fundingType='project'";
+    $sql = "SELECT id,name,cgpa,department,college,email,degree from student where fundingType='project'";
     $result = $conn->query($sql);
     
     if($result){
