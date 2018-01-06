@@ -72,7 +72,10 @@ $sql = "SELECT name,email FROM admin WHERE email = ? and role = ?";
                     </div>
                     <div class="col-sm-4 col-sm-offset-2">
                         <form action="exportCsv.php" method="post">
-                            <input type="submit" name="export" class="btn btn-primary" value="Export CSV" style="float: right;margin-right: 10%;margin-top: 2vh">
+                            <input type="submit" name="export" class="btn btn-primary" value="Export Student CSV" style="float: right;margin-right: 10%;margin-top: 2vh">
+                        </form>
+                        <form action="exportFacultyCsv.php" method="post">
+                            <input type="submit" name="export" class="btn btn-primary" value="Export Faculty CSV" style="float: right;margin-right: 10%;margin-top: 2vh">
                         </form>
                     </div>
                 </div>

@@ -6,7 +6,7 @@ if(isset($_POST['export'])){
 require_once('../config/config.php');
 
 header('Content-Type:text/cs; charset=utf-8');
-header('Content-Disposition: attachment;filename=test.csv');
+header('Content-Disposition: attachment;filename=student.csv');
 
 $output = fopen("php://output","w");
 
