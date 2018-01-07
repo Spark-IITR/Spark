@@ -328,6 +328,7 @@ a:focus{
 }
 
 .projectSearchingInput{
+    font-size: 2vh;
 }
 
 
@@ -606,6 +607,17 @@ margin-bottom: 8vh
     margin-top: 2.5vh;
     margin-left: 0.8vh;
     text-align: center;
+}
+
+.facultyProfileTableTag {
+    font-size: 2vh;
+    float: left;
+    padding: 0 ;
+    margin-right: 0vh;
+}
+
+.facultyRegisterInput{
+    
 }
 
 .viewFile{
