@@ -158,13 +158,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           
            <div class="form-group   <?php echo (!empty($department_err)) ? 'has-error' : ''; ?>">
             <label  class="sr-only ">department</label>
-             <div class="col-sm-6">
+             <div class="col-sm-6 col-xs-6">
                <input type="text" name="department"  class="form-control"  placeholder="Department" value="<?php echo $department; ?>">
                 <span class="help-block"><?php echo $department_err; ?></span>
              </div>
-            
+
+
+
+                   <label  class="sr-only ">Website Link</label>
+                   <div class="col-sm-6 col-xs-6">
+                       <input type="text" name="Website Link"  class="form-control facultyRegisterInput"   placeholder="Website Link" value="">
+                       <span class="help-block"></span>
+                   </div>
+           </div>
             <!-- <label  class="sr-only">Contact</label>
-             <div class="col-sm-6">
+             <div class="col-sm-6 col-xs-6">
                <input type="number"  name="contact" class="form-control"  placeholder="Contact" value="<?php echo $contact; ?>">
                 <span class="help-block"></span>
              </div>
@@ -172,13 +180,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           
            <div class="form-group  <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
              <label   class="sr-only">Password<sup>*</sup></label>
-             <div class="col-sm-6">
+             <div class="col-sm-6 col-xs-6">
                <input type="password" name="password" id="signupPassword" class="form-control"  placeholder="Password"  value="<?php echo $password; ?>" autocomplete="false">
                 <span class="help-block"><?php echo $password_err; ?></span>
              </div>
-            
+
              <label  class="sr-only">Confirm Password<sup>*</sup></label>
-             <div class="col-sm-6">
+             <div class="col-sm-6 col-xs-6">
                <input type="password" name="confirm_password" class="form-control" id="signupConfirmPassword" placeholder="Confirm Password"  value="<?php echo $confirm_password; ?>" autocomplete='false'>
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
              </div>
@@ -187,7 +195,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
            <!-- <div class="form-group">
              <label for="inputEmail3" class="sr-only">Name<sup>*</sup></label>
-             <div class="col-sm-12">
+             <div class="col-sm-12 col-xs-6">
                <textarea  name="project"  class="form-control" ></textarea>
                 <span class="help-block"></span>
              </div>
