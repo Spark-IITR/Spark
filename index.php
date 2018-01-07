@@ -45,8 +45,8 @@
       <div class="row" id="aboutUs">
          <div class="col-sm-10 col-sm-offset-1">
             <p class="indexIntroductionTag">ABOUT SPARK</p>
-                <p class="indexIntroductionText text-justify">Starting from 2018, IIT Roorkee will have <strong>100</strong> institute-funded SPARK fellowships for summer
-                    internships with a weekly stipend of<strong> Rs. 2500/week.</strong> </p>
+                <p class="indexIntroductionText text-justify">IIT Roorkee invites applications for institute-funded SPARK fellowships for summer internships with a weekly stipend of
+                    Rs. <strong>2500/week</strong> and project-funded summer internships.</p>
 
                 <div class="row" id="objectives">
                 <p class="indexObjectiveTag"><strong>Program Objectives</strong></p>
@@ -73,11 +73,11 @@
                         from any institute in India.
                     </li>
                     <li>
-                        Following CGPA criterion will apply:
+                        Following minimum CGPA criterion will apply:
                         <ul>
-                            <li>CGPA&gt;7.5 for IITs/IISc.</li>
-                            <li>CGPA&gt;8.0 for NITs/ IISERs/ NISER/IIEST.</li>
-                            <li>CGPA&gt;8.5 for students of other institutes.</li>
+                            <li>CGPA &gt; 7.5 for IITs/IISc.</li>
+                            <li>CGPA &gt; 8.0 for NITs/ IISERs/ NISER/IIEST.</li>
+                            <li>CGPA &gt; 8.5 for students of other institutes.</li>
                         </ul>
                     </li>
                 </ul>
@@ -93,36 +93,35 @@
             <ul class="indexGuidelines text-justify" style="padding-right: 5%">
 
                 <li>
-                    Applications need to be submitted through an online portal made for the purpose where the
-                    applicants will upload the transcripts (marksheets), photograph, a 500-word research
-                    statement, and a brief 1-2 page resume. For students of other institutes, no objection
-                    certificate (NOC) and letter of recommendation(s) will also be sought.
+                    Please login to submit your application and view status of your application.
                 </li>
                 <li>
-                    Applicants need to mention names of three faculty members of their choice from the list of
-                    faculty members interested in having a summer intern.
-                </li><li>
-                Application submission deadline will be February 28 and decision on applications will be
-                made by March 15. Summer training will be held during the scheduled summer vacation at
-                IITR, or a shorter term if the applicant is not available for the entire period. However, the
-                term of the summer training should not be less than 6 weeks. Students of IITR will be
-                allowed to begin their summer internship immediately after the completion of the term-end
-                examination.
-            </li>
+                    Applications need to be submitted through an online portal made for the purpose where the
+                    applicants will upload the transcripts (marksheets), photograph, a 500-word research
+                    statement, and a brief 1-2 page resume. For students of other institutes, No Objection
+                    Certificate (NOC) and letter of recommendation(s)(LOR) will also be sought.
+                </li>
                 <li>
-                    All candidates selected for either the SPARK program or project funding will be provided
-                    accommodation and mess facilities in the Bhawans, subject to payment of necessary charges
+                    Applicants need to mention names of five faculty members of their choice from the list of
+                    faculty members interested in having a summer intern.
+                </li>
+
+                <li>
+                Application submission deadline will be February 28 and decision on applications will be
+                made by March 15.Summer training will be held during the scheduled summer vacation at IITR (14th May-8th July),
+                    or a shorter term if the applicant is not available for the entire period.
+                    However, the term of the summer training should not be less than 6 weeks.
+                    Students of IITR will be allowed to begin their summer internship immediately after the completion of the term-end examination.
+            </li>
+            <li>
+                    Accommodation and mess facilities in the Bhawans, subject to payment of necessary charges
                     at par with that paid by students living in hostels.
                 </li>
                 <li>
                     All interns will be issued a temporary institute ID to avail the library, sports, medical,
                     computer centre, internet, and other institute and departmental research and recreation
-                    facilities. S/he will be required to abide by the conduct rules of the institute, failing which the
+                    facilities. S/He will be required to abide by the conduct rules of the institute, failing which the
                     internship will be terminated and the intern will be asked to leave.
-                </li>
-                <li>
-                    There will be an open poster presentation by all SPARK fellows near the completion of the
-                    summer internship and three best poster awards will be given.
                 </li>
                 <li>
                     At the successful completion of the internship, a certificate from the institute with the name
