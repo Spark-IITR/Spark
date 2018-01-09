@@ -14,7 +14,7 @@
                             <th>Spark ID</th>
                             <th>Name</th>
                             <th>Department</th>
-                            <th>College</th>
+                            
                         </tr>
                     </thead>
 
@@ -29,7 +29,7 @@
                             <td ><?php echo $row['sparkId']; ?></td>
                             <td><?php echo $row['name']; ?></td>
                             <td><?php echo $row['department']; ?></td>
-                            <td><?php echo $row['college']; ?></td>
+                            
                         </tr>
                         
                 <?php  } ?> 

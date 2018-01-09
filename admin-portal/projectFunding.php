@@ -31,7 +31,7 @@
                             <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['cgpa']; ?></td>
                             <td><?php echo $row['department']; ?></td>
-                            <td><?php echo $row['complaints'].'fghj'; ?></td>
+                            <td><?php echo $row['complaints']; ?></td>
                            
                         </tr>
                         

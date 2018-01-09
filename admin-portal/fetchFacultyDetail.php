@@ -85,8 +85,6 @@ require_once '../config/config.php';
                             <div class="col-sm-2">
                                 <p>'; echo $row['id']; echo '</p>
                                 <p>'; echo $row['email']; echo '</p>
-                                <p>'; echo $row['contact']; echo '</p>
-                                <p>'; echo $row['gender']; echo '</p>
                                 <p>'; echo $row['department']; echo '</p>
                             </div>
                             <div class="col-sm-2 col-sm-offset-1" style="font-weight: 700">
@@ -109,7 +107,7 @@ require_once '../config/config.php';
                                 <p>'; echo $fpriority3StudentName.' ( '.$fpriority3Id.' ) '; } echo '</p>
 
                                 '; if($fpriority4Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
-                                <p>'; echo $fpriority5StudentName.' ( '.$fpriority4Id.' ) '; } echo '</p>
+                                <p>'; echo $fpriority4StudentName.' ( '.$fpriority4Id.' ) '; } echo '</p>
 
                                 '; if($fpriority5Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
                                 <p>'; echo $fpriority5StudentName.' ( '.$fpriority5Id.' ) '; } echo '</p>
