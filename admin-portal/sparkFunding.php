@@ -1,6 +1,6 @@
 <?php 
     
-    $sql = "SELECT id,name,cgpa,department,college,email,degree from student where fundingType='spark'";
+    $sql = "SELECT id,name,cgpa,department,college,email,degree,spriority1,spriority2,spriority3,spriority4,spriority5 from student where fundingType='spark'";
     $result = $conn->query($sql);
     
     if($result){
@@ -23,7 +23,8 @@
 
             <?php 
             while($row = $result->fetch_assoc()) {
-                if($row['spriority1']!=NULL || $row['spriority2']!=NULL || $row['spriority3']!=NULL ){
+                if($row['spriority1']!=NULL || $row['spriority2']!=NULL || $row['spriority3']!=NULL || $row['spriority4']!=NULL || $row['spriority5']!=NULL ){
+                
                 ?>
                          <tr  onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
                             <td ><?php echo $row['id']; ?></td>

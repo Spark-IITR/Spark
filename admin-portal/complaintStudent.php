@@ -27,7 +27,7 @@
             <?php
             while($row = $result->fetch_assoc()) {
                
-                if($row['complaints']!=null){
+                // if($row['complaints']!=null){
                 ?>
                          <tr style="cursor: pointer;">
                             <td ><?php echo $row['id']; ?></td>
@@ -37,7 +37,7 @@
                         </tr>
                         
                 <?php  
-                }
+                // }
                 $result->free();
             } ?> 
 
