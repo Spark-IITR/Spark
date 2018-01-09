@@ -3,13 +3,10 @@
     $sql = "SELECT id,sparkId,name,email,complaints from faculty";
 
 
-
     $result = $conn->query($sql);
     
     if($result){
         if(!$result->num_rows == 0) {
-
-
             ?>
             <table class="table table-striped" style="max-height: 70vh;overflow: scroll;">
                     <thead >
@@ -18,12 +15,10 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Complaint</th>
-
                         </tr>
                     </thead>
 
                     <tbody id="myTable">
-
             <?php
             while($row = $result->fetch_assoc()) {
                
@@ -43,9 +38,6 @@
 
                     </tbody>
                 </table>
-             
-                            
-                        
     <?php }
 }           
 ?>

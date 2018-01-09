@@ -40,7 +40,7 @@ require 'config/config.php';
                                                     <td>{$row['sparkId']}</td>
                                                     <td>{$row['name']}</td>
                                                     <td>{$row['department']}</td>
-                                                    <td>{$row['project']}</td>
+                                                    <td style='list-style-type:none'>{$row['project']}</td>
                                                     <td></td>
                                                 </tr>
                                                 <div id='spriority1Div'></div>

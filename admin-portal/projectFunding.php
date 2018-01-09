@@ -1,6 +1,6 @@
 <?php 
     
-    $sql = "SELECT id,name,cgpa,department,college,email,degree,spriority1,spriority2,spriority3,spriority4,spriority5 from student where fundingType='project'";
+    $sql = "SELECT id,name,cgpa,department,college,email,degree,spriority1,spriority2,spriority3,spriority4,spriority5,complaints from student where fundingType='project'";
     $result = $conn->query($sql);
     
     if($result){
@@ -31,7 +31,7 @@
                             <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['cgpa']; ?></td>
                             <td><?php echo $row['department']; ?></td>
-                            <td><?php echo $row['college']; ?></td>
+                            <td><?php echo $row['complaints'].'fghj'; ?></td>
                            
                         </tr>
                         
