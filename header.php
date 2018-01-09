@@ -162,7 +162,7 @@
                   <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url_student; ?>"><?php echo $name; ?></a></li>
                   
 
-                <?php }else {?>
+                <?php }else if($role==null){?>
                   <li><a href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
                  <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
                  <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>

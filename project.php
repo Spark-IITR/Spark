@@ -1,5 +1,5 @@
 <?php include('header.php'); 
-require 'config/config.php';
+// require 'config/config.php';
 ?>
 <body>
 

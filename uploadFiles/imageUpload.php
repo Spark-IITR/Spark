@@ -13,12 +13,12 @@ if ($_POST && !empty($_FILES)) {
 
     if ($_FILES['image']['error'] || !is_uploaded_file($path)) {
         $formOk = false;
-        echo "Error: No Image Selected";
-        // if($role=='faculty'){
-        //             header ("location:../faculty-portal/");
-        //         }else if($role=='student'){
-        //             header ("location:../student-portal/");
-        //         }
+        // echo "Error: No Image Selected";
+        if($role=='faculty'){
+                    header ("location:../faculty-portal/");
+                }else if($role=='student'){
+                    header ("location:../student-portal/");
+                }
     }
 
     if ($formOk && !in_array($type, array('image/png', 'image/x-png', 'image/jpeg', 'image/pjpeg', 'image/gif'))) {
@@ -27,12 +27,12 @@ if ($_POST && !empty($_FILES)) {
     }
     if ($formOk && filesize($path) > 500000) {
         $formOk = false;
-        echo "Error: File size must be less than 100 KB.";
-        // if($role=='faculty'){
-        //             header ("location:../faculty-portal/");
-        //         }else if($role=='student'){
-        //             header ("location:../student-portal/");
-        //         }
+        // echo "Error: File size must be less than 100 KB.";
+        if($role=='faculty'){
+                    header ("location:../faculty-portal/");
+                }else if($role=='student'){
+                    header ("location:../student-portal/");
+                }
     }
     if ($formOk) {
         $content = file_get_contents($path);
@@ -68,12 +68,12 @@ if ($_POST && !empty($_FILES)) {
                                                 header ("location:../student-portal/");
                                             }
                                         } else{
-                                            echo "Error: Could not save the data to mysql database. Please try again.";
-                                            // if($role=='faculty'){
-                                            //     header ("location:../faculty-portal/");
-                                            // }else if($role=='student'){
-                                            //     header ("location:../student-portal/");
-                                            // }
+                                            // echo "Error: Could not save the data to mysql database. Please try again.";
+                                            if($role=='faculty'){
+                                                header ("location:../faculty-portal/");
+                                            }else if($role=='student'){
+                                                header ("location:../student-portal/");
+                                            }
                                         }
                                     }else {echo 'hello';}
                                      
@@ -98,11 +98,11 @@ if ($_POST && !empty($_FILES)) {
         }
     
     }else{
-        echo "not able to access";
-        // if($role=='faculty'){
-        //             header ("location:../faculty-portal/");
-        //         }else if($role=='student'){
-        //             header ("location:../student-portal/");
-        //         }
+        // echo "not able to access";
+        if($role=='faculty'){
+                    header ("location:../faculty-portal/");
+                }else if($role=='student'){
+                    header ("location:../student-portal/");
+                }
         }
 ?>
