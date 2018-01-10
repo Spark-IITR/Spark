@@ -139,11 +139,20 @@
 
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav navbar-right">
+
+            <?php 
+              // $header_role=null;
+              // $_SESSION['role'] = $header_role;
+
+             if($main_role== "admin"){?>
+
+
                  <li><a style="font-weight: 700" href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
                  <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
                  <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
                  <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
                  <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
+
             <?php 
               $main_username = $main_role = $main_name = '';
               $main_username = $_COOKIE["username"];
@@ -157,10 +166,12 @@
 
                  <?php } else if($main_role== "faculty"){?>
                  
+
                  <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url_faculty; ?>"><?php echo $main_name; ?></a></li>
 
 
                  <?php }else if($main_role== "student"){?>
+
                  
                   <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url_student; ?>"><?php echo $main_name; ?></a></li>
 
