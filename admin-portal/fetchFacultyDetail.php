@@ -68,10 +68,10 @@ require_once '../config/config.php';
 
                     }
 
-                    $email = $row['email'];
+                    $email2 = $row['email'];
 
             echo '          <div class="col-sm-3" style="text-align: center;">
-                                <img src="../uploadFiles/showProfileImage.php?email='; echo $email; echo '" alt="prashant" class="doctorsStudentTabImg" >
+                                <img src="../uploadFiles/showProfileImage.php?email='; echo $email2; echo '" alt="prashant" class="doctorsStudentTabImg" >
                                 <p class="doctorsStudentTabName">'; echo $row['name']; echo '</p>
                             
                             </div>

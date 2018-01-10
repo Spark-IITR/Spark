@@ -64,10 +64,10 @@ require_once '../config/config.php';
                         $spriority5FacultyName = $row5['name'];
                     }
 
-                    $email = $row['email'];
+                    $email3 = $row['email'];
 
         	echo '			<div class="col-sm-3" style="text-align: center;">
-                                <img src="../uploadFiles/showProfileImage.php?email='; echo $email; echo '" alt="prashant" class="doctorsStudentTabImg" >
+                                <img src="../uploadFiles/showProfileImage.php?email='; echo $email3; echo '" alt="prashant" class="doctorsStudentTabImg" >
                                 <p class="doctorsStudentTabName">'; echo $row['name']; echo '</p>
                                 <p class="doctorsStudentTabYear">'; echo $row['year']; echo ' Year, '.$row['degree']; echo '</p>
                             </div>
@@ -290,8 +290,8 @@ require_once '../config/config.php';
                             </div>
 
                             <div class="col-sm-6 col-sm-offset-3" style="margin-top:4vh">
-                            	<a target="_blank"><embed src="../uploadFiles/showResume.php?email='; echo $email; echo '" type="application/pdf"   height="1000vh" width="100%" id="showResume" style="display:none"></a>
-                            	<a target="_blank"><embed src="../uploadFiles/showNOC.php?email='; echo $email; echo '" type="application/pdf"   height="1000vh" width="100%" id="showNOC" style="display:none"></a>
+                            	<a target="_blank"><embed src="../uploadFiles/showResume.php?email='; echo $email3; echo '" type="application/pdf"   height="1000vh" width="100%" id="showResume" style="display:none"></a>
+                            	<a target="_blank"><embed src="../uploadFiles/showNOC.php?email='; echo $email3; echo '" type="application/pdf"   height="1000vh" width="100%" id="showNOC" style="display:none"></a>
                             </div>
 
                             <form  method="post">
