@@ -1,6 +1,10 @@
-<?php include('header.php'); 
-// require 'config/config.php';
-?>
+<?php 
+        $main_username = $main_role = $main_name = '';
+        $main_username = $_COOKIE["username"];
+        $main_role = $_COOKIE['role'];
+        $main_name = $_COOKIE['name'];
+        require_once 'header.php';
+     ?>
 <body>
 
         <div class="container-fluid">

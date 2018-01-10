@@ -1,7 +1,7 @@
 <?php
   require_once 'config/config.php';
  
-  $email = $pass = $role= "";
+  $email = $pass = $role = $login_name = "";
   $email_err = $pass_err = "";
  
   if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -19,7 +19,7 @@
     }
     
     if(empty($email_err) && empty($pass_err)){
-        $sql = "SELECT email,password,role FROM student WHERE email = ? union SELECT email,password,role FROM faculty WHERE email = ? union SELECT email,password,role FROM admin WHERE email = ?";
+        $sql = "SELECT name,password,role FROM student WHERE email = ? union SELECT name,password,role FROM faculty WHERE email = ? union SELECT name,password,role FROM admin WHERE email = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             mysqli_stmt_bind_param($stmt, "sss", $param_email, $param_email, $param_email);
@@ -30,7 +30,7 @@
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    mysqli_stmt_bind_result($stmt, $email, $hashed_pass, $role);
+                    mysqli_stmt_bind_result($stmt, $login_name, $hashed_pass, $role);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($pass, $hashed_pass)){
                           
@@ -40,6 +40,8 @@
                                 $_SESSION['role']=$role;
                                 $_SESSION['time'] = time();
                                 setcookie("username", $email , time()+24*60*60);
+                                setcookie("role", $role , time()+24*60*60);
+                                setcookie("name", $login_name , time()+24*60*60);
                                 header("location: faculty-portal/");
 
                               }else if($role == "student"){
@@ -49,6 +51,7 @@
                                 $_SESSION['time'] = time();
                                 setcookie("username", $email , time()+24*60*60);
                                 setcookie("role", $role , time()+24*60*60);
+                                setcookie("name", $login_name , time()+24*60*60);
                                 header("location: student-portal/");
 
                               }else if($role == "admin"){
@@ -57,6 +60,8 @@
                                 $_SESSION['role']=$role;
                                 $_SESSION['time'] = time();
                                 setcookie("username", $email , time()+24*60*60);
+                                setcookie("role", $role , time()+24*60*60);
+                                setcookie("name", $login_name , time()+24*60*60);
                                 header("location: admin-portal/");
                           }
                             
@@ -134,12 +139,46 @@
 
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
-            <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
-            <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
-            <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
-            <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
-            <li><a href="#login" data-toggle="modal" data-target="#login">Log In</a></li>
+            <?php 
+              // $header_role=null;
+              // $_SESSION['role'] = $header_role;
+
+             if($main_role== "admin"){?>
+
+                 <li><a style="font-weight: 700" href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
+                 <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
+                  <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url; ?>logout.php" data-toggle="tooltip" data-placement="left" title="Logout"><?php echo $main_name; ?></a></li>
+
+                 <?php } else if($main_role== "faculty"){?>
+                 <li><a href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
+                 <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
+                 <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url_faculty; ?>"><?php echo $main_name; ?></a></li>
+
+
+                 <?php }else if($main_role== "student"){?>
+                 <li><a href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
+                 <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
+                  <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url_student; ?>"><?php echo $main_name; ?></a></li>
+                  
+
+                <?php }else{?>
+                  <li><a href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
+                 <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
+                 <li><a href="#login" data-toggle="modal" data-target="#login">Log In</a></li>
+                  
+          <?php } ?>
          </ul>
        </div>
      </div>
