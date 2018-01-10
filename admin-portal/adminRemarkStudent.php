@@ -23,7 +23,7 @@ require_once '../config/config.php';
 		                    		$remark = '<li>'.$remark.'</li>';
 		                    	}
 
-								$sql101 = "UPDATE user set adminRemark=? where id=?";
+								$sql101 = "UPDATE student set adminRemark=? where id=?";
          
 							        if($stmt = mysqli_prepare($conn, $sql101)){
 							            mysqli_stmt_bind_param($stmt, "si",$param_remark, $param_id);

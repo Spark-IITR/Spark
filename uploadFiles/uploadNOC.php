@@ -9,7 +9,7 @@ if ($_POST && !empty($_FILES)) {
         $size = intval($_FILES['noc']['size']);
  
          if ( in_array($type, array('application/pdf'))) {
-             if ( $size < 500000) {
+             if ( $size < 100000) {
 
                         $sql1 = "SELECT noc from student WHERE email= ? ";
 
@@ -38,18 +38,19 @@ if ($_POST && !empty($_FILES)) {
                                                  alert('sj');
                                              </script>
                                              <?php
-                                              header ("location:../student-portal/");
+                                                header('Location: '.base_url_student.'index.php');
+                                              
                                         } else{
-                                              header ("location:../student-portal/");
+                                              header('Location: '.base_url_student.'index.php');
                                         }
                                     }else {
                                         // echo 'Already uploaded';
-                                        header ("location:../student-portal/");
+                                        header('Location: '.base_url_student.'index.php');
                                         // mysqli_stmt_close($stmt);
                                     }
                                 }else{
                                     // echo 'Already uploaded';
-                                header ("location:../student-portal/");
+                                header('Location: '.base_url_student.'index.php');
                                 }
                             }
                         }
@@ -58,18 +59,18 @@ if ($_POST && !empty($_FILES)) {
             }
             else{
                     // echo "File size too large. Size limit is 100kb only.";
-                header ("location:../student-portal/");
+                header('Location: '.base_url_student.'index.php');
             }
                 
         }
             else{
                 // echo "Choose pdf format.";
-                header ("location:../student-portal/");
+                header('Location: '.base_url_student.'index.php');
         }
     }
         else {
             // echo 'File is not selected.';
-            header ("location:../student-portal/");
+            header('Location: '.base_url_student.'index.php');
     }
  
    mysqli_stmt_close($stmt1);

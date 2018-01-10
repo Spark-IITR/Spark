@@ -15,7 +15,7 @@
                             <th>Email</th>
                             <th>Department</th>
                             <th>Degree</th>
-                            <th>College</th>
+                            <th>C.G.P.A</th>
                         </tr>
                     </thead>
 
@@ -31,7 +31,7 @@
                             <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['department']; ?></td>
                             <td><?php echo $row['degree']; ?></td>
-                            <td><?php echo $row['college']; ?></td>
+                            <td><?php echo $row['cgpa']; ?></td>
                            
                         </tr>
                         

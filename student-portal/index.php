@@ -307,7 +307,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                                 <span style="font-weight: 800;color: green"><h3>Application Accepted</h1></span>
 
 
-                                <?php	$query    = "SELECT name from student where id=$recommendedFaculty";
+                                <?php	$query    = "SELECT name from faculty where id=$recommendedFaculty";
                                 $result5 = $conn->query($query);
                                 if($result5) {
                                     if(!$result5->num_rows == 0) {
