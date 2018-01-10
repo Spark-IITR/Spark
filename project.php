@@ -3,6 +3,9 @@
         $main_username = $_COOKIE["username"];
         $main_role = $_COOKIE['role'];
         $main_name = $_COOKIE['name'];
+        // echo $main_role;
+        // echo $main_username;
+        // echo $main_name;
         require_once 'header.php';
      ?>
 <body>

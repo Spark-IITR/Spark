@@ -33,7 +33,7 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
                     mysqli_stmt_bind_result($stmt,$facultyRealId, $name,$email1,$department,$adminRemark,$sparkId);
                     if(mysqli_stmt_fetch($stmt)){
 
-                        require_once '../portal_header.php';
+                        require_once '../header.php';
 
 
            ?>         

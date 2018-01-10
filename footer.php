@@ -1,7 +1,7 @@
 
 <footer>
     <div class="footer" id="footer">
-        <div class="container">
+        <div class="container" id="contact">
             <div class="row" style="align-content: center;">
                 <div class="col-lg-1  col-md-1 hidden-sm hidden-xs">
                 </div>
@@ -21,6 +21,7 @@
                         <li> <a href="https://www.iitr.ac.in/Main/pages/_en_Departments__en_.html"> Departments of IIT Roorkee  </a> </li>
                         <li> <a href="https://www.iitr.ac.in/Main/pages/_en_Centers__en_.html"> Centres @ IIT Roorkee </a> </li>
                         <li> <a href="https://www.iitr.ac.in/administration/pages/Administration+DOFA+DOFA.html"> Faculty @ IITR </a> </li>
+                        <li> <a href="<?php echo base_url; ?>logout.php"> Logout </a> </li>
 
                     </ul>
                 </div>

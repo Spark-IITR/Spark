@@ -33,7 +33,7 @@ $sql = "SELECT name,email FROM admin WHERE email = ? and role = ?";
                     mysqli_stmt_bind_result($stmt, $name,$email);
                     if(mysqli_stmt_fetch($stmt)){
 
-                        require_once '../portal_header.php';
+                        require_once '../header.php';
                         
            ?>         
 

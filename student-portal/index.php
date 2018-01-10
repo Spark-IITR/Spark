@@ -38,7 +38,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                     mysqli_stmt_bind_result($stmt, $studentRealId ,$name,$email1,$contact,$department,$college,$recommendStatus,$recommendedFaculty,$fundingType,$adminRemark,$sparkId);
                     if(mysqli_stmt_fetch($stmt)){
 
-                        require_once '../portal_header.php';
+                        require_once '../header.php';
 
 
 
