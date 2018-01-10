@@ -194,8 +194,6 @@
         <div class="col-sm-6 col-sm-offset-3" style="text-align: center;margin-bottom:5vh;">
 
 
-
-
             <?php if($main_role=='student'){ ?>
 
             <a href="<?php echo base_url_student; ?>" class="indexApplyNowButton" ><span class="glyphicon glyphicon-ok-circle"> APPLY NOW</span></a>
@@ -203,7 +201,6 @@
             <?php } else{?>
 
             <a href="#login" data-toggle="modal" data-target="#login" class="indexApplyNowButton" ><span class="glyphicon glyphicon-ok-circle">APPLY NOW</span></a>
-
             
             <?php }?>
 
