@@ -7,6 +7,7 @@
         // echo $main_role;
         // echo $main_username;
         // echo $main_name;
+
         require_once 'header.php';
      ?>
        
@@ -193,7 +194,9 @@
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3" style="text-align: center;margin-bottom:5vh;">
 
-            <?php if($main_role=='student'){ ?>
+
+
+            <?php if($main_role='student'){ ?>
 
             <a href="<?php echo base_url_student; ?>" class="indexApplyNowButton" ><span class="glyphicon glyphicon-ok-circle"> APPLY NOW</span></a>
 
