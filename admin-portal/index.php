@@ -16,6 +16,8 @@ require_once '../config/config.php';
 $name = $email =  ""; 
 if($_SESSION['role']=='admin')
 {
+$role = $_SESSION['role'];
+
 $sql = "SELECT name,email FROM admin WHERE email = ? and role = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
@@ -31,7 +33,7 @@ $sql = "SELECT name,email FROM admin WHERE email = ? and role = ?";
                     mysqli_stmt_bind_result($stmt, $name,$email);
                     if(mysqli_stmt_fetch($stmt)){
 
-                        require_once '../header.php';
+                        require_once '../portal_header.php';
                         
            ?>         
 

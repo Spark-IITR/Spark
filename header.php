@@ -1,7 +1,7 @@
 <?php
   require_once 'config/config.php';
  
-  $email = $pass =$name= $role= "";
+  $email = $pass = $role= "";
   $email_err = $pass_err = "";
  
   if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -130,48 +130,12 @@
 
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav navbar-right">
-           
-           <?php 
-              // $header_role=null;
-              // $_SESSION['role'] = $header_role;
-
-             if($role== "admin"){?>
-
-                 <li><a style="font-weight: 700" href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
-                 <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
-                 <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
-                 <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
-                 <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
-                  <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url; ?>logout.php" data-toggle="tooltip" data-placement="left" title="Logout"><?php echo $name; ?></a></li>
-
-                 <?php } else if($role== "faculty"){?>
-                 <li><a href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
-                 <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
-                 <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
-                 <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
-                 <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
-                 <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url_faculty; ?>"><?php echo $name; ?></a></li>
-
-
-                 <?php }else if($role== "student"){?>
-                 <li><a href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
-                 <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
-                 <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
-                 <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
-                 <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
-                  <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url_student; ?>"><?php echo $name; ?></a></li>
-                  
-
-                <?php }else if($role==null){?>
-                  <li><a href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
-                 <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
-                 <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
-                 <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
-                 <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
-                 <li><a href="#login" data-toggle="modal" data-target="#login">Log In</a></li>
-                  
-          <?php } ?>
-           
+            <li><a href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
+            <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
+            <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
+            <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
+            <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
+            <li><a href="#login" data-toggle="modal" data-target="#login">Log In</a></li>
          </ul>
        </div>
      </div>
