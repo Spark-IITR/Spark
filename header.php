@@ -139,7 +139,10 @@
 
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
 
+=======
+>>>>>>> session issue done
             <?php 
               // $header_role=null;
               // $_SESSION['role'] = $header_role;
@@ -153,20 +156,14 @@
                  <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
                  <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
 
-            <?php 
-              $main_username = $main_role = $main_name = '';
-              $main_username = $_COOKIE["username"];
-              $main_role = $_COOKIE['role'];
-              $main_name = $_COOKIE['name'];
-             
-             if($main_role== "admin"){?>
-
-                 <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url_admin; ?>"><?php echo $main_name; ?></a></li>
-                 <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url; ?>logout.php" data-toggle="tooltip" data-placement="center" title="Logout">Logout</a></li>
+                  <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url; ?>logout.php" data-toggle="tooltip" data-placement="left" title="Logout"><?php echo $main_name; ?></a></li>
 
                  <?php } else if($main_role== "faculty"){?>
-                 
-
+                 <li><a href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
+                 <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
                  <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url_faculty; ?>"><?php echo $main_name; ?></a></li>
 
 
@@ -177,6 +174,7 @@
 
                 <?php }else{?>
                  
+
                  <li><a href="#login" data-toggle="modal" data-target="#login">Log In</a></li>
                   
           <?php } ?>
