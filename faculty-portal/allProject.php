@@ -3,7 +3,7 @@
                                     <div class="">
                                         <table class="table table-striped">
                                             <?php  
-                                                $sql = "select id,name,department,project from faculty where role='faculty'";
+                                                $sql = "select id,sparkId,name,department,project from faculty where role='faculty'";
                                                 $result = $conn->query($sql);
                                                 if($result) {
                                                     if($result->num_rows == 0) {
@@ -23,7 +23,7 @@
                                                             echo "
                                                                 <tbody id='myTable'>
                                                                     <tr>
-                                                                        <td>{$row['id']}</td>
+                                                                        <td>{$row['sparkId']}</td>
                                                                         <td>{$row['name']}</td>
                                                                         <td>{$row['department']}</td>
                                                                         <td>{$row['project']}</td>

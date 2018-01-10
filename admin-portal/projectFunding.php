@@ -23,7 +23,9 @@
 
             <?php 
             while($row = $result->fetch_assoc()) {
-                if($row['spriority1']!=NULL || $row['spriority2']!=NULL || $row['spriority3']!=NULL || $row['spriority4']!=NULL || $row['spriority5']!=NULL ){
+                // if($row['spriority1']!=NULL || $row['spriority2']!=NULL || $row['spriority3']!=NULL || $row['spriority4']!=NULL || $row['spriority5']!=NULL ){
+                if($row['complaints']!=null){
+
                 ?>
                          <tr  onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
                             <td ><?php echo $row['id']; ?></td>

@@ -55,14 +55,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
    
     
-    // if(empty(trim($_POST['contact']))){
-    //     $contact_err = "Please enter a contact no.";     
-    // } elseif(strlen(trim($_POST['contact'])) < 10){
-    //     $contact_err = "Password must have atleast 10 digits.";
-    // } else{
-    //     $contact = trim($_POST['contact']);
-    //     // echo $contact;
-    // }
+    if(empty(trim($_POST['contact']))){
+        $contact_err = "Please enter a contact no.";     
+    } elseif(strlen(trim($_POST['contact'])) < 10){
+        $contact_err = "Password must have atleast 10 digits.";
+    } else{
+        $contact = trim($_POST['contact']);
+        // echo $contact;
+    }
     
     
     
@@ -94,15 +94,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     // echo $username_err; echo $password_err; echo $confirm_password_err;
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-         $sql = "INSERT INTO faculty (email, password, name,department,role,sparkId) VALUES (?, ?,   ?,?,?,?)";
+         $sql = "INSERT INTO faculty (email, password, name,contact,department,role,sparkId) VALUES (?,?,?,?,?,?,?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "ssssss", $param_username, $param_password, $param_name, $param_department,$param_role,$param_sparkId);
+            mysqli_stmt_bind_param($stmt, "sssssss", $param_username, $param_password, $param_name,$contact, $param_department,$param_role,$param_sparkId);
             // echo 'hello';
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); 
             $param_name = $name;
-            // $param_contact = $contact;
+            $param_contact = $contact;
             $param_department = $department;
             $param_role = "faculty";
             // $param_project = $_POST['project'];
@@ -128,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
  
 
-<?php include('../header.php'); ?>
+<?php //include('../header.php'); ?>
 
 
 <div class="container">
@@ -171,12 +171,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                        <span class="help-block"></span>
                    </div>
            </div>
-            <!-- <label  class="sr-only">Contact</label>
+            <label  class="sr-only">Contact</label>
              <div class="col-sm-6 col-xs-6">
                <input type="number"  name="contact" class="form-control"  placeholder="Contact" value="<?php echo $contact; ?>">
                 <span class="help-block"></span>
              </div>
-           </div> -->
+           </div>
           
            <div class="form-group  <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
              <label   class="sr-only">Password<sup>*</sup></label>

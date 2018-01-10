@@ -64,9 +64,6 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
                 <p class="studentProfileDetailsTag">Department</p>
                 <p class="studentProfileDetails"><?php echo $department; ?></p>
 
-                <p class="studentProfileDetailsTag">College</p>
-                <p class="studentProfileDetails"><?php echo $college; ?></p>
-
                 <p class="studentProfileDetailsTag">Email</p>
                 <p class="studentProfileDetails"><?php echo $email1; ?></p>
 

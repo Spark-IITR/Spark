@@ -79,12 +79,12 @@ require_once '../config/config.php';
                                 <p>ID : </p>
                                 <p>Email: </p>
                                 <p>Contact: </p>
-                                <p>Gender: </p>
                                 <p>Department: </p>
                             </div>
                             <div class="col-sm-2">
                                 <p>'; echo $row['id']; echo '</p>
                                 <p>'; echo $row['email']; echo '</p>
+                                <p>'; echo $row['contact']; echo '</p>
                                 <p>'; echo $row['department']; echo '</p>
                             </div>
                             <div class="col-sm-2 col-sm-offset-1" style="font-weight: 700">
