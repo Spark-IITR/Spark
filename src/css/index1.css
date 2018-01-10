@@ -113,15 +113,16 @@ a:focus{
 
 .indexApplyNowButton{
 	font-size: 1.4vw;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-    color: #fff;
+    letter-spacing: .5px;
+    font-weight:700;
+    color: #003484;
     border: none;
     border-radius: 5px;
-    width: 15vw;
-    padding: 2vh 0;
+    /*width: 15vw;*/
+    padding: 2vh 2vw;
     margin-top: 5vh;
-    
+    background-color: #00ff66;
+    cursor: pointer;
 }
 
 

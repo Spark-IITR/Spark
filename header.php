@@ -39,6 +39,7 @@
                                 $_SESSION['username'] = $email; 
                                 $_SESSION['role']=$role;
                                 $_SESSION['time'] = time();
+                                setcookie("username", $email , time()+24*60*60);
                                 header("location: faculty-portal/");
 
                               }else if($role == "student"){
@@ -46,6 +47,8 @@
                                 $_SESSION['username'] = $email; 
                                 $_SESSION['role']=$role;
                                 $_SESSION['time'] = time();
+                                setcookie("username", $email , time()+24*60*60);
+                                setcookie("role", $role , time()+24*60*60);
                                 header("location: student-portal/");
 
                               }else if($role == "admin"){
@@ -53,6 +56,7 @@
                                 $_SESSION['username'] = $email; 
                                 $_SESSION['role']=$role;
                                 $_SESSION['time'] = time();
+                                setcookie("username", $email , time()+24*60*60);
                                 header("location: admin-portal/");
                           }
                             

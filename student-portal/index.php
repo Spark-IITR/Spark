@@ -83,7 +83,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     			<p class="studentProfileDetailsTag">Contact No.</p>
     			<p class="studentProfileDetails"><?php echo $contact; ?></p></div>
 
-    			 <a class="btn btn-default studentProfileLogoutButton" href="../logout.php" >Logout</a>
+    			 <a class="btn btn-default studentProfileLogoutButton" href="<?php echo base_url; ?>logout.php" >Logout</a>
     		</div>
     		<div class="col-sm-9">
     			<div class="row">

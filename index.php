@@ -1,5 +1,12 @@
    
-    <?php require_once 'header.php' ?>
+    <?php 
+        $main_username = $main_role = '';
+        $main_username = $_COOKIE["username"];
+        $main_role = $_COOKIE['role'];
+        echo $main_role;
+        echo $main_username;
+        require_once 'header.php';
+     ?>
        
 
    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top: -2vh; width: 98vw; margin-left: 1vw" id="top">
@@ -174,7 +181,17 @@
 
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3" style="text-align: center;margin-bottom:5vh;">
-            <button class="indexApplyNowButton"><span class="glyphicon glyphicon-ok-circle"> APPLY NOW</span></button>
+
+            <?php if($main_role='student'){ ?>
+
+            <a href="<?php echo base_url_student; ?>" class="indexApplyNowButton" ><span class="glyphicon glyphicon-ok-circle"> APPLY NOW</span></a>
+
+            <?php } else{?>
+
+            <a href="#login" data-toggle="modal" data-target="#login" class="indexApplyNowButton" ><span class="glyphicon glyphicon-ok-circle">APPLY NOW</span></a>
+            
+            <?php }?>
+
         </div>
     </div>
 </div>
