@@ -143,11 +143,17 @@
         height: 100vh;
     }
 
+    .indexNotice{
+font-size: 1.5vw;
+    }
 
+    .indexIntroductionText{
+        font-size: 1.5vw;
+    }
 
-
-
-
+    .indexGuidelines li{
+        font-size: 1.5vw;
+    }
 
 
 

@@ -105,7 +105,7 @@ a:focus{
 	padding-left: 8vw
 }
 .indexGuidelines li{
-    font-size: 1vw;
+    font-size: 1.1vw;
     padding-top: 2vh;
     letter-spacing: .5px;
     word-spacing: 1px;
@@ -121,7 +121,7 @@ a:focus{
     /*width: 15vw;*/
     padding: 2vh 2vw;
     margin-top: 5vh;
-    background-color: #00ff66;
+    background-color: #a5bfb0;
     cursor: pointer;
 }
 
@@ -628,4 +628,13 @@ margin-bottom: 8vh
 
 .pdfDisplay{
     height: 160vh;
+}
+
+.indexNotice{
+    font-size: 1.1vw;
+}
+
+.indexNoticeTag{
+    text-align: center;
+    font-weight: bold;
 }
