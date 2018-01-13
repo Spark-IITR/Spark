@@ -106,7 +106,7 @@
                 </li>
                 <li>
                     Applications need to be submitted through an online portal made for the purpose where the
-                    applicants will upload the transcripts (marksheets), photograph, a 500-word research
+                    applicants will upload the transcripts, photograph, a 500-word research
                     statement, and a brief 1-2 page resume. For students of other institutes, No Objection
                     Certificate (NOC) and letter of recommendation(s)(LOR) will also be sought.
                 </li>
@@ -116,15 +116,15 @@
                 </li>
 
                 <li>
-                Application submission deadline will be February 28 and decision on applications will be
-                made by March 15.Summer training will be held during the scheduled summer vacation at IITR (14th May-8th July),
+                Application submission deadline will be February -- and decision on applications will be
+                made by March -- .Summer training will be held during the scheduled summer vacation at IITR (14th May-8th July),
                     or a shorter term if the applicant is not available for the entire period.
                     However, the term of the summer training should not be less than 6 weeks.
                     Students of IITR will be allowed to begin their summer internship immediately after the completion of the term-end examination.
             </li>
             <li>
                     Accommodation and mess facilities in the Bhawans, subject to payment of necessary charges
-                    at par with that paid by students living in hostels.
+                    at par with that paid by students living in hostels. The average cost of housing would be around Rs.<strong>3500/month</strong> (including mess facility).
                 </li>
                 <li>
                     All interns will be issued a temporary institute ID to avail the library, sports, medical,
@@ -141,10 +141,19 @@
         </div>
     </div>
 
-    
-
-
-    <div class="row" style="margin-top: 5vh">
+       <div class="row" style="margin-top: 5vh">
+           <div class="col-sm-10 col-sm-offset-1">
+       <div class="alert alert-info indexNoticeTag">
+           <strong>NOTICE</strong>
+           <ul class="">
+               <li class="list-group-item indexNotice">The Application portal shall open by 22nd Jan, 2018(tentative). After then only students can apply.
+               <br> Students can see the list of projects available in the Projects Section of the website. <!--<span class="badge">12th JAN (Tentative)</span>--></li>
+           </ul>
+       </div>
+           </div>
+       </div>
+<!--  The Table showing Dates -->
+<!--    <div class="row" style="margin-top: 5vh">
         <div class="col-sm-10 col-sm-offset-1">
             <p class="indexGuidelinesTag" id="timeline">Important Dates</p>
             <table class="table table-striped">
@@ -173,13 +182,13 @@
                 </tr>
                 <tr>
                     <td>4</td>
-                    <td>Result Anoouncement</td>
+                    <td>Result Announcement</td>
                     <td>15th March 2018</td>
                 </tr>
                 </tbody>
             </table>
         </div>
-    </div>
+    </div>-->
 
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3" style="text-align: center;margin-bottom:5vh;">
@@ -191,6 +200,7 @@
             <?php } else{?>
 
             <a href="#login" data-toggle="modal" data-target="#login" class="indexApplyNowButton" ><span class="glyphicon glyphicon-ok-circle">APPLY NOW</span></a>
+
             
             <?php }?>
 
