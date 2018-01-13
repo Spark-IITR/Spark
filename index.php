@@ -201,6 +201,7 @@
             <?php } else{?>
 
             <a href="#login" data-toggle="modal" data-target="#login" class="indexApplyNowButton" ><span class="glyphicon glyphicon-ok-circle">APPLY NOW</span></a>
+
             
             <?php }?>
 
