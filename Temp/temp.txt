@@ -1,0 +1,2 @@
+                <a href="#login" data-toggle="modal" data-target="#login" class="btn btn-default indexApplyNowButton"><span class="glyphicon glyphicon-check"></span> APPLY NOW</a>
+// For Apply Now Button. Final theme
