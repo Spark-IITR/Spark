@@ -26,7 +26,7 @@ require_once '../config/config.php';
                     if(!$result1->num_rows == 0) {
                         $row1 = $result1->fetch_assoc();
 
-                        $fpriority1StudentName = $row1['name'];
+                        // $fpriority1StudentName = $row1['name'];
                     }
 
                     /* fetch details of second priority */
@@ -36,7 +36,7 @@ require_once '../config/config.php';
                     if(!$result2->num_rows == 0) {
                         $row2 = $result2->fetch_assoc();
 
-                        $fpriority2StudentName = $row2['name'];
+                        // $fpriority2StudentName = $row2['name'];
                     }
 
                     /* fetch details of third priority */
@@ -46,7 +46,7 @@ require_once '../config/config.php';
                     if(!$result3->num_rows == 0) {
                         $row3 = $result3->fetch_assoc();
 
-                        $fpriority3StudentName = $row3['name'];
+                        // $fpriority3StudentName = $row3['name'];
                     }
 
                     /* fetch details of fourth priority */
@@ -55,7 +55,7 @@ require_once '../config/config.php';
                     if(!$result4->num_rows == 0) {
                         $row4 = $result4->fetch_assoc();
 
-                        $fpriority4StudentName = $row4['name'];
+                        // $fpriority4StudentName = $row4['name'];
                     }
 
                     /* fetch details of fifth priority */
@@ -64,7 +64,7 @@ require_once '../config/config.php';
                     if(!$result5->num_rows == 0) {
                         $row5 = $result5->fetch_assoc();
 
-                        $fpriority5StudentName = $row5['name'];
+                        // $fpriority5StudentName = $row5['name'];
 
                     }
 
@@ -97,20 +97,20 @@ require_once '../config/config.php';
                             <div class="col-sm-3">
                                 
 
-                                '; if($fpriority1Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
-                                <p>'; echo $fpriority1StudentName.' ( '.$fpriority1Id.' ) '; } echo '</p>
+                                '; if($$row1['id']==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $$row1['name'].' ( '.$$row1['id'].' ) '; } echo '</p>
 
-                                '; if($fpriority2Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
-                                <p>'; echo $fpriority2StudentName.' ( '.$fpriority2Id.' ) '; } echo '</p>
+                                '; if($$row2['id']==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $$row2['name'].' ( '.$$row2['id'].' ) '; } echo '</p>
 
-                                '; if($fpriority3Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
-                                <p>'; echo $fpriority3StudentName.' ( '.$fpriority3Id.' ) '; } echo '</p>
+                                '; if($$row3['id']==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $$row3['name'].' ( '.$$row3['id'].' ) '; } echo '</p>
 
-                                '; if($fpriority4Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
-                                <p>'; echo $fpriority4StudentName.' ( '.$fpriority4Id.' ) '; } echo '</p>
+                                '; if($$row4['id']==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $$row4['name'].' ( '.$$row4['id'].' ) '; } echo '</p>
 
-                                '; if($fpriority5Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
-                                <p>'; echo $fpriority5StudentName.' ( '.$fpriority5Id.' ) '; } echo '</p>
+                                '; if($row5['id']==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $row5['name'].' ( '.$row5['id'].' ) '; } echo '</p>
 
 
                             </div>

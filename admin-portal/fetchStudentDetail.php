@@ -20,48 +20,48 @@ require_once '../config/config.php';
 
 
                  /* fetch details of first priority */
-                  $sql1    = "select name from faculty where id=$spriority1Id";
+                  $sql1    = "select id,name from faculty where id=$spriority1Id";
                   $result1 = $conn->query($sql1);
                     if(!$result1->num_rows == 0) {
                         $row1 = $result1->fetch_assoc();
 
-                        $spriority1FacultyName = $row1['name'];
+                        // $spriority1FacultyName = $row1['name'];
                     }
 
                     /* fetch details of second priority */
-                    $sql2    = "select name from faculty where id=$spriority2Id";
+                    $sql2    = "select id,name from faculty where id=$spriority2Id";
                   $result2 = $conn->query($sql2);
                     if(!$result2->num_rows == 0) {
                         $row2 = $result2->fetch_assoc();
 
-                        $spriority2FacultyName = $row2['name'];
+                        // $spriority2FacultyName = $row2['name'];
                     }
 
                     /* fetch details of third priority */
-                    $sql3    = "select name from faculty where id=$spriority3Id";
+                    $sql3    = "select id,name from faculty where id=$spriority3Id";
                   $result3 = $conn->query($sql3);
                     if(!$result3->num_rows == 0) {
                         $row3 = $result3->fetch_assoc();
 
-                        $spriority3FacultyName = $row3['name'];
+                        // $spriority3FacultyName = $row3['name'];
                     }
 
                     /* fetch details of third priority */
-                    $sql4    = "select name from faculty where id=$spriority4Id";
+                    $sql4    = "select id,name from faculty where id=$spriority4Id";
                   $result4 = $conn->query($sql4);
                     if(!$result4->num_rows == 0) {
                         $row4 = $result4->fetch_assoc();
 
-                        $spriority4FacultyName = $row4['name'];
+                        // $spriority4FacultyName = $row4['name'];
                     }
 
                     /* fetch details of third priority */
-                    $sql5    = "select name from faculty where id=$spriority5Id";
+                    $sql5    = "select id,name from faculty where id=$spriority5Id";
                   $result5 = $conn->query($sql5);
                     if(!$result5->num_rows == 0) {
                         $row5 = $result5->fetch_assoc();
 
-                        $spriority5FacultyName = $row5['name'];
+                        // $spriority5FacultyName = $row5['name'];
                     }
 
                     $email3 = $row['email'];
@@ -100,20 +100,20 @@ require_once '../config/config.php';
                                 
                                 <p>'; echo $row['cgpa']; echo '</p>
                                 
-                                '; if($spriority1Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
-                                <p>'; echo $spriority1FacultyName.' ( '.$spriority1Id.' ) '; } echo '</p>
+                                '; if($row1['id']==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $row1['name'].' ( '.$row1['id'].' ) '; } echo '</p>
 
-                                '; if($spriority2Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
-                                <p>'; echo $spriority2FacultyName.' ( '.$spriority2Id.' ) '; } echo '</p>
+                                '; if($row2['id']==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $row2['name'].' ( '.$row2['id'].' ) '; } echo '</p>
 
-                                '; if($spriority3Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
-                                <p>'; echo $spriority3FacultyName.' ( '.$spriority3Id.' ) '; } echo '</p>
+                                '; if($row3['id']==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $row3['name'].' ( '.$row3['id'].' ) '; } echo '</p>
 
-                                '; if($spriority4Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
-                                <p>'; echo $spriority4FacultyName.' ( '.$spriority4Id.' ) '; } echo '</p>
+                                '; if($row4['id']==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $row4['name'].' ( '.$row4['id'].' ) '; } echo '</p>
 
-                                '; if($spriority5Id==NULL){ echo 'Priority didn\'t set';}else{   echo '
-                                <p>'; echo $spriority5FacultyName.' ( '.$spriority5Id.' ) '; } echo '</p>
+                                '; if($row5['id']==NULL){ echo 'Priority didn\'t set';}else{   echo '
+                                <p>'; echo $row5['name'].' ( '.$row5['id'].' ) '; } echo '</p>
                             </div>
                         </div>
                         <div class="row">

@@ -1,6 +1,6 @@
 <?php
     require_once('../config/config.php');
-
+    $content='';
 	if (empty($_GET['email'])) {
 		echo 'A valid image file id is required to display the image file.';
 		exit;
