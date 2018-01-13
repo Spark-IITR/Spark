@@ -129,7 +129,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     			<div class="row" style="margin-left: 0%">
 
     				<div class="col-sm-6 col-xs-12">
-                        <p class="studentProfileUploadTag" >Upload Resume :</p>
+                        <p class="studentProfileUploadTag" >Upload Resume/Transcript :</p>
 
     					<form action="../uploadFiles/uploadResume.php" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="resumeId" value="<?php echo $email1; ?>" />
@@ -144,7 +144,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     				</div>
 
     				<div class="col-md-6 col-sm-6 col-xs-12" style=" display: block;">
-                        <p class="studentProfileUploadTag" >Upload Transcrip :</p>
+                        <p class="studentProfileUploadTag" >Upload NOC/LOR/ReasearchStatement :</p>
 
     					<form action="../uploadFiles/uploadNOC.php" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="nocId" value="<?php echo $email1; ?>" />
@@ -171,10 +171,22 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                         </div>
                     </div>
                     <div class="col-sm-12 col-xs-12 viewFile " style="margin-top:4vh; text-align: center; ">
+
                         <a target="_blank"><embed src="../uploadFiles/showResume.php?email=<?=$email1 ?>" type="application/pdf"   class="pdfDisplay" width="90%" id="showResume" style="display:none"></a>
                         <a target="_blank"><embed src="../uploadFiles/showNOC.php?email=<?=$email1 ?>" type="application/pdf"  class="pdfDisplay"  width="90%" id="showNOC" style="display:none; "></a>
                     </div>
                 </div>
+
+<!--                EMBED-->
+<!--                <a target="_blank"><embed src="../uploadFiles/showNOC.php?email=--><?//=$email1 ?><!--" type="application/pdf"   class="pdfDisplay" width="90%" id="showResume" style="display:none"></a>-->
+<!--                OBJECT-->
+<!--                    <a target="_blank"><object data="../uploadFiles/showNOC.php?email=--><?//=$email1 ?><!--" type="application/pdf" width="300" height="200">-->
+<!--                    <a href="../uploadFiles/showNOC.php?email=--><?//=$email1 ?><!--">test.pdf</a>-->
+<!--                        </object></a>-->
+<!--                IFRAME-->
+<!--                        <a target="_blank"><iframe src="../uploadFiles/showNOC.php?email=--><?//=$email1 ?><!--" style="width:600px; height:500px;" frameborder="0"></iframe></a>-->
+
+
 
                 <script>
 
@@ -283,11 +295,13 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                 <div class="col-sm-9 col-sm-offset-3">
                     <div class="alert alert-success studentProfileInstructionBox " role="alert">
                         <ul><p class="studentProfileInstructionsTag"> <strong>Instructions :</strong> </p>
-                            <li>Please Upload Your  Transcrit (for student other than IITR) and Resume ( compulsory for all students ) otherwise your application will be rejected.</li>
-                            <li>Size of Image / Resume / Transcrit should be less than 100 KB.</li>
-                            <li>Resume / Transcrit must be in pdf format.</li>
-                            <li>Once uploaded, you will not be able to change the Resume / Image / Transcrit. </li>
-                            <li>Each student have  choices to select their project according to his/her priority.</li>
+                            <li>There are two sections for uploading Documents. The left one is for uploading <strong>Resume</strong> along with the <strong>latest marksheet</strong> (Compulsary for all students).These two files are to be compiled in a <strong>single pdf file</strong>. </li>
+                            <li>The other section for uploading documents is for <strong>NOC</strong> ( No Objection Certificate ), <strong>LOR</strong> ( Letter of Recommendation ) and a <strong>research statement</strong>. Again these areto be compiled into a single pdf file.</li>
+                            <li>NOC is required only for students not from IITR and must be issued from the department or the Dean of the student's College/Institute. The LOR is to be issued from the professor/mentor under whose guidance the student has worked before.Although, it is not mandatory but it will definitely affect the chances of being selected.
+                            Research Statement is also optional and it will also affect the chances of selection.It should include the reason why the fellow student wishes to join this intern.</li>
+                            <li>The above files must be i pdf format and the size should be less than 200 KB.</li>
+                            <li>Once uploaded, you will not be able to change file so cross-check before submitting. </li>
+                            <li>Each student have choices to select their project according to his/her priority.</li>
                             <li>Once the priorities are selected you will not be able to change it. So, choose priorities carefully after inspecting all the projects.</li>
                         </ul>
                     </div>
