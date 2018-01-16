@@ -129,7 +129,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     			<div class="row" style="margin-left: 0%">
 
     				<div class="col-sm-6 col-xs-12">
-                        <p class="studentProfileUploadTag" >Upload Resume/Transcript :</p>
+                        <p class="studentProfileUploadTag" >Upload Resume :</p>
 
     					<form action="../uploadFiles/uploadResume.php" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="resumeId" value="<?php echo $email1; ?>" />
@@ -144,7 +144,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     				</div>
 
     				<div class="col-md-6 col-sm-6 col-xs-12" style=" display: block;">
-                        <p class="studentProfileUploadTag" >Upload NOC/LOR/ReasearchStatement :</p>
+                        <p class="studentProfileUploadTag" >Upload Transcript :</p>
 
     					<form action="../uploadFiles/uploadNOC.php" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="nocId" value="<?php echo $email1; ?>" />
