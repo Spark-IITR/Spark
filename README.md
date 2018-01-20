@@ -4,7 +4,7 @@ It is a programme to provide research exposure to interested undergraduate stude
 
 # How to run
 
-Make new file and copy the content of config.sample.php in config folder. Fill up the credentials of db, fill the domain as base_url, change the lurl in logout.php also.
+Make new file name config.php in config folder and copy the content of config.sample.php. Fill up the credentials of db, fill the domain as base_url, change the lurl in logout.php also.
 
-Database scheme is given in spark.sql 
+Database schema is given in spark.sql. 
 
