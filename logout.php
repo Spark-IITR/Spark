@@ -8,6 +8,6 @@ setcookie("role", "", time()-3600);
 setcookie("name", "", time()-3600); 
 session_destroy();
 // ob_end_flush();/
-header("location: http://localhost:8080");
+header("location: https://73ce8e31.ngrok.io");
 exit;
 ?>

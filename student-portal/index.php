@@ -53,7 +53,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     		<div class="col-sm-3  studentProfileContainer">
     			<div class="row">
     				 <div class="col-sm-12" style="text-align: center;">
-		    			<img src="../uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class=" img-circle studentProfileImg" alt="<?php echo $name; ?>">
+		    			<img src="../uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class=" img-circle studentProfileImg" alt="Please Upload Image">
     				 </div>
     				 <div class="col-sm-12 col-xs-12">
     				 	<form action="../uploadFiles/imageUpload.php" method="post" enctype="multipart/form-data">
@@ -441,7 +441,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
             var facultyId = data;
             var studentId = <?php echo $studentRealId; ?> ;
-            con = confirm('If you want to set 1st priority for your project to <?php echo $row['name']; ?> ? ');
+            con = confirm('If you want to set 1st priority for your project to him / her ? ');
             if(con==true ){
                 $.ajax({
                     url: 'spriority1.php',
@@ -464,7 +464,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
             var facultyId = data;
             var studentId = <?php echo $studentRealId; ?> ;
-            con = confirm('If you want to set 2nd priority for your project to <?php echo $row['name']; ?> ? ');
+            con = confirm('If you want to set 2nd priority for your project to him / her ? ');
             if(con==true ){
                 $.ajax({
                     url: 'spriority2.php',
@@ -486,7 +486,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
             var facultyId = data;
             var studentId = <?php echo $studentRealId; ?> ;
-            con = confirm('If you want to set 3rd priority for your project to <?php echo $row['name']; ?> ? ');
+            con = confirm('If you want to set 3rd priority for your project to him / her ? ');
             if(con==true ){
                 $.ajax({
                     url: 'spriority3.php',
@@ -508,7 +508,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
             var facultyId = data;
             var studentId = <?php echo $studentRealId; ?> ;
-            con = confirm('If you want to set 4th priority for your project to <?php echo $row['name']; ?> ? ');
+            con = confirm('If you want to set 4th priority for your project to him / her ? ');
             if(con==true ){
                 $.ajax({
                     url: 'spriority4.php',
@@ -530,7 +530,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
             var facultyId = data;
             var studentId = <?php echo $studentRealId; ?> ;
-            con = confirm('If you want to set 5th priority for your project to <?php echo $row['name']; ?> ? ');
+            con = confirm('If you want to set 5th priority for your project to him / her ? ');
             if(con==true ){
                 $.ajax({
                     url: 'spriority5.php',

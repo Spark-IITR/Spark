@@ -43,7 +43,7 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
             <div class="col-sm-3  studentProfileContainer">
                 <div class="row">
                      <div class="col-sm-12" style="text-align: center;">
-                        <img src="../uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class="img-circle studentProfileImg" alt="<?php echo $name; ?>">
+                        <img src="../uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class="img-circle studentProfileImg" alt="Please upload image">
                      </div>
                      <div class="col-sm-12 col-xs-12">
                         <form action="../uploadFiles/facultyImageUpload.php" method="post" enctype="multipart/form-data">

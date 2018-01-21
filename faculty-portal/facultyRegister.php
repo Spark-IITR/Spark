@@ -1,6 +1,24 @@
+
 <?php
 require_once '../config/config.php';
- 
+?>
+<link rel="icon" href="../../favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link href="<?php echo base_url; ?>src/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/index1.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/index1Tab.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/index1Mob.css" rel="stylesheet">
+    <script src="<?php echo base_url; ?>src/js/bootstrap.min.js"></script>
+
+
+
+<?php
+// require_once '../header.php';
+
 $name = $username = $contact = $gender = $dob = $department = $password = $confirm_password = $sparkId = "";
 $name_err = $username_err = $contact_err = $gender_err = $dob_err = $department_err = $password_err = $confirm_password_err = "";
  
@@ -112,7 +130,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if(mysqli_stmt_execute($stmt)){
                // echo 'hello';
                 // header("location: index.php");
-            header('Location: '.base_url_faculty.'index.php');
+            header('Location: '.base_url.'index.php');
                 
 
             } else{
@@ -120,7 +138,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
         }
          
-        mysqli_stmt_close($stmt);
+        // mysqli_stmt_close($stmt);
     }
     
     mysqli_close($conn);
@@ -140,37 +158,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
            <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
            
-           <div class="form-group   <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
-             <label  class="sr-only">Name<sup>*</sup></label>
-             <div class="col-sm-12">
-               <input type="text"  name="name"  class="form-control"  placeholder="Name" value="<?php echo $name; ?>" >
-                <span class="help-block"><?php echo $name_err; ?></span>
-             </div>
-           </div>
+               <div class="form-group">
+                 <label  class="sr-only">Name<sup>*</sup></label>
+                 <div class="col-sm-12">
+                   <input type="text"  name="name"  class="form-control"  placeholder="Name" value="<?php echo $name; ?>" >
+                    <span class="help-block"><?php echo $name_err; ?></span>
+                 </div>
+               </div>
             
-           <div class="form-group  <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-             <label  class="sr-only">Email<sup>*</sup></label>
-             <div class="col-sm-12">
-               <input type="email" name="username"  class="form-control"  placeholder="Email"  value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
-             </div>
-           </div>
+               <div class="form-group">
+                 <label  class="sr-only">Email<sup>*</sup></label>
+                 <div class="col-sm-12">
+                   <input type="email" name="username"  class="form-control"  placeholder="Email"  value="<?php echo $username; ?>">
+                    <span class="help-block"><?php echo $username_err; ?></span>
+                 </div>
+               </div>
           
-           <div class="form-group   <?php echo (!empty($department_err)) ? 'has-error' : ''; ?>">
-            <label  class="sr-only ">department</label>
-             <div class="col-sm-6 col-xs-6">
-               <input type="text" name="department"  class="form-control"  placeholder="Department" value="<?php echo $department; ?>">
-                <span class="help-block"><?php echo $department_err; ?></span>
-             </div>
-
-
-
-                   <label  class="sr-only ">Website Link</label>
-                   <div class="col-sm-6 col-xs-6">
-                       <input type="text" name="Website Link"  class="form-control facultyRegisterInput"   placeholder="Website Link" value="">
-                       <span class="help-block"></span>
-                   </div>
-           </div>
+               <div class="form-group ">
+                 <label  class="sr-only ">department</label>
+                 <div class="col-sm-6 col-xs-6">
+                   <input type="text" name="department"  class="form-control"  placeholder="Department" value="<?php echo $department; ?>">
+                    <span class="help-block"><?php echo $department_err; ?></span>
+                 </div>
+                 <label  class="sr-only ">Website Link</label>
+                 <div class="col-sm-6 col-xs-6">
+                   <input type="text" name="Website Link"  class="form-control facultyRegisterInput"   placeholder="Website Link" value="">
+                   <span class="help-block"></span>
+                 </div>
+               </div>
+            <div class="form-group ">
             <label  class="sr-only">Contact</label>
              <div class="col-sm-6 col-xs-6">
                <input type="number"  name="contact" class="form-control"  placeholder="Contact" value="<?php echo $contact; ?>">
