@@ -56,6 +56,7 @@ CREATE TABLE `faculty` (
   `email` varchar(255) NOT NULL,
   `password` varchar(527) DEFAULT NULL,
   `department` varchar(255) DEFAULT NULL,
+  `contact` varchar(15) DEFAULT NULL,
   `role` varchar(20) DEFAULT NULL,
   `project` varchar(2047) DEFAULT NULL,
   `image` longblob,

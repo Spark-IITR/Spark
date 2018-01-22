@@ -11,10 +11,10 @@
           $main_username = $_COOKIE["name"];
         }
         
-        echo $main_role;
-        echo $main_username;
-        echo $main_name;
-        echo 'hello';
+        // echo $main_role;
+        // echo $main_username;
+        // echo $main_name;
+        // echo 'hello';
         require_once 'header.php';
      ?>
        

@@ -115,7 +115,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          $sql = "INSERT INTO faculty (email, password, name,contact,department,role,sparkId) VALUES (?,?,?,?,?,?,?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "sssssss", $param_username, $param_password, $param_name,$contact, $param_department,$param_role,$param_sparkId);
+            mysqli_stmt_bind_param($stmt, "sssssss", $param_username, $param_password, $param_name, $param_contact, $param_department, $param_role, $param_sparkId);
             // echo 'hello';
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); 
