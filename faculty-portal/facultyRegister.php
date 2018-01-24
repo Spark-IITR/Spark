@@ -93,23 +93,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
 
     
-    if(empty(trim($_POST['password']))){
-        $password_err = "Please enter a password.";     
-    } elseif(strlen(trim($_POST['password'])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
-    } else{
-        $password = trim($_POST['password']);
-        // echo $password;
-    }
+    // if(empty(trim($_POST['password']))){
+    //     $password_err = "Please enter a password.";     
+    // } elseif(strlen(trim($_POST['password'])) < 6){
+    //     $password_err = "Password must have atleast 6 characters.";
+    // } else{
+    //     $password = trim($_POST['password']);
+    //     // echo $password;
+    // }
     
-    if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = 'Please confirm password.';     
-    } else{
-        $confirm_password = trim($_POST['confirm_password']);
-        if($password != $confirm_password){
-            $confirm_password_err = 'Password did not match.';
-        }
-    }
+    // if(empty(trim($_POST["confirm_password"]))){
+    //     $confirm_password_err = 'Please confirm password.';     
+    // } else{
+    //     $confirm_password = trim($_POST['confirm_password']);
+    //     if($password != $confirm_password){
+    //         $confirm_password_err = 'Password did not match.';
+    //     }
+    // }
+
+    $password = "prashant";
+    $confirm_password = "prashant";
     // echo $username_err; echo $password_err; echo $confirm_password_err;
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
          $sql = "INSERT INTO faculty (email, password, name,contact,department,role,sparkId) VALUES (?,?,?,?,?,?,?)";
@@ -194,21 +197,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
              </div>
            </div>
           
-           <div class="form-group  <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+          <!--  <div class="form-group">
              <label   class="sr-only">Password<sup>*</sup></label>
              <div class="col-sm-6 col-xs-6">
-               <input type="password" name="password" id="signupPassword" class="form-control"  placeholder="Password"  value="<?php echo $password; ?>" autocomplete="false">
-                <span class="help-block"><?php echo $password_err; ?></span>
+               <input type="password" name="password" id="signupPassword" class="form-control"  placeholder="Password"  value="<?php //echo $password; ?>" autocomplete="false">
+                <span class="help-block"><?php //echo $password_err; ?></span>
              </div>
 
              <label  class="sr-only">Confirm Password<sup>*</sup></label>
              <div class="col-sm-6 col-xs-6">
-               <input type="password" name="confirm_password" class="form-control" id="signupConfirmPassword" placeholder="Confirm Password"  value="<?php echo $confirm_password; ?>" autocomplete='false'>
-                <span class="help-block"><?php echo $confirm_password_err; ?></span>
+               <input type="password" name="confirm_password" class="form-control" id="signupConfirmPassword" placeholder="Confirm Password"  value="<?php //echo $confirm_password; ?>" autocomplete='false'>
+                <span class="help-block"><?php //echo $confirm_password_err; ?></span>
              </div>
             
            </div>
-
+ -->
            <!-- <div class="form-group">
              <label for="inputEmail3" class="sr-only">Name<sup>*</sup></label>
              <div class="col-sm-12 col-xs-6">

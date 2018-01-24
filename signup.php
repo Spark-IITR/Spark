@@ -6,7 +6,7 @@ $name = $username = $contact = $gender = $dob = $college = $password = $confirm_
 $name_err = $username_err = $contact_err = $gender_err = $dob_err = $college_err = $password_err = $confirm_password_err = $department_err = $year_err = $cgpa_err = $degree_err = "";
  
 if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
+ if(isset($_POST["username"])){
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a email.";
     } else{
@@ -46,6 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          
         mysqli_stmt_close($stmt);
     }
+}
 
     /* validators */
     if(empty(trim($_POST['name']))){

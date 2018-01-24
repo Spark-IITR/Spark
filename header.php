@@ -146,9 +146,19 @@
                  <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
             <?php 
               $main_username = $main_role = $main_name = '';
-              $main_username = $_COOKIE["username"];
-              $main_role = $_COOKIE['role'];
-              $main_name = $_COOKIE['name'];
+              // $main_username = $_COOKIE["username"];
+              // $main_role = $_COOKIE['role'];
+              // $main_name = $_COOKIE['name'];
+
+              if (isset($_COOKIE['username'])) {
+                $main_username = $_COOKIE["username"];
+              }
+              if (isset($_COOKIE['role'])) {
+                $main_username = $_COOKIE["role"];
+              }
+              if (isset($_COOKIE['name'])) {
+                $main_username = $_COOKIE["name"];
+              }
              
              if($main_role== "admin"){?>
 
