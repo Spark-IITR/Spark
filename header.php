@@ -154,13 +154,13 @@
                 $main_username = $_COOKIE["username"];
               }
               if (isset($_COOKIE['role'])) {
-                $main_username = $_COOKIE["role"];
+                $main_role = $_COOKIE["role"];
               }
               if (isset($_COOKIE['name'])) {
-                $main_username = $_COOKIE["name"];
+                $main_name = $_COOKIE["name"];
               }
              
-             if($main_role== "admin"){?>
+                if($main_role== "admin"){?>
 
                  <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url_admin; ?>"><?php echo $main_name; ?></a></li>
                  <li style="font-size: 1.4vw;color: #777;"><a href="<?php echo base_url; ?>logout.php" data-toggle="tooltip" data-placement="center" title="Logout">Logout</a></li>

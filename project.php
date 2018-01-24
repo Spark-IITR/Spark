@@ -1,14 +1,14 @@
 <?php 
-        $main_username = $main_role = $main_name = '';
-        if (isset($_COOKIE['username'])) {
-          $main_username = $_COOKIE["username"];
-        }
-        if (isset($_COOKIE['role'])) {
-          $main_username = $_COOKIE["role"];
-        }
-        if (isset($_COOKIE['name'])) {
-          $main_username = $_COOKIE["name"];
-        }
+        // $main_username = $main_role = $main_name = '';
+        // if (isset($_COOKIE['username'])) {
+        //   $main_username = $_COOKIE["username"];
+        // }
+        // if (isset($_COOKIE['role'])) {
+        //   $main_role = $_COOKIE["role"];
+        // }
+        // if (isset($_COOKIE['name'])) {
+        //   $main_name = $_COOKIE["name"];
+        // }
         
         // echo $main_role;
         // echo $main_username;
