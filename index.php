@@ -67,7 +67,7 @@
             <div class="row">
                 <p class="indexObjectiveTag"><strong>Eligibility</strong></p>
                 <p class="indexObjectiveText text-justify">
-                <ul class="indexGuidelines text-justify" style="padding-right: 5%">
+                <ul class="indexGuidelines text-justify">
                     <li>
                         Students who are currently enrolled and have completed at least two
                         semesters of the undergraduate degree (B.Arch./B.E./B.Tech./M.Sc) in a relevant discipline
@@ -91,38 +91,39 @@
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
             <p class="indexGuidelinesTag" id="guidelines">GUIDELINES</p>
-            <ul class="indexGuidelines text-justify" style="padding-right: 5%">
+            <ul class="indexGuidelines text-justify" style="margin-left: -1%">
 
-                <li>
-                    Please login to submit your application and view status of your application.
-                </li>
                 <li>
                     Applications need to be submitted through an online portal made for the purpose where the
-                    applicants will upload the transcripts, photograph, a 500-word research
-                    statement, and a brief 1-2 page resume. For students of other institutes, No Objection
-                    Certificate (NOC) and letter of recommendation(s)(LOR) will also be sought.
+                    applicants will upload the transcripts (marksheets), photograph, a 500-word research
+                    statement, and a brief 1-2 page resume. For students of other institutes, no objection
+                    certificate (NOC) and letter of recommendation(s) will also be sought.
                 </li>
                 <li>
-                    Applicants need to mention names of five faculty members of their choice from the list of
+                    Applicants need to mention names of three faculty members of their choice from the list of
                     faculty members interested in having a summer intern.
-                </li>
-
-                <li>
-                Application submission deadline will be February -- and decision on applications will be
-                made by March -- .Summer training will be held during the scheduled summer vacation at IITR (14th May-8th July),
-                    or a shorter term if the applicant is not available for the entire period.
-                    However, the term of the summer training should not be less than 6 weeks.
-                    Students of IITR will be allowed to begin their summer internship immediately after the completion of the term-end examination.
+                </li><li>
+                Application submission deadline will be February 28 and decision on applications will be
+                made by March 15. Summer training will be held during the scheduled summer vacation at
+                IITR, or a shorter term if the applicant is not available for the entire period. However, the
+                term of the summer training should not be less than 6 weeks. Students of IITR will be
+                allowed to begin their summer internship immediately after the completion of the term-end
+                examination.
             </li>
-            <li>
-                    Accommodation and mess facilities in the Bhawans, subject to payment of necessary charges
-                    at par with that paid by students living in hostels. The average cost of housing would be around Rs.<strong>3500/month</strong> (including mess facility).
+                <li>
+                    All candidates selected for either the SPARK program or project funding will be provided
+                    accommodation and mess facilities in the Bhawans, subject to payment of necessary charges
+                    at par with that paid by students living in hostels.
                 </li>
                 <li>
                     All interns will be issued a temporary institute ID to avail the library, sports, medical,
                     computer centre, internet, and other institute and departmental research and recreation
-                    facilities. S/He will be required to abide by the conduct rules of the institute, failing which the
+                    facilities. S/he will be required to abide by the conduct rules of the institute, failing which the
                     internship will be terminated and the intern will be asked to leave.
+                </li>
+                <li>
+                    There will be an open poster presentation by all SPARK fellows near the completion of the
+                    summer internship and three best poster awards will be given.
                 </li>
                 <li>
                     At the successful completion of the internship, a certificate from the institute with the name
@@ -133,13 +134,13 @@
         </div>
     </div>
 
-       <div class="row" style="margin-top: 5vh">
+       <div class="row" style="margin-top: 10vh">
            <div class="col-sm-10 col-sm-offset-1">
        <div class="alert alert-info indexNoticeTag">
-           <strong>NOTICE</strong>
+           <p class="indexNoticeText">NOTICE</p>
            <ul class="">
-               <li class="list-group-item indexNotice">The Application portal shall open by 22nd Jan, 2018(tentative). After then only students can apply.
-               <br> Students can see the list of projects available in the Projects Section of the website. <!--<span class="badge">12th JAN (Tentative)</span>--></li>
+               <li class="list-group-item indexNotice">The Application portal shall open by 31st Jan, 2018(tentative). After then only students can apply.
+               <br> Students can see the list of projects available in the Projects Section of the website.</li>
            </ul>
        </div>
            </div>

@@ -2,7 +2,7 @@
         require_once 'header.php';
      ?>
 <body>
-
+        <div  class="projectPage">
         <div class="container-fluid">
             <div class="row" id="aboutUs">
                 <div class="col-sm-7 col-sm-offset-1">
@@ -26,10 +26,10 @@
                                 else {
                                     echo '<thead style="">
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Department</th>
-                                                <th>Research interests/Tentative projects for summer internship</th>
+                                                <th style="width:13%">ID</th>
+                                                <th style="width:13%">Name</th>
+                                                <th style="width:13%">Department</th>
+                                                <th style="width:61%">Research interests/Tentative projects for summer internship</th>
                                             </tr>
                                         </thead>';
                                              
@@ -54,6 +54,7 @@
                     </table>
                 </div>
             </div>
+        </div>
         </div>
 
 

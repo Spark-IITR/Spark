@@ -62,12 +62,14 @@ a:focus{
 }
 
 .sparkFullFormTag{
-    margin-left: 29%;
-    font-size: 1.1vw;
+    margin-left: 30%;
+    font-size: 1.05vw;
+    margin-top: -6vh
 }
 .sparkNavbarTag{
     font-size: 2.4vw !important;
     color: #0a5670 !important;
+    margin-left: -1.1vw !important;
 }
 /* slider css */
 
@@ -77,51 +79,108 @@ a:focus{
     margin-top: 0 !important;
 
 }
-
+.projectPage{
+    margin-left: 2.5vw !important;
+}
 /* main body css */
 
 .indexIntroductionTag{
-	font-size: 2.5vw;
+	font-size: 2vw;
     color: #666;
     letter-spacing: -0px;
     /*text-align: center;*/
     border-bottom: 1px solid #999;
-    margin-top: 10vh;
+    margin-top: 7vh;
     font-weight: 700;
-    padding-bottom: 1.5vh
+    padding-bottom: 1.5vh;
 }
 
 .indexIntroductionText{
 	font-size: 1.1vw;
     letter-spacing: .5px;
     word-spacing: 1px;
-    padding: 1vh 2vw 0 6vw;
+    padding: 1vh 2vw 0 0vw;
 }
 
 .indexGuidelinesTag{
-	font-size: 2.5vw;
+	font-size: 2vw;
     color: #666;
     letter-spacing: -0px;
     /*text-align: center;*/
     border-bottom: 1px solid #999;
-    margin-top: 5vh;
+    margin-top: 3vh;
     font-weight: 700;
     padding-bottom: 1.5vh
 }
 .indexGuidelines{
-	padding-left: 8vw
+    list-style-type: none;
+	/*padding-left: 8vw*/
 }
 .indexGuidelines li{
     font-size: 1.1vw;
     padding-top: 2vh;
     letter-spacing: .5px;
+    margin-left: -2.5%;
     word-spacing: 1px;
+}
+
+
+.indexObjectiveTag {
+    font-size:1.5vw;
+    color:#777;
+    margin-left: 1vw;
+    margin-bottom: -2vh;
+    margin-top: 2vh
+
+}
+
+/*.indexObjectiveText{
+    font-size: 2vw;
+    letter-spacing: 0.5px;
+    word-spacing: 0px;
+    margin-top: 0px;
+}
+*/
+.loginModalHeader{
+	text-align: center;
+    color: #fff;
+    font-size: 1.5vw;
+    font-weight: 600;
+}
+.loginModalSignupButton{
+	font-size: 1.2vw;
+    padding: 1vh 2vw;
+	}
+
+.loginModalWidth{
+	width: 33%
+}
+.modal-content{
+	border-radius: 5px;
+	margin-top: 5vh
+}
+.modal-dialog{
+	margin-top: 25vh
+}
+.signupModalSignupButton{
+	width: 25vw;
+    font-size: 1.3vw;
+    margin-top: 0vh
+    /*word-spacing: 1vw*/
+}
+.signupHereTag{
+    font-size: 3vw;
+    text-align: center;
+    margin-bottom: 2vh;
+    font-weight: 300;
+    margin-top: 0vh;
+    color: rgba(41, 0, 255, 0.73);
 }
 
 .indexApplyNowButton,
 .indexApplyNowButton:focus,
 .indexApplyNowButton:visited{
-	font-size: 1.4vw;
+    font-size: 1.4vw;
     letter-spacing: 1.5px;
     font-weight:400;
     color: #fff;
@@ -185,46 +244,6 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
     background-position:20vw;
   }
 }
-.indexObjectiveTag {
-    font-size:2vw;
-    color:#777;
-    margin-left: 3vw;
-    margin-bottom: 0px;
-
-}
-
-.indexObjectiveText{
-    font-size: 2.4vw;
-    letter-spacing: 0.5px;
-    word-spacing: 0px;
-    margin-top: 0px;
-}
-
-.loginModalHeader{
-	text-align: center;
-    color: #fff;
-    font-size: 1.5vw;
-    font-weight: 600;
-}
-.loginModalSignupButton{
-	font-size: 1.2vw;
-    padding: 1vh 2vw;
-	}
-
-.loginModalWidth{
-	width: 33%
-}
-.modal-content{
-	border-radius: 5px;
-	margin-top: 5vh
-}
-.modal-dialog{
-	margin-top: 25vh
-}
-.signupModalSignupButton{
-	width: 25vw
-}
-
 .moveToUpButton{
     font-size: 2.6vw;
     background-color: rgba(193, 198, 206, 0.67);
@@ -259,6 +278,7 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
 .footer img {
     max-width: 100%;
 }
+
 .footer h3 {
     border-bottom: 1px solid #BAC1C8;
     color: #54697E;
@@ -295,7 +315,12 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
     padding-top: 1vh;
     text-align: center;
 }
-
+.footerThirdDiv{
+    margin-left: 6.5vw
+}
+.footerSeconddDiv{
+    margin-left: 6vw
+}
 
 .social li {
     background: none repeat scroll 0 0 #B5B5B5;
@@ -384,23 +409,16 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
     margin-top: 1vh !important;
     font-weight: 700;
     padding-bottom: 1.5vh;
-    margin-left: -1vw
+    margin-left: -2.0vw
 }
 
 .projectSearchingInput{
     font-size: 2vh;
     margin-top:2vh;
+    margin-left: 2.7vw
 }
 
 
-.signupHereTag{
-    font-size: 3vw;
-    text-align: center;
-    margin-bottom: 5vh;
-    font-weight: 300;
-    margin-top: 3vh;
-    color: rgba(41, 0, 255, 0.73);
-}
 
 
 /* student page   */
@@ -697,6 +715,11 @@ margin-bottom: 8vh
 .indexNoticeTag{
     text-align: center;
     font-weight: bold;
+    padding: 2vw;
+}
+.indexNoticeText{
+    margin-top: -3vh
+
 }
 
 

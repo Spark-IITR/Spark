@@ -278,7 +278,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			           </div>
 			           <div class="form-group">
 			             <div class="col-sm-offset-3 col-sm-6">
-			               <input type="submit" value="Sign In" id="signupSubmitButton" class="btn btn-primary signupModalSignupButton" style="width: 100%;margin-bottom: 5vh" autocomplete="off">
+			               <input type="submit" value="SIGN UP" id="signupSubmitButton" class="btn btn-primary signupModalSignupButton" style="width: 100%;margin-bottom: 5vh" autocomplete="off">
 			             </div>
 			           </div>
 			         </form>
