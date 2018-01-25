@@ -111,8 +111,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     //     }
     // }
 
-    $password = "prashant";
-    $confirm_password = "prashant";
+    $password = "L#o&fk&Dy";
+    $confirm_password = "L#o&fk&Dy";
     // echo $username_err; echo $password_err; echo $confirm_password_err;
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
          $sql = "INSERT INTO faculty (email, password, name,contact,department,role,sparkId) VALUES (?,?,?,?,?,?,?)";
