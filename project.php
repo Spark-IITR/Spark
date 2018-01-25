@@ -14,8 +14,8 @@
                 </div>
             </div>
             <div class="row" id="objectives">
-                <div class="container" >
-                    <table class="table table-striped">
+                <div class="container"  style="margin-top: 2vh;">
+                    <table class="table table-hover">
                         <?php  
                             $sql    = "SELECT sparkId,name,department,project from faculty where role='faculty'";
                             $result = $conn->query($sql);
