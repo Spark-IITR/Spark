@@ -1,20 +1,4 @@
-   
     <?php 
-        // $main_username = $main_role = $main_name = '';
-        // if (isset($_COOKIE['username'])) {
-        //   $main_username = $_COOKIE["username"];
-        // }
-        // if (isset($_COOKIE['role'])) {
-        //   $main_role = $_COOKIE["role"];
-        // }
-        // if (isset($_COOKIE['name'])) {
-        //   $main_name = $_COOKIE["name"];
-        // }
-        
-        // echo $main_role;
-        // echo $main_username;
-        // echo $main_name;
-        // echo 'hello';
         require_once 'header.php';
      ?>
        
@@ -221,12 +205,5 @@
     <?php require_once('footer.php'); ?>
 
     <?php require_once('login_modal.php'); ?>
-  
-
-  
-
-
-
-
    
 </body>

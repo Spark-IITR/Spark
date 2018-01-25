@@ -19,9 +19,10 @@ if ($_POST && !empty($_FILES)) {
 
     if ($formOk && !in_array($type, array('image/png', 'image/x-png', 'image/jpeg', 'image/pjpeg', 'image/gif'))) {
         $formOk = false;
-        echo "Error: Unsupported file extension. Supported extensions are JPG / PNG.";
+        // echo "Error: Unsupported file extension. Supported extensions are JPG / PNG.";
+        header('Location: '.base_url_student.'index.php');
     }
-    if ($formOk && filesize($path) > 200000) {
+    if ($formOk && filesize($path) > 500000) {
         $formOk = false;
         // echo "Error: File size must be less than 100 KB.";
         header('Location: '.base_url_student.'index.php');
