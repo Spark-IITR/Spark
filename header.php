@@ -113,10 +113,10 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link href="<?php echo base_url; ?>src/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="<?php echo base_url; ?>src/css/index1.css" rel="stylesheet">
+    <script src="<?php echo base_url; ?>src/js/bootstrap.min.js"></script>
+    <link href="<?php echo base_url; ?>src/css/index.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/index1Tab.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/index1Mob.css" rel="stylesheet">
-    <script src="<?php echo base_url; ?>src/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -139,10 +139,10 @@
 
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav navbar-right">
-                 <li><a style="font-weight: 700" href="<?php echo base_url; ?>index.php#aboutUs">About SPARK </a></li>
-                 <li><a href="<?php echo base_url; ?>index.php#guidelines">Guidelines</a></li>
+                 <li><a href="<?php echo base_url; ?>index.php#aboutUs">About Us </a></li>
+                 <!-- <li><a href="<?php //echo base_url; ?>index.php#guidelines">Guidelines</a></li> -->
                  <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
-                 <li><a href="<?php echo base_url; ?>index.php#timeline">Timeline</a></li>
+                 <!-- <li><a href="<?php //echo base_url; ?>index.php#timeline">Timeline</a></li> -->
                  <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
             <?php 
               $main_username = $main_role = $main_name = '';
@@ -176,7 +176,7 @@
 
                 <?php }else{?>
                  
-                 <li><a href="#login" data-toggle="modal" data-target="#login">Log In</a></li>
+                 <li><a href="#login" data-toggle="modal" data-target="#login" class="headerLogin" >Log In</a></li>
                   
           <?php } ?>
          </ul>

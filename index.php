@@ -183,16 +183,16 @@
     </div>-->
 
     <div class="row">
-        <div class="col-sm-6 col-sm-offset-3" style="text-align: center;margin-bottom:5vh;">
+        <div class="col-sm-6 col-sm-offset-5" style="text-align: center;margin-bottom:7vh;">
 
 
             <?php if($main_role=='student'){ ?>
 
-            <a href="<?php echo base_url_student; ?>" class="btn btn-default indexApplyNowButton" ><span class="glyphicon glyphicon-check"> APPLY NOW</span></a>
+            <a href="<?php echo base_url_student; ?>" class="indexApplyNowButton" ><span class="glyphicon glyphicon-check applyNowCheck"> APPLY NOW</span></a>
 
             <?php } else{?>
 
-            <a href="#login" data-toggle="modal" data-target="#login" class="btn btn-default indexApplyNowButton" ><span class="glyphicon glyphicon-check">APPLY NOW</span></a>
+            <a href="#login" data-toggle="modal" data-target="#login" class="rainbow-button" alt="Apply Now"></span></a>
 
             
             <?php }?>

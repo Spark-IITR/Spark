@@ -59,6 +59,8 @@
 
 
 <?php include 'footer.php' ; ?>
+<?php require_once('login_modal.php'); ?>
+
 
     <script>
         $(document).ready(function(){
