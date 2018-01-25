@@ -1,8 +1,6 @@
     <?php 
         require_once 'header.php';
      ?>
-       
-
    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top: -2vh; width: 98vw; margin-left: 1vw" id="top">
      <ol class="carousel-indicators">
        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -37,11 +35,6 @@
        <span class="sr-only">Next</span>
      </a>
    </div>
-
- <!--   <div >
-        <a href="#top"><span class="glyphicon glyphicon-chevron-up moveToUpButton" aria-hidden="true"></span></a>
-   </div> -->
-
    <div class="container-fluid">
       <div class="row" id="aboutUs">
          <div class="col-sm-10 col-sm-offset-1">
@@ -144,44 +137,6 @@
        </div>
            </div>
        </div>
-<!--  The Table showing Dates -->
-<!--    <div class="row" style="margin-top: 5vh">
-        <div class="col-sm-10 col-sm-offset-1">
-            <p class="indexGuidelinesTag" id="timeline">Important Dates</p>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Description</th>
-                    <th>Date</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Faculties and their Research work announced</td>
-                    <td>15th Jan 2018</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Online Application Starts</td>
-                    <td>15th January 2018</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Application Submission Deadline</td>
-                    <td>28th February 2018</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Result Announcement</td>
-                    <td>15th March 2018</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>-->
-
     <div class="row">
         <div class="col-sm-6 col-sm-offset-5" style="text-align: center;margin-bottom:7vh;">
 
@@ -200,10 +155,6 @@
         </div>
     </div>
 </div>
-
-
     <?php require_once('footer.php'); ?>
-
     <?php require_once('login_modal.php'); ?>
-   
 </body>
