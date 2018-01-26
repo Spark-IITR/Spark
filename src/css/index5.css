@@ -414,12 +414,17 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
 .studentProjectTag{
     font-size: 2.5vw;
     margin-left: -4%;
-    margin-top: 1.5vh
+    margin-top: -.5vh
 }
 .TableDiv{
-    margin-top: 2vh
+    margin-top:.5vh
 }
 .projectSearchingInput{
+    font-size: 2vh;
+    margin-top:2vh;
+    margin-left: 4.4vw;
+}
+.studentSearchingInput{
     font-size: 2vh;
     margin-top:0vh;
     margin-left: 4.4vw;
@@ -478,18 +483,18 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
 .studentProfileDetailsTag{
     margin-top: -1vh;
     margin-bottom: 1vh;
-    padding-left:10%
+    padding-left:14%
 }
 .studentProfileDetails{
     font-size: 2.5vh;
     color: rgba(9, 9, 9, 0.48);
     margin-top: -1vh;
-    padding-left: 10%;
+    padding-left: 14%;
     padding-bottom:1vh;
 }
 .studentProfileLogoutButton{
     width: 10vw;
-    margin-left: 9%;
+    margin-left: 7%;
     text-align: center;
     /*margin-bottom: 10vh;*/
 }
@@ -505,17 +510,6 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
     background-color: #003484;
 
 }
-
-.studentProfileUploadTag0{
-    font-size: 2.2vh;
-    font-weight: bold;
-    text-align: center;
-    margin: unset;
-    margin-left: 4%;
-    margin-bottom: 1.5vh;
-    margin-top: 2.5vh;
-}
-
 .studentProfileUploadTag{
     font-size: 2.2vh;
     font-weight: bold;

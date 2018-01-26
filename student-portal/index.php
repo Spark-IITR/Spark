@@ -15,15 +15,12 @@ session_start();
         $_SESSION['time']=time();
     }
 
-
 require '../config/config.php';
 $studentRealId = $name = $email1 = $contact = $department = $college = $sparkId = ""; 
 
 if($_SESSION['role']=='student')
 {
     
-
-
 	$role = $_SESSION['role'];
 
 $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommendedFaculty,fundingType,adminRemark,sparkId FROM student WHERE email = ? and role = ?";
@@ -43,12 +40,6 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
                         require_once '../header.php';
 
-
-
-                        	
-
-							 
-					
 ?>
 
     <div class="container-fluid">
@@ -68,7 +59,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 							     <label for="profileImageUpload"><span class="glyphicon glyphicon-folder-open hidden-sm selectImageButtonTabFix" style="padding-right: 7px;"></span>Change Image</label>
                             </div>
 						</form>
-    				 </div>
+    				</div>
     			</div>
     			<div class="row studentDetails">
                 <p class="studentProfileDetailsTag  studentProfileUpperMargin">SPARK ID</p>
@@ -88,13 +79,11 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     			<p class="studentProfileDetailsTag">CONTACT NO.</p>
     			<p class="studentProfileDetails"><?php echo $contact; ?></p></div>
 
-    			 <a class="btn btn-default studentProfileLogoutButton" href="<?php echo base_url; ?>logout.php" >Logout</a>
+    			<a class="btn btn-default studentProfileLogoutButton" href="<?php echo base_url; ?>logout.php" >Logout</a>
     		</div>
     		<div class="col-sm-9 rightContainerStudent">
     			<div class="row">
     				<div class="col-sm-12">
-    					
-    					
     					<div class="container-fluid">
 			                <div class="row" style="margin-top: 0vh;">
 			                    <div class="col-sm-6">
@@ -105,13 +94,11 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 			                    </div> -->
 			                </div>
 			            </div>
-			            
-
     					<div class="TableDiv">
 						  	<ul class="nav nav-tabs" role="tablist">
 							    <li role="presentation" class="active col-sm-4 col-xs-4"><a href="#available" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
 							     <li role="presentation" class="col-sm-4 col-xs-4"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
-							     <li class="col-sm-4 col-xs-4" ><input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Projects.."></li>
+							     <li class="col-sm-4 col-xs-4" ><input class="form-control studentSearchingInput" id="myInput" type="text" placeholder="Search Projects.."></li>
 						  	</ul>
 
 						  	<div class="tab-content studentTabContentDiv">
@@ -132,36 +119,27 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     				</div>
     			</div>
     			<div class="row" style="margin-left: 0%">
-
     				<div class="col-sm-6 col-xs-12">
-                        <p class="studentProfileUploadTag" >Upload Resume :</p>
-
+                        <!-- <p class="studentProfileUploadTag" >Upload Resume :</p> -->
     					<form action="../uploadFiles/uploadResume.php" method="post" enctype="multipart/form-data" id="resumeFrom">
 					        <input type="hidden" name="resumeId" value="<?php echo $email1; ?>" />
                             <div class="col-sm-7 col-xs-7">
                                 <input type="file" name="resume" id="resume" class="inputfile" />
-							    <label for="resume"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Select File</label>
+							    <label for="resume"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Upload Resume</label>
                             </div>
 						</form>
     				</div>
-
-                    
-
     				<div class="col-md-6 col-sm-6 col-xs-12" style=" display: block;">
-                        <p class="studentProfileUploadTag" >Upload Transcript :</p>
-
+                        <!-- <p class="studentProfileUploadTag" >Upload Transcript :</p> -->
     					<form action="../uploadFiles/uploadNOC.php" id="nocForm" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="nocId" value="<?php echo $email1; ?>" />
 					        <div class="col-md-7 col-sm-7 col-xs-7"> 
                                 <input type="file" name="noc" id="noc" class="inputfile""/>
-							    <label for="noc"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Select File</label>
+							    <label for="noc"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Upload Transcript</label>
                             </div>
 						</form>
     				</div>
     			</div>
-
-                
-
                 <div class="row"  style="margin-top: 1vh">
                     <div class="col-sm-12  col-xs-12 ">
                         <div class="row">
@@ -180,116 +158,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                     </div>
                 </div>
 
-<!--                EMBED-->
-<!--                <a target="_blank"><embed src="../uploadFiles/showNOC.php?email=--><?//=$email1 ?><!--" type="application/pdf"   class="pdfDisplay" width="90%" id="showResume" style="display:none"></a>-->
-<!--                OBJECT-->
-<!--                    <a target="_blank"><object data="../uploadFiles/showNOC.php?email=--><?//=$email1 ?><!--" type="application/pdf" width="300" height="200">-->
-<!--                    <a href="../uploadFiles/showNOC.php?email=--><?//=$email1 ?><!--">test.pdf</a>-->
-<!--                        </object></a>-->
-<!--                IFRAME-->
-<!--                        <a target="_blank"><iframe src="../uploadFiles/showNOC.php?email=--><?//=$email1 ?><!--" style="width:600px; height:500px;" frameborder="0"></iframe></a>-->
-
-
-
-                <script>
-
-                $(document).ready(function(){
-                    $("#showResumeButton").click(function(){
-                        $("#showResume").css("display", "");
-                        $("#showNOC").css("display","none");
-                    });
-                });
-
-                 $(document).ready(function(){
-                    $("#showNOCButton").click(function(){
-                        $("#showResume").css("display", "none");
-                        $("#showNOC").css("display","");
-                    });
-                });
-                </script>
-
-<?php
-// require '../config/config.php';
-
-// if ($_POST && !empty($_FILES)) {
-//     if($_FILES['resume']['error'] == 0) {
-//         $email = $_POST['resumeId'];
-//         $type = $conn->real_escape_string($_FILES['resume']['type']);
-//         $data = $conn->real_escape_string(file_get_contents($_FILES  ['resume']['tmp_name']));
-//         $size = intval($_FILES['resume']['size']);
- 
-// 		 if ( in_array($type, array('application/pdf'))) {
-// 		     if ( $size < 500000) {
-
-// 		                $sql1 = "SELECT resume from student WHERE email= ? ";
-
-// 		        if($stmt1 = mysqli_prepare($conn, $sql1)){
-// 		            mysqli_stmt_bind_param($stmt1, "s", $param_username);
-		            
-// 		            $param_username = $email;
-		            
-// 		            if(mysqli_stmt_execute($stmt1)){
-// 		                mysqli_stmt_store_result($stmt1);
-
-// 		                if(!mysqli_stmt_num_rows($stmt1) == 0){                    
-// 		                    mysqli_stmt_bind_result($stmt1, $resumePdf);
-// 		                    if(mysqli_stmt_fetch($stmt1)){
-		                
-// 		                    	if($resumePdf==null){
-// 			                        $query = "UPDATE user set resume=? where email=?";
-// 			             			if($stmt3 = mysqli_prepare($conn, $query)){
-// 							            mysqli_stmt_bind_param($stmt3, "ss",$param_resume, $param_email);
-// 							            $param_email = $email;
-// 							            $param_resume = $data;
-// 							            if(mysqli_stmt_execute($stmt3)){
-// 							                 echo 'Resume uploaded';
-// 							                  // header ("location:../student-portal/");
-// 							            } else{
-// 							               echo 'Error! Failed to insert the file'
-// 			                               . "<pre>{$conn->error}</pre>";
-// 							            }
-// 							        }else {
-// 							        	echo 'Already uploaded';
-// 		                        		// header ("location:../student-portal/");
-// 		                        		// mysqli_stmt_close($stmt);
-// 							    	}
-// 		                    	}else{echo 'Already uploaded';
-// 		                        // header ("location:../student-portal/");
-// 		                		}
-// 		            		}
-// 		      			}
-// 		    		}
-// 		 		}
-// 			}
-// 			else{
-// 					echo "File size too large. Size limit is 100kb only.";
-// 			}
-		        
-// 		}
-// 			else{
-// 				echo "Choose pdf format.";
-// 		}
-// 	}
-//         else {
-//             echo 'File is not selected.';
-//     }
- 
-//    mysqli_stmt_close($stmt1);
-// }
-
-
-?>
-
-   <!-- <script>
-   		function resume_error(){
-	   		var resume = $('#resume').value;
-	   		if(resume==NULL){
-	   			alert('no file selected');
-	   		}
-		}
-   </script> 	 -->		
-
-
+                
     		</div>
     	</div>
 
@@ -304,7 +173,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                             <li>Once uploaded, you will not be able to change file so cross-check before submitting. </li>
                             <li>Each student have five choices to select their project according to his/her priority.</li>
                             <li>Once the priorities are selected you will not be able to change it. So, choose priorities carefully after inspecting all the projects.</li>
-                            <li>Size of image should be less than 500 KB.</li>
+                            <li>Size of image should be less than 300 KB.</li>
                         </ul>
                     </div>
                 </div>
@@ -369,33 +238,21 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                 </div>
             </div>
         </div>
-
-
     </div>
-<div style="height:5vh;"> </div>
+
+    <div style="height:5vh;"> </div>
     <?php require_once('../footer.php');?>
-<?php
+    
+    <?php
 					}
 		 
                 } 
             } 
         }
-        
         mysqli_stmt_close($stmt);
-
             mysqli_close($conn);
-        
     }
-
 ?>
-
-		 
-
-
-<?php echo"
-
-
-";?>
 
 <script>
         $(document).ready(function(){
@@ -445,6 +302,21 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     </script>
 
     <script>
+        $(document).ready(function(){
+            $("#showResumeButton").click(function(){
+                $("#showResume").css("display", "");
+                $("#showNOC").css("display","none");
+            });
+        });
+         $(document).ready(function(){
+            $("#showNOCButton").click(function(){
+                $("#showResume").css("display", "none");
+                $("#showNOC").css("display","");
+            });
+        });
+    </script>
+    
+    <script>
             $('#resume').on('change', function () {
                 $('#resumeFrom').submit();
             });
@@ -476,7 +348,6 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                 });
             }
         }
-
 
         function spriority2(data){
 
@@ -567,4 +438,3 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
         }
 
     </script>
-
