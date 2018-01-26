@@ -1,7 +1,7 @@
 				
 
 
-							<table class="table table-striped">
+							<table class="table table-hover" >
 										
 				                        <?php  
 										
@@ -12,13 +12,12 @@
 											        echo '<p>There are no entries in the database</p>';
 											    }
 											    else {
-											        echo '<thead style="">
+											        echo '<thead>
 											        		<tr>
-											        			<th title="Field #1">ID</th>
-									                            <th title="Field #2">Name</th>
-									                            <th title="Field #3">Department</th>
-									                            <th title="Field #4">Research interests/Tentative projects for summer internship</th>
-									                            <th title="Field #5">Set Priority</th>
+									                            <th style="width:15%">Name</th>
+									                            <th style="width:15%">Department</th>
+									                            <th style="width:55%">Research interests/Tentative projects for summer internship</th>
+									                            <th style="width:15%">Set Priority</th>
 								                        	</tr>
 								                        </thead>';
 															 
@@ -26,7 +25,6 @@
 											            echo "
 											                <tbody id='myTable'>
 											                	<tr>
-												                    <td>{$row['id']}</td>
 												                    <td>{$row['name']}</td>
 												                    <td>{$row['department']}</td>
 												                    <td>{$row['project']}</td>

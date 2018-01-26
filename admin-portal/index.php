@@ -6,6 +6,9 @@ session_start();
     
     if(time()-$_SESSION['time']>5*60){
         unset($_SESSION['time']);
+        setcookie("username", "", time()-3600);
+        setcookie("role", "", time()-3600);
+        setcookie("name", "", time()-3600); 
         session_destroy();
         header("location: ../index.php");}
     else{

@@ -72,14 +72,14 @@
 
 								    }
 							} ?>
-									<table class="table table-striped">
-										<thead style="font-size: 14px;"><tr><th title="Field #1">Priority</th>
-				                            <th title="Field #2">Name</th>
-				                            <th title="Field #3">Department</th>
-				                            <th title="Field #5">Tentative projects for summer internship</th>
+									<table class="table table-striped" >
+										<thead style="font-size: 14px;width: 10%"><tr><th title="Field #1">Priority</th>
+				                            <th style="width:18%">Name</th>
+				                            <th style="width:18%">Department</th>
+				                            <th style="width:64%">Tentative projects for summer internship</th>
 				                        </tr></thead>
 				                        <tbody id="myTable" ><tr>
-				                            <td align="right">1st</td>
+				                            <td>1st</td>
 				                            <?php if(!$spriority1FacultyId){ ?>
 				                            <td colspan="4"> <?php echo ' Project yet not choosen';?></td>
 				                            <?php }else{ ?>
@@ -90,7 +90,7 @@
 				                          	<?php } ?>
 				                        </tr>
 				                        <tr>
-											<td align="right">2nd</td>
+											<td >2nd</td>
 				                            <?php if(!$spriority2FacultyId){ ?>
 				                            <td colspan="4"> <?php echo ' Project yet not choosen';?></td>
 				                            <?php }else{ ?>
@@ -101,7 +101,7 @@
 				                          	<?php } ?>
 				                        </tr>
 				                        <tr>
-				                            <td align="right">3rd</td>
+				                            <td >3rd</td>
 				                            <?php if(!$spriority3FacultyId){ ?>
 				                            <td colspan="4"> <?php echo 'Project yet not choosen';?></td>
 				                            <?php }else{ ?>
@@ -112,7 +112,7 @@
 				                          	<?php } ?>
 				                        </tr>
 				                        <tr>
-				                            <td align="right">4th</td>
+				                            <td >4th</td>
 				                            <?php if(!$spriority4FacultyId){ ?>
 				                            <td colspan="4"> <?php echo 'Project yet not choosen';?></td>
 				                            <?php }else{ ?>
@@ -123,7 +123,7 @@
 				                          	<?php } ?>
 				                        </tr>
 				                        <tr>
-				                            <td align="right">5th</td>
+				                            <td >5th</td>
 				                            <?php if(!$spriority5FacultyId){ ?>
 				                            <td colspan="4"> <?php echo 'Project yet not choosen';?></td>
 				                            <?php }else{ ?>

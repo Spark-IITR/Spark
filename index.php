@@ -189,11 +189,11 @@
 
             <?php if($main_role=='student'){ ?>
 
-            <a href="<?php echo base_url_student; ?>" class="indexApplyNowButton" ><span class="glyphicon glyphicon-check applyNowCheck"> APPLY NOW</span></a>
+            <a href="<?php echo base_url_student; ?>" class="rainbow-button" alt="Apply Now"></a>
 
             <?php } else{?>
 
-            <a href="#login" data-toggle="modal" data-target="#login" class="rainbow-button" alt="Apply Now"></span></a>
+            <a href="#login" data-toggle="modal" data-target="#login" class="rainbow-button" alt="Apply Now"></a>
 
             
             <?php }?>

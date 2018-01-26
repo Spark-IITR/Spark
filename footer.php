@@ -12,13 +12,14 @@
                         <li> <a href="https://www.iitr.ac.in/institute/pages/The_Institute.html"> About IIT Roorkee  </a> </li>
                         <li> <a href="https://www.iitr.ac.in/campus_life/pages/index.html"> Campus Life @ IIT Roorkee </a> </li>
                         <li> <a href="https://www.iitr.ac.in/institute/pages/How_to_reach_IIT_Roorkee.html"> Reach IIT Roorkee </a> </li>
+                        <li><a href="logout.php">logout</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6 col-sm-offset-1 indexContactUs footerSeconddDiv">
                     <h3> Academics </h3>
                     <ul>
-                        <li> <a href="https://www.iitr.ac.in/administration/pages/Institute_Central_Administration.html"> Administration IITR </a> </li>
-                        <li> <a href="https://www.iitr.ac.in/Main/pages/_en_Departments__en_.html"> Departments of IITR  </a> </li>
+                        <li> <a href="https://www.iitr.ac.in/administration/pages/Institute_Central_Administration.html"> Administration IIT Roorkee </a> </li>
+                        <li> <a href="https://www.iitr.ac.in/Main/pages/_en_Departments__en_.html"> Departments of IIT Roorkee  </a> </li>
                         <li> <a href="https://www.iitr.ac.in/Main/pages/_en_Centers__en_.html"> Centres @ IIT Roorkee </a> </li>
                         <li> <a href="https://www.iitr.ac.in/administration/pages/Administration+DOFA+DOFA.html"> Faculty @ IIT Roorkee </a> </li>
                     </ul>

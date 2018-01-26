@@ -4,8 +4,11 @@ session_start();
 
    /* logout after 10min. */
     
-    if(time()-$_SESSION['time']>10*60){
+    if(time()-$_SESSION['time']>60*60*10){
         unset($_SESSION['time']);
+        setcookie("username", "", time()-3600);
+        setcookie("role", "", time()-3600);
+        setcookie("name", "", time()-3600); 
         session_destroy();
         header("location: ../index.php");}
     else{
@@ -104,12 +107,13 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
     					<div>
 						  	<ul class="nav nav-tabs" role="tablist">
-							    <li role="presentation" class="active col-sm-4 col-xs-4"><a href="#available" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
-							     <li role="presentation" class="col-sm-4 col-xs-4"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
-							     <li class="col-sm-4 col-xs-4" ><input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Projects.."></li>
+							    
+							     <li role="presentation" class="col-sm-4 col-xs-4 studentTableTab"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
+                                 <li role="presentation" class="active col-sm-4 col-xs-4 studentTableTab"><a href="#available" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
+							     <li class="col-sm-4 col-xs-4 studentTableTab" ><input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Projects.."></li>
 						  	</ul>
 
-						  	<div class="tab-content"  style="max-height: 50vh;overflow: scroll;">
+						  	<div class="tab-content"  style="height: 67vh;overflow: scroll;border-bottom:1px solid #ddd;border-left: 1px solid #ddd">
 								<div role="tabpanel" class="tab-pane fade in" id="applied">
 									
 									<?php require_once('appliedProject.php');  ?>
