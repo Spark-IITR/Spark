@@ -46,11 +46,11 @@ a:focus{
 }
 
 .indexNavbarIitrLogo{
-	height: auto;
-    width: 4.5vw;
-    margin-top: -1.5vh;
+	height: 10vw;
+    width: 8vw;
+    margin-top: -7vh;
     margin-left: 3vw;
-    margin-right: 1vw;
+    margin-right: 2vw;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -62,14 +62,14 @@ a:focus{
 }
 
 .sparkFullFormTag{
-    margin-left: 30%;
+    margin-left: 10.2vw;
     font-size: 1.05vw;
     margin-top: -6vh
 }
 .sparkNavbarTag{
     font-size: 2.4vw !important;
     color: #0a5670 !important;
-    margin-left: -1.1vw !important;
+    margin-left: -5vw !important;
 }
 /* slider css */
 

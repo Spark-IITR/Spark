@@ -114,7 +114,7 @@
     <link href="<?php echo base_url; ?>src/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/bootstrap-theme.min.css" rel="stylesheet">
     <script src="<?php echo base_url; ?>src/js/bootstrap.min.js"></script>
-    <link href="<?php echo base_url; ?>src/css/index5.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/index2.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/index1Tab.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/index1Mob.css" rel="stylesheet">
 </head>
@@ -132,7 +132,7 @@
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="https://www.iitr.ac.in"><img src="<?php echo base_url; ?>src/img/iitrLogo.png" alt="IIT Roorkee" class="indexNavbarIitrLogo"></a>
+         <a class="navbar-brand" href="<?php echo base_url; ?>"><img src="<?php echo base_url; ?>src/img/iitrLogo.png" alt="IIT Roorkee" class="indexNavbarIitrLogo"></a>
          <a class="navbar-brand sparkNavbarTag "  href="index.php">SPARK | IIT Roorkee</a><br/>
          <p class="sparkFullFormTag">Summer Internship Programme at IIT Roorkee</p>
        </div>
