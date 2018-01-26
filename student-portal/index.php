@@ -56,10 +56,11 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     		<div class="col-sm-3  studentProfileContainer">
     			<div class="row">
     				 <div class="col-sm-12" style="text-align: center;">
-		    			<img src="../uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class=" img-circle studentProfileImg" alt="Please Upload Image">
+		    			<img src="<?php echo base_url; ?>uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class="studentProfileImg" alt="Please Upload Image">
     				 </div>
+                     
     				 <div class="col-sm-12 col-xs-12">
-    				 	<form action="../uploadFiles/imageUpload.php" method="post" enctype="multipart/form-data">
+    				 	<form action="<?php echo base_url; ?>uploadFiles/imageUpload.php" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="imageId" value="<?php echo $email1; ?>">
 					        <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
 					        <div class="col-sm-7 col-xs-7"><input type="file" name="image" id="file" class="inputfile" />
@@ -68,22 +69,22 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 						</form>
     				 </div>
     			</div>
-    			<div class="row">
-                <p class="studentProfileDetailsTag  studentProfileUpperMargin">Id</p>
+    			<div class="row studentDetails">
+                <p class="studentProfileDetailsTag  studentProfileUpperMargin">SPARK ID</p>
                 <p class="studentProfileDetails"><?php echo $sparkId; ?></p>
-                <p class="studentProfileDetailsTag">Name</p>
+                <p class="studentProfileDetailsTag">NAME</p>
     			<p class="studentProfileDetails"><?php echo $name; ?></p>
 
-    			<p class="studentProfileDetailsTag">Department</p>
+    			<p class="studentProfileDetailsTag">DEPARTMENT</p>
     			<p class="studentProfileDetails"><?php echo $department; ?></p>
 
-    			<p class="studentProfileDetailsTag">College</p>
+    			<p class="studentProfileDetailsTag">COLLEGE</p>
     			<p class="studentProfileDetails"><?php echo $college; ?></p>
 
-    			<p class="studentProfileDetailsTag">Email</p>
+    			<p class="studentProfileDetailsTag">EMAIL</p>
     			<p class="studentProfileDetails"><?php echo $email1; ?></p>
 
-    			<p class="studentProfileDetailsTag">Contact No.</p>
+    			<p class="studentProfileDetailsTag">CONTACT NO.</p>
     			<p class="studentProfileDetails"><?php echo $contact; ?></p></div>
 
     			 <a class="btn btn-default studentProfileLogoutButton" href="<?php echo base_url; ?>logout.php" >Logout</a>
@@ -96,7 +97,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     					<div class="container-fluid">
 			                <div class="row" style="margin-top: 0vh;">
 			                    <div class="col-sm-6">
-			                        <p class="studentProjectTag" style="font-size: 26px">Projects</p>
+			                        <p class="studentProjectTag"><b>PROJECTS</b></p>
 			                    </div>
 			                    <!-- <div class="col-sm-4 col-sm-offset-2" style="margin-top: -2.5vh">
 			                        <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Projects..">
@@ -105,15 +106,14 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 			            </div>
 			            
 
-    					<div>
+    					<div class="TableDiv">
 						  	<ul class="nav nav-tabs" role="tablist">
-							    
-							     <li role="presentation" class="col-sm-4 col-xs-4 studentTableTab"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
-                                 <li role="presentation" class="active col-sm-4 col-xs-4 studentTableTab"><a href="#available" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
-							     <li class="col-sm-4 col-xs-4 studentTableTab" ><input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Projects.."></li>
+							    <li role="presentation" class="active col-sm-4 col-xs-4"><a href="#available" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
+							     <li role="presentation" class="col-sm-4 col-xs-4"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
+							     <li class="col-sm-4 col-xs-4" ><input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Projects.."></li>
 						  	</ul>
 
-						  	<div class="tab-content"  style="height: 67vh;overflow: scroll;border-bottom:1px solid #ddd;border-left: 1px solid #ddd">
+						  	<div class="tab-content studentTabContentDiv">
 								<div role="tabpanel" class="tab-pane fade in" id="applied">
 									
 									<?php require_once('appliedProject.php');  ?>
@@ -296,17 +296,16 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
         <div class="container-fluid" style="margin-top: 4vh;">
             <div class="row">
-                <div class="col-sm-9 col-sm-offset-3">
+                <div class="col-sm-10 col-sm-offset-1">
                     <div class="alert alert-success studentProfileInstructionBox " role="alert">
                         <ul><p class="studentProfileInstructionsTag"> <strong>Instructions :</strong> </p>
-                            <li>There are two sections for uploading Documents. The left one is for uploading <strong>Resume</strong> along with the <strong>latest marksheet</strong> (Compulsary for all students).These two files are to be compiled in a <strong>single pdf file</strong>. </li>
-                            <li>The other section for uploading documents is for <strong>NOC</strong> ( No Objection Certificate ), <strong>LOR</strong> ( Letter of Recommendation ) and a <strong>research statement</strong>. Again these areto be compiled into a single pdf file.</li>
-                            <li>NOC is required only for students not from IITR and must be issued from the department or the Dean of the student's College/Institute. The LOR is to be issued from the professor/mentor under whose guidance the student has worked before.Although, it is not mandatory but it will definitely affect the chances of being selected.
-                            Research Statement is also optional and it will also affect the chances of selection.It should include the reason why the fellow student wishes to join this intern.</li>
-                            <li>The above files must be i pdf format and the size should be less than 200 KB.</li>
+                            <li>There are two sections for uploading Documents. The left one is for uploading <strong>Resume</strong>  (Compulsary for all students) .</li>
+                            <li>The other section for uploading documents is for <strong>Transcript.</strong></li>
+                            <li>The above files must be in pdf format and the size should be less than 300 KB.</li>
                             <li>Once uploaded, you will not be able to change file so cross-check before submitting. </li>
-                            <li>Each student have choices to select their project according to his/her priority.</li>
+                            <li>Each student have five choices to select their project according to his/her priority.</li>
                             <li>Once the priorities are selected you will not be able to change it. So, choose priorities carefully after inspecting all the projects.</li>
+                            <li>Size of image should be less than 500 KB.</li>
                         </ul>
                     </div>
                 </div>
@@ -315,7 +314,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
         <div class="container-fluid" style="margin-top: 5vh">
             <div class="row">
-                <div class="col-sm-9 col-sm-offset-3">
+                <div class="col-sm-10 col-sm-offset-1">
                     <div class="alert alert-warning studentProfileStatusBox">
                         <p class="studentProfileStatusTag"><strong>Status : </strong></p>
                         <ul>
@@ -357,14 +356,16 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
         <div class="container-fluid" >
             <div class="row">
-                <div class="col-sm-9 col-sm-offset-3">
-                    <p class="studentProfileComplaintTag" >Problem/Complaint : </p>
+                <div class="col-sm-10 col-sm-offset-1">
+                    <p class="studentProfileComplaintTag" style="text-align: center;">Problems / Complaints / Suggestions : </p>
                     <div class="row">
                         <textarea class="form-control studentProfileComplaintBox" rows="5" name="complaintText" id="complaintText" placeholder="Text here .. "></textarea>
                     </div>
+                    <div style="text-align: center;">
                         <input type="submit" class="btn studentProfileComplaintButton" name="complaintSubmit" onclick="student_complaint('<?php echo $email1; ?>');">
+                    </div>
                     <div id="complaintDiv">
-                        
+
                     </div>
                 </div>
             </div>
@@ -416,6 +417,8 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
         var complaint = $('#complaintText').val();
         // alert(id);
         if(complaint!=''){
+            var a = confirm(" Do you want to submit complaint/suggestion ? ");
+            if(a==true){
      $.ajax({
         url: '../complaint.php',
         data: {"complaintId":id,"complaintText":complaint},
@@ -431,6 +434,9 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
             alert(errorThrown);
         }
         });
+ }else{
+
+ }
     }else{
         $('#complaintDiv').html('Insert text');
     }

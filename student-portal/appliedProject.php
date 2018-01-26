@@ -72,7 +72,7 @@
 
 								    }
 							} ?>
-									<table class="table table-striped" >
+									<table class="table table-striped">
 										<thead style="font-size: 14px;width: 10%"><tr><th title="Field #1">Priority</th>
 				                            <th style="width:18%">Name</th>
 				                            <th style="width:18%">Department</th>

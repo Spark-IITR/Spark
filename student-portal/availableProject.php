@@ -1,7 +1,7 @@
 				
 
 
-							<table class="table table-hover" >
+							<table class="table table-hover">
 										
 				                        <?php  
 										
@@ -27,7 +27,7 @@
 											                	<tr>
 												                    <td>{$row['name']}</td>
 												                    <td>{$row['department']}</td>
-												                    <td>{$row['project']}</td>
+												                    <td style='list-style-type:none'>{$row['project']}</td>
 												                    <td><div class='btn-group'>
 																			<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
 																			    Priority <span class='caret'></span>

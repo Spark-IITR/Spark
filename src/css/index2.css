@@ -411,15 +411,29 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
     padding-bottom: 1.5vh;
     margin-left: -2.0vw
 }
-
+.studentProjectTag{
+    font-size: 2.5vw;
+    margin-left: -4%;
+    margin-top: 1.5vh
+}
+.TableDiv{
+    margin-top: 2vh
+}
 .projectSearchingInput{
     font-size: 2vh;
     margin-top:0vh;
-    margin-left: 2.7vw;
+    margin-left: 4.4vw;
 }
 
-.studentTableTab{
+.TableDiv ul li{
     margin-left: -1.5%;
+}
+.projectTableDiv{
+    margin-top: 2vh;
+    border:1px solid #ddd;
+    border-radius: 10px;
+    padding-top: 15px;
+    margin-bottom:  5vh
 }
 .dropdown-menu{
     width: 8vw;
@@ -427,6 +441,14 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
 }
 .dropdown-menu li{
     cursor: pointer;
+}
+.studentTabContentDiv{
+    height: 67vh;
+    overflow: scroll;
+    border-radius: 2px;
+    border-bottom:1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
 }
 /* student page   */
 
@@ -442,8 +464,10 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
     margin-top: 1vh;
 }
 .studentProfileImg{
-    height: auto;
-    width: 8vw;
+    height:7vw;
+    width: 12vw;
+    border-radius: 5px;
+    border:1.5px solid #ddd;
 }
 
  .studentProfileName{
@@ -454,25 +478,31 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
 .studentProfileDetailsTag{
     margin-top: -1vh;
     margin-bottom: 1vh;
-    padding-left: 5%
+    padding-left: 25%
 }
 .studentProfileDetails{
     font-size: 2.5vh;
     color: rgba(9, 9, 9, 0.48);
     margin-top: -1vh;
-    padding-left: 5%;
+    padding-left: 25%;
     padding-bottom:1vh;
 }
 .studentProfileLogoutButton{
-    width: 10vh
-    margin-left: 5%;
-    margin-bottom: 10vw;
+    width: 10vw;
+    margin-left: 22%;
+    text-align: center;
+    /*margin-bottom: 10vh;*/
+}
+.studentDetails a{
+    margin-left: 0115%;
+    background-color: #003484
 }
 .studentProfileUpperMargin{
     margin-top: 3vh
 }
 .studentProfileImageSubmitButton{
     width: 120px;
+    background-color: #003484;
 
 }
 
@@ -549,18 +579,30 @@ p.studentProfileStatusTag:first-letter{
 }
 
 .studentProfileComplaintTag{
-    font-size: 3vh;
+    font-size: 1.7vw;
     font-weight: bold;
-    margin: unset;
     margin-top: 2.5vh;
     margin-left: 0.8vh;
     }
 
-.studentProfileComplaintButton{
-    margin-left: 0.5vw;
-    margin-top: 0vh;
+.studentProfileComplaintButton,
+.studentProfileComplaintButton:focus,
+.studentProfileComplaintButton:visited{
+    width: 30%;
+    padding:1vh;
+    background-color: #003484;
+    color:#fff; 
+    font-size: 1.3vw;
+    -webkit-box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.75);
 }
-
+.studentProfileComplaintButton:hover{
+    color: #fff;
+    -webkit-box-shadow: 3px 3px 14px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 14px 1px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 14px 1px rgba(0,0,0,0.75);
+}
 .inputfile {
 
     opacity: 0;
