@@ -478,25 +478,25 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
 .studentProfileDetailsTag{
     margin-top: -1vh;
     margin-bottom: 1vh;
-    padding-left: 25%
+    padding-left:10%
 }
 .studentProfileDetails{
     font-size: 2.5vh;
     color: rgba(9, 9, 9, 0.48);
     margin-top: -1vh;
-    padding-left: 25%;
+    padding-left: 10%;
     padding-bottom:1vh;
 }
 .studentProfileLogoutButton{
     width: 10vw;
-    margin-left: 22%;
+    margin-left: 9%;
     text-align: center;
     /*margin-bottom: 10vh;*/
 }
-.studentDetails a{
-    margin-left: 0115%;
-    background-color: #003484
+.rightContainerStudent{
+    margin-left: 3vw
 }
+
 .studentProfileUpperMargin{
     margin-top: 3vh
 }
@@ -631,6 +631,42 @@ p.studentProfileStatusTag:first-letter{
     margin-top: 2vh;
 
 }
+.inputimage {
+
+    opacity: 0;
+    /*overflow: hidden;*/
+    /*position: absolute;*/
+    z-index: -1;
+
+}
+@media only screen and (max-width: 768px)
+{.navbar-collapse.collapse {
+    height: 27vh !important;
+}
+}
+.inputimage + label {
+    font-size: 1vw;
+    font-weight: 400;
+    color: white;
+    width:9.7vw;
+    background-color: rgb(42, 101, 152);
+    display: inline-block;
+    border-radius: 2px;
+    border: 1px solid #777;
+    padding: 6px 7px;
+    margin-top: -1vh;
+    margin-left: -4%
+}
+.inputimage + label:hover,
+.inputfile + label:hover{
+    -webkit-box-shadow: 0px 0px 11px -2px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 11px -2px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 11px -2px rgba(0,0,0,0.75);
+
+}
+label{
+    max-width: none !important;
+}
 
 
 /* doctor page */
@@ -704,7 +740,7 @@ margin-bottom: 8vh
 }
 
 .pdfDisplay{
-    height: 160vh;
+    height: 70vh;
 }
 
 .indexNotice{

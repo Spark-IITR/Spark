@@ -114,7 +114,7 @@
     <link href="<?php echo base_url; ?>src/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/bootstrap-theme.min.css" rel="stylesheet">
     <script src="<?php echo base_url; ?>src/js/bootstrap.min.js"></script>
-    <link href="<?php echo base_url; ?>src/css/index2.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/index5.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/index1Tab.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/index1Mob.css" rel="stylesheet">
 </head>

@@ -53,19 +53,20 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
     <div class="container-fluid">
     	<div class="row">
-    		<div class="col-sm-3  studentProfileContainer">
+    		<div class="col-sm-2  studentProfileContainer">
     			<div class="row">
     				 <div class="col-sm-12" style="text-align: center;">
 		    			<img src="<?php echo base_url; ?>uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class="studentProfileImg" alt="Please Upload Image">
     				 </div>
                      
     				 <div class="col-sm-12 col-xs-12">
-    				 	<form action="<?php echo base_url; ?>uploadFiles/imageUpload.php" method="post" enctype="multipart/form-data">
+    				 	<form action="<?php echo base_url; ?>uploadFiles/imageUpload.php" id="imageForm" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="imageId" value="<?php echo $email1; ?>">
 					        <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
-					        <div class="col-sm-7 col-xs-7"><input type="file" name="image" id="file" class="inputfile" />
-							<label for="file"><span class="glyphicon glyphicon-folder-open hidden-sm selectImageButtonTabFix" style="padding-right: 7px;"></span>Select Image</label></div>
-	    					<div class="col-sm-5 col-xs-5"><input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" style="width: 100px;" value="Change" placeholder="" ></div>
+					        <div class="col-sm-7 col-xs-7">
+                                <input type="file" name="image" id="profileImageUpload" class="inputimage" />
+							     <label for="profileImageUpload"><span class="glyphicon glyphicon-folder-open hidden-sm selectImageButtonTabFix" style="padding-right: 7px;"></span>Change Image</label>
+                            </div>
 						</form>
     				 </div>
     			</div>
@@ -89,7 +90,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
     			 <a class="btn btn-default studentProfileLogoutButton" href="<?php echo base_url; ?>logout.php" >Logout</a>
     		</div>
-    		<div class="col-sm-9">
+    		<div class="col-sm-9 rightContainerStudent">
     			<div class="row">
     				<div class="col-sm-12">
     					
@@ -135,33 +136,31 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     				<div class="col-sm-6 col-xs-12">
                         <p class="studentProfileUploadTag" >Upload Resume :</p>
 
-    					<form action="../uploadFiles/uploadResume.php" method="post" enctype="multipart/form-data">
+    					<form action="../uploadFiles/uploadResume.php" method="post" enctype="multipart/form-data" id="resumeFrom">
 					        <input type="hidden" name="resumeId" value="<?php echo $email1; ?>" />
                             <div class="col-sm-7 col-xs-7">
                                 <input type="file" name="resume" id="resume" class="inputfile" />
 							    <label for="resume"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Select File</label>
                             </div>
-                            <div class="col-sm-5 col-xs-5">
-                                <input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" value="Upload" placeholder="" >
-                            </div>
 						</form>
     				</div>
+
+                    
 
     				<div class="col-md-6 col-sm-6 col-xs-12" style=" display: block;">
                         <p class="studentProfileUploadTag" >Upload Transcript :</p>
 
-    					<form action="../uploadFiles/uploadNOC.php" method="post" enctype="multipart/form-data">
+    					<form action="../uploadFiles/uploadNOC.php" id="nocForm" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="nocId" value="<?php echo $email1; ?>" />
 					        <div class="col-md-7 col-sm-7 col-xs-7"> 
-                                <input type="file" name="noc" id="noc" class="inputfile" />
+                                <input type="file" name="noc" id="noc" class="inputfile""/>
 							    <label for="noc"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Select File</label>
-                            </div>
-                            <div class="col-md-5 col-sm-5 col-xs-5">
-                                <input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" value="Upload" placeholder="" >
                             </div>
 						</form>
     				</div>
     			</div>
+
+                
 
                 <div class="row"  style="margin-top: 1vh">
                     <div class="col-sm-12  col-xs-12 ">
@@ -176,8 +175,8 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                     </div>
                     <div class="col-sm-12 col-xs-12 viewFile " style="margin-top:4vh; text-align: center; ">
 
-                        <a target="_blank"><embed src="../uploadFiles/showResume.php?email=<?=$email1 ?>" type="application/pdf"   class="pdfDisplay" width="90%" id="showResume" style="display:none"></a>
-                        <a target="_blank"><embed src="../uploadFiles/showNOC.php?email=<?=$email1 ?>" type="application/pdf"  class="pdfDisplay"  width="90%" id="showNOC" style="display:none; "></a>
+                        <a target="_blank"><embed src="../uploadFiles/showResume.php?email=<?=$email1 ?>" type="application/pdf"   class="pdfDisplay" width="100%" id="showResume" style="display:none"></a>
+                        <a target="_blank"><embed src="../uploadFiles/showNOC.php?email=<?=$email1 ?>" type="application/pdf"  class="pdfDisplay"  width="100%" id="showNOC" style="display:none; "></a>
                     </div>
                 </div>
 
@@ -446,6 +445,15 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     </script>
 
     <script>
+            $('#resume').on('change', function () {
+                $('#resumeFrom').submit();
+            });
+            $('#noc').on('change', function () {
+                $('#nocForm').submit();
+            });
+            $('#profileImageUpload').on('change', function () {
+                $('#imageForm').submit();
+            });
 
         function spriority1(data){
 
