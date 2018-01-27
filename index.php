@@ -52,7 +52,7 @@
                 <div class="row" id="objectives">
                 <p class="indexObjectiveTag"><strong>Program Objectives</strong></p>
                 <p class="indexObjectiveText text-justify">
-                <ul class="indexGuidelines text-justify" style="padding-right: 5%">
+                <ul class="indexGuidelines text-justify" >
                     <li>
                         To provide research exposure to interested undergraduate students of IITR.
                     </li>
@@ -66,8 +66,8 @@
 
             <div class="row">
                 <p class="indexObjectiveTag"><strong>Eligibility</strong></p>
-                <p class="indexObjectiveText text-justify">
-                <ul class="indexGuidelines text-justify">
+                <p class="indexObjectiveText text-justify" >
+                <ul class="indexGuidelines text-justify " style="">
                     <li>
                         Students who are currently enrolled and have completed at least two
                         semesters of the undergraduate degree (B.Arch./B.E./B.Tech./M.Sc) in a relevant discipline
@@ -91,13 +91,14 @@
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
             <p class="indexGuidelinesTag" id="guidelines">GUIDELINES</p>
-            <ul class="indexGuidelines text-justify" style="margin-left: -1%">
+            <p class="indexObjectiveText text-justify">
+            <ul class="indexGuidelines text-justify indexGuidelines1" >
 
-                <li>
+                <li>Please login to submit your application and view status of your application.</li>
+                <li >
                     Applications need to be submitted through an online portal made for the purpose where the
                     applicants will upload the transcripts (marksheets), photograph, a 500-word research
-                    statement, and a brief 1-2 page resume. For students of other institutes, no objection
-                    certificate (NOC) and letter of recommendation(s) will also be sought.
+                    statement, and a brief 1-2 page resume. <strong>NOC</strong> and <strong>LOR</strong> are not required.
                 </li>
                 <li>
                     Applicants need to mention names of three faculty members of their choice from the list of
@@ -111,42 +112,16 @@
                 examination.
             </li>
                 <li>
-                    All candidates selected for either the SPARK program or project funding will be provided
-                    accommodation and mess facilities in the Bhawans, subject to payment of necessary charges
-                    at par with that paid by students living in hostels.
+                    Accommodation and mess facilities in the Bhawans, subject to payment of necessary charges
+                    at par with that paid by students living in hostels. The average cost of housing would be around Rs.<strong>3500/month</strong> (including mess facility).
                 </li>
-                <li>
-                    All interns will be issued a temporary institute ID to avail the library, sports, medical,
-                    computer centre, internet, and other institute and departmental research and recreation
-                    facilities. S/he will be required to abide by the conduct rules of the institute, failing which the
-                    internship will be terminated and the intern will be asked to leave.
-                </li>
-                <li>
-                    There will be an open poster presentation by all SPARK fellows near the completion of the
-                    summer internship and three best poster awards will be given.
-                </li>
-                <li>
-                    At the successful completion of the internship, a certificate from the institute with the name
-                    of the intern and mentor, signed by Dean, SRIC, will be issued to the SPARK fellows. Project
-                    funded interns can get a certificate from the mentor on his/her letterhead.
-                </li>
-            </ul>
+                </ul></p>
         </div>
     </div>
 
-       <div class="row" style="margin-top: 10vh">
-           <div class="col-sm-10 col-sm-offset-1">
-       <div class="alert alert-info indexNoticeTag">
-           <p class="indexNoticeText">NOTICE</p>
-           <ul class="">
-               <li class="list-group-item indexNotice">The Application portal shall open by 31st Jan, 2018(tentative). After then only students can apply.
-               <br> Students can see the list of projects available in the Projects Section of the website.</li>
-           </ul>
-       </div>
-           </div>
-       </div>
+       
 <!--  The Table showing Dates -->
-<!--    <div class="row" style="margin-top: 5vh">
+    <div class="row" style="margin-top: 0vh;margin-bottom: 0vw;">
         <div class="col-sm-10 col-sm-offset-1">
             <p class="indexGuidelinesTag" id="timeline">Important Dates</p>
             <table class="table table-striped">
@@ -161,12 +136,12 @@
                 <tr>
                     <td>1</td>
                     <td>Faculties and their Research work announced</td>
-                    <td>15th Jan 2018</td>
+                    <td>15th January 2018</td>
                 </tr>
                 <tr>
                     <td>2</td>
                     <td>Online Application Starts</td>
-                    <td>15th January 2018</td>
+                    <td>Last week of January 2018</td>
                 </tr>
                 <tr>
                     <td>3</td>
@@ -181,9 +156,21 @@
                 </tbody>
             </table>
         </div>
-    </div>-->
+    </div>
 
-    <div class="row">
+<div class="row" style="margin-top: 10vh">
+           <div class="col-sm-10 col-sm-offset-1">
+       <div class="alert alert-info indexNoticeTag">
+           <p class="indexNoticeText">NOTICE</p>
+           <ul class="" style="padding:0vw;">
+               <li class="list-group-item indexNotice">The Application portal shall open by 31st Jan, 2018(tentative). After then only students can apply.
+               <br> Students can see the list of projects available in the Projects Section of the website.</li>
+           </ul>
+       </div>
+           </div>
+       </div>
+
+    <div class="row" >
         <div class="col-sm-6 col-sm-offset-5" style="text-align: center;margin-bottom:7vh;">
 
 

@@ -25,7 +25,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-3  col-md-3 col-sm-4 col-xs-8 col-sm-offset-1  indexContactUs indexContactUs1  footerThirdDiv">
-                    <h3> Contact Us </h3>
+                    <h3 style=""> Contact Us </h3>
                     <ul>
                         <li>
                             <div class="input-append  text-left indexContactUs1Details" style="color: #000">
@@ -37,17 +37,19 @@
                         </li>
                     </ul>
 
-                    <ul class="social">
-                        <li>
-                            <a href="https://www.facebook.com/SPARK-IIT-Roorkee-1938628919796672/"> <i class="fa fa-facebook"></i></a>
+                    <ul class="social" >
+                        <li class="socialIcon1">
+                            <a href="https://www.facebook.com/SPARK-IIT-Roorkee-1938628919796672/" > <i class="fa fa-facebook"></i></a>
                         </li>
                     </ul>
-                    <ul class="social" style="margin-left: 4vw">
-                        <li>
+                    <ul class="social socialIcon2" >
+                        <li class="socialIcon2" >
                             <a href="#"> <i class="fa fa-google-plus"></i></a>
                         </li>
                     </ul>
                 </div>
+
+
                 <div class="">
                     <div class="pull-right">
                         
