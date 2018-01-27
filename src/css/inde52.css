@@ -556,13 +556,20 @@ p.studentProfileStatusTag:first-letter{
 }
 
 .studentProfileSeeTranscriptsButton{
-    margin-left: 4.2vh;
+    /*margin-left:5vw;*/
+    margin-top: 2vh;
 }
 
 .studentProfileSeeTranscriptsButton1{
-    margin-left: 11vh;
+    /*margin-left:5vw;*/
+    margin-top: 2vh;
 }
-
+.uploadResume{
+    margin-left: -1vw !important
+}
+.uploadNOC{
+    margin-left: 6.3vw !important
+}
 .studentProfileComplaintBox{
     width:96.5%;
     padding: 15px;

@@ -118,47 +118,38 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 						</div>
     				</div>
     			</div>
-    			<div class="row" style="margin-left: 0%">
+    			<div class="row" style="margin-top: 4vh">
     				<div class="col-sm-6 col-xs-12">
-                        <!-- <p class="studentProfileUploadTag" >Upload Resume :</p> -->
     					<form action="../uploadFiles/uploadResume.php" method="post" enctype="multipart/form-data" id="resumeFrom">
 					        <input type="hidden" name="resumeId" value="<?php echo $email1; ?>" />
-                            <div class="col-sm-7 col-xs-7">
+                            <div class="col-sm-7 col-xs-7 uploadResume">
                                 <input type="file" name="resume" id="resume" class="inputfile" />
 							    <label for="resume"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Upload Resume</label>
                             </div>
 						</form>
+                        <div class=" studentProfileSeeTranscriptsButton" >
+                            <input type="button" class="btn btn-default " value="See Resume" id="showResumeButton">
+                        </div>
     				</div>
-    				<div class="col-md-6 col-sm-6 col-xs-12" style=" display: block;">
-                        <!-- <p class="studentProfileUploadTag" >Upload Transcript :</p> -->
+    				<div class="col-md-6 col-sm-6 col-xs-12">
     					<form action="../uploadFiles/uploadNOC.php" id="nocForm" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="nocId" value="<?php echo $email1; ?>" />
-					        <div class="col-md-7 col-sm-7 col-xs-7"> 
+					        <div class="col-md-7 col-sm-7 col-xs-7 uploadNOC"> 
                                 <input type="file" name="noc" id="noc" class="inputfile""/>
 							    <label for="noc"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Upload Transcript</label>
                             </div>
 						</form>
+                        <div class="studentProfileSeeTranscriptsButton1" >
+                            <input type="button"  class="btn btn-default" value="See Transcript" id="showNOCButton">
+                        </div>
     				</div>
     			</div>
                 <div class="row"  style="margin-top: 1vh">
-                    <div class="col-sm-12  col-xs-12 ">
-                        <div class="row">
-                            <div class="col-sm-5 col-xs-5 studentProfileSeeTranscriptsButton">
-                                <input type="button" class="btn btn-default " value="See Resume" id="showResumeButton">
-                            </div>
-                            <div class="col-sm-5 col-xs-5 studentProfileSeeTranscriptsButton1" >
-                                <input type="button"  class="btn btn-default" value="See Transcript" id="showNOCButton">
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-sm-12 col-xs-12 viewFile " style="margin-top:4vh; text-align: center; ">
-
                         <a target="_blank"><embed src="../uploadFiles/showResume.php?email=<?=$email1 ?>" type="application/pdf"   class="pdfDisplay" width="100%" id="showResume" style="display:none"></a>
                         <a target="_blank"><embed src="../uploadFiles/showNOC.php?email=<?=$email1 ?>" type="application/pdf"  class="pdfDisplay"  width="100%" id="showNOC" style="display:none; "></a>
                     </div>
                 </div>
-
-                
     		</div>
     	</div>
 
@@ -169,11 +160,10 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                         <ul><p class="studentProfileInstructionsTag"> <strong>Instructions :</strong> </p>
                             <li>There are two sections for uploading Documents. The left one is for uploading <strong>Resume</strong>  (Compulsary for all students) .</li>
                             <li>The other section for uploading documents is for <strong>Transcript.</strong></li>
-                            <li>The above files must be in pdf format and the size should be less than 300 KB.</li>
-                            <li>Once uploaded, you will not be able to change file so cross-check before submitting. </li>
+                            <li>You will not be able to change resume and transcript once uploaded. The files must be in pdf format and the size should be less than 300 KB.</li>
                             <li>Each student have five choices to select their project according to his/her priority.</li>
                             <li>Once the priorities are selected you will not be able to change it. So, choose priorities carefully after inspecting all the projects.</li>
-                            <li>Size of image should be less than 300 KB.</li>
+                            <li>Size of profile image should be less than 300 KB.</li>
                         </ul>
                     </div>
                 </div>
