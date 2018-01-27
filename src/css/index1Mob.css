@@ -55,6 +55,7 @@
 
 	.indexObjectiveTag {
 		font-size: 5vw;
+		padding-left: 2vw;
 	}
 
 	.indexIntroductionText {
@@ -71,16 +72,71 @@
 		text-align: center;
 	}
 
-	.indexGuidelines li {
-		font-size: 3.6vw;
+	.indexObjectiveText{
 
 	}
+
+
+	.indexGuidelines li {
+		font-size: 3.6vw;
+		letter-spacing: 0.5px;
+		word-spacing: 0px;
+		margin-left: -6vw;
+
+	}
+
+	.indexGuidelines1{
+		padding: 0;
+		padding-left: 7vw;
+	}
+
+	.indexNoticeTag{
+		margin-top:0vw;
+		margin-bottom: 0vw;
+	}
+
+	.indexNoticeText{
+		font-size:3.6vw;
+		margin-top: 0vh;
+	}
+
+	.indexNotice{
+    font-size: 1.1vw;
+	}
+
 
 	.indexApplyNowButton {
 		font-size: 3.4vw;
 		margin-top: 4vh;
 		width: 30vw;
 	}
+
+	.rainbow-button {
+  width:calc(30vw + 12px);
+  height:calc(8vw + 12px);
+  
+  border-radius:5px;
+  
+  font-size:3vw;
+  word-spacing: 5px;
+  margin-top: 5vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-left: 30vw;
+  
+  }
+
+  .rainbow-button:after {
+  content:attr(alt);
+  width:32vw;
+  height:10vw;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  
+}
 
 	.loginModalHeader {
 		font-size: 4vw;
@@ -100,15 +156,36 @@
 	}
 
 	.indexContactUs {
-		margin-top: -6vh
+		
         text-align: center;
+        padding:0.6vw;
 	}
 
     .indexContactUs1{
-        margin-left: 16.67%;
+        
         text-align: center;
     }
 
+    .footerSeconddDiv{
+    margin-left: 0vw;
+	}
+
+	.footerThirdDiv{
+    margin-left: 16vw;
+    margin-top: 0vw;
+    
+	}
+
+	.footer ul li {
+		margin-left: 0vw;
+	}
+
+	.socialIcon1{
+    margin-left:5vw;
+}
+.socialIcon2{
+    margin-left:5vw;
+}
     .indexContactUs1Details{
 
         text-align: center;
@@ -173,15 +250,12 @@
 	}
 
 	.studentProfileSeeTranscriptsButton{
-		margin-top: 2vh;
-		margin-left: 6vh;
-		width: 100px;
+		margin-left: 1vw;
+		height:10vw;
 	}
 
 	.studentProfileSeeTranscriptsButton1{
-		margin-top: 2vh;
-		margin-left: 8vh;
-		width: 80px;
+		
 	}
 	.studentProfileComplaintBox{
 		width:91%;
@@ -199,6 +273,48 @@
 		margin-top: 2.5vh;
 		text-align: center;
 	}
+
+	.studentProfileContainer{
+		padding-left: 0vw;
+	}
+
+.facultyProfileLogoutButton{
+	padding-top: 0.65vw;
+	font-size: 3vw;
+    width: auto;
+    height:7vw;
+    margin-left: 14% !important;
+    text-align: center;
+    /*margin-bottom: 10vh;*/
+}
+.facultyProfileTableTag{
+	padding: 0px;
+}
+
+.facultyProfileTableTag0{
+    padding-left: 0vw;
+    padding-right: 0vw;
+}
+
+.facultyProfileTableTag1{
+ padding-left: 0vw !important;
+    padding-right: 0vw ;
+}
+
+.facultyProfileTableTag2{
+    padding-left: 0vw;
+    padding-right: 0vw;
+}
+
+.facultyProfileTableTag3{
+    padding-left: 0vw;
+    padding-right: 0vw;
+}
+
+.facultyProfileTableTag4{
+    padding-left: 0vw !important ;
+    padding-right: 0vw ;
+}
 
 
     .projectSearchingInput{
@@ -257,7 +373,7 @@
 	}
 
 	.facultyProfileComplaintButton{
-		margin-left: 20vh;
+		margin-left: 24vh;
 		margin-top: 0vh;
 	}
 
@@ -270,6 +386,90 @@ font-size: 3.6vw;
 		width: 20vw;
 	}
 
+.selectImageButtonMobFix{
+	text-align: center;
+
+	
+}
+
+.selectImageButton{
+	font-size: 2vw;
+
+}
+
+.inputimage + label{
+	font-size: 3vw;
+    font-weight: 400;
+    color: white;
+   	width:auto;
+   	height: 7vw;
+    border: 1px solid #777;
+    padding: 6px 7px;
+    margin-top: -1vh;
+    margin-left: -3%
+}
+
+.studentProfileImg{
+    
+    width: 30vw;
+    height:auto;
+    border-radius: 5px;
+    border:1.5px solid #ddd;
+}
+
+.studentProfileLogoutButton{
+	padding-top: 0.65vw;
+	font-size: 3vw;
+    width: auto;
+    height:7vw;
+    margin-left: 10%;
+    text-align: center;
+    /*margin-bottom: 10vh;*/
+}
+
+
+
+.studentProjectTag{
+	font-size:7vw;
+	padding-top: 5vw;
+}
+
+.navTabs{
+	padding:5vw;
+}
+
+.TableDiv ul li{
+	padding:0vw;
+	padding-left: 1.35vw;
+}
+
+.studentSearchingInput{
+	margin-top: 4vw;
+	margin-left: .5vw;
+	padding-left: 0.5vw;
+	padding-right:0.5vw;
+	font-size:3.5vw;
+}
+
+.uploadResumeButtonMobFix{
+	font-size:5vw;
+	display: none;
+
+}
+
+
+.uploadResume{
+	padding: none;
+}
+
+.uploadNOC{
+	padding:none;
+	margin-left: -1vw;
+}
+
+.studentProfileComplaintButton{
+	font-size: 3vw;
+}
 
 
 

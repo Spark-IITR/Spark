@@ -114,8 +114,13 @@ a:focus{
 }
 .indexGuidelines{
     list-style-type: none;
+    padding-right: 5%
 	/*padding-left: 8vw*/
 }
+.indexGuidelines1{
+    padding-left:2vw;
+}
+
 .indexGuidelines li{
     font-size: 1.1vw;
     padding-top: 2vh;
@@ -177,34 +182,7 @@ a:focus{
     color: rgba(41, 0, 255, 0.73);
 }
 
-.indexApplyNowButton,
-.indexApplyNowButton:focus,
-.indexApplyNowButton:visited{
-    font-size: 1.4vw;
-    letter-spacing: 1.5px;
-    font-weight:400;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    /*width: 15vw;*/
-    padding: 2vh 2vw;
-    margin-top: 5vh;
-    background-color: #777;
-    cursor: pointer;
-    -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.4);
--moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.4);
-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.4);
-    -webkit-transition: .3s; 
-    transition: .3s;
-}
-.indexApplyNowButton:hover{
-    color: #777;
-    border:1.5px solid #777;
-    background-color: #eee;
-    -webkit-box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
--moz-box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
-box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
-}
+
 .rainbow-button {
   width:calc(15vw + 6px);
   height:calc(4vw + 6px);
@@ -220,10 +198,8 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
   color: #fff;
   /*padding: 2vh 2vw;*/
     margin-top: 5vh;
-    -webkit-box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
--moz-box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
-box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
-}
+
+  }
 .rainbow-button:after {
   content:attr(alt);
   width:15vw;
@@ -232,6 +208,7 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
   display:flex;
   align-items:center;
   justify-content:center;
+
 }
 .rainbow-button:hover {
   animation:slidebg 2s linear infinite;
@@ -318,8 +295,9 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
 .footerThirdDiv{
     margin-left: 6.5vw
 }
+
 .footerSeconddDiv{
-    margin-left: 6vw
+    margin-left: 6vw;
 }
 
 .social li {
@@ -363,6 +341,13 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
     color: #EDEFF1 !important;
 }
 
+.socialIcon1{
+    
+}
+.socialIcon2{
+
+    
+}
 .footer-bottom {
     background: #E3E3E3;
     border-top: 1px solid #DDDDDD;
@@ -421,8 +406,9 @@ box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.2);
 }
 .projectSearchingInput{
     font-size: 2vh;
-    margin-top:2vh;
-    margin-left: 4.4vw;
+    margin-top:0vh;
+
+    
 }
 .studentSearchingInput{
     font-size: 2vh;
@@ -568,7 +554,7 @@ p.studentProfileStatusTag:first-letter{
     margin-left: -1vw !important
 }
 .uploadNOC{
-    margin-left: 6.3vw !important
+    margin-left: 0vw ;
 }
 .studentProfileComplaintBox{
     width:96.5%;
@@ -640,6 +626,10 @@ p.studentProfileStatusTag:first-letter{
     z-index: -1;
 
 }
+
+.selectImageButton{
+
+}
 @media only screen and (max-width: 768px)
 {.navbar-collapse.collapse {
     height: 27vh !important;
@@ -656,7 +646,8 @@ p.studentProfileStatusTag:first-letter{
     border: 1px solid #777;
     padding: 6px 7px;
     margin-top: -1vh;
-    margin-left: -4%
+    margin-left: -4%;
+    align-content: center;
 }
 .inputimage + label:hover,
 .inputfile + label:hover{
@@ -729,6 +720,31 @@ margin-bottom: 8vh
     float: left;
     padding: 0 ;
     margin-right: 0vh;
+}
+
+.facultyProfileTableTag0{
+    padding-left: 2vw;
+    padding-right: 1vw;
+}
+
+.facultyProfileTableTag1{
+ padding-left: 2vw;
+    padding-right: 1vw;   
+}
+
+.facultyProfileTableTag2{
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.facultyProfileTableTag3{
+    padding-left: 2vw;
+    padding-right: 1vw;
+}
+
+.facultyProfileTableTag4{
+    padding-left: 2vw;
+    padding-right: 1vw;
 }
 
 .facultyRegisterInput{
