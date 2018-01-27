@@ -71,7 +71,7 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
                 <p class="studentProfileDetails"><?php echo $email1; ?></p>
 
 
-                <a class="btn btn-default studentProfileLogoutButton" style="margin-left:2vh; " href="../logout.php" >Logout</a>
+                <a class="btn btn-default facultyProfileLogoutButton" style="margin-left:2vh; " href="../logout.php" >Logout</a>
             </div>
             <div class="col-sm-9">
                 <div class="row">
@@ -79,11 +79,11 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
                         <p class="studentProjectTag">Projects</p>
                         <div>
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active col-sm-2 col-xs-4 facultyProfileTableTag"><a class="facultyProfileTableTag" style="padding-right: 0;padding-left: 0;" href="#application" aria-controls="home" role="tab" data-toggle="tab">Applications</a></li>
-                                <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag"><a class="facultyProfileTableTag" style="padding-right: 0;padding-left: 0;" href="#allApplications" aria-controls="kill" role="tab" data-toggle="tab">All Applications</a></li>
-                                <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag"><a class="facultyProfileTableTag" style="padding-right: 0;padding-left: 0;" href="#accepted" aria-controls="kill" role="tab" data-toggle="tab">Approved</a></li>
-                                <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag"><a class="facultyProfileTableTag" style="padding-right: 0;padding-left: 0;" href="#yourProjects" aria-controls="profile" role="tab" data-toggle="tab">Your Projects</a></li>
-                                <li role="presentation" class="col-sm-2 col-xs-3 facultyProfileTableTag"><a class="facultyProfileTableTag" style="padding-right: 0;padding-left: 0;" href="#allProject" aria-controls="kill" role="tab" data-toggle="tab">All Projects</a></li>
+                                <li role="presentation" class="active col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag0"  href="#application" aria-controls="home" role="tab" data-toggle="tab">Applications</a></li>
+                                <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag1"  href="#allApplications" aria-controls="kill" role="tab" data-toggle="tab">All Applications</a></li>
+                                <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag2"  href="#accepted" aria-controls="kill" role="tab" data-toggle="tab">Approved</a></li>
+                                <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag3"  href="#yourProjects" aria-controls="profile" role="tab" data-toggle="tab">Your Projects</a></li>
+                                <li role="presentation" class="col-sm-2 col-xs-3 facultyProfileTableTag "><a class="facultyProfileTableTag4"  href="#allProject" aria-controls="kill" role="tab" data-toggle="tab">All Projects</a></li>
                                 <li class="col-sm-2 col-xs-5 facultyProfileTableTag" style="float: right;"> <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Applications.."> </li>
                             </ul>
                             <div class="tab-content" style="max-height: 50vh;overflow: scroll;min-height: 40vh">
