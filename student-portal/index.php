@@ -54,9 +54,9 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     				 	<form action="<?php echo base_url; ?>uploadFiles/imageUpload.php" id="imageForm" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="imageId" value="<?php echo $email1; ?>">
 					        <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
-					        <div class="col-sm-7 col-xs-7">
+					        <div class="selectImageButtonMobFix" >
                                 <input type="file" name="image" id="profileImageUpload" class="inputimage" />
-							     <label for="profileImageUpload"><span class="glyphicon glyphicon-folder-open hidden-sm selectImageButtonTabFix" style="padding-right: 7px;"></span>Change Image</label>
+							     <label for="profileImageUpload" class="selectImageButton"><span class="glyphicon glyphicon-folder-open hidden-sm hidden-xs selectImageButtonTabFix selectImageButtonMobFix" ></span><p class="">Change Image</p></label>
                             </div>
 						</form>
     				</div>
@@ -96,7 +96,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 			            </div>
     					<div class="TableDiv">
 						  	<ul class="nav nav-tabs" role="tablist">
-							    <li role="presentation" class="active col-sm-4 col-xs-4"><a href="#available" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
+							    <li role="presentation" class="active col-sm-4 col-xs-4"><a href="#available" class="navTabs" aria-controls="profile" role="tab" data-toggle="tab">Available Projects</a></li>
 							     <li role="presentation" class="col-sm-4 col-xs-4"><a href="#applied" aria-controls="home" role="tab" data-toggle="tab">Applied Projects</a></li>
 							     <li class="col-sm-4 col-xs-4" ><input class="form-control studentSearchingInput" id="myInput" type="text" placeholder="Search Projects.."></li>
 						  	</ul>
@@ -119,28 +119,28 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     				</div>
     			</div>
     			<div class="row" style="margin-top: 4vh">
-    				<div class="col-sm-6 col-xs-12">
+    				<div class="col-sm-6 col-xs-6>
     					<form action="../uploadFiles/uploadResume.php" method="post" enctype="multipart/form-data" id="resumeFrom">
 					        <input type="hidden" name="resumeId" value="<?php echo $email1; ?>" />
-                            <div class="col-sm-7 col-xs-7 uploadResume">
+                            <div class="col-sm-6 col-xs-6 uploadResume" ">
                                 <input type="file" name="resume" id="resume" class="inputfile" />
-							    <label for="resume"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Upload Resume</label>
+							    <label for="resume"><span class="glyphicon glyphicon-folder-open uploadResumeButtonMobFix" style="padding-right: 7px;"></span></span >Upload Resume</label>
                             </div>
 						</form>
-                        <div class=" studentProfileSeeTranscriptsButton" >
-                            <input type="button" class="btn btn-default " value="See Resume" id="showResumeButton">
+                        <div class=" studentProfileSeeTranscriptsButton col-xs-6 col-sm-6" >
+                            <input type="button" class="btn btn-default studentProfileSeeTranscriptsButtonInput " value="See Resume" id="showResumeButton">
                         </div>
     				</div>
     				<div class="col-md-6 col-sm-6 col-xs-12">
     					<form action="../uploadFiles/uploadNOC.php" id="nocForm" method="post" enctype="multipart/form-data">
 					        <input type="hidden" name="nocId" value="<?php echo $email1; ?>" />
-					        <div class="col-md-7 col-sm-7 col-xs-7 uploadNOC"> 
+					        <div class="col-md-6 col-sm-6 col-xs-6 uploadNOC"> 
                                 <input type="file" name="noc" id="noc" class="inputfile""/>
-							    <label for="noc"><span class="glyphicon glyphicon-folder-open" style="padding-right: 7px"></span></span>Upload Transcript</label>
+							    <label for="noc"><span class="glyphicon glyphicon-folder-open uploadResumeButtonMobFix" style="padding-right: 7px"></span></span>Upload Transcript</label>
                             </div>
 						</form>
-                        <div class="studentProfileSeeTranscriptsButton1" >
-                            <input type="button"  class="btn btn-default" value="See Transcript" id="showNOCButton">
+                        <div class="studentProfileSeeTranscriptsButton col-xs-6 col-sm-6" >
+                            <input type="button"  class="btn btn-default studentProfileSeeTranscriptsButtonInput" value="See Transcript" id="showNOCButton">
                         </div>
     				</div>
     			</div>
@@ -215,7 +215,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1">
-                    <p class="studentProfileComplaintTag" style="text-align: center;">Problems / Complaints / Suggestions : </p>
+                    <p class="studentProfileComplaintTag" style="text-align: center;">Problems / Complaints / Suggestions: </p>
                     <div class="row">
                         <textarea class="form-control studentProfileComplaintBox" rows="5" name="complaintText" id="complaintText" placeholder="Text here .. "></textarea>
                     </div>
