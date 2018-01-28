@@ -106,7 +106,7 @@
 
     <meta name="author" content="Spark | IIT Roorkee">
 
-    <!-- <link rel="icon" href="<?php //echo base_url; ?>src/img/sparkLogo_ico(32x32).ico"> -->
+    <link rel="icon" href="<?php echo base_url; ?>src/img/sparkLogo_ico(32x32).ico">
     <!-- <meta property="og:image" content="<?php //echo base_url; ?>/img/sparkLogo.png" /> -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
