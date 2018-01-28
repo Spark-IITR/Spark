@@ -627,8 +627,9 @@ p.studentProfileStatusTag:first-letter{
 
 }
 
-.selectImageButton{
 
+.selectImageButton span{
+    margin-right: .4vw
 }
 @media only screen and (max-width: 768px)
 {.navbar-collapse.collapse {
@@ -639,14 +640,14 @@ p.studentProfileStatusTag:first-letter{
     font-size: 1vw;
     font-weight: 400;
     color: white;
-    width:9.7vw;
+    width:10.5vw;
     background-color: rgb(42, 101, 152);
     display: inline-block;
     border-radius: 2px;
     border: 1px solid #777;
-    padding: 6px 7px;
+    padding: 4px 8px;
     margin-top: -1vh;
-    margin-left: -4%;
+    margin-left: 6%;
     align-content: center;
 }
 .inputimage + label:hover,
@@ -799,5 +800,6 @@ box-shadow: 2px 4px 14px 0px rgba(0,0,0,0.4);
 .navbar-right {
     margin-right: 1vw !important;
 }
+
 
 

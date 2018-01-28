@@ -133,9 +133,16 @@
   height:10vw;
   display:flex;
   align-items:center;
-  justify-content:center;
+  justify-content:center; 
+}
 
-  
+.headerLogin,
+.headerLogin:visited,
+.headerLogin:focus{
+    border-radius: 5px;
+    padding: 10px 20px !important;
+    width: 21vw;
+    margin-top: 5px !important;
 }
 
 	.loginModalHeader {
@@ -271,6 +278,7 @@
 		font-weight: bold;
 		margin: unset;
 		margin-top: 2.5vh;
+		margin-bottom: 2vh;
 		text-align: center;
 	}
 
@@ -406,7 +414,7 @@ font-size: 3.6vw;
     border: 1px solid #777;
     padding: 6px 7px;
     margin-top: -1vh;
-    margin-left: -3%
+    margin-left: unset;
 }
 
 .studentProfileImg{

@@ -56,7 +56,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 					        <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
 					        <div class="selectImageButtonMobFix" >
                                 <input type="file" name="image" id="profileImageUpload" class="inputimage" />
-							     <label for="profileImageUpload" class="selectImageButton"><span class="glyphicon glyphicon-folder-open hidden-sm hidden-xs selectImageButtonTabFix selectImageButtonMobFix" ></span><p class="">Change Image</p></label>
+							     <label for="profileImageUpload" class="selectImageButton"><span class="glyphicon glyphicon-folder-open hidden-sm hidden-xs selectImageButtonTabFix selectImageButtonMobFix" ></span>Change Image</label>
                             </div>
 						</form>
     				</div>
