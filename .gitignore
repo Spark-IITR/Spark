@@ -5,3 +5,5 @@
 config.php
 serverlog.log
 nohup.out
+
+logout.php

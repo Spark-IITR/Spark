@@ -12,7 +12,7 @@
                         <li> <a href="https://www.iitr.ac.in/institute/pages/The_Institute.html"> About IIT Roorkee  </a> </li>
                         <li> <a href="https://www.iitr.ac.in/campus_life/pages/index.html"> Campus Life @ IIT Roorkee </a> </li>
                         <li> <a href="https://www.iitr.ac.in/institute/pages/How_to_reach_IIT_Roorkee.html"> Reach IIT Roorkee </a> </li>
-                        <li><a href="logout.php">logout</a></li>
+                        <li><a href="logout.php">Logout</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6 col-sm-offset-1 indexContactUs footerSeconddDiv">

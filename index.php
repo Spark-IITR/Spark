@@ -101,7 +101,7 @@
                     statement, and a brief 1-2 page resume. <strong>NOC</strong> and <strong>LOR</strong> are not required.
                 </li>
                 <li>
-                    Applicants need to mention names of three faculty members of their choice from the list of
+                    Applicants need to mention names of five faculty members of their choice from the list of
                     faculty members interested in having a summer intern.
                 </li><li>
                 Application submission deadline will be February 28 and decision on applications will be
@@ -163,7 +163,7 @@
        <div class="alert alert-info indexNoticeTag">
            <p class="indexNoticeText">NOTICE</p>
            <ul class="" style="padding:0vw;">
-               <li class="list-group-item indexNotice">The Application portal shall open by 31st Jan, 2018(tentative). After then only students can apply.
+               <li class="list-group-item indexNotice">The Application portal shall open by 31st Jan, 2018. After then only students can apply.
                <br> Students can see the list of projects available in the Projects Section of the website.</li>
            </ul>
        </div>
