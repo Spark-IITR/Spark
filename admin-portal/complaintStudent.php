@@ -1,6 +1,6 @@
 <?php 
     
-    $sql = "SELECT sparkId,id,name,cgpa,department,email,complaints,adminRemark from student";
+    $sql = "SELECT sparkId,id,name,cgpa,department,complaints,adminRemark,college from student";
     $result = $conn->query($sql);
     
     if($result){

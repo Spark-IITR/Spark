@@ -161,9 +161,9 @@
                 $main_name = $_COOKIE["name"];
               }
 
-              echo $main_name;
-              echo $main_username;
-              echo $main_role;
+              // echo $main_name;
+              // echo $main_username;
+              // echo $main_role;
              
                 if($main_role== "admin"){?>
 
