@@ -7,7 +7,7 @@
         if(!$result->num_rows == 0) {
 
             ?>
-            <table class="table table-striped" style="max-height: 70vh;overflow: scroll;">
+            <table class="table table-striped" >
                     <thead >
                         <tr>
                             <th>ID</th>

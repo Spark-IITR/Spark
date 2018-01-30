@@ -4,12 +4,22 @@ session_start();
 
    /* logout after 5min. */
     
-    if(time()-$_SESSION['time']>5*60*60){
+    if(time()-$_SESSION['time']>24*60*60){
+        if(isset($_COOKIE['username'])):
+            setcookie('username', '', time()-7000000, '/');
+        endif;
+        if(isset($_COOKIE['name'])):
+            setcookie('name', '', time()-7000000, '/');
+        endif;if(isset($_COOKIE['role'])):
+            setcookie('role', '', time()-7000000, '/');
+        endif;
+        
         unset($_SESSION['time']);
-        setcookie("username", "", time()-3600);
-        setcookie("role", "", time()-3600);
-        setcookie("name", "", time()-3600); 
+        session_unset();
         session_destroy();
+        setcookie("username", null, time()-3600);
+        setcookie("role", null, time()-3600);
+        setcookie("name", null, time()-3600);
         header("location: ../index.php");}
     else{
         $_SESSION['time']=time();
@@ -99,85 +109,53 @@ $sql = "SELECT name,email FROM admin WHERE email = ? and role = ?";
                             <li style="float: right;margin-top: -5vh"> <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Applications.."> </li>
                         </ul>
 
-                 <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane fade in active" id="application" style="max-height: 100vh;overflow: scroll;width:100%">
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade projectTableDiv in active" id="application" style="max-height: 70vh;overflow: scroll;width:100%">
 
                                 <?php include 'applicationTable.php'; ?>
 
-                                <div class="row">
-                                    <div class="col-sm-10 col-sm-offset-1">
-                                        <div class="row doctorsStudentContainer FetchStudentDetailDiv"  >
-
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
 
-                            <div role="tabpanel" class="tab-pane fade" id="faculty">
+                            <div role="tabpanel" class="tab-pane fade projectTableDiv" id="faculty" style="max-height: 70vh;overflow: scroll;width:100%">
                                 <?php include 'facultyTable.php'; ?>
-                                <div class="row">
-                                    <div class="col-sm-10 col-sm-offset-1">
-                                        <div class="row doctorsStudentContainer FetchFacultyDetailDiv"  >
-
-
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
 
-                            <div role="tabpanel" class="tab-pane fade" id="sparkFunding">
+                            <div role="tabpanel" class="tab-pane fade projectTableDiv" id="sparkFunding" style="max-height: 70vh;overflow: scroll;width:100%">
                                 
                                 <?php include 'sparkFunding.php'; ?>
-                                <div class="row">
-                                    <div class="col-sm-10 col-sm-offset-1">
-                                        <div class="row doctorsStudentContainer FetchStudentDetailDiv"  >
-
-
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
 
-                            <div role="tabpanel" class="tab-pane fade" id="projectFunding">
+                            <div role="tabpanel" class="tab-pane fade projectTableDiv" id="projectFunding" style="max-height: 70vh;overflow: scroll;width:100%">
                                 
                                 <?php include 'projectFunding.php'; ?>
-                                <div class="row">
-                                    <div class="col-sm-10 col-sm-offset-1">
-                                        <div class="row doctorsStudentContainer FetchStudentDetailDiv"  >
-
-
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
 
-                            <div role="tabpanel" class="tab-pane fade" id="complaintStudent">
+                            <div role="tabpanel" class="tab-pane fade projectTableDiv" id="complaintStudent" style="max-height: 70vh;overflow: scroll;width:100%">
                                 
                                 <?php include 'complaintStudent.php'; ?>
-                                <div class="row">
-                                    <div class="col-sm-10 col-sm-offset-1">
-                                        <div class="row doctorsStudentContainer FetchStudentDetailDiv"  >
-
-
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
 
-                            <div role="tabpanel" class="tab-pane fade" id="complaintFaculty">
+                            <div role="tabpanel" class="tab-pane fade projectTableDiv" id="complaintFaculty" style="max-height: 70vh;overflow: scroll;width:100%">
                                 
                                 <?php include 'complaintFaculty.php'; ?>
-                                <div class="row">
-                                    <div class="col-sm-10 col-sm-offset-1">
-                                        <div class="row doctorsStudentContainer FetchFacultyDetailDiv"  >
-
-
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
 
                         </div>
+
+                        <div class="row">
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <div class="row doctorsStudentContainer FetchStudentDetailDiv borderBox"  >
+
+
+                                        </div>
+                                    </div>
+                                </div>
                     </div>
                 </div>
                 <div id="DeleteApplicationDiv">
@@ -249,7 +227,7 @@ else
 
         success: function(data){
             
-            $('.FetchFacultyDetailDiv').html(data);
+            $('.FetchStudentDetailDiv').html(data);
      },
        error : function(XMLHttpRequest, textStatus, errorThrown) {
             alert(errorThrown);

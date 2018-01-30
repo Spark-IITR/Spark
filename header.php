@@ -115,7 +115,7 @@
     <link href="<?php echo base_url; ?>src/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/bootstrap-theme.min.css" rel="stylesheet">
     <script src="<?php echo base_url; ?>src/js/bootstrap.min.js"></script>
-    <link href="<?php echo base_url; ?>src/css/inde52.css" rel="stylesheet">
+    <link href="<?php echo base_url; ?>src/css/ind.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/index1Tab.css" rel="stylesheet">
     <link href="<?php echo base_url; ?>src/css/index1Mob.css" rel="stylesheet">
 </head>
@@ -150,7 +150,7 @@
               // $main_username = $_COOKIE["username"];
               // $main_role = $_COOKIE['role'];
               // $main_name = $_COOKIE['name'];
-
+              
               if (isset($_COOKIE['username'])) {
                 $main_username = $_COOKIE["username"];
               }
@@ -160,6 +160,10 @@
               if (isset($_COOKIE['name'])) {
                 $main_name = $_COOKIE["name"];
               }
+
+              echo $main_name;
+              echo $main_username;
+              echo $main_role;
              
                 if($main_role== "admin"){?>
 
