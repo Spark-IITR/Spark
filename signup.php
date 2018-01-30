@@ -107,6 +107,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // echo $college;
     }
 
+    if(empty(trim($_POST['degree']))){
+        $degree_err = "Please enter a Degree (B.Tech)";     
+    } else{
+        $degree = trim($_POST['degree']);
+        // echo $college;
+    }
+
 
     
 
@@ -129,7 +136,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
     // echo $username_err; echo $password_err; echo $confirm_password_err;
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)&& empty($degree_err)&& empty($cgpa_err) && empty($year_err) && empty($department_err)&& empty($college_err)&& empty($dob_err)&& empty($contact_err)&& empty($gender_err)&& empty($name_err)){
          $sql = "INSERT INTO student (email, password, name, contact, dob, college, gender, role, department, cgpa, year, degree,sparkId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
