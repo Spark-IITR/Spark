@@ -12,9 +12,9 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>C.G.P.A</th>
                             <th>Department</th>
+                            <th>Degree</th>
+                            <th>C.G.P.A</th>
                             <th>College</th>
                         </tr>
                     </thead>
@@ -30,10 +30,10 @@
                          <tr  onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
                             <td ><?php echo $row['id']; ?></td>
                             <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['cgpa']; ?></td>
                             <td><?php echo $row['department']; ?></td>
-                            <td><?php echo $row['complaints']; ?></td>
+                            <td><?php echo $row['degree']; ?></td>
+                            <td><?php echo $row['cgpa']; ?></td>
+                            <td><?php echo $row['college']; ?></td>
                            
                         </tr>
                         

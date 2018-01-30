@@ -11,8 +11,8 @@
                     <thead >
                         <tr>
                             <th>ID</th>
-                            <th>Spark ID</th>
                             <th>Name</th>
+                            <th>Email</th>
                             <th>Department</th>
                             
                         </tr>
@@ -26,8 +26,8 @@
                 ?>
                          <tr  onclick="fetch_faculty_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
                             <td ><?php echo $row['id']; ?></td>
-                            <td ><?php echo $row['sparkId']; ?></td>
                             <td><?php echo $row['name']; ?></td>
+                            <td ><?php echo $row['email']; ?></td>
                             <td><?php echo $row['department']; ?></td>
                             
                         </tr>

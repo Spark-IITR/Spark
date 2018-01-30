@@ -12,9 +12,9 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>C.G.P.A</th>
                             <th>Department</th>
+                            <th>Degree</th>
+                            <th>C.G.P.A</th>
                             <th>College</th>
                         </tr>
                     </thead>

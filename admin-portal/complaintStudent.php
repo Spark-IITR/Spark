@@ -1,6 +1,6 @@
 <?php 
     
-    $sql = "SELECT id,name,cgpa,department,email,complaints from student";
+    $sql = "SELECT sparkId,id,name,cgpa,department,email,complaints,adminRemark from student";
     $result = $conn->query($sql);
     
     if($result){
@@ -12,10 +12,11 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Email</th>
                             <th>C.G.P.A</th>
                             <th>Department</th>
                             <th>College</th>
+                            <th>Complaints</th>
+                            <th>Remark Given</th>
                         </tr>
                     </thead>
 
@@ -27,12 +28,14 @@
 
                 ?>
                          <tr  onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
-                            <td ><?php echo $row['id']; ?></td>
+                            <td ><?php echo $row['sparkId']; ?></td>
                             <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['cgpa']; ?></td>
                             <td><?php echo $row['department']; ?></td>
+                            <td><?php echo $row['college']; ?></td>
                             <td style="list-style-type: none;"><?php echo $row['complaints']; ?></td>
+                            <td><?php echo $row['adminRemark']; ?></td>
+
                            
                         </tr>
                         

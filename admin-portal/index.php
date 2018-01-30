@@ -4,7 +4,7 @@ session_start();
 
    /* logout after 5min. */
     
-    if(time()-$_SESSION['time']>5*60){
+    if(time()-$_SESSION['time']>5*60*60){
         unset($_SESSION['time']);
         setcookie("username", "", time()-3600);
         setcookie("role", "", time()-3600);
@@ -100,7 +100,7 @@ $sql = "SELECT name,email FROM admin WHERE email = ? and role = ?";
                         </ul>
 
                  <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane fade in active" id="application">
+                            <div role="tabpanel" class="tab-pane fade in active" id="application" style="max-height: 100vh;overflow: scroll;width:100%">
 
                                 <?php include 'applicationTable.php'; ?>
 
@@ -315,31 +315,5 @@ else
 
     <script>
        
-    function admin_remark_student(data){
-        
-        var id = data;
-        var remark = $('#remarkStudentText').val();
-        // alert(remark);
-        if(remark!=''){
-     $.ajax({
-        url: 'adminRemarkStudent.php',
-        data: {"remarkId":id,"remarkText":remark},
-        async: true,
-        type: 'POST',          
-
-        success: function(data){
-            
-            $('#remarkDiv').html(data);
-            $('#remarkText').val('');
-     },
-       error : function(XMLHttpRequest, textStatus, errorThrown) {
-            alert(errorThrown);
-        }
-        });
-    }else{
-        $('#remarkDiv').html('Insert text');
-    }
- }
     
-   
     </script>

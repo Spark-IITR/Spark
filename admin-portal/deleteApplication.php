@@ -10,7 +10,8 @@ require_once '../config/config.php';
 	            $param_studentId = $studentId;
 	            if(mysqli_stmt_execute($stmt)){
 	                
-	                header("location: index.php");
+	                echo '<script>alert("Application deleted. Please refresh the page. ");</script>';
+	                // header("location: index.php");
 	            } else{
 	                echo '<script>alert("Not Able To Delete. ");</script>';
 	            }

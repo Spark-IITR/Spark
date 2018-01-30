@@ -1,6 +1,6 @@
 <?php 
     
-    $sql = "SELECT id,name,department,email,complaints from faculty";
+    $sql = "SELECT id,name,department,email,complaints,adminRemark from faculty";
     $result = $conn->query($sql);
     
     if($result){
@@ -14,7 +14,9 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Department</th>
-                            <th>College</th>
+                            <th>Complaints</th>
+                            <th>Remarks Given</th>
+
                         </tr>
                     </thead>
 
@@ -25,13 +27,13 @@
                 if($row['complaints']!=null){
 
                 ?>
-                         <tr  onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
+                         <tr  onclick="fetch_faculty_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
                             <td ><?php echo $row['id']; ?></td>
                             <td><?php echo $row['name']; ?></td>
                             <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['department']; ?></td>
                             <td style="list-style-type: none;"><?php echo $row['complaints']; ?></td>
-                           
+                            <td><?php echo $row['adminRemark']; ?></td>
                         </tr>
                         
                 <?php } } ?> 

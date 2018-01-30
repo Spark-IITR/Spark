@@ -280,16 +280,17 @@ require_once '../config/config.php';
                             </div>
 
                             <div class="row">
-                                <div class="col-sm-4 col-sm-offset-3">
-                                        <textarea rows="3" cols="20"  id="remarkStudentText" placeholder="Text here .. "></textarea>
-                                        <input type="submit" onclick="admin_remark_student(';echo $row['id']; echo')" > 
+                                <div class="col-sm-4 col-sm-offset-3" style="margin-top:5vh">
+                                        <p>Add remark</p>
+                                        <textarea rows="3" cols="20"  class="remarkStudentText" placeholder="Text here .. "></textarea>
+                                        <input type="submit" onclick="admin_remark_student(';echo $studentId; echo')" > 
                                     <div id="remarkDiv">
                                         
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-sm-6 col-sm-offset-3" style="margin-top:4vh">
+                            <div class="col-sm-10 col-sm-offset-1" style="margin-top:4vh">
                             	<a target="_blank"><embed src="../uploadFiles/showResume.php?email='; echo $email3; echo '" type="application/pdf"   height="1000vh" width="100%" id="showResume" style="display:none"></a>
                             	<a target="_blank"><embed src="../uploadFiles/showNOC.php?email='; echo $email3; echo '" type="application/pdf"   height="1000vh" width="100%" id="showNOC" style="display:none"></a>
                             </div>
@@ -304,6 +305,38 @@ require_once '../config/config.php';
 
 
                             <script>
+                                
+                                function admin_remark_student(data){
+        
+                                        var id = data;
+                                        var remark = $('.remarkStudentText').val();
+                                        alert(remark);
+                                        alert(id);
+
+                                        if(remark!=''){
+                                     $.ajax({
+                                        url: 'adminRemarkStudent.php',
+                                        data: {"remarkId":id,"remarkText":remark},
+                                        async: true,
+                                        type: 'POST',          
+
+                                        success: function(data){
+                                            alert('remark2');
+                                            $('#remarkDiv').html(data);
+                                            $('#remarkText').val('');
+                                     },
+                                       error : function(XMLHttpRequest, textStatus, errorThrown) {
+                                            alert(errorThrown);
+                                            alert('remark3');
+                                        }
+                                        });
+                                    }else{
+                                        alert('remark1');
+                                        $('#remarkDiv').html('Insert text');
+                                    }
+                                 }
+    
+   
                                 
                                 function recommend_faculty(data){
                                         
