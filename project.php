@@ -17,7 +17,7 @@
                 <div class="container projectTableDiv">
                     <table class="table table-hover">
                         <?php  
-                            $sql    = "SELECT sparkId,name,department,project from faculty where role='faculty'";
+                            $sql    = "SELECT sparkId,name,department,project from faculty where role='faculty' order by department";
                             $result = $conn->query($sql);
                             if($result) {
                                 if($result->num_rows == 0) {

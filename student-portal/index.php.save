@@ -323,7 +323,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
             var facultyId = data;
             var studentId = <?php echo $studentRealId; ?> ;
-            con = confirm("Are you sure to set him/her as 1st priority. You won't be able to change.");
+            con = confirm("Are you sure to him/ger as first pririoty. You won't be able to change it.");
             if(con==true ){
                 $.ajax({
                     url: 'spriority1.php',
@@ -345,7 +345,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
             var facultyId = data;
             var studentId = <?php echo $studentRealId; ?> ;
-            con = confirm("Are you sure to set him/her as 2nd priority. You won't be able to change.");
+            con = confirm(("Are you sure to him/ger as first pririoty. You won't be able to change it."("Are you sure to him/ger as first pririoty. You won't be able to change it.");
             if(con==true ){
                 $.ajax({
                     url: 'spriority2.php',
@@ -367,7 +367,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
             var facultyId = data;
             var studentId = <?php echo $studentRealId; ?> ;
-            con = confirm("Are you sure to set him/her as 3rd priority. You won't be able to change.");
+            con = confirm('If you want to set 3rd priority for your project to him / her ? ');
             if(con==true ){
                 $.ajax({
                     url: 'spriority3.php',
@@ -389,7 +389,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
             var facultyId = data;
             var studentId = <?php echo $studentRealId; ?> ;
-            con = confirm("Are you sure to set him/her as 4th priority. You won't be able to change.");
+            con = confirm('If you want to set 4th priority for your project to him / her ? ');
             if(con==true ){
                 $.ajax({
                     url: 'spriority4.php',
@@ -411,7 +411,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
             var facultyId = data;
             var studentId = <?php echo $studentRealId; ?> ;
-            con = confirm("Are you sure to set him/her as 5th priority. You won't be able to change.");
+            con = confirm('If you want to set 5th priority for your project to him / her ? ');
             if(con==true ){
                 $.ajax({
                     url: 'spriority5.php',
