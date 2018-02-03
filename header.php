@@ -141,9 +141,8 @@
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav navbar-right">
                  <li><a href="<?php echo base_url; ?>index.php#aboutUs">About Us </a></li>
-                 <!-- <li><a href="<?php //echo base_url; ?>index.php#guidelines">Guidelines</a></li> -->
                  <li><a href="<?php echo base_url; ?>project.php">Projects</a></li>
-                 <!-- <li><a href="<?php //echo base_url; ?>index.php#timeline">Timeline</a></li> -->
+                 <li><a href="<?php echo base_url; ?>faq.php">FAQ's</a></li>
                  <li><a href="<?php echo base_url; ?>index.php#contact">Contact</a></li>
             <?php 
               $main_username = $main_role = $main_name = '';

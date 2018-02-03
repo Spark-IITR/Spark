@@ -633,7 +633,7 @@ p.studentProfileStatusTag:first-letter{
 }
 @media only screen and (max-width: 768px)
 {.navbar-collapse.collapse {
-    height: 27vh !important;
+    height: 35vh !important;
 }
 }
 .inputimage + label {
@@ -803,6 +803,16 @@ box-shadow: 2px 4px 14px 0px rgba(0,0,0,0.4);
 .navbar-right {
     margin-right: 1vw !important;
 }
-
+.faqQuestions{
+    font-size: 1.1vw;
+    color: #333;
+}
+.faqAnswer{
+ font-size: 1vw;
+    color: #777;
+    padding-left: 3vw;
+    margin-top: 0vh;
+    margin-bottom: 4vh;   
+}
 
 

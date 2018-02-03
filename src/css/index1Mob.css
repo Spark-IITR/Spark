@@ -15,6 +15,9 @@
 		margin-top: -.5vh;
 		margin-left: 3vw;
 	}
+	.projectsAvailableTag{
+		font-size: 7vw
+	}
 
 	.navbar-default .navbar-nav > li > a {
 		color: #777;
@@ -479,6 +482,17 @@ font-size: 3.6vw;
 	font-size: 3vw;
 }
 
+.faqQuestions{
+    font-size: 3.5vw;
+    color: #333;
+}
+.faqAnswer{
+ font-size: 3.3vw;
+    color: #777;
+    padding-left: 9.5vw;
+    margin-top: 0vh;
+    margin-bottom: 4vh;   
+}
 
 
 
@@ -494,3 +508,4 @@ font-size: 3.6vw;
 
 
 }
+
