@@ -200,7 +200,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
 
                             <?php }else{ ?>
 
-                                <span class="studentProfileStatus"><h3 class="studentProfileStatus"> Yet not recommended any faculty. </h3></span>
+                                <span class="studentProfileStatus"><h3 class="studentProfileStatus"> Yet not recommended by any faculty. </h3></span>
 
                             <?php } ?>
 
