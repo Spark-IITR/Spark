@@ -50,6 +50,11 @@
                     
                     <p class="faqAnswer">Please read the instructions on portal carefully and follow the given format. You will not be able to change once uploaded. If you want to change complaint us through complaint box given on your portal.</p>
                     <ul>
+                        <li><p class="faqQuestions text-justify"> I have set the priority but it is not reflected in the applied project tab.</p></li>
+                    </ul>
+                    
+                    <p class="faqAnswer text-justify">Please, Refresh the page.</p>
+                    <ul>
                 		<li><p class="faqQuestions">  What will be the criteria of selection?</p></li>
                 	</ul>
                     

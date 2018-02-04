@@ -17,7 +17,7 @@
          </div>
        </div>
        <div class="item">
-         <img src="src/img/slider2.jpg" alt="slider2" class="indexSliderImage responsive">
+         <img src="src/img/collage.png" alt="slider2" class="indexSliderImage responsive">
          <div class="carousel-caption">
          </div>
        </div>
@@ -158,15 +158,16 @@
         </div>
     </div>
 
-<div class="row" style="margin-top: 10vh">
+         <div class="row" style="margin-top: 10vh">
            <div class="col-sm-10 col-sm-offset-1">
-       <div class="alert alert-info indexNoticeTag">
-           <p class="indexNoticeText">NOTICE</p>
-           <ul class="" style="padding:0vw;">
-               <li class="list-group-item indexNotice">The Application portal shall open by 31st Jan, 2018. After then only students can apply.
-               <br> Students can see the list of projects available in the Projects Section of the website.</li>
-           </ul>
-       </div>
+               <div class="alert alert-info indexNoticeTag">
+                   <p class="indexNoticeText">NOTICE</p>
+                   <ul class="" style="padding:0vw;">
+                       <li class="list-group-item indexNotice">Replies of personal complaints will show in status box as a remark on your portal.</li>
+                       <li class="list-group-item indexNotice">Upload your images who have not uploaded yet.</li>
+                       <li class="list-group-item indexNotice">Please follow the facebook page for further updates.</li>
+                   </ul>
+               </div>
            </div>
        </div>
 

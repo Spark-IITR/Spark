@@ -119,7 +119,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
     				</div>
     			</div>
     			<div class="row" style="margin-top: 4vh">
-    				<div class="col-sm-6 col-xs-6>
+    				<div class="col-sm-6 col-xs-6">
     					<form action="../uploadFiles/uploadResume.php" method="post" enctype="multipart/form-data" id="resumeFrom">
 					        <input type="hidden" name="resumeId" value="<?php echo $email1; ?>" />
                             <div class="col-sm-6 col-xs-6 uploadResume" ">

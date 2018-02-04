@@ -11,21 +11,21 @@ if ($_POST && !empty($_FILES)) {
          if ( in_array($type, array('application/pdf'))) {
              if ( $size < 300000) {
 
-                        $sql1 = "SELECT resume from student WHERE email= ? ";
+                //         $sql1 = "SELECT resume from student WHERE email= ? ";
 
-                if($stmt1 = mysqli_prepare($conn, $sql1)){
-                    mysqli_stmt_bind_param($stmt1, "s", $param_username);
+                // if($stmt1 = mysqli_prepare($conn, $sql1)){
+                //     mysqli_stmt_bind_param($stmt1, "s", $param_username);
                     
-                    $param_username = $email;
+                //     $param_username = $email;
                     
-                    if(mysqli_stmt_execute($stmt1)){
-                        mysqli_stmt_store_result($stmt1);
+                //     if(mysqli_stmt_execute($stmt1)){
+                //         mysqli_stmt_store_result($stmt1);
 
-                        if(!mysqli_stmt_num_rows($stmt1) == 0){                    
-                            mysqli_stmt_bind_result($stmt1, $resumePdf);
-                            if(mysqli_stmt_fetch($stmt1)){
+                //         if(!mysqli_stmt_num_rows($stmt1) == 0){                    
+                //             mysqli_stmt_bind_result($stmt1, $resumePdf);
+                //             if(mysqli_stmt_fetch($stmt1)){
                         
-                                if($resumePdf==null){
+                //                 if($resumePdf==null){
                                     $query = "UPDATE student set resume=? where email=?";
                                     if($stmt3 = mysqli_prepare($conn, $query)){
                                         mysqli_stmt_bind_param($stmt3, "bs",$param_resume, $param_email);
@@ -38,24 +38,25 @@ if ($_POST && !empty($_FILES)) {
                                                  alert('sj');
                                              </script>
                                              <?php
-                                              header ("location:../student-portal/");
+                                                header('Location: '.base_url_student.'index.php');
+                                              
                                         } else{
-                                              header ("location:../student-portal/");
+                                              header('Location: '.base_url_student.'index.php');
                                         }
                                     }else {
                                         // echo 'Already uploaded';
-                                        header ("location:../student-portal/");
+                                        header('Location: '.base_url_student.'index.php');
                                         // mysqli_stmt_close($stmt);
-                                    }
-                                }else{
-                                    // echo 'Already uploaded';
-                                header ("location:../student-portal/");
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+                                     }
+            //                     }else{
+            //                         // echo 'Already uploaded';
+            //                     header('Location: '.base_url_student.'index.php');
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     }
+             }
             else{
                     // echo "File size too large. Size limit is 100kb only.";
                 header ("location:../student-portal/");
