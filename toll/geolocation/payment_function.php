@@ -1,7 +1,7 @@
 <?php
 
     ob_start();
-session_start();
+    session_start();
    /* logout after 10min. */    
     if(time()-$_SESSION['time']>60*60*10){
         unset($_SESSION['time']);
@@ -9,7 +9,7 @@ session_start();
         // setcookie("role", "", time()-3600);
         // setcookie("name", "", time()-3600); 
         session_destroy();
-        header("location: ../index.php");}
+        // header("location: ../index.php");}
     else{
         $_SESSION['time']=time();
     }

@@ -10,12 +10,13 @@ session_start();
         // setcookie("role", "", time()-3600);
         // setcookie("name", "", time()-3600); 
         session_destroy();
-        header("location: ../index.php");}
+        // header("location: ../index.php");
+    }
     else{
         $_SESSION['time']=time();
     }
 
-include '../../config/config.php';
+include '../config/config.php';
 
 
 if($_SESSION['role']=='user'){
@@ -62,7 +63,7 @@ if($_SESSION['role']=='user'){
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand sparkNavbarTag " style="margin-left: 5vw" href="<?php echo base_url; ?>geolocation/index.php"><?php echo $_SESSION['username'] ?></a><br/>
+                        <a class="navbar-brand sparkNavbarTag "  style="margin-left: 5vw" href="<?php echo base_url; ?>geolocation/index.php"><?php echo $_SESSION['username'] ?></a><br/>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
@@ -77,34 +78,23 @@ if($_SESSION['role']=='user'){
         </nav>
         <div class="container-fluid">
           <div class="row">
-            <div class="col-sm-12">
-              <table class="table table-striped">
-                <thead>
-                  <th>Name</th>
-                  <th>Paid</th>
-                  <th>Toll Address</th>
-                  <th>Time</th>
-                </thead>
-                <?php 
-                    $query    = "SELECT distinct c.payment,(select name from tolls as a where a.id=c.toll_id) as name, (select address from tolls as a where a.id=c.toll_id) as tollAddress,(select payTime from toll_access as b where b.toll_id=c.toll_id and b.user_id=c.user_id) as payTime from user_logs as c where user_id=$currentUserId";
-                    $result = $conn->query($query);
-                    if($result) {
-                        if(!$result->num_rows  == 0) {
-                            while($row = $result->fetch_assoc()) {   
-                              // print_r($row).'<br/>';
-                              ?>
-                              <tr>
-                                <td><?php echo $row['name']; ?></td>
-                                <td><?php echo $row['payment']; ?></td>
-                                <td><?php echo $row['tollAddress']; ?></td>
-                                <td><?php echo $row['payTime']; ?></td>
-                              </tr>
-                            <?php 
-                          }  
+            <div class="col-sm-4 col-sm-offset-4">
+                <form class="form-inline" action="<?php echo base_url; ?>api/users/add_money.php" method="POST">
+                    <div class="form-group">
+                        <label class="sr-only" for="moneyAdd">Enter Money:</label>
+                        <input type="number" class="form-control" id="moneyAdd" name="moneyAdd" />
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                    <div>
+                        <?php 
+                        if ( isset($_GET['added']) && $_GET['added'] == 1){
+                            echo "Money Added";
+                        } else if ( isset($_GET['added']) && $_GET['added'] == 0) {
+                            echo "Error";
                         }
-                      }
-                ?>
-              </table>
+                        ?>
+                    <div>
+                </form>
             </div>
           </div>
         </div>
