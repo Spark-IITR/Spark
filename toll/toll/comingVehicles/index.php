@@ -1,6 +1,6 @@
 <?php
-ob_start();
-session_start();
+//ob_start();
+//session_start();
 
    /* logout after 10min. */
     
