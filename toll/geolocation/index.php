@@ -10,7 +10,6 @@
        <input type="hidden" name="latitude" id="latitude" />
        <input type="hidden" name="longitude" id="longitude" />
     </form>
-
 </body>
 </html>
 <script>
@@ -23,8 +22,6 @@ $(document).ready(function(){
     }
 });
 
-var latitude=position.coords.latitude; 
-var longitude=position.coords.longitude;
 
 function showLocation(position) {
 	document.getElementById("latitude").value=position.coords.latitude;
