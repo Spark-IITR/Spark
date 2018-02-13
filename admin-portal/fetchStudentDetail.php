@@ -224,7 +224,7 @@ require_once '../config/config.php';
                                         <a target="_blank" href="../uploadFiles/showResume.php?email='; echo $email3; echo '&param='; echo $studentId; echo '"  ><input type="button" class="btn btn-default studentProfileImageSubmitButton" value="Resume" ></a>
                                     </div>
                                     <div class="col-sm-3 col-xs-3" style="text-align: center;">
-                                        <a target="_blank" href="../uploadFiles/showNOC.php?email='; echo $email3; echo '&param='; echo $studentId; echo '" type="application/pdf" ><input type="button"  class="btn btn-default studentProfileImageSubmitButton" value="NOC/LOR" id="showNOCButton"></a>
+                                        <a target="_blank" href="../uploadFiles/showNOC.php?email='; echo $email3; echo '&param='; echo $studentId; echo '" type="application/pdf" ><input type="button"  class="btn btn-default studentProfileImageSubmitButton" value="Transcript" id="showNOCButton"></a>
                                     </div>
 
                                     

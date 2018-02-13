@@ -9,7 +9,7 @@ if ($_POST && !empty($_FILES)) {
         $size = intval($_FILES['resume']['size']);
  
          if ( in_array($type, array('application/pdf'))) {
-             if ( $size < 500000) {
+             if ( $size < 600000) {
 
                 //         $sql1 = "SELECT resume from student WHERE email= ? ";
 
