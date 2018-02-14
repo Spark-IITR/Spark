@@ -9,7 +9,7 @@ if ($_POST && !empty($_FILES)) {
         $size = intval($_FILES['noc']['size']);
  
          if ( in_array($type, array('application/pdf'))) {
-             if ( $size < 400000) {
+             if ( $size < 500000) {
 
                 //         $sql1 = "SELECT noc from student WHERE email= ? ";
 

@@ -107,7 +107,7 @@ if ($_POST && !empty($_FILES)) {
         $formOk = false;
         echo "Error: Unsupported file extension. Supported extensions are JPG / PNG.";
     }
-    if ($formOk && filesize($path) > 300000) {
+    if ($formOk && filesize($path) > 500000) {
         $formOk = false;
         // echo "Error: File size must be less than 100 KB.";
             header('Location: '.base_url_student.'index.php');
