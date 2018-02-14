@@ -128,7 +128,7 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                             </div>
 						</form>
                         <div class=" studentProfileSeeTranscriptsButton col-xs-6 col-sm-6" >
-                            <a href="../uploadFiles/showResume.php?email=<?=$email1 ?>" target="_blank"><input type="button" class="btn btn-default studentProfileSeeTranscriptsButtonInput " value="See Resume" id="showResumeButton"></a>
+                            <a href="../uploadFiles/showResume.php?email=<?=$email1 ?>&param=<?=$studentRealId ?>" target="_blank"><input type="button" class="btn btn-default studentProfileSeeTranscriptsButtonInput " value="See Resume" id="showResumeButton"></a>
                         </div>
     				</div>
     				<div class="col-md-6 col-sm-6 col-xs-12">
@@ -140,16 +140,16 @@ $sql = "SELECT id,name,email,contact,department,college,recommendStatus,recommen
                             </div>
 						</form>
                         <div class="studentProfileSeeTranscriptsButton col-xs-6 col-sm-6" >
-                            <a href="../uploadFiles/showNOC.php?email=<?=$email1 ?>" target="_blank"><input type="button"  class="btn btn-default studentProfileSeeTranscriptsButtonInput" value="See Transcript" id="showNOCButton"></a>
+                            <a href="../uploadFiles/showNOC.php?email=<?=$email1 ?>&param=<?=$studentRealId ?>" target="_blank"><input type="button"  class="btn btn-default studentProfileSeeTranscriptsButtonInput" value="See Transcript" id="showNOCButton"></a>
                         </div>
     				</div>
     			</div>
-                <div class="row"  style="margin-top: 1vh">
+                <!-- <div class="row"  style="margin-top: 1vh">
                     <div class="col-sm-12 col-xs-12 viewFile " style="margin-top:4vh; text-align: center; ">
-                        <a href="../uploadFiles/showNOC.php?email=<?=$email1 ?>"" target="_blank">hello</a>
+                        <a href="../uploadFiles/showNOC.php?email=<?=$email1 ?>&id=<?=$studentRealId ?>" target="_blank">hello</a>
                         <a target="_blank"><embed src="../uploadFiles/showNOC.php?email=<?=$email1 ?>" type="application/pdf"  class="pdfDisplay"  width="100%" id="showNOC" style="display:none; "></a>
                     </div>
-                </div>
+                </div> -->
     		</div>
     	</div>
 

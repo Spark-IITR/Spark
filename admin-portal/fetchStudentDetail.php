@@ -131,82 +131,82 @@ require_once '../config/config.php';
                                     </thead>
                                     <tbody>
                                     ';  
-                                     $sql1    = "select id,name,email,department from user where fpriority1=$studentId";
-                                    $result1 = $conn->query($sql1);
+                                     $sql11    = "select id,name,email,department from user where fpriority1=$studentId";
+                                    $result11 = $conn->query($sql11);
 
-                                    while($row1=mysqli_fetch_assoc($result1)) {
+                                    while($row11=mysqli_fetch_assoc($result11)) {
                                              echo '
                                         <tr>
-                                            <td >'; echo $row1['id']; echo ' </td>
-                                            <td>'; echo $row1['name']; echo '</td>
-                                            <td>'; echo $row1['email']; echo '</td>
-                                            <td>'; echo $row1['department']; echo '</td>
+                                            <td >'; echo $row11['id']; echo ' </td>
+                                            <td>'; echo $row11['name']; echo '</td>
+                                            <td>'; echo $row11['email']; echo '</td>
+                                            <td>'; echo $row11['department']; echo '</td>
                                             <td>1st</td>
                                         </tr>
 
                                         '; }  
 
-                                        $sql2    = "select id,name,email,department from user where fpriority2=$studentId";
-                                    $result2 = $conn->query($sql2);
+                                        $sql12    = "select id,name,email,department from user where fpriority2=$studentId";
+                                    $result12 = $conn->query($sql12);
 
-                                    while($row2=mysqli_fetch_assoc($result2)) {
+                                    while($row12=mysqli_fetch_assoc($result12)) {
                                              echo '
                                         <tr>
-                                            <td >'; echo $row2['id']; echo ' </td>
-                                            <td>'; echo $row2['name']; echo '</td>
-                                            <td>'; echo $row2['email']; echo '</td>
-                                            <td>'; echo $row2['department']; echo '</td>
+                                            <td >'; echo $row12['id']; echo ' </td>
+                                            <td>'; echo $row12['name']; echo '</td>
+                                            <td>'; echo $row12['email']; echo '</td>
+                                            <td>'; echo $row12['department']; echo '</td>
                                             <td>2nd</td>
                                         </tr>
 
                                         '; }
 
-                                        $sql3    = "select id,name,email,department from user where fpriority3=$studentId";
-                                    $result3 = $conn->query($sql3);
+                                        $sql13    = "select id,name,email,department from user where fpriority3=$studentId";
+                                    $result13 = $conn->query($sql13);
 
-                                    while($row3=mysqli_fetch_assoc($result3)) {
+                                    while($row13=mysqli_fetch_assoc($result13)) {
                                              echo '
                                         <tr>
-                                            <td >'; echo $row3['id']; echo ' </td>
-                                            <td>'; echo $row3['name']; echo '</td>
-                                            <td>'; echo $row3['email']; echo '</td>
-                                            <td>'; echo $row3['department']; echo '</td>
+                                            <td >'; echo $row13['id']; echo ' </td>
+                                            <td>'; echo $row13['name']; echo '</td>
+                                            <td>'; echo $row13['email']; echo '</td>
+                                            <td>'; echo $row13['department']; echo '</td>
                                             <td>3rd</td>
                                         </tr>
 
                                         '; }
 
-                                        $sql4    = "select id,name,email,department from user where fpriority4=$studentId";
-                                    $result4 = $conn->query($sql4);
+                                        $sql14    = "select id,name,email,department from user where fpriority4=$studentId";
+                                    $result14 = $conn->query($sql14);
 
-                                    while($row4=mysqli_fetch_assoc($result4)) {
+                                    while($row14=mysqli_fetch_assoc($result14)) {
                                              echo '
                                         <tr>
-                                            <td >'; echo $row4['id']; echo ' </td>
-                                            <td>'; echo $row4['name']; echo '</td>
-                                            <td>'; echo $row4['email']; echo '</td>
-                                            <td>'; echo $row4['department']; echo '</td>
+                                            <td >'; echo $row14['id']; echo ' </td>
+                                            <td>'; echo $row14['name']; echo '</td>
+                                            <td>'; echo $row14['email']; echo '</td>
+                                            <td>'; echo $row14['department']; echo '</td>
                                             <td>4th</td>
                                         </tr>
 
                                         '; }
 
-                                        $sql5    = "select id,name,email,department from user where fpriority5=$studentId";
-                                    $result5 = $conn->query($sql5);
+                                        $sql15    = "select id,name,email,department from user where fpriority5=$studentId";
+                                    $result15 = $conn->query($sql15);
 
-                                    while($row5=mysqli_fetch_assoc($result5)) {
+                                    while($row15=mysqli_fetch_assoc($result15)) {
                                              echo '
                                         <tr>
-                                            <td >'; echo $row5['id']; echo ' </td>
-                                            <td>'; echo $row5['name']; echo '</td>
-                                            <td>'; echo $row5['email']; echo '</td>
-                                            <td>'; echo $row5['department']; echo '</td>
+                                            <td >'; echo $row15['id']; echo ' </td>
+                                            <td>'; echo $row15['name']; echo '</td>
+                                            <td>'; echo $row15['email']; echo '</td>
+                                            <td>'; echo $row15['department']; echo '</td>
                                             <td>5th</td>
                                         </tr>
 
                                         '; }
 
-                                        if($result1->num_rows == 0 && $result2->num_rows == 0 && $result3->num_rows == 0 && $result4->num_rows == 0 && $result5->num_rows == 0 ) {
+                                        if($result11->num_rows == 0 && $result12->num_rows == 0 && $result13->num_rows == 0 && $result14->num_rows == 0 && $result15->num_rows == 0 ) {
                                             echo ' <tr>
                                                        <td  colspan="5" style="color:red;font-size:1.2vw"> His Application is not aprroved by any faculty . </td>
                                                     </tr>';
@@ -221,10 +221,10 @@ require_once '../config/config.php';
                             <div class="col-sm-12 ">
                                 <div class="row">
                                     <div class="col-sm-1 col-sm-offset-0" style="text-align: center;margin-left:3%">
-                                        <input type="button" class="btn btn-default studentProfileImageSubmitButton" value="Resume" id="showResumeButton">
+                                        <a target="_blank" href="../uploadFiles/showResume.php?email='; echo $email3; echo '&param='; echo $studentId; echo '"  ><input type="button" class="btn btn-default studentProfileImageSubmitButton" value="Resume" ></a>
                                     </div>
-                                	<div class="col-sm-2" style="text-align: center;">
-                                        <input type="button"  class="btn btn-default studentProfileImageSubmitButton" value="NOC/LOR" id="showNOCButton">
+                                    <div class="col-sm-3 col-xs-3" style="text-align: center;">
+                                        <a target="_blank" href="../uploadFiles/showNOC.php?email='; echo $email3; echo '&param='; echo $studentId; echo '" type="application/pdf" ><input type="button"  class="btn btn-default studentProfileImageSubmitButton" value="NOC/LOR" id="showNOCButton"></a>
                                     </div>
 
                                     
@@ -288,11 +288,6 @@ require_once '../config/config.php';
                                         
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-sm-10 col-sm-offset-1" style="margin-top:4vh">
-                            	<a target="_blank"><embed src="../uploadFiles/showResume.php?email='; echo $email3; echo '" type="application/pdf"   height="1000vh" width="100%" id="showResume" style="display:none"></a>
-                            	<a target="_blank"><embed src="../uploadFiles/showNOC.php?email='; echo $email3; echo '" type="application/pdf"   height="1000vh" width="100%" id="showNOC" style="display:none"></a>
                             </div>
 
                             <form  method="post">

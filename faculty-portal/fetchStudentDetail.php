@@ -37,17 +37,14 @@ require_once '../config/config.php';
                             <div class="col-sm-6 col-sm-offset-6 col-xs-12 col-xs-offset-3">
                                 <div class="row">
                                     <div class="col-sm-3 col-xs-3 " style="text-align: center;">
-                                        <input type="button" class="btn btn-default studentProfileImageSubmitButton" value="Resume" id="showResumeButton">
+                                        <a target="_blank" href="../uploadFiles/showResume.php?email='; echo $email; echo '&param='; echo $studentId; echo '"  ><input type="button" class="btn btn-default studentProfileImageSubmitButton" value="Resume" id="showResumeButton"></a>
                                     </div>
                                 	<div class="col-sm-3 col-xs-3" style="text-align: center;">
-                                        <input type="button"  class="btn btn-default studentProfileImageSubmitButton" value="NOC/LOR" id="showNOCButton">
+                                        <a target="_blank" href="../uploadFiles/showNOC.php?email='; echo $email; echo '&param='; echo $studentId; echo '" type="application/pdf" ><input type="button"  class="btn btn-default studentProfileImageSubmitButton" value="NOC/LOR" id="showNOCButton"></a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-xs-12 viewFile " style="margin-top:4vh; ">
-                            	<a target="_blank"><embed src="../uploadFiles/showResume.php?email='; echo $email; echo '" type="application/pdf"   height="1000vh" width="100%" id="showResume" style="display:none"></a>
-                            	<a target="_blank"><embed src="../uploadFiles/showNOC.php?email='; echo $email; echo '" type="application/pdf"   height="1000vh" width="100%" id="showNOC" style="display:none"></a>
-                            </div>
+                            
 
                             <script>
 
