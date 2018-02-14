@@ -28,12 +28,49 @@
                 	</ul>
                     
                     <p class="faqAnswer">You need to make a separate application for SPARK. SPARK fellows get stipend and there is no bench fees charged except hostel and mess charges.</p>
+                     <ul>
+                        <li><p class="faqQuestions">   What is a transcript? OR I have not got marksheets yet, what to do?</p></li>
+                    </ul>
+                    
+                    <p class="faqAnswer">We need marksheet of all semesters that you studied in the current degree (NOT previous degrees) and for which marksheets are available. The marksheet need not be attested, you can include a soft copy/screenshot that can be verified later, if you are selected. Unfortunately, we cannot accept applications of those students who do not have marksheets of any semester of current degree declared before Feb 28.</p>
+
+                    <ul>
+                        <li><p class="faqQuestions">   Will I get an acknowledgment? What does the status mean?</p></li>
+                    </ul>
+                    
+                    <p class="faqAnswer">Currently, we do not have the acknowledgment feature. If files have been uploaded and at least one priority of faculty is set, your application is considered submitted. Decision on application will come on or after 15th March.</p>
 
                     <ul>
                 		<li><p class="faqQuestions">   When will summer internship be held? Can I take leave in between?</p></li>
                 	</ul>
                     
                     <p class="faqAnswer">Internship should preferably be of 8 weeks or more, but not less than 6 weeks in any case. IITR students can start immediately after the ETE. Other students should come during the summer vacation scheduled between 11th May-12th July. Leave is not permitted during internship.</p>
+                    <ul>
+                        <li><p class="faqQuestions">Why the CGPA criteria cannot be relaxed? OR I am CGPA 6 but I have great research credentials; why you do not consider me? OR Is CGPA everything? OR why my institute is not listed along with IITs or NITs? </p></li>
+                    </ul>
+                    
+                    <p class="faqAnswer">The minimum CGPA criteria is a policy issue and CANNOT be relaxed this year. All your suggestions are however well received and we will deliberate over this again after this years program.</p>
+
+
+                    <ul>
+                        <li><p class="faqQuestions"> How are you going to select students?</p></li>
+                    </ul>
+                    
+                    <p class="faqAnswer">Selection committee will look at all your credentials based on the information provided and make decision. We cannot entertain requests for more information.</p>
+                    <ul>
+                        <li><p class="faqQuestions">  My files are not being uploaded? OR I cannot see files after uploading?</p></li>
+                    </ul>
+
+                    <p class="faqAnswer">First check the size restrictions, prefer pdf file size less then 300 kB and max 500 kB. There are online tools available to reduce picture sizes if needed. Let us know by email or on portal if you have followed the instructions and yet not able to upload/view files.</p>
+
+                    <ul>
+                        <li><p class="faqQuestions">  How to convert % to cgpa?</p></li>
+                    </ul>
+                    
+                    <p class="faqAnswer">Follow the usual practice of your institute, if thry have a guideline in this regard. Otherwise divide % by 10.</p>
+                    <ul>
+                        <li><p class="faqQuestions"> There is no submit button.</p></li>
+                    </ul>
                     <ul>
                 		<li><p class="faqQuestions">  How to convert % to cgpa?</p></li>
                 	</ul>
