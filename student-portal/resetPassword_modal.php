@@ -8,7 +8,7 @@
            <h4 class="modal-title loginModalHeader">Log In</h4>
          </div>
          <div class="modal-body">
-           <form class="form-horizontal" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="resetPwdForm">
+           <form class="form-horizontal" method="post" action="resetPassword.php" id="resetPwdForm">
            <div class="form-group  <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
              <label for="inputEmail3" class="col-sm-2 control-label">Email<sup>*</sup></label>
              <div class="col-sm-10">
