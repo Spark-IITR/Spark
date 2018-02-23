@@ -10,7 +10,7 @@
             <table class="table table-striped" style="width:100%">
                     <thead >
                         <tr>
-                            <th>ID</th>
+                            <th>Spark Id</th>
                             <th>Name</th>
                             <th>C.G.P.A</th>
                             <th>Department</th>
@@ -26,7 +26,7 @@
                 if($row['spriority1']!=0 || $row['spriority2']!=0 || $row['spriority3']!=0|| $row['spriority4']!=0 || $row['spriority5']!=0 ){
         		?>
                          <tr  onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;">
-                            <td ><?php echo $row['id']; ?></td>
+                            <td ><?php echo $row['sparkId']; ?></td>
                             <td><?php echo $row['name']; ?></td>
                             <td><?php echo $row['cgpa']; ?></td>
                             <td><?php echo $row['department']; ?></td>

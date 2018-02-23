@@ -131,7 +131,7 @@ require_once '../config/config.php';
                                     </thead>
                                     <tbody>
                                     ';  
-                                     $sql11    = "select id,name,email,department from user where fpriority1=$studentId";
+                                     $sql11    = "select id,name,email,department from faculty where fpriority1=$studentId";
                                     $result11 = $conn->query($sql11);
 
                                     while($row11=mysqli_fetch_assoc($result11)) {
@@ -146,7 +146,7 @@ require_once '../config/config.php';
 
                                         '; }  
 
-                                        $sql12    = "select id,name,email,department from user where fpriority2=$studentId";
+                                        $sql12    = "select id,name,email,department from faculty where fpriority2=$studentId";
                                     $result12 = $conn->query($sql12);
 
                                     while($row12=mysqli_fetch_assoc($result12)) {
@@ -161,7 +161,7 @@ require_once '../config/config.php';
 
                                         '; }
 
-                                        $sql13    = "select id,name,email,department from user where fpriority3=$studentId";
+                                        $sql13    = "select id,name,email,department from faculty where fpriority3=$studentId";
                                     $result13 = $conn->query($sql13);
 
                                     while($row13=mysqli_fetch_assoc($result13)) {
@@ -176,7 +176,7 @@ require_once '../config/config.php';
 
                                         '; }
 
-                                        $sql14    = "select id,name,email,department from user where fpriority4=$studentId";
+                                        $sql14    = "select id,name,email,department from faculty where fpriority4=$studentId";
                                     $result14 = $conn->query($sql14);
 
                                     while($row14=mysqli_fetch_assoc($result14)) {
@@ -191,7 +191,7 @@ require_once '../config/config.php';
 
                                         '; }
 
-                                        $sql15    = "select id,name,email,department from user where fpriority5=$studentId";
+                                        $sql15    = "select id,name,email,department from faculty where fpriority5=$studentId";
                                     $result15 = $conn->query($sql15);
 
                                     while($row15=mysqli_fetch_assoc($result15)) {
