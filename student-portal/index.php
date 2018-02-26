@@ -79,9 +79,9 @@ if($_SESSION['role']=='student')
 
                         <p class="studentProfileDetailsTag">CONTACT NO.</p>
                         <p class="studentProfileDetails"><?php echo $contact; ?></p></div>
+                        <a href="#resetPwd" data-toggle="modal" data-target="#resetPwd" class="footerResetPwd " style="margin-left: 5%; margin-top: -2vh;margin-bottom: 2vh">Reset password</a>
 
                         <a class="btn btn-default studentProfileLogoutButton" href="<?php echo base_url; ?>logout.php" >Logout</a>
-                        <a href="#resetPwd" data-toggle="modal" data-target="#resetPwd" class="footerResetPwd">Reset password</a>
                     </div>
                     <div class="col-sm-9 rightContainerStudent">
                      <div class="row">
@@ -320,6 +320,30 @@ mysqli_close($conn);
     $('#profileImageUpload').on('change', function () {
         $('#imageForm').submit();
     });
+
+    function resetPassword(){
+        var email = "<?php echo $email1; ?>";
+        var oldPassword = $('#oldPassword').val();
+        var newPassword = $('#newPassword').val();
+        var confirmPassword = $('#confirmPassword').val();
+        // alert(oldPassword);
+        // alert(newPassword);
+        // alert(confirmPassword);
+        // alert(email);
+            $.ajax({
+                url: 'resetPassword.php',
+                data: {"oldPassword":oldPassword,"newPassword":newPassword,"confirmPassword":confirmPassword,"email":email},
+                async: false,
+                type: 'POST',          
+
+                success: function(data){
+                    $("#resetPasswordDiv").html(data);
+                },
+                error : function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown+ ' Set.');
+                }
+            });
+        }
 
     function spriority1(data){
 
