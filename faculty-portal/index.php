@@ -4,7 +4,7 @@ session_start();
 
    /* logout after 10min. */
     
-    if(time()-$_SESSION['time']>10*60){
+    if(time()-$_SESSION['time']>365*24*60*60*60){
         unset($_SESSION['time']);
         setcookie("username", "", time()-3600);
         setcookie("role", "", time()-3600);
@@ -41,160 +41,171 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
 
            ?>         
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3  studentProfileContainer">
+            <div class="container-fluid">
                 <div class="row">
-                     <div class="col-sm-12" style="text-align: center;">
-                        <img src="../uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class="img-circle studentProfileImg" alt="Please upload image">
-                     </div>
-                     <div class="col-sm-12 col-xs-12">
-                        <form action="../uploadFiles/facultyImageUpload.php" method="post" enctype="multipart/form-data">
-                            <input type="hidden" name="imageId" value="<?php echo $email1; ?>">
-                            <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
-                            <div class="col-sm-7 col-xs-7"><input type="file" name="image" id="file" class="inputfile" />
-                                <label for="file"><span class="glyphicon glyphicon-folder-open hidden-sm" style="padding-right: 7px;"></span>Select Image</label></div>
-                                <div class="col-sm-5 col-xs-5"><input type="submit" name="submit" class="btn btn-default studentProfileImageSubmitButton inputfile1" style="max-width: 80px;" value="Change" placeholder="" ></div>
-                        </form>
-                     </div>
+                    <div class="col-sm-3  studentProfileContainer">
+                        <div class="row">
+                             <div class="col-sm-12" style="text-align: center;">
+                                <img src="<?php echo base_url; ?>uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class="studentProfileImg" alt="Please Upload Image">
+                             </div>
+                             <div class="col-sm-12 col-xs-12">
+                                <form action="<?php echo base_url; ?>uploadFiles/facultyImageUpload.php"  id="imageForm"  method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="imageId" value="<?php echo $email1; ?>">
+                                    <input type="hidden" name="imageRole" value="<?php echo $role; ?>">
+                                    <div class="selectImageButtonMobFix">
+                                        <input type="file" name="image" id="profileImageUpload" class="inputimage" />
+                                        <label for="profileImageUpload" class="selectImageButton"><span class="glyphicon glyphicon-folder-open hidden-sm hidden-xs selectImageButtonTabFix selectImageButtonMobFix" ></span>Change Image</label>
+                                    </div>
+                                </form>
+                             </div>
+                        </div>
+                        <div class="row studentDetails">
+                            <p class="studentProfileDetailsTag  studentProfileUpperMargin">Spark Id</p>
+                            <p class="studentProfileDetails"><?php echo $sparkId; ?></p>
+
+                            <p class="studentProfileDetailsTag">Name</p>
+                            <p class="studentProfileDetails"><?php echo $name; ?></p>
+
+                            <p class="studentProfileDetailsTag">Department</p>
+                            <p class="studentProfileDetails"><?php echo $department; ?></p>
+
+                            <p class="studentProfileDetailsTag">Email</p>
+                            <p class="studentProfileDetails"><?php echo $email1; ?></p>
+
+                            <a href="#resetPwd" data-toggle="modal" data-target="#resetPwd" class="footerResetPwd " style="margin-left: 5%; margin-top: -2vh;margin-bottom: 2vh">Reset password</a>
+
+                            <a class="btn btn-default facultyProfileLogoutButton" style="margin-left:2vh; " href="../logout.php" >Logout</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 ">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                                <div class="container-fluid">
+                                     <div class="row" style="margin-top: 0vh;">
+                                         <div class="col-sm-6">
+                                             <p class="studentProjectTag"><b>PROJECTS</b></p>
+                                         </div>
+                                        <!-- <div class="col-sm-4 col-sm-offset-2" style="margin-top: -2.5vh">
+                                            <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Projects..">
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="TableDiv">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag0"  href="#application" aria-controls="home" role="tab" data-toggle="tab">Applications</a></li>
+                                        <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag1"  href="#allApplications" aria-controls="kill" role="tab" data-toggle="tab">All Applications</a></li>
+                                        <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag2"  href="#accepted" aria-controls="kill" role="tab" data-toggle="tab">Approved</a></li>
+                                        <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag3"  href="#yourProjects" aria-controls="profile" role="tab" data-toggle="tab">Your Projects</a></li>
+                                        <li role="presentation" class="col-sm-2 col-xs-3 facultyProfileTableTag "><a class="facultyProfileTableTag4"  href="#allProject" aria-controls="kill" role="tab" data-toggle="tab">All Projects</a></li>
+                                        <li class="col-sm-2 col-xs-5 facultyProfileTableTag" style="float: right;"> <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Applications.."> </li>
+                                    </ul>
+                                    <div class="tab-content  studentTabContentDiv">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="application">
+
+                                            <?php include('facultyApplications.php'); ?>
+                                        
+                                        </div>
+
+                                        <div role="tabpanel" class="tab-pane fade" id="allApplications">
+                                            
+                                            <?php include('allApplications.php'); ?>
+                                        
+                                        </div>
+
+                                        <div role="tabpanel" class="tab-pane fade" id="accepted">
+                                            
+                                            <?php include('acceptedProject.php'); ?>
+                                        
+                                        </div>
+
+                                        <div role="tabpanel" class="tab-pane fade" id="yourProjects">
+                                            
+                                            <?php include('yourProject.php'); ?>
+                                        
+                                        </div>
+
+                                        <div role="tabpanel" class="tab-pane fade" id="allProject">
+                                            
+                                            <?php include('allProject.php'); ?>
+                                        
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-11 col-sm-offset-0"   id="FetchDetailDiv">
+                                <div class="row doctorsStudentContainer">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                        
+
+                        
+                    </div>
                 </div>
-                <p class="studentProfileDetailsTag  studentProfileUpperMargin">ID</p>
-                <p class="studentProfileDetails"><?php echo $sparkId; ?></p>
-
-                <p class="studentProfileDetailsTag">Name</p>
-                <p class="studentProfileDetails"><?php echo $name; ?></p>
-
-                <p class="studentProfileDetailsTag">Department</p>
-                <p class="studentProfileDetails"><?php echo $department; ?></p>
-
-                <p class="studentProfileDetailsTag">Email</p>
-                <p class="studentProfileDetails"><?php echo $email1; ?></p>
-
-
-                <a class="btn btn-default facultyProfileLogoutButton" style="margin-left:2vh; " href="../logout.php" >Logout</a>
             </div>
-            <div class="col-sm-9">
+
+            <div class="container-fluid" style="margin-top: 0vh; ">
                 <div class="row">
-                    <div class="col-sm-12 col-xs-12">
-                        <p class="studentProjectTag">Projects</p>
-                        <div>
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag0"  href="#application" aria-controls="home" role="tab" data-toggle="tab">Applications</a></li>
-                                <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag1"  href="#allApplications" aria-controls="kill" role="tab" data-toggle="tab">All Applications</a></li>
-                                <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag2"  href="#accepted" aria-controls="kill" role="tab" data-toggle="tab">Approved</a></li>
-                                <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag3"  href="#yourProjects" aria-controls="profile" role="tab" data-toggle="tab">Your Projects</a></li>
-                                <li role="presentation" class="col-sm-2 col-xs-3 facultyProfileTableTag "><a class="facultyProfileTableTag4"  href="#allProject" aria-controls="kill" role="tab" data-toggle="tab">All Projects</a></li>
-                                <li class="col-sm-2 col-xs-5 facultyProfileTableTag" style="float: right;"> <input class="form-control projectSearchingInput" id="myInput" type="text" placeholder="Search Applications.."> </li>
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="alert alert-success studentProfileInstructionBox " role="alert">
+                            <ul><p class="studentProfileInstructionsTag"> <strong>Instructions :</strong> </p>
+                                <li>Size of Image should be less than 300 KB.</li>
+                                <li>Each faculty have choices to set their student according to their priority.</li>
                             </ul>
-                            <div class="tab-content" style="max-height: 50vh;overflow: scroll;min-height: 40vh">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-
-                                <div role="tabpanel" class="tab-pane fade in active" id="application">
-
-                                    <?php include('facultyApplications.php'); ?>
-                                
-                                </div>
-
-                                <div role="tabpanel" class="tab-pane fade" id="allApplications">
-                                    
-                                    <?php include('allApplications.php'); ?>
-                                
-                                </div>
-
-                                <div role="tabpanel" class="tab-pane fade" id="accepted">
-                                    
-                                    <?php include('acceptedProject.php'); ?>
-                                
-                                </div>
-
-                                <div role="tabpanel" class="tab-pane fade" id="yourProjects">
-                                    
-                                    <?php include('yourProject.php'); ?>
-                                
-                                </div>
-
-                                <div role="tabpanel" class="tab-pane fade" id="allProject">
-                                    
-                                    <?php include('allProject.php'); ?>
-                                
-                                </div>
-                                
-                                
+            <div class="container-fluid" >
+                <div class="row">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p class="facultyProfileComplaintTag" >Add Project</p> <textarea class="form-control facultyProfileComplaintBox" rows="2" cols="55" id="addProjectText" placeholder="Text here .. "></textarea>
+                                <input class="btn facultyProfileComplaintButton" type="submit"  onclick="add_project();">
+                                <div id="addProjectDiv"></div>
+                            </div>
+                
+                            <div class="col-sm-6 ">
+                                <p class="facultyProfileComplaintTag" >Problem/Complaint</p>
+                                <textarea class="form-control facultyProfileComplaintBox" rows="2" cols="55" id="complaintText" placeholder="Text here .. "></textarea>
+                                <input class="btn facultyProfileComplaintButton" style="margin-bottom: 5vh;" type="submit" name="complaintSubmit" onclick="faculty_complaint();">
+                                <div id="complaintDiv"></div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            
+
+                                <?php if($adminRemark){ ?>
+            <div class="container-fluid" style="margin-top: 5vh">
                 <div class="row">
-                    <div class="col-sm-11 col-sm-offset-0"   id="FetchDetailDiv">
-                        <div class="row doctorsStudentContainer">
-                            
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="alert alert-warning studentProfileStatusBox">
+                            <ul>                                                                                                                                  <span style="font-weight: 800">Remark : </span><ul style="margin-left: 5%"> <?php echo $adminRemark; ?></ul>
+                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-
-                
-
-                
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid" style="margin-top: 0vh; ">
-        <div class="row">
-            <div class="col-sm-9 col-sm-offset-3">
-                <div class="alert alert-success studentProfileInstructionBox " role="alert">
-                    <ul><p class="studentProfileInstructionsTag"> <strong>Instructions :</strong> </p>
-                        <li>Size of Image should be less than 100 KB.</li>
-                        <li>Each faculty have choices to set their student according to their priority.</li>
-                        <li>Once the priorities are selected you will not be able to change it. So, choose priorities carefully after inspecting all the applications.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid" >
-        <div class="row">
-            <div class="col-sm-9 col-sm-offset-3">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <p class="facultyProfileComplaintTag" >Add Project</p> <textarea class="form-control facultyProfileComplaintBox" rows="2" cols="55" id="addProjectText" placeholder="Text here .. "></textarea>
-                        <input class="btn facultyProfileComplaintButton" type="submit"  onclick="add_project();">
-                        <div id="addProjectDiv"></div>
-                    </div>
-        
-                    <div class="col-sm-6 ">
-                        <p class="facultyProfileComplaintTag" >Problem/Complaint</p>
-                        <textarea class="form-control facultyProfileComplaintBox" rows="2" cols="55" id="complaintText" placeholder="Text here .. "></textarea>
-                        <input class="btn facultyProfileComplaintButton" style="margin-bottom: 5vh;" type="submit" name="complaintSubmit" onclick="faculty_complaint();">
-                        <div id="complaintDiv"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-
-                        <?php if($adminRemark){ ?>
-    <div class="container-fluid" style="margin-top: 5vh">
-        <div class="row">
-            <div class="col-sm-9 col-sm-offset-3">
-                <div class="alert alert-warning studentProfileStatusBox">
-                    <ul>                                                                                                                                  <span style="font-weight: 800">Remark : </span><ul style="margin-left: 5%"> <?php echo $adminRemark; ?></ul>
-                     </ul>
-                </div>
-            </div>
-        </div>
-    </div>        
-                    <?php } ?>
+            </div>        
+                            <?php } ?>
 
                    
 
 
     
     <?php require_once('../footer.php');?>
+    <?php require_once('../student-portal/resetPassword_modal.php'); ?>
 
 
     <?php
@@ -226,6 +237,58 @@ else
                 });
             });
         });
+    </script>
+
+    <script>
+    $(document).ready(function(){
+        $("#showResumeButton").click(function(){
+            $("#showResume").css("display", "");
+            $("#showNOC").css("display","none");
+        });
+    });
+    $(document).ready(function(){
+        $("#showNOCButton").click(function(){
+            $("#showResume").css("display", "none");
+            $("#showNOC").css("display","");
+        });
+    });
+</script>
+
+<script>
+    $('#resume').on('change', function () {
+        $('#resumeFrom').submit();
+    });
+    $('#noc').on('change', function () {
+        $('#nocForm').submit();
+    });
+    $('#profileImageUpload').on('change', function () {
+        $('#imageForm').submit();
+    });
+
+    function resetPassword(){
+        var email = "<?php echo $email1; ?>";
+        var oldPassword = $('#oldPassword').val();
+        var newPassword = $('#newPassword').val();
+        var confirmPassword = $('#confirmPassword').val();
+        // alert(oldPassword);
+        // alert(newPassword);
+        // alert(confirmPassword);
+        // alert(email);
+            $.ajax({
+                url: '../student-portal/resetPassword.php',
+                data: {"oldPassword":oldPassword,"newPassword":newPassword,"confirmPassword":confirmPassword,"email":email},
+                async: false,
+                type: 'POST',          
+
+                success: function(data){
+                    $("#resetPasswordDiv").html(data);
+                },
+                error : function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown+ ' Set.');
+                }
+            });
+        }
+
     </script>
     <script>
        

@@ -3,20 +3,20 @@ require_once '../config/config.php';
 	$facultyId = $_POST['facultyId'];
 	$studentId  = $_POST['studentId'];
 
-	$sql = "SELECT fpriority2 from faculty where id=?";
-				if($stmt1 = mysqli_prepare($conn, $sql)){
-		            mysqli_stmt_bind_param($stmt1, "i", $param_id);
+	// $sql = "SELECT fpriority2 from faculty where id=?";
+	// 			if($stmt1 = mysqli_prepare($conn, $sql)){
+	// 	            mysqli_stmt_bind_param($stmt1, "i", $param_id);
 		            
-		            $param_id = $facultyId;
+	// 	            $param_id = $facultyId;
 		            
-		            if(mysqli_stmt_execute($stmt1)){
-		                mysqli_stmt_store_result($stmt1);
+	// 	            if(mysqli_stmt_execute($stmt1)){
+	// 	                mysqli_stmt_store_result($stmt1);
 
-		                if(!mysqli_stmt_num_rows($stmt1) == 0){                    
-		                    mysqli_stmt_bind_result($stmt1, $fpriority2);
-		                    if(mysqli_stmt_fetch($stmt1)){
+	// 	                if(!mysqli_stmt_num_rows($stmt1) == 0){                    
+	// 	                    mysqli_stmt_bind_result($stmt1, $fpriority2);
+	// 	                    if(mysqli_stmt_fetch($stmt1)){
 	
-								if($fpriority2==NULL || $fpriority2==0){
+	// 							if($fpriority2==NULL || $fpriority2==0){
 								$sql = "UPDATE faculty set fpriority2=? where id=?";
          
 							        if($stmt = mysqli_prepare($conn, $sql)){
@@ -32,15 +32,15 @@ require_once '../config/config.php';
 							         
 							        mysqli_stmt_close($stmt);
 							        
-							    }else{
-						    	echo '<script>alert("Already Choosen.")</script>';
-						    	}
-						    }
+				// 			    }else{
+				// 		    	echo '<script>alert("Already Choosen.")</script>';
+				// 		    	}
+				// 		    }
 
 						    
-						}
-					}mysqli_stmt_close($stmt1);
-				}
+				// 		}
+				// 	}mysqli_stmt_close($stmt1);
+				// }
 			
 
 

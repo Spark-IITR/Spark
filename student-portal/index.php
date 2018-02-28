@@ -1,4 +1,3 @@
-
 <?php
 ob_start();
 session_start();
@@ -50,7 +49,6 @@ if($_SESSION['role']=='student')
                                <div class="col-sm-12" style="text-align: center;">
                                    <img src="<?php echo base_url; ?>uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class="studentProfileImg" alt="Please Upload Image">
                                </div>
-
                                <div class="col-sm-12 col-xs-12">
                                   <form action="<?php echo base_url; ?>uploadFiles/imageUpload.php" id="imageForm" method="post" enctype="multipart/form-data">
                                    <input type="hidden" name="imageId" value="<?php echo $email1; ?>">
