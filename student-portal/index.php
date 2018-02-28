@@ -5,16 +5,16 @@ session_start();
 
 /* logout after 10min. */
 
-    // if(time()-$_SESSION['time']>1){
-    //     unset($_SESSION['time']);
-    //     setcookie("username", "", time()-3600);
-    //     setcookie("role", "", time()-3600);
-    //     setcookie("name", "", time()-3600); 
-    //     session_destroy();
-    //     header("location: ../index.php");}
-    // else{
-    //     $_SESSION['time']=time();
-    // }
+    if(time()-$_SESSION['time']>365*24*60*60*60){
+        unset($_SESSION['time']);
+        setcookie("username", "", time()-3600);
+        setcookie("role", "", time()-3600);
+        setcookie("name", "", time()-3600); 
+        session_destroy();
+        header("location: ../index.php");}
+    else{
+        $_SESSION['time']=time();
+    }
 
 require '../config/config.php';
 $studentRealId = $name = $email1 = $contact = $department = $college = $sparkId = ""; 
