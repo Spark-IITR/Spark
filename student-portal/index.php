@@ -123,8 +123,8 @@ if($_SESSION['role']=='student')
                <form action="../uploadFiles/uploadResume.php" method="post" enctype="multipart/form-data" id="resumeFrom">
                    <input type="hidden" name="resumeId" value="<?php echo $email1; ?>" />
                    <div class="col-sm-6 col-xs-6 uploadResume" ">
-                    <input type="file" name="resume" id="resume" class="inputfile" />
-                    <label for="resume"><span class="glyphicon glyphicon-folder-open uploadResumeButtonMobFix" style="padding-right: 7px;"></span></span >Upload Resume</label>
+                    <!-- <input type="file" name="resume" id="resume" class="inputfile" /> -->
+                    <!-- <label for="resume"><span class="glyphicon glyphicon-folder-open uploadResumeButtonMobFix" style="padding-right: 7px;"></span></span >Upload Resume</label> -->
                 </div>
             </form>
             <div class=" studentProfileSeeTranscriptsButton col-xs-6 col-sm-6" >
@@ -135,8 +135,8 @@ if($_SESSION['role']=='student')
            <form action="../uploadFiles/uploadNOC.php" id="nocForm" method="post" enctype="multipart/form-data">
                <input type="hidden" name="nocId" value="<?php echo $email1; ?>" />
                <div class="col-md-6 col-sm-6 col-xs-6 uploadNOC"> 
-                <input type="file" name="noc" id="noc" class="inputfile""/>
-                <label for="noc"><span class="glyphicon glyphicon-folder-open uploadResumeButtonMobFix" style="padding-right: 7px"></span></span>Upload Transcript</label>
+                <!-- <input type="file" name="noc" id="noc" class="inputfile"/> -->
+               <!--  <label for="noc"><span class="glyphicon glyphicon-folder-open uploadResumeButtonMobFix" style="padding-right: 7px"></span></span>Upload Transcript</label> -->
             </div>
         </form>
         <div class="studentProfileSeeTranscriptsButton col-xs-6 col-sm-6" >
