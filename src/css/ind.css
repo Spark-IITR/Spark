@@ -460,7 +460,13 @@ a:focus{
     border-radius: 5px;
     border:1.5px solid #ddd;
 }
-
+.facultyProfileImg{
+    height:7vw;
+    width: 12vw;
+    margin-left: -29%;
+    border-radius: 5px;
+    border:1.5px solid #ddd;
+}
  .studentProfileName{
         font-size: 3vh;
  }

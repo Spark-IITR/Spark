@@ -56,7 +56,7 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
                     <div class="col-sm-3  studentProfileContainer">
                         <div class="row">
                              <div class="col-sm-12" style="text-align: center;">
-                                <img src="<?php echo base_url; ?>uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class="studentProfileImg" alt="Please Upload Image">
+                                <img src="<?php echo base_url; ?>uploadFiles/showProfileImage.php?email=<?=$email1 ?>" class="facultyProfileImg" alt="Please Upload Image">
                              </div>
                              <div class="col-sm-12 col-xs-12">
                                 <form action="<?php echo base_url; ?>uploadFiles/facultyImageUpload.php"  id="imageForm"  method="post" enctype="multipart/form-data">
@@ -82,9 +82,9 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
                             <p class="studentProfileDetailsTag">Email</p>
                             <p class="studentProfileDetails"><?php echo $email1; ?></p>
 
-                            <a href="#resetPwd" data-toggle="modal" data-target="#resetPwd" class="footerResetPwd " style="margin-left: 5%; margin-top: -2vh;margin-bottom: 2vh">Reset password</a>
+                            <a href="#resetPwd" data-toggle="modal" data-target="#resetPwd" class="footerResetPwd " style="margin-left: 14%; margin-top: -2vh;margin-bottom: 2vh">Reset password</a><br>
 
-                            <a class="btn btn-default facultyProfileLogoutButton" style="margin-left:2vh; " href="../logout.php" >Logout</a>
+                            <a class="btn btn-default facultyProfileLogoutButton" style="margin-left:13%; margin-top: 2vh " href="../logout.php" >Logout</a>
                         </div>
                     </div>
                     <div class="col-sm-9 ">
@@ -101,9 +101,9 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
                                     </div>
                                 </div>
                                 <div class="TableDiv">
-                                    <ul class="nav nav-tabs" role="tablist">
-                                        <li role="presentation" class="active col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag0"  href="#application" aria-controls="home" role="tab" data-toggle="tab">Applications</a></li>
-                                        <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag1"  href="#allApplications" aria-controls="kill" role="tab" data-toggle="tab">All Applications</a></li>
+                                    <ul class="nav nav-tabs" role="tablist" >
+                                        <li role="presentation" class="active col-sm-2 col-xs-4 facultyProfileTableTag " style="margin-left: 0%"><a class="facultyProfileTableTag0"  href="#application" aria-controls="home" role="tab" data-toggle="tab">Applications</a></li>
+                                        <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag " ><a class="facultyProfileTableTag1"  href="#allApplications" aria-controls="kill" role="tab" data-toggle="tab">All Applications</a></li>
                                         <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag2"  href="#accepted" aria-controls="kill" role="tab" data-toggle="tab">Approved</a></li>
                                         <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag3"  href="#yourProjects" aria-controls="profile" role="tab" data-toggle="tab">Your Projects</a></li>
                                         <li role="presentation" class="col-sm-2 col-xs-3 facultyProfileTableTag "><a class="facultyProfileTableTag4"  href="#allProject" aria-controls="kill" role="tab" data-toggle="tab">All Projects</a></li>
@@ -166,8 +166,8 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
                     <div class="col-sm-9 col-sm-offset-3">
                         <div class="alert alert-success studentProfileInstructionBox " role="alert">
                             <ul><p class="studentProfileInstructionsTag"> <strong>Instructions :</strong> </p>
-                                <li>Size of Image should be less than 300 KB.</li>
-                                <li>Each faculty have choices to set their student according to their priority.</li>
+                                <li>Size of Image should be less than 500 KB.</li>
+                                <li>Each faculty have five choices to set their student according to their priority.</li>
                             </ul>
                         </div>
                     </div>
