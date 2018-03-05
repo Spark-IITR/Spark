@@ -4,12 +4,22 @@ session_start();
 
    /* logout after 10min. */
     
-    if(time()-$_SESSION['time']>365*24*60*60*60){
+     if(time()-$_SESSION['time']>24*60*60){
+        if(isset($_COOKIE['username'])):
+            setcookie('username', '', time()-7000000, '/');
+        endif;
+        if(isset($_COOKIE['name'])):
+            setcookie('name', '', time()-7000000, '/');
+        endif;if(isset($_COOKIE['role'])):
+            setcookie('role', '', time()-7000000, '/');
+        endif;
+        
         unset($_SESSION['time']);
-        setcookie("username", "", time()-3600);
-        setcookie("role", "", time()-3600);
-        setcookie("name", "", time()-3600); 
+        session_unset();
         session_destroy();
+        setcookie("username", null, time()-3600);
+        setcookie("role", null, time()-3600);
+        setcookie("name", null, time()-3600);
         header("location: ../index.php");}
     else{
         $_SESSION['time']=time();
@@ -275,7 +285,7 @@ else
         // alert(confirmPassword);
         // alert(email);
             $.ajax({
-                url: '../student-portal/resetPassword.php',
+                url: 'facultyResetPassword.php',
                 data: {"oldPassword":oldPassword,"newPassword":newPassword,"confirmPassword":confirmPassword,"email":email},
                 async: false,
                 type: 'POST',          
