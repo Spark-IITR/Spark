@@ -103,7 +103,7 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
                                 <div class="TableDiv">
                                     <ul class="nav nav-tabs" role="tablist" >
                                         <li role="presentation" class="active col-sm-2 col-xs-4 facultyProfileTableTag " style="margin-left: 0%"><a class="facultyProfileTableTag0"  href="#application" aria-controls="home" role="tab" data-toggle="tab">Applications</a></li>
-                                        <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag " ><a class="facultyProfileTableTag1"  href="#allApplications" aria-controls="kill" role="tab" data-toggle="tab">All Applications</a></li>
+                                        <!-- <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag " ><a class="facultyProfileTableTag1"  href="#allApplications" aria-controls="kill" role="tab" data-toggle="tab">All Applications</a></li> -->
                                         <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag2"  href="#accepted" aria-controls="kill" role="tab" data-toggle="tab">Approved</a></li>
                                         <li role="presentation" class="col-sm-2 col-xs-4 facultyProfileTableTag "><a class="facultyProfileTableTag3"  href="#yourProjects" aria-controls="profile" role="tab" data-toggle="tab">Your Projects</a></li>
                                         <li role="presentation" class="col-sm-2 col-xs-3 facultyProfileTableTag "><a class="facultyProfileTableTag4"  href="#allProject" aria-controls="kill" role="tab" data-toggle="tab">All Projects</a></li>
@@ -118,7 +118,7 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
 
                                         <div role="tabpanel" class="tab-pane fade" id="allApplications">
                                             
-                                            <?php include('allApplications.php'); ?>
+                                            <?php //include('allApplications.php'); ?>
                                         
                                         </div>
 

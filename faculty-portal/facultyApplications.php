@@ -16,7 +16,16 @@
                     </thead>
                     <tbody id="myTable">
                         <?php 
-                             $sql    = "SELECT id,name,email,cgpa,department,college,year,spriority1,spriority2,spriority3,spriority4,spriority5 from student where ( spriority1!=0 or spriority2!=0 or spriority3!=0 or spriority4!=0 or spriority5!=0 ) and LENGTH(resume)>0 and length(noc)>0 ;";
+                             $jsonCont = file_get_contents('../jsonDb/faculty.json');
+                              $content = json_decode($jsonCont, true);
+                              if($facultyRealId == $content['facultyId']){
+                                $StudentIds = $content['studentId'];
+                                $sql    = "SELECT id,name,email,cgpa,department,college,year,spriority1,spriority2,spriority3,spriority4,spriority5 from student where sparkId in ($StudentIds)";
+                              }else{
+                                $sql    = "SELECT id,name,email,department,college,year,spriority1,spriority2,spriority3,spriority4,spriority5,cgpa from student where ( spriority1!=0 or spriority2!=0 or spriority3!=0 or spriority4!=0 or spriority5!=0 ) and LENGTH(resume)>0 and length(noc)>0 ;";
+                              }
+
+                             
                             $result = $conn->query($sql);
 
                             while($row=mysqli_fetch_assoc($result)) { ?>
@@ -47,6 +56,8 @@
 
                                             <td>5th</td> 
 
+                                     <?php }else{ ?>
+                                            <td></td> 
                                      <?php } ?>
                                             <td>
                                                 <div class='btn-group'>
