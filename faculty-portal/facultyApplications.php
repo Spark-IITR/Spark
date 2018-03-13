@@ -26,7 +26,7 @@
                               if($dataFlag==1){
                                 $sql    = "SELECT id,name,email,cgpa,department,college,year,spriority1,spriority2,spriority3,spriority4,spriority5 from student where sparkId in ($StudentIds)";
                               }else{
-                                $sql    = "SELECT id,name,email,department,college,year,spriority1,spriority2,spriority3,spriority4,spriority5,cgpa from student where ( spriority1!=0 or spriority2!=0 or spriority3!=0 or spriority4!=0 or spriority5!=0 ) and LENGTH(resume)>0 and length(noc)>0 ;";
+                                $sql    = "SELECT id,name,email,department,college,year,spriority1,spriority2,spriority3,spriority4,spriority5,cgpa from student where ( spriority1=$facultyRealId or spriority2=$facultyRealId or spriority3=$facultyRealId or spriority4=$facultyRealId or spriority5=$facultyRealId ) and LENGTH(resume)>0 and length(noc)>0 ;";
                               }
 
                              
