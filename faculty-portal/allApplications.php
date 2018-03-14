@@ -7,12 +7,12 @@
                     <thead style="font-size: 14px;">
                         <tr>
                             
-                            <th title="Field #2">Name</th>
-                            <th title="Field #3">C.G.P.A</th>
-                            <th title="Field #4">Year</th>
-                            <th title="Field #5">Department</th>
-                            <th title="Field #6">College</th>
-                            <th title="Field #7">Approve</th>
+                            <th>Name</th>
+                            <th>C.G.P.A</th>
+                            <th>Year</th>
+                            <th>Department</th>
+                            <th>College</th>
+                            <th>Approve</th>
                         </tr>
                     </thead>
                     <tbody id="myTable">

@@ -3,9 +3,10 @@
                         <tr>
                             
                             <th title="Student Name">Name</th>
+                            <th title="C.G.P.A">C.G.P.A</th>
                             <th title="Year">Year</th>
                             <th title="Department">Department</th>
-                            <th title="C.G.P.A">C.G.P.A</th>
+                            <th title="Colleg">College</th>
                             <th title="Student's Priority">Student's Priority</th>
                             <th title="Approve">Approve</th>
                         </tr>
@@ -37,9 +38,12 @@
 
                                             <tr onclick="fetch_student_detail(<?php echo $row['id']; ?>);" style="cursor: pointer;" >
                                             <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['cgpa']; ?></td>
+
                                             <td><?php echo $row['year']; ?></td>
                                             <td><?php echo $row['department']; ?></td>
-                                            <td><?php echo $row['cgpa']; ?></td>
+                                            <td><?php echo $row['college']; ?></td>
+
 
                                     <?php if($row['spriority1']==$facultyRealId){ ?>
                                         
