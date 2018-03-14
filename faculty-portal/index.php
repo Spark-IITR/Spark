@@ -146,7 +146,7 @@ $sql = "SELECT id,name,email,department,adminRemark,sparkId FROM faculty WHERE e
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-11 col-sm-offset-0"   id="FetchDetailDiv">
+                            <div class="col-sm-11 col-sm-offset-0" style="margin-top: 10vh; margin-bottom: 5vh;border:1px solid #888;padding:2vw 0;border-radius: 10px"  id="FetchDetailDiv">
                                 <div class="row doctorsStudentContainer">
                                     
                                 </div>

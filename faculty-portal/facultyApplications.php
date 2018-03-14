@@ -23,6 +23,7 @@
                                       }
 
                                 }   
+                                // echo $dataFlag;
                               if($dataFlag==1){
                                 $sql    = "SELECT id,name,email,cgpa,department,college,year,spriority1,spriority2,spriority3,spriority4,spriority5 from student where sparkId in ($StudentIds)";
                               }else{
