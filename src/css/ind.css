@@ -12,25 +12,25 @@ body, html {
 	}
 
 ::-webkit-scrollbar {
-    width: 0px ; /*  remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible*/ 
+    width: 8px ; 
+    background: transparent;  
     height:3px;
 }
 
 ::-webkit-scrollbar-thumb {
-	width: 0px ;
-	border-radius:10px;
-	background-color: #53a374;
-	height:2px;
+	width: 3px ;
+	border-radius:3px;
+	background-color: #cbcbcb;
+	height:3px;
 }
 
 ::-webkit-scrollbar-button  {
-    height:0px;
+    height:10px;
 }
 
 
 ::-webkit-scrollbar-corner  {
-    display:none;    
+    /*display:none;    */
 }
 a {
     outline: none !important;

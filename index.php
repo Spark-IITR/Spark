@@ -41,7 +41,15 @@
  <!--   <div >
         <a href="#top"><span class="glyphicon glyphicon-chevron-up moveToUpButton" aria-hidden="true"></span></a>
     </div> -->
-
+    <div class="row" style="margin-top: 5vh">
+         <div class="col-sm-10 col-sm-offset-1">
+             <div class="alert alert-info indexNoticeTag">
+                 <p class="indexNoticeText">NOTICE</p>
+                 <ul class="" style="padding:0vw;">
+                     <li class="list-group-item indexNotice">Results will be declared on 19th march.</li>
+                 </ul>
+             </div>
+         </div>
     <div class="container-fluid">
       <div class="row" id="aboutUs">
        <div class="col-sm-10 col-sm-offset-1">
@@ -157,18 +165,7 @@
                 </table>
             </div>
         </div>
-        <div class="row" style="margin-top: 5vh">
-         <div class="col-sm-10 col-sm-offset-1">
-             <div class="alert alert-info indexNoticeTag">
-                 <p class="indexNoticeText">NOTICE</p>
-                 <ul class="" style="padding:0vw;">
-                     <li class="list-group-item indexNotice">Replies of personal complaints will show in status box as a remark on your portal.</li>
-                     <li class="list-group-item indexNotice">Upload your images who have not uploaded yet.</li>
-                     <li class="list-group-item indexNotice">Please follow the facebook page for further updates.</li>
-                     <li class="list-group-item indexNotice">Results will be out soon.</li>
-                 </ul>
-             </div>
-         </div>
+        
      </div> 
      <!--div class="row" >
         <div class="col-sm-6 col-sm-offset-5" style="text-align: center;margin-bottom:7vh;">
