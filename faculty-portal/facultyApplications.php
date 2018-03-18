@@ -102,7 +102,7 @@
 
             var studentId = data;
             var facultyId = <?php echo $facultyRealId; ?> ;
-            con = confirm('If you want to set him/her as 1st priority for your project? ');
+            con = confirm('Does you want to set him/her as 1st priority for your project? ');
             if(con==true ){
                 $.ajax({
                     url: 'fpriority1.php',
@@ -125,7 +125,7 @@
 
             var studentId = data;
             var facultyId = <?php echo $facultyRealId; ?> ;
-            con = confirm('If you want to set him/her as 2nd priority for your project? ');
+            con = confirm('Does you want to set him/her as 2nd priority for your project? ');
             if(con==true ){
                 $.ajax({
                     url: 'fpriority2.php',
@@ -147,7 +147,7 @@
 
             var studentId = data;
             var facultyId = <?php echo $facultyRealId; ?> ;
-            con = confirm('If you want to set him/her as 3rd priority for your project? ');
+            con = confirm('Does you want to set him/her as 3rd priority for your project? ');
             if(con==true ){
                 $.ajax({
                     url: 'fpriority3.php',
@@ -169,7 +169,7 @@
 
             var studentId = data;
             var facultyId = <?php echo $facultyRealId; ?> ;
-            con = confirm('If you want to set him/her as 4th priority for your project? ');
+            con = confirm('Does you want to set him/her as 4th priority for your project? ');
             if(con==true ){
                 $.ajax({
                     url: 'fpriority4.php',
@@ -191,7 +191,7 @@
 
             var studentId = data;
             var facultyId = <?php echo $facultyRealId; ?> ;
-            con = confirm('If you want to set him/her as 5th priority for your project? ');
+            con = confirm('Does you want to set him/her as 5th priority for your project? ');
             if(con==true ){
                 $.ajax({
                     url: 'fpriority5.php',

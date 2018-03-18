@@ -17,7 +17,7 @@ require_once '../config/config.php';
 	// 	                    if(mysqli_stmt_fetch($stmt1)){
 	
 	// 							if($fpriority2==NULL || $fpriority2==0){
-								$sql = "UPDATE faculty set fpriority2=? where id=?";
+								$sql = "UPDATE facult set fpriority2=? where id=?";
          
 							        if($stmt = mysqli_prepare($conn, $sql)){
 							            mysqli_stmt_bind_param($stmt, "ii",$param_studentId, $param_facultyId);
@@ -28,7 +28,7 @@ require_once '../config/config.php';
 							            } else{
 							                echo '<script>alert("Something Went Wrong.")</script>';
 							            }
-							        }else {echo '<script>alert("Something Went Wrong.")</script>';}
+							        }else {echo '<script>alert("Priorities selection closed.")</script>';}
 							         
 							        mysqli_stmt_close($stmt);
 							        
