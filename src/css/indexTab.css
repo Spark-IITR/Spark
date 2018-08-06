@@ -1,7 +1,4 @@
 @media only screen and (min-width: 768px) and (max-width: 992px) {
-
-
-
     .sparkNavbarTag{
     display: none;
     }
@@ -11,37 +8,24 @@
     .indexNavbarIitrLogo{
         height: auto;
         width: 7vw;
-
-
     }
 
     .navbar-default .navbar-nav>li>a {
         font-size: 2.5vh;
         margin-right: 0px;
     }
-
-    .navbarTabFix{
-
-    }
-
-
     .inputfile {
-
         opacity: 0;
         overflow: hidden;
         position: absolute;
         z-index: -1;
-
     }
-
     .inputfile1 {
         overflow: hidden;
         position: absolute;
         margin-top: 13px;
         margin-left: -2vh;
     }
-
-
     .inputfile + label {
         font-size: 2vh;
         font-weight: 700;
@@ -54,11 +38,6 @@
         margin-top: 2vh;
         margin-left:5%
     }
-
-.projectSearchingInput{
-
-}
-
     .studentProfileUploadTag0{
         font-size: 2vh;
         font-weight: bold;
@@ -74,16 +53,11 @@
         font-weight: bold;
         margin: unset;
         margin-top: 2.5vh;
-
     }
-
-
-
     .selectImageButtonTabFix {
         margin: 0vh;
         width: 100%;
     }
-
     .studentProfileComplaintBox{
         width:94%;
         padding: 15px;
@@ -92,7 +66,6 @@
         border: 1px solid lavender;
         border-radius: 4px;
     }
-
     .studentProfileComplaintTag{
         font-size: 3vh;
         font-weight: bold;
@@ -100,13 +73,11 @@
         margin-top: 2.5vh;
         margin-left: 0vh;
         margin-bottom: 1vh;
-
     }
 
     .studentProfileSeeTranscriptsButton{
         margin-left: 5vh;
     }
-
     .studentProfileSeeTranscriptsButton1{
         margin-left: 6vh;
     }
@@ -131,26 +102,16 @@
 
     .facultyProfileComplaintButton{
         margin-left: 15vh;
-
     }
-
-
-
-    .facultyRegisterInput{
-           }
-
     .pdfDisplay{
         height: 100vh;
     }
-
     .indexNotice{
-font-size: 1.5vw;
+        font-size: 1.5vw;
     }
-
     .indexIntroductionText{
         font-size: 1.5vw;
     }
-
     .indexGuidelines li{
         font-size: 1.5vw;
     }
@@ -166,14 +127,6 @@ font-size: 1.5vw;
     margin-top: 0vh;
     margin-bottom: 4vh;   
 }
-
-
-
-
-
-
-
-
 }
 
 

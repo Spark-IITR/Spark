@@ -4,11 +4,9 @@
 		color: #003484 !important;
 		font-size: 4vw
 	}
-
 	.navbar-collapse.collapse {
 		height: 40vh
 	}
-
 	.indexNavbarIitrLogo {
 		height: auto;
 		width: 7vw;
@@ -18,7 +16,6 @@
 	.projectsAvailableTag{
 		font-size: 7vw
 	}
-
 	.navbar-default .navbar-nav > li > a {
 		color: #777;
 		font-size: 4vw;
@@ -74,52 +71,36 @@
 		padding-bottom: 0.5vh;
 		text-align: center;
 	}
-
-	.indexObjectiveText{
-
-	}
-
-
 	.indexGuidelines li {
 		font-size: 3.6vw;
 		letter-spacing: 0.5px;
 		word-spacing: 0px;
 		margin-left: -6vw;
-
 	}
-
 	.indexGuidelines1{
 		padding: 0;
 		padding-left: 7vw;
 	}
-
 	.indexNoticeTag{
 		margin-top:0vw;
 		margin-bottom: 0vw;
 	}
-
 	.indexNoticeText{
 		font-size:3.6vw;
 		margin-top: 0vh;
 	}
-
 	.indexNotice{
     font-size: 1.1vw;
 	}
-
-
 	.indexApplyNowButton {
 		font-size: 3.4vw;
 		margin-top: 4vh;
 		width: 30vw;
 	}
-
 	.rainbow-button {
   width:calc(30vw + 12px);
   height:calc(8vw + 12px);
-  
   border-radius:5px;
-  
   font-size:3vw;
   word-spacing: 5px;
   margin-top: 5vh;
@@ -127,9 +108,7 @@
   align-items:center;
   justify-content:center;
   margin-left: 30vw;
-  
   }
-
   .rainbow-button:after {
   content:attr(alt);
   width:32vw;
@@ -147,73 +126,55 @@
     width: 21vw;
     margin-top: 5px !important;
 }
-
 	.loginModalHeader {
 		font-size: 4vw;
 	}
-
 	.loginModalSignupButton {
 		font-size: 3.7vw;
 		padding: 1vh 38vw;
 	}
-
 	.modal-dialog {
 		margin-top: 0vh
 	}
-
 	.loginModalWidth {
 		width: 95%
 	}
-
 	.indexContactUs {
-		
         text-align: center;
         padding:0.6vw;
 	}
-
     .indexContactUs1{
-        
         text-align: center;
     }
-
     .footerSeconddDiv{
     margin-left: 0vw;
 	}
-
 	.footerThirdDiv{
     margin-left: 16vw;
     margin-top: 0vw;
-    
 	}
-
 	.footer ul li {
 		margin-left: 0vw;
 	}
-
 	.socialIcon1{
     margin-left:5vw;
-}
-.socialIcon2{
-    margin-left:5vw;
-}
+	}
+	.socialIcon2{
+	    margin-left:5vw;
+	}
     .indexContactUs1Details{
-
         text-align: center;
     }
-
 	.signupHereTag {
 		font-size: 8vw;
 		margin-bottom: 2vh;
 		margin-top: -5vh;
 	}
-
-
 	p.studentProfileInstructionsTag {
 		margin-bottom: 0vh;
 		margin-left: 4vh;
 		font-size: 4vh;
 	}
-
 	p.studentProfileInstructionsTag:first-letter{
 		font-size: 5vh;
 	}
@@ -227,45 +188,32 @@
     p.studentProfileStatusTag:first-letter{
         font-size: 5vh;
     }
-
     .studentProfileStatus {
-
         font-size: 2.5vh;
         margin-top: 0px;
     }
-
     .studentProfileUploadTag0{
         font-size: 2vh;
         font-weight: bold;
         text-align: center;
         margin: unset;
         margin-left: 4%;
-
         margin-top: 2.5vh;
     }
-
     .studentProfileUploadTag{
         font-size: 2vh;
         font-weight: bold;
         margin: unset;
         margin-top: 2.5vh;
         margin-left: -1vh;
-
         text-align: center;
     }
-
 	.studentProfileImageSubmitButton{
 		width: 100px;
-
 	}
-
 	.studentProfileSeeTranscriptsButton{
 		margin-left: 1vw;
 		height:10vw;
-	}
-
-	.studentProfileSeeTranscriptsButton1{
-		
 	}
 	.studentProfileComplaintBox{
 		width:91%;
@@ -326,28 +274,17 @@
     padding-left: 0vw !important ;
     padding-right: 0vw ;
 }
-
-
-    .projectSearchingInput{
-
-    }
-
     .inputfile {
-
         opacity: 0;
         overflow: hidden;
         position: absolute;
         z-index: -1;
-
     }
-
     .inputfile1 {
         overflow: hidden;
         position: absolute;
         margin-top: 13px;
     }
-
-
     .inputfile + label {
         font-size: 2vh;
         font-weight: 700;
@@ -364,8 +301,6 @@
 	.pdfDisplay{
 		height: 116vh;
 	}
-
-
 
 	.facultyProfileComplaintBox{
 		width:91%;
@@ -399,13 +334,10 @@ font-size: 3.6vw;
 
 .selectImageButtonMobFix{
 	text-align: center;
-
-	
 }
 
 .selectImageButton{
 	font-size: 2vw;
-
 }
 
 .inputimage + label{
@@ -421,7 +353,6 @@ font-size: 3.6vw;
 }
 
 .studentProfileImg{
-    
     width: 30vw;
     height:auto;
     border-radius: 5px;
@@ -435,11 +366,7 @@ font-size: 3.6vw;
     height:7vw;
     margin-left: 10%;
     text-align: center;
-    /*margin-bottom: 10vh;*/
 }
-
-
-
 .studentProjectTag{
 	font-size:7vw;
 	padding-top: 5vw;
@@ -465,9 +392,7 @@ font-size: 3.6vw;
 .uploadResumeButtonMobFix{
 	font-size:5vw;
 	display: none;
-
 }
-
 
 .uploadResume{
 	padding: none;
@@ -493,19 +418,5 @@ font-size: 3.6vw;
     margin-top: 0vh;
     margin-bottom: 4vh;   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
