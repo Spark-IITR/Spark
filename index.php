@@ -12,13 +12,13 @@
 
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-               <img src="src/img/slider1.jpg" alt="slider1" class="indexSliderImage responsive">
+               <img src="src/img/s3.jpg" alt="slider1" class="indexSliderImage responsive">
             </div>
             <div class="item">
-               <img src="src/img/collage.png" alt="slider2" class="indexSliderImage responsive">
+               <img src="src/img/s2.jpg" alt="slider2" class="indexSliderImage responsive">
             </div>
             <div class="item">
-               <img src="src/img/slider3.jpg" alt="slider3"  class="indexSliderImage responsive">
+               <img src="src/img/s4.jpg" alt="slider3"  class="indexSliderImage responsive">
             </div>
         </div>
 
